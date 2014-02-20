@@ -1,0 +1,7 @@
+.DS_Store
+tags
+vendor/bundle
+.ruby-version
+.rbenv-version
+database.yml
+Vagrantfile

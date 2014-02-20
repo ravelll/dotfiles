@@ -1,0 +1,22 @@
+[user]
+  name = menchikatsu
+  email = menchikatsu@paperboy.co.jp
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  grep = auto
+[alias]
+  ci = commit
+  st = status
+  co = checkout
+  br = branch
+  pu = pull
+  dif = diff
+  sub = submodule
+[core]
+	editor = /Applications/MacVim.app/Contents/MacOS/Vim -c \"set fenc=utf-8\"
+	excludesfile = ~/.gitignore
+[push]
+  default = simple
