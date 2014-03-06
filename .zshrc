@@ -26,6 +26,11 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ### zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 
+### git-completion
+fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+autoload -U compinit
+compinit -u
+
 ### perl
 export PERL_CPANM_OPT="--local-lib=$HOME/.perl-extlib"
 export PERL5LIB="$HOME/.perl-extlib/lib/perl5:$PERL5LIB"
@@ -41,8 +46,14 @@ alias ll='ls -alFG'
 alias dotcp='~/dotcp.sh'
 alias -g g='git'
 alias irr='cat ~/Dropbox/memo/irritation.md'
+alias virr='vi ~/Dropbox/memo/irritation.md'
+alias todo='cat ~/Dropbox/memo/jc/ToDo.md'
+alias vitodo='vi ~/Dropbox/memo/jc/ToDo.md'
 
-
+# history
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
 
 # VCSの情報を取得するzshの便利関数 vcs_infoを使う
 autoload -Uz vcs_info
