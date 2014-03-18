@@ -26,9 +26,6 @@ set hlsearch
 "use indent algorythm to cindent
 set cindent
 
-"indent automatically
-set autoindent
-
 "seve to current directory
 set browsedir=buffer
 
@@ -50,8 +47,8 @@ set softtabstop=2
 set shiftwidth=2
 
 "emphasize tab and space
-highlight Whitespace ctermbg=gray guibg=gray
-match Whitespace /\s\+$/
+highlight space ctermbg=gray guibg=gray
+match space /\s\+$/
 
 " escape insert mode
 inoremap <silent> jj <ESC>
@@ -106,6 +103,7 @@ NeoBundle 'yanktmp.vim'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'edsono/vim-matchit'
 NeoBundle 'ruby-matchit'
+NeoBundle 'tmhedberg/matchit'
 NeoBundle 'switch.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'taglist.vim'
@@ -126,7 +124,7 @@ NeoBundle 'szw/vim-tags'
 NeoBundle 'BlockDiff'
 NeoBundle 'git://git.wincent.com/command-t.git'
 
-filetype plugin indent on
+""filetype plugin on
 NeoBundleCheck
 
 
