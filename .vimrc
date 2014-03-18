@@ -108,7 +108,6 @@ NeoBundle 'switch.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'taglist.vim'
 NeoBundle 'scrooloose/syntastic.git'
-NeoBundle '2072/PHP-Indenting-for-VIm.git'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-markdown'
@@ -121,7 +120,6 @@ NeoBundle 'osyo-manga/vim-operator-search'
 NeoBundle 'monochromegane/unite-yaml'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'szw/vim-tags'
-NeoBundle 'BlockDiff'
 NeoBundle 'git://git.wincent.com/command-t.git'
 
 ""filetype plugin on
@@ -236,14 +234,6 @@ if executable('pt')
   let g:unite_source_grep_recursive_opt = ''
 endif
 
-
-"--------------
-"--PHP-Indent--
-"--------------
-
-let g:PHP_default_indenting = 1
-
-
 "---------------
 "--neocomplete--
 "---------------
@@ -319,3 +309,5 @@ endif
 
 "overwrite completefunc
 let g:neocomplete#force_overwrite_completefunc=1
+
+
