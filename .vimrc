@@ -72,6 +72,11 @@ inoremap <% <%%><Left><Left>
 " reload alias
 nnoremap rr :e!<CR>
 
+" use OverCommandLine in replacing
+nnoremap <silent> ,s :OverCommandLine<CR>%s/
+vnoremap <silent> ,s :OverCommandLine<CR>s/
+
+
 "-------------
 "--neobundle--
 "-------------
@@ -309,5 +314,3 @@ endif
 
 "overwrite completefunc
 let g:neocomplete#force_overwrite_completefunc=1
-
-
