@@ -71,4 +71,4 @@ precmd () {
 
 # バージョン管理されているディレクトリにいれば表示，そうでなければ非表示
 RPROMPT="%1(v|%F{green}%1v%f|)"
-PROMPT='%F{green}%n %3d%f % '
+PROMPT='%F{cyan}%n %3d%f % '
