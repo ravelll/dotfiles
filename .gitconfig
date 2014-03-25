@@ -19,6 +19,7 @@
 	editor = /Applications/MacVim.app/Contents/MacOS/Vim -c \"set fenc=utf-8\"
 	excludesfile = ~/.gitignore
 	precomposeunicode = true
+	pager = less -r
 [push]
   default = simple
 [diff]

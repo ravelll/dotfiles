@@ -233,8 +233,8 @@ nnoremap <silent> ,uf :<C-u>Unite file_rec:!<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 
-if executable('pt')
-  let g:unite_source_grep_command = 'pt'
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
 endif
