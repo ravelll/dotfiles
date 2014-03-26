@@ -126,6 +126,8 @@ NeoBundle 'monochromegane/unite-yaml'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'szw/vim-tags'
 NeoBundle 'git://git.wincent.com/command-t.git'
+NeoBundle 'lilydjwg/colorizer'
+NeoBundle 'pasela/unite-webcolorname'
 
 ""filetype plugin on
 NeoBundleCheck
@@ -224,7 +226,6 @@ let g:unite_source_rec_min_cache_files = 1
 let g:unite_source_rec_max_cache_files = 25000
 
 nnoremap <silent> ,ug :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-nnoremap <silent> ,ucg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
 nnoremap <silent> ,ur :<C-u>UniteResume search-buffer<CR>
 
 nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
@@ -232,6 +233,7 @@ nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 nnoremap <silent> ,uf :<C-u>Unite file_rec:!<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+nnoremap <silent> ,uc :<C-u>Unite webcolorname<CR>
 
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
