@@ -13,6 +13,7 @@
   co = checkout
   br = branch
   pu = pull
+  pus = push
   dif = diff
   sub = submodule
 [core]
