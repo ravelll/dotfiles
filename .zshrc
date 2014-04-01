@@ -3,14 +3,11 @@ alias ctags='/usr/local/bin/ctags'
 alias ssh='TERM=xterm ssh'
 
 ### rbenv
-if [ -d $HOME/.rbenv/bin ]; then
-    export RBENV_ROOT=$HOME/.rbenv
-    export PATH="$RBENV_ROOT/bin:$PATH"
-    eval "$(rbenv init -)"
-fi
+path=($HOME/.rbenv/bin(N) $path)
+eval "$(rbenv init -)"
 
 ### ruby
-export PATH="$RBENV_ROOT/shims:$PATH"
+#export PATH="$RBENV_ROOT/shims:$PATH"
 
 ### tmux
 alias tmux='tmux -u'
@@ -49,6 +46,7 @@ alias irr='cat ~/Dropbox/memo/irritation.md'
 alias virr='vi ~/Dropbox/memo/irritation.md'
 alias todo='cat ~/Dropbox/memo/jc/ToDo.md'
 alias vitodo='vi ~/Dropbox/memo/jc/ToDo.md'
+alias be='bundle exec'
 
 # history
 HISTFILE=~/.zsh_history

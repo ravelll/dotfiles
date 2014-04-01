@@ -13,8 +13,8 @@
   co = checkout
   br = branch
   pu = pull
-  pus = push
   dif = diff
+	diw = diff --word-diff
   sub = submodule
 [core]
 	editor = /Applications/MacVim.app/Contents/MacOS/Vim -c \"set fenc=utf-8\"
