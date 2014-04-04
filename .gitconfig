@@ -1,6 +1,6 @@
 [user]
   name = menchikatsu
-  email = menchikatsu@paperboy.co.jp
+  email = menchikatsu@pepabo.com
 [color]
   diff = auto
   status = auto
@@ -8,6 +8,7 @@
   interactive = auto
   grep = auto
 [alias]
+  ad = add
   ci = commit
   st = status
   co = checkout

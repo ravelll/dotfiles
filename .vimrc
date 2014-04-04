@@ -2,6 +2,8 @@
 "--basically settings--
 "----------------------
 
+filetype off
+
 "show encoding
 set statusline=[%{&fileencoding}]%{fugitive#statusline()}
 
@@ -59,6 +61,9 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
+
+" Esc removes search highlight
+nnoremap <Esc><Esc> :nohlsearch<CR>
 
 " complement brace
 inoremap { {}<Left>
@@ -316,6 +321,9 @@ endif
 
 "overwrite completefunc
 let g:neocomplete#force_overwrite_completefunc=1
+
+
+filetype plugin indent on
 
 "respective filetype indent
 autocmd FileType sh         setlocal sw=2 sts=2 ts=2 et
