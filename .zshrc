@@ -1,13 +1,11 @@
-### use brew installed ctags
-alias ctags='/usr/local/bin/ctags'
+# PATH
+export PATH="/usr/local/bin:$PATH"
+
 alias ssh='TERM=xterm ssh'
 
 ### rbenv
 path=($HOME/.rbenv/bin(N) $path)
 eval "$(rbenv init -)"
-
-### ruby
-#export PATH="$RBENV_ROOT/shims:$PATH"
 
 ### tmux
 alias tmux='tmux -u'
