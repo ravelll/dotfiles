@@ -1,0 +1,23 @@
+unmap <M-f>
+unmap <p>
+unmap <a>
+unmap </>
+
+iunmap <C-e>
+iunmap <C-a>
+iunmap <M-a>
+iunmap <M-z>
+iunmap <M-Z>
+iunmap <M-l>
+
+map  j 5j
+map k 5k
+
+set autocomplete_prev=<S-Tab>
+set autocomplete_next=<Tab>
+set autocomplete_prev_10=<Up>
+set autocomplete_next_10=<Down>
+
+set showstatus=0
+
+set server_port=30000
