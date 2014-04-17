@@ -12,6 +12,7 @@
   ci = commit
   st = status
   co = checkout
+  cl = clone
   br = branch
   pu = pull
   dif = diff

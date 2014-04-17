@@ -10,8 +10,10 @@ iunmap <M-z>
 iunmap <M-Z>
 iunmap <M-l>
 
-map  j 5j
+map h 5h
+map j 5j
 map k 5k
+map l 5l
 
 set autocomplete_prev=<S-Tab>
 set autocomplete_next=<Tab>

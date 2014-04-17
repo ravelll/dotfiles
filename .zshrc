@@ -21,14 +21,14 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ### zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 
+### perl
+export PERL_CPANM_OPT="--local-lib=$HOME/.perl-extlib"
+export PERL5LIB="$HOME/.perl-extlib/lib/perl5:$PERL5LIB"
+
 ### git-completion
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 autoload -U compinit
 compinit -u
-
-### perl
-export PERL_CPANM_OPT="--local-lib=$HOME/.perl-extlib"
-export PERL5LIB="$HOME/.perl-extlib/lib/perl5:$PERL5LIB"
 
 ### z
 . `brew --prefix`/etc/profile.d/z.sh
