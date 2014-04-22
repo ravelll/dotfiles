@@ -3,48 +3,51 @@ export PATH="/usr/local/bin:$PATH"
 
 alias ssh='TERM=xterm ssh'
 
-### rbenv
+# rbenv
 path=($HOME/.rbenv/bin(N) $path)
 eval "$(rbenv init -)"
 
-### tmux
+# gem
+GEM_HOME="/Users/taniguchi/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0"
+PATH="/Users/taniguchi/.rbenv/versions/2.1.1/bin:$PATH"
+
+# tmux
 alias tmux='tmux -u'
 
-### vi
+# vi
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 
-### Added by the Heroku Toolbelt
+# Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-### zsh-completions
+# zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 
-### perl
+# perl
 export PERL_CPANM_OPT="--local-lib=$HOME/.perl-extlib"
 export PERL5LIB="$HOME/.perl-extlib/lib/perl5:$PERL5LIB"
 
-### git-completion
+# git-completion
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 autoload -U compinit
 compinit -u
 
-### z
+# z
 . `brew --prefix`/etc/profile.d/z.sh
 
-### command aliases
+# command aliases
 alias javac='javac -J-Dfile.encoding=UTF-8'
 alias java='java -Dfile.encoding=UTF-8'
 alias ls='ls -G'
 alias ll='ls -alFG'
-alias dotcp='~/dotcp.sh'
-alias -g g='git'
 alias irr='cat ~/Dropbox/memo/irritation.md'
 alias virr='vi ~/Dropbox/memo/irritation.md'
-alias todo='cat ~/Dropbox/memo/jc/ToDo.md'
-alias vitodo='vi ~/Dropbox/memo/jc/ToDo.md'
 alias be='bundle exec'
+alias d='git diff'
+alias dw='git diff --word-diff'
+alias cm='git checkout master'
 
 # history
 HISTFILE=~/.zsh_history

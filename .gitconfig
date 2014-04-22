@@ -8,15 +8,17 @@
   interactive = auto
   grep = auto
 [alias]
+  g  = git
   ad = add
   ci = commit
   st = status
   co = checkout
+  cm = checkout master
   cl = clone
   br = branch
   pu = pull
-  dif = diff
-	diw = diff --word-diff
+  d  = diff
+	dw = diff --word-diff
   sub = submodule
 [core]
 	editor = /Applications/MacVim.app/Contents/MacOS/Vim -c \"set fenc=utf-8\"
