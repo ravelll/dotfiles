@@ -34,6 +34,7 @@ set browsedir=buffer
 set autoread
 set nobackup
 set noswapfile
+set noundofile
 
 "clipboard
 set clipboard=unnamed,autoselect
@@ -104,6 +105,7 @@ NeoBundle 'sudo.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'rails.vim'
 NeoBundle 'surround.vim'
 NeoBundle 'scrooloose/nerdtree.git'
@@ -216,20 +218,19 @@ nmap <Space>/ <Plug>(operator-search)if
 "--unite--
 "---------
 
-function! ChangeCurrentDirectoryToProjectRoot()
-  let root = unite#util#path2project_directory(expand('%'))
-  execute ":lcd " . root
-endfunction
-:au BufEnter * :call ChangeCurrentDirectoryToProjectRoot()
-
-call unite#custom#source('file_rec', 'ignore_pattern', '\(png\|git\|jpeg\|jpg\)$')
-
-" start with insert mode
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
 let g:unite_source_rec_min_cache_files = 1
 let g:unite_source_rec_max_cache_files = 25000
+
+call unite#custom#source('file_rec', 'ignore_pattern', '\(png\|.git\|jpeg\|jpg\)$')
+
+function! ChangeCurrentDirectoryToProjectRoot()
+  let root = unite#util#path2project_directory(expand('%'))
+  execute ":lcd " . root
+endfunction
+:au BufEnter * :call ChangeCurrentDirectoryToProjectRoot()
 
 nnoremap <silent> ,ug :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <silent> ,ur :<C-u>UniteResume search-buffer<CR>
@@ -323,6 +324,10 @@ endif
 "overwrite completefunc
 let g:neocomplete#force_overwrite_completefunc=1
 
+
+"-------------------
+"--filetype indent--
+"-------------------
 
 filetype plugin indent on
 

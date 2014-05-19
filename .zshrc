@@ -11,6 +11,9 @@ eval "$(rbenv init -)"
 GEM_HOME="/Users/taniguchi/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0"
 PATH="/Users/taniguchi/.rbenv/versions/2.1.1/bin:$PATH"
 
+# gh tools
+EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim -c \"set fenc=utf-8\""
+
 # tmux
 alias tmux='tmux -u'
 
@@ -45,8 +48,11 @@ alias ll='ls -alFG'
 alias irr='cat ~/Dropbox/memo/irritation.md'
 alias virr='vi ~/Dropbox/memo/irritation.md'
 alias be='bundle exec'
+alias r='ruby'
+alias g='git'
 alias d='git diff'
 alias dw='git diff --word-diff'
+alias dn='git diff --name-only'
 alias cm='git checkout master'
 
 # history

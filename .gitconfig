@@ -8,7 +8,6 @@
   interactive = auto
   grep = auto
 [alias]
-  g  = git
   ad = add
   ci = commit
   st = status
@@ -18,14 +17,15 @@
   br = branch
   pu = pull
   d  = diff
-	dw = diff --word-diff
+  dw = diff --word-diff
+  dn = diff --name-only
   sub = submodule
 [core]
-	editor = /Applications/MacVim.app/Contents/MacOS/Vim -c \"set fenc=utf-8\"
-	excludesfile = ~/.gitignore
-	precomposeunicode = true
-	pager = less -r
+  editor = /Applications/MacVim.app/Contents/MacOS/Vim -c \"set fenc=utf-8\"
+  excludesfile = ~/.gitignore
+  precomposeunicode = true
+  pager = less -r
 [push]
   default = simple
 [diff]
-	noprefix = true
+  noprefix = true

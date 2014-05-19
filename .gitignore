@@ -1,7 +1,12 @@
 .DS_Store
 tags
-vendor/bundle
+/vendor/bundle
 .ruby-version
 .rbenv-version
 database.yml
 Vagrantfile
+/log/*.log
+/tmp
+.project
+.idea
+.secret

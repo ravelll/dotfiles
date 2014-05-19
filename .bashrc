@@ -23,9 +23,10 @@ alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-
-if [ -f `brew --prefix`/usr/local/etc/bash-completion.d ]; then
-  . `brew --prefix`/usr/local/etc/bash-completion.d
+if [ -f /usr/local/etc/bash_completion.d ]; then
+  echo 'asdf'
+  . /usr/local//etc/bash-completion.d/git-prompt.sh
+  . /usr/local/Cellar/bash-completion/1.3/etc/bash-completion.d/git-completion.bash
 fi
 PS1='\W$(__git_ps1 " (%s)") \$  '
 
