@@ -19,9 +19,6 @@ set number
 "search
 set smartcase
 
-"color scheme
-colorscheme molokai
-
 "search with highlighting
 set hlsearch
 
@@ -40,7 +37,7 @@ set noundofile
 set clipboard=unnamed,autoselect
 
 "syntax highlight
-syntax off
+syntax on
 
 "tab to space
 set smarttab
@@ -96,8 +93,12 @@ endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
-
+NeoBundle 'Shougo/vimproc', {
+  \ 'build' : {
+    \ 'cygwin' : 'make -f make_cygwin.mak',
+    \ 'mac' : 'make -f make_mac.mak',
+  \ },
+\ }
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'L9'
@@ -136,6 +137,12 @@ NeoBundle 'szw/vim-tags'
 NeoBundle 'git://git.wincent.com/command-t.git'
 NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'pasela/unite-webcolorname'
+NeoBundle 'fxn/vim-monochrome'
+NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'basyura/unite-rails'
+NeoBundle 'very-monochrome-grey-theme'
+NeoBundle 'rename.vim'
+NeoBundle 'othree/html5.vim'
 
 ""filetype plugin on
 NeoBundleCheck
@@ -225,6 +232,8 @@ let g:unite_source_rec_min_cache_files = 1
 let g:unite_source_rec_max_cache_files = 25000
 
 call unite#custom#source('file_rec', 'ignore_pattern', '\(png\|.git\|jpeg\|jpg\)$')
+" call unite#custom#source('file_rec', 'filters', ['converter_relative_word'])
+" call unite#custom#source('file_mru', 'filters', ['converter_relative_word'])
 
 function! ChangeCurrentDirectoryToProjectRoot()
   let root = unite#util#path2project_directory(expand('%'))
@@ -241,6 +250,10 @@ nnoremap <silent> ,uf :<C-u>Unite file_rec:!<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 nnoremap <silent> ,uc :<C-u>Unite webcolorname<CR>
+
+nnoremap <silent> ,rm :<C-u>Unite rails/model<CR>
+nnoremap <silent> ,rv :<C-u>Unite rails/view<CR>
+nnoremap <silent> ,rc :<C-u>Unite rails/controller<CR>
 
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
@@ -362,3 +375,5 @@ autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
 autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
 autocmd FileType puppet     setlocal sw=2 sts=2 ts=2 et
 autocmd FileType tpl        setlocal sw=2 sts=2 ts=2 et
+
+colorscheme monochrome

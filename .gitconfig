@@ -8,18 +8,28 @@
   interactive = auto
   grep = auto
 [alias]
-  ad = add
+  a = add
+  aa = add -A
   ci = commit
+  cia = commit -a
   st = status
+  sh = stash
+  shl = stash list
+  shp = stash pop
   co = checkout
   cm = checkout master
   cl = clone
-  br = branch
+  b  = branch
+  ba = branch -a
   pu = pull
   d  = diff
+  dc = diff --cached
   dw = diff --word-diff
   dn = diff --name-only
+  l = log
+  r = reset
   sub = submodule
+  cln = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
 [core]
   editor = /Applications/MacVim.app/Contents/MacOS/Vim -c \"set fenc=utf-8\"
   excludesfile = ~/.gitignore
