@@ -4,29 +4,16 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+source ~/.zsh/percol.zsh
+
+# bindkeys
+bindkey '^br' percol-git-recent-branches
+bindkey '^bR' percol-git-recent-all-branches
+
+
 # User configuration
 
 export PATH="/usr/local/heroku/bin:/Users/taniguchi/.rbenv/versions/2.1.1/bin:/Users/t308/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/heroku/bin:/Users/taniguchi/.rbenv/versions/2.1.1/bin:/Users/t308/.rbenv/shims"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-
-
 
 # ----------manual setting
 
@@ -116,3 +103,20 @@ precmd () {
 # バージョン管理されているディレクトリにいれば表示，そうでなければ非表示
 RPROMPT="%1(v|%F{green}%1v%f|)"
 PROMPT='%F{cyan}%n %3d%f % '
+
+
+## percol
+function exists { which $1 &> /dev/null }
+
+if exists percol; then
+    function percol_select_history() {
+        local tac
+        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
+        BUFFER=$(fc -l -n 1 | eval $tac | percol --query "$LBUFFER")
+        CURSOR=$#BUFFER         # move cursor
+        zle -R -c               # refresh
+    }
+
+    zle -N percol_select_history
+    bindkey '^R' percol_select_history
+fi

@@ -143,9 +143,24 @@ NeoBundle 'basyura/unite-rails'
 NeoBundle 'very-monochrome-grey-theme'
 NeoBundle 'rename.vim'
 NeoBundle 'othree/html5.vim'
+NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'thoughtbot/vim-rspec'
 
 ""filetype plugin on
 NeoBundleCheck
+
+
+"---------------------
+"--vim-indent-guides--
+"---------------------
+"
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=235
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=236
+
+let g:indent_guides_auto_colors=0
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
 
 
 "-------------
@@ -187,17 +202,6 @@ let g:quickrun_config['markdown']={
   \ }
 
 
-"---------------------
-"--vim-indent-guides--
-"---------------------
-
-hi IndentGuidesEven ctermbg=darkgray
-
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=1
-let g:indent_guides_auto_colors=0
-
 
 "-----------
 "--TagList--
@@ -212,6 +216,11 @@ let g:tlist_javascript_settings = 'javascript;c:class;m:method;F:function;p:prop
 
 nnoremap <C-]> g<C-]>
 
+"------------
+"--NERDTree--
+"------------
+
+nnoremap <silent> ,nt :<C-u>NERDTree<CR>
 
 "-------------------
 "--operator-search--
@@ -338,6 +347,20 @@ endif
 let g:neocomplete#force_overwrite_completefunc=1
 
 
+"---------------------------
+"--vim-rspec=>vim-dispatch--
+"---------------------------
+
+let s:bundle = neobundle#get('vim-rspec')
+function! s:bundle.hooks.on_source(bundle)
+   let g:rspec_command = 'Dispatch bundle exec rspec {spec}'
+endfunction
+
+nmap <silent>,tc :call RunCurrentSpecFile()<CR>
+nmap <silent>,tn :call RunNearestSpec()<CR>
+nmap <silent>,tl :call RunLastSpec()<CR>
+nmap <silent>,ta :call RunAllSpecs()<CR>
+
 "-------------------
 "--filetype indent--
 "-------------------
@@ -377,3 +400,4 @@ autocmd FileType puppet     setlocal sw=2 sts=2 ts=2 et
 autocmd FileType tpl        setlocal sw=2 sts=2 ts=2 et
 
 colorscheme monochrome
+
