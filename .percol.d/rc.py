@@ -1,10 +1,6 @@
 # keybind 
 ## Mac で delete（backspace）が効くようにする
 
-SPECIAL_KEYS.update({
-    127: '<backspace>'
-})
-
 percol.import_keymap({
     "C-a" : lambda percol: percol.command.beginning_of_line(),
     "C-e" : lambda percol: percol.command.end_of_line(),
@@ -24,6 +20,11 @@ percol.import_keymap({
     "C-j" : lambda percol: percol.finish(),
     "C-g" : lambda percol: percol.cancel(),
     "M-c" : lambda percol: percol.command.toggle_case_sensitive(),
-    "M-m" : lambda percol: percol.command.toggle_finder(FinderMultiQueryMigemo),
-    "M-r" : lambda percol: percol.command.toggle_finder(FinderMultiQueryRegex)
+    "C-s" : lambda percol: percol.command.toggle_mark(),
+    # "M-m" : lambda percol: percol.command.toggle_finder(FinderMultiQueryMigemo),
+    # "M-r" : lambda percol: percol.command.toggle_finder(FinderMultiQueryRegex)
+})
+
+SPECIAL_KEYS.update({
+    127: '<backspace>'
 })

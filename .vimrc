@@ -47,8 +47,10 @@ set softtabstop=2
 set shiftwidth=2
 
 "emphasize tab and space
-highlight space ctermbg=gray guibg=gray
-match space /\s\+$/
+" match space /\s\+$/
+" match tab /\t\+$/
+" autocmd VimEnter,Colorscheme * :hi space ctermbg=gray guibg=gray
+" autocmd VimEnter,Colorscheme * :hi tab ctermbg=gray guibg=gray
 
 " escape insert mode
 inoremap <silent> jj <ESC>
@@ -113,7 +115,6 @@ NeoBundle 'scrooloose/nerdtree.git'
 NeoBundle 'fugitive.vim'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'yanktmp.vim'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'edsono/vim-matchit'
 NeoBundle 'ruby-matchit'
@@ -140,7 +141,6 @@ NeoBundle 'pasela/unite-webcolorname'
 NeoBundle 'fxn/vim-monochrome'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'basyura/unite-rails'
-NeoBundle 'very-monochrome-grey-theme'
 NeoBundle 'rename.vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'tpope/vim-dispatch'
@@ -163,15 +163,6 @@ let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 
 
-"-------------
-"---yanktmp---
-"-------------
-
-map <silent> sy :call YanktmpYank()<CR>
-map <silent> sp :call YanktmpPaste_p()<CR>
-map <silent> sP :call YanktmpPaste_P()<CR>
-
-
 "---------------
 "--neosnippets--
 "---------------
@@ -180,6 +171,14 @@ map <silent> sP :call YanktmpPaste_P()<CR>
 imap <C-[>     <Plug>(neosnippet_expand_or_jump)
 smap <C-[>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-[>     <Plug>(neosnippet_expand_target)
+
+
+"--------------
+"--rename.vim--
+"--------------
+
+" Plugin key-mappings.
+nnoremap <silent> ,mv :call Renamef()<CR>
 
 
 "-------------------------
@@ -202,12 +201,12 @@ let g:quickrun_config['markdown']={
   \ }
 
 
-
 "-----------
 "--TagList--
 "-----------
 
 let g:tlist_javascript_settings = 'javascript;c:class;m:method;F:function;p:property'
+nnoremap <silent> ,l :<C-u>TlistToggle<CR>
 
 
 "---------
@@ -216,11 +215,13 @@ let g:tlist_javascript_settings = 'javascript;c:class;m:method;F:function;p:prop
 
 nnoremap <C-]> g<C-]>
 
+
 "------------
 "--NERDTree--
 "------------
 
 nnoremap <silent> ,nt :<C-u>NERDTree<CR>
+
 
 "-------------------
 "--operator-search--
@@ -263,6 +264,11 @@ nnoremap <silent> ,uc :<C-u>Unite webcolorname<CR>
 nnoremap <silent> ,rm :<C-u>Unite rails/model<CR>
 nnoremap <silent> ,rv :<C-u>Unite rails/view<CR>
 nnoremap <silent> ,rc :<C-u>Unite rails/controller<CR>
+nnoremap <silent> ,rl :<C-u>Unite rails/lib<CR>
+nnoremap <silent> ,rd :<C-u>Unite rails/db<CR>
+nnoremap <silent> ,rf :<C-u>Unite rails/config<CR>
+nnoremap <silent> ,rh :<C-u>Unite rails/helper<CR>
+nnoremap <silent> ,rs :<C-u>Unite rails/spec<CR>
 
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
@@ -379,7 +385,7 @@ autocmd FileType diff       setlocal sw=4 sts=4 ts=4 noet
 autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 noet
 autocmd FileType html       setlocal sw=4 sts=4 ts=4 noet
 autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
-autocmd FileType javascript setlocal sw=4 sts=4 ts=4 noet
+autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
 autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
 autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
 autocmd FileType python     setlocal sw=4 sts=4 ts=4 et

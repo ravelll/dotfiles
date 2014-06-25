@@ -9,13 +9,14 @@
   grep = auto
 [alias]
   a = add
-  aa = add -A
+  ai = add -i
   ci = commit
   cia = commit -a
   st = status
   sh = stash
   shl = stash list
   shp = stash pop
+  shd = stash drop
   co = checkout
   cm = checkout master
   cl = clone

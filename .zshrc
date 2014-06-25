@@ -7,9 +7,10 @@ source $ZSH/oh-my-zsh.sh
 source ~/.zsh/percol.zsh
 
 # bindkeys
-bindkey '^br' percol-git-recent-branches
-bindkey '^bR' percol-git-recent-all-branches
-
+bindkey '^jb' percol-git-recent-branches
+bindkey '^jB' percol-git-recent-all-branches
+bindkey '^jz' percol_cd_history
+bindkey '^jf' percol_insert_history
 
 # User configuration
 
@@ -19,6 +20,9 @@ export PATH="/usr/local/heroku/bin:/Users/taniguchi/.rbenv/versions/2.1.1/bin:/U
 
 # PATH
 export PATH="/usr/local/bin:$PATH"
+
+# nodebrew
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 alias ssh='TERM=xterm ssh'
 
@@ -33,11 +37,15 @@ PATH="/Users/taniguchi/.rbenv/versions/2.1.1/bin:$PATH"
 # gh tools
 EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim -c \"set fenc=utf-8\""
 
+# go
+export GOPATH="$HOME/dev/golang/"
+
 # vi
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 export VIMRUNTIME=/Applications/MacVim.app/Contents/Resources/vim/runtime/
-alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+alias v='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+alias vi='v'
+alias vim='v'
 
 # Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -79,6 +87,8 @@ function current_branch() {
 }
 alias ggpu='git pull origin $(current_branch)'
 alias ggpush='git push origin $(current_branch)'
+
+alias rs='bundle exec rspec spec'
 
 # history
 HISTFILE=$HOME/.zsh_history
