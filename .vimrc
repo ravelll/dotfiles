@@ -145,6 +145,8 @@ NeoBundle 'rename.vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'thoughtbot/vim-rspec'
+NeoBundle 'koron/codic-vim'
+NeoBundle 'rhysd/unite-codic.vim'
 
 ""filetype plugin on
 NeoBundleCheck
@@ -269,6 +271,8 @@ nnoremap <silent> ,rd :<C-u>Unite rails/db<CR>
 nnoremap <silent> ,rf :<C-u>Unite rails/config<CR>
 nnoremap <silent> ,rh :<C-u>Unite rails/helper<CR>
 nnoremap <silent> ,rs :<C-u>Unite rails/spec<CR>
+
+nnoremap <silent> ,uw :<C-u>Unite codic<CR>
 
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
