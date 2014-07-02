@@ -4,13 +4,13 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-source ~/.zsh/percol.zsh
+source ~/.zsh/peco.zsh
 
 # bindkeys
-bindkey '^jb' percol-git-recent-branches
-bindkey '^jB' percol-git-recent-all-branches
-bindkey '^jz' percol_cd_history
-bindkey '^jf' percol_insert_history
+bindkey '^jb' peco-git-recent-branches
+bindkey '^jB' peco-git-recent-all-branches
+bindkey '^jz' peco_cd_history
+bindkey '^jf' peco_insert_history
 
 # User configuration
 
@@ -38,7 +38,8 @@ PATH="/Users/taniguchi/.rbenv/versions/2.1.1/bin:$PATH"
 EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim -c \"set fenc=utf-8\""
 
 # go
-export GOPATH="$HOME/dev/golang/"
+export GOPATH="$HOME/.go"
+export PATH="$GOPATH/bin:$PATH"
 
 # vi
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
