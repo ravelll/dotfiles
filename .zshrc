@@ -1,16 +1,3 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
-source ~/.zsh/peco.zsh
-
-# bindkeys
-bindkey '^jb' peco-git-recent-branches
-bindkey '^jB' peco-git-recent-all-branches
-bindkey '^jz' peco_cd_history
-bindkey '^jf' peco_insert_history
 
 # User configuration
 
@@ -25,6 +12,12 @@ export PATH="/usr/local/bin:$PATH"
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 alias ssh='TERM=xterm ssh'
+
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
 
 # rbenv
 path=($HOME/.rbenv/bin(N) $path)
@@ -47,6 +40,7 @@ export VIMRUNTIME=/Applications/MacVim.app/Contents/Resources/vim/runtime/
 alias v='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias vi='v'
 alias vim='v'
+alias gv='vi Gemfile'
 
 # Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -97,6 +91,17 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 setopt share_history
 
+# peco
+source ~/.zsh/peco.zsh
+
+bindkey '^jr' peco_select_rake_task
+bindkey '^jb' peco-git-recent-branches
+bindkey '^jB' peco-git-recent-all-branches
+bindkey '^jz' peco_cd_history
+bindkey '^jd' peco_insert_history
+bindkey '^R'  peco_select_history
+bindkey '^js' peco_select_spec_file
+
 # VCSの情報を取得するzshの便利関数 vcs_infoを使う
 autoload -Uz vcs_info
 
@@ -114,20 +119,3 @@ precmd () {
 # バージョン管理されているディレクトリにいれば表示，そうでなければ非表示
 RPROMPT="%1(v|%F{green}%1v%f|)"
 PROMPT='%F{cyan}%n %3d%f % '
-
-
-## percol
-function exists { which $1 &> /dev/null }
-
-if exists percol; then
-    function percol_select_history() {
-        local tac
-        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
-        BUFFER=$(fc -l -n 1 | eval $tac | percol --query "$LBUFFER")
-        CURSOR=$#BUFFER         # move cursor
-        zle -R -c               # refresh
-    }
-
-    zle -N percol_select_history
-    bindkey '^R' percol_select_history
-fi

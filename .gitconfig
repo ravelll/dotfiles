@@ -10,6 +10,7 @@
 [alias]
   a = add
   ai = add -i
+  ap = add -p
   ci = commit
   cia = commit -a
   st = status

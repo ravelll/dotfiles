@@ -147,6 +147,7 @@ NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'thoughtbot/vim-rspec'
 NeoBundle 'koron/codic-vim'
 NeoBundle 'rhysd/unite-codic.vim'
+NeoBundle 'Align'
 
 ""filetype plugin on
 NeoBundleCheck
