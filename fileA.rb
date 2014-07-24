@@ -1,6 +1,6 @@
 class Taiyaki
   def shout
     puts 'OAAAAAAAAA'
-    puts 'MEEEEEEEEEEEE'
+    puts 'OAAAAAAAAA'
   end
 end
