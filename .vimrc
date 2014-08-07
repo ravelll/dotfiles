@@ -107,6 +107,7 @@ NeoBundle 'L9'
 NeoBundle 'sudo.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'rails.vim'
@@ -148,15 +149,24 @@ NeoBundle 'thoughtbot/vim-rspec'
 NeoBundle 'koron/codic-vim'
 NeoBundle 'rhysd/unite-codic.vim'
 NeoBundle 'Align'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'fatih/vim-go'
 
 ""filetype plugin on
 NeoBundleCheck
 
 
+"--------------
+"--emmet-vim---
+"--------------
+
+let g:user_emmet_leader_key='<C-e>'
+
+
 "---------------------
 "--vim-indent-guides--
 "---------------------
-"
+
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=236
 
@@ -388,6 +398,7 @@ autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
 autocmd FileType css        setlocal sw=4 sts=4 ts=4 noet
 autocmd FileType diff       setlocal sw=4 sts=4 ts=4 noet
 autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 noet
+autocmd FileType go         setlocal sw=4 sts=4 ts=4 et
 autocmd FileType html       setlocal sw=4 sts=4 ts=4 noet
 autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
 autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
