@@ -151,6 +151,7 @@ NeoBundle 'rhysd/unite-codic.vim'
 NeoBundle 'Align'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'fatih/vim-go'
+NeoBundle 'haya14busa/vim-migemo'
 
 ""filetype plugin on
 NeoBundleCheck

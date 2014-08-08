@@ -1,4 +1,13 @@
 #
+# oh-my-zsh
+# (put top to overwrite ohmyzsh aliases)
+#
+export ZSH=$HOME/.oh-my-zsh
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
+
+
+#
 # PATH
 #
 export PATH="/usr/local/heroku/bin:/Users/taniguchi/.rbenv/versions/2.1.1/bin:/Users/t308/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/heroku/bin:/Users/taniguchi/.rbenv/versions/2.1.1/bin:/Users/t308/.rbenv/shims"
@@ -95,10 +104,6 @@ histsize=1000000
 savehist=1000000
 setopt share_history
 
-### oh-my-zsh
-export ZSH=$HOME/.oh-my-zsh
-plugins=(git)
-source $ZSH/oh-my-zsh.sh
 
 ### zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
