@@ -39,6 +39,7 @@ eval "$(rbenv init -)"
 alias rb='ruby'
 alias be='bundle exec'
 alias rs='bundle exec rspec spec'
+alias rg='rails generate'
 
 ## java
 ### aliases
@@ -90,7 +91,7 @@ bindkey '^jB' peco-git-recent-all-branches
 bindkey '^jz' peco_cd_history
 bindkey '^jd' peco_insert_history
 bindkey '^R'  peco_select_history
-bindkey '^js' peco_select_spec_file
+bindkey '^js' peco_select_ghq
 
 ## zsh
 ### git-completion

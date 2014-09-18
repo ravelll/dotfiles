@@ -13,6 +13,7 @@
   ap = add -p
   ci = commit
   cia = commit -a
+  cie = commit --allow-empty
   st = status
   sh = stash
   shl = stash list
@@ -41,3 +42,5 @@
   default = simple
 [diff]
   noprefix = true
+[ghq]
+	root = /Users/t308/src

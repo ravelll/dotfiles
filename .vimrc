@@ -31,7 +31,9 @@ set browsedir=buffer
 set autoread
 set nobackup
 set noswapfile
-set noundofile
+
+"save edit history
+set undodir=~/.vimundo/
 
 "clipboard
 set clipboard=unnamed,autoselect
@@ -81,6 +83,9 @@ nnoremap rr :e!<CR>
 nnoremap <silent> ,s :OverCommandLine<CR>%s/
 vnoremap <silent> ,s :OverCommandLine<CR>s/
 
+" show under line to current line
+nnoremap <silent> ,cl :set cursorline<CR>
+nnoremap <silent> ,,cl :set nocursorline<CR>
 
 "-------------
 "--neobundle--
@@ -123,10 +128,8 @@ NeoBundle 'tmhedberg/matchit'
 NeoBundle 'switch.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'taglist.vim'
-NeoBundle 'scrooloose/syntastic.git'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tpope/vim-markdown'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'ref.vim'
@@ -152,6 +155,9 @@ NeoBundle 'Align'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'haya14busa/vim-migemo'
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'moznion/hateblo.vim'
+NeoBundle 'rcmdnk/vim-markdown'
 
 ""filetype plugin on
 NeoBundleCheck
@@ -234,7 +240,8 @@ nnoremap <C-]> g<C-]>
 "--NERDTree--
 "------------
 
-nnoremap <silent> ,nt :<C-u>NERDTree<CR>
+nnoremap <silent> ,d :<C-u>NERDTreeToggle<CR>
+let g:NERDTreeWinSize=20
 
 
 "-------------------
@@ -400,7 +407,7 @@ autocmd FileType css        setlocal sw=4 sts=4 ts=4 noet
 autocmd FileType diff       setlocal sw=4 sts=4 ts=4 noet
 autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 noet
 autocmd FileType go         setlocal sw=4 sts=4 ts=4 et
-autocmd FileType html       setlocal sw=4 sts=4 ts=4 noet
+autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
 autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
 autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
 autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
