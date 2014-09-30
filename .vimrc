@@ -31,9 +31,7 @@ set browsedir=buffer
 set autoread
 set nobackup
 set noswapfile
-
-"save edit history
-set undodir=~/.vimundo/
+set noundofile
 
 "clipboard
 set clipboard=unnamed,autoselect
@@ -49,10 +47,16 @@ set softtabstop=2
 set shiftwidth=2
 
 "emphasize tab and space
-" match space /\s\+$/
-" match tab /\t\+$/
-" autocmd VimEnter,Colorscheme * :hi space ctermbg=gray guibg=gray
-" autocmd VimEnter,Colorscheme * :hi tab ctermbg=gray guibg=gray
+augroup Spaces
+  autocmd!
+  autocmd ColorScheme * call HighlightSpaces()
+  autocmd BufWritePost,VimEnter * match Spaces /\s\+$/
+augroup END
+
+function! HighlightSpaces()
+  highlight Spaces cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
+endfunction
+call HighlightSpaces()
 
 " escape insert mode
 inoremap <silent> jj <ESC>
@@ -229,9 +233,9 @@ let g:tlist_javascript_settings = 'javascript;c:class;m:method;F:function;p:prop
 nnoremap <silent> ,l :<C-u>TlistToggle<CR>
 
 
-"---------
-"--ctags--
-"---------
+"------------
+"--tag jump--
+"------------
 
 nnoremap <C-]> g<C-]>
 
@@ -240,7 +244,7 @@ nnoremap <C-]> g<C-]>
 "--NERDTree--
 "------------
 
-nnoremap <silent> ,d :<C-u>NERDTreeToggle<CR>
+nnoremap <silent> ,nt :<C-u>NERDTreeToggle<CR>
 let g:NERDTreeWinSize=20
 
 
@@ -390,6 +394,12 @@ nmap <silent>,tn :call RunNearestSpec()<CR>
 nmap <silent>,tl :call RunLastSpec()<CR>
 nmap <silent>,ta :call RunAllSpecs()<CR>
 
+"--------------------
+"--filetype setting--
+"--------------------
+autocmd BufNewFile,BufRead *.thor     setf ruby
+autocmd BufNewFile,BufRead *.html.erb setf javascript.html.eruby
+
 "-------------------
 "--filetype indent--
 "-------------------
@@ -430,4 +440,5 @@ autocmd FileType puppet     setlocal sw=2 sts=2 ts=2 et
 autocmd FileType tpl        setlocal sw=2 sts=2 ts=2 et
 
 colorscheme monochrome
+
 
