@@ -12,6 +12,7 @@ source $ZSH/oh-my-zsh.sh
 #
 export PATH="/usr/local/heroku/bin:/Users/taniguchi/.rbenv/versions/2.1.1/bin:/Users/t308/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/heroku/bin:/Users/taniguchi/.rbenv/versions/2.1.1/bin:/Users/t308/.rbenv/shims"
 
+
 #
 # programming language environment
 #
@@ -52,6 +53,9 @@ alias java='java -Dfile.encoding=UTF-8'
 #
 # other tools environment
 #
+## ctags
+alias tag='ctags -R'
+
 ## git
 alias g='git'
 alias d='git diff'
@@ -88,12 +92,24 @@ alias t='tmux -u'
 ## peco
 source ~/.zsh/peco.zsh
 bindkey '^jr' peco_select_rake_task
-bindkey '^jb' peco-git-recent-branches
-bindkey '^jB' peco-git-recent-all-branches
+bindkey '^jb' peco_git_recent_branches
+bindkey '^jB' peco_git_recent_all_branches
 bindkey '^jz' peco_cd_history
 bindkey '^jd' peco_insert_history
 bindkey '^R'  peco_select_history
 bindkey '^js' peco_select_ghq
+
+## other aliases
+alias ls='ls -G'
+alias ll='ls -alFG'
+alias irr='cat ~/Dropbox/memo/irritation.md'
+alias virr='vi ~/Dropbox/memo/irritation.md'
+alias pe='ps -ef'
+
+alias -g P='| peco'
+alias -g G='| pt'
+alias -g A='| ag'
+
 
 ## zsh
 ### git-completion
@@ -126,11 +142,3 @@ precmd () {
 RPROMPT="%1(v|%F{green}%1v%f|)"
 PROMPT='%F{cyan}%n %3d%f % '
 
-
-#
-# other command aliases
-#
-alias ls='ls -G'
-alias ll='ls -alFG'
-alias irr='cat ~/Dropbox/memo/irritation.md'
-alias virr='vi ~/Dropbox/memo/irritation.md'

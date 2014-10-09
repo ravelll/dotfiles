@@ -162,6 +162,7 @@ NeoBundle 'haya14busa/vim-migemo'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'moznion/hateblo.vim'
 NeoBundle 'rcmdnk/vim-markdown'
+NeoBundle 'TwitVim'
 
 ""filetype plugin on
 NeoBundleCheck
@@ -172,6 +173,15 @@ NeoBundleCheck
 "--------------
 
 let g:user_emmet_leader_key='<C-e>'
+
+
+"-----------
+"--twitvim--
+"-----------
+
+let g:twitvim_browser_cmd='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+let g:twitvim_force_ssl=1
+let g:twitvim_count=40
 
 
 "---------------------

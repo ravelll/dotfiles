@@ -1,16 +1,16 @@
 # {{{
+# cd 履歴を記録
 setopt hist_ignore_all_dups
-
-# cd history file
 typeset -U chpwd_functions
-CD_HISTORY_FILE=${HOME}/.cd_history_file
+CD_HISTORY_FILE=${HOME}/.cd_history_file # cd 履歴の記録先ファイル
 
 function chpwd_record_history() {
   echo $PWD >> ${CD_HISTORY_FILE}
 }
 chpwd_functions=($chpwd_functions chpwd_record_history)
 
-# choose directory from history
+# peco を使って cd 履歴の中からディレクトリを選択
+# 過去の訪問回数が多いほど選択候補の上に来る
 function peco_get_destination_from_history() {
   sort ${CD_HISTORY_FILE} | uniq -c | sort -r | \
     sed -e 's/^[ ]*[0-9]*[ ]*//' | \
@@ -18,7 +18,7 @@ function peco_get_destination_from_history() {
     peco | xargs echo
 }
 
-# cd from history
+# peco を使って cd 履歴の中からディレクトリを選択し cd するウィジェット
 function peco_cd_history() {
   local destination=$(peco_get_destination_from_history)
   [ -n $destination ] && cd ${destination/#\~/${HOME}}
@@ -26,7 +26,7 @@ function peco_cd_history() {
 }
 zle -N peco_cd_history
 
-# insert directory name to buffer from cd history
+# peco を使って cd 履歴の中からディレクトリを選択し，現在のカーソル位置に挿入するウィジェット
 function peco_insert_history() {
   local destination=$(peco_get_destination_from_history)
   if [ $? -eq 0 ]; then
