@@ -60,7 +60,6 @@ call HighlightSpaces()
 
 " escape insert mode
 inoremap <silent> jj <ESC>
-inoremap <silent> kk <ESC>
 
 " moving cursol in insert mode
 inoremap <C-j> <Down>
