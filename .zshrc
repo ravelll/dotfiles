@@ -10,7 +10,7 @@ source $ZSH/oh-my-zsh.sh
 #
 # PATH
 #
-export PATH="/usr/local/heroku/bin:/Users/taniguchi/.rbenv/versions/2.1.1/bin:/Users/t308/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/heroku/bin:/Users/taniguchi/.rbenv/versions/2.1.1/bin:/Users/t308/.rbenv/shims"
+export PATH="/usr/local/bin:/usr/local/heroku/bin:/Users/taniguchi/.rbenv/versions/2.1.1/bin:/Users/t308/.rbenv/shims:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/heroku/bin:/Users/taniguchi/.rbenv/versions/2.1.1/bin:/Users/t308/.rbenv/shims"
 
 
 #
@@ -102,6 +102,7 @@ bindkey '^js' peco_select_ghq
 ## other aliases
 alias ls='ls -G'
 alias ll='ls -alFG'
+alias ms='massren'
 alias irr='cat ~/Dropbox/memo/irritation.md'
 alias virr='vi ~/Dropbox/memo/irritation.md'
 alias pe='ps -ef'

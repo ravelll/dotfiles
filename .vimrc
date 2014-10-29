@@ -1,6 +1,4 @@
-"----------------------
-"--basically settings--
-"----------------------
+"// General Settings //
 
 filetype off
 
@@ -36,7 +34,6 @@ set noundofile
 "clipboard
 set clipboard=unnamed,autoselect
 
-"syntax highlight
 syntax on
 
 "tab to space
@@ -82,13 +79,18 @@ inoremap <% <%%><Left><Left>
 " reload alias
 nnoremap rr :e!<CR>
 
-" use OverCommandLine in replacing
-nnoremap <silent> ,s :OverCommandLine<CR>%s/
-vnoremap <silent> ,s :OverCommandLine<CR>s/
 
 " show under line to current line
 nnoremap <silent> ,cl :set cursorline<CR>
-nnoremap <silent> ,,cl :set nocursorline<CR>
+nnoremap <silent> ,cL :set nocursorline<CR>
+
+
+
+"// vim-over //
+
+nnoremap <silent> ,s :OverCommandLine<CR>%s/
+vnoremap <silent> ,s :OverCommandLine<CR>s/
+
 
 "-------------
 "--neobundle--
@@ -121,7 +123,6 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'rails.vim'
 NeoBundle 'surround.vim'
 NeoBundle 'scrooloose/nerdtree.git'
-NeoBundle 'fugitive.vim'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tomtom/tcomment_vim'
@@ -178,7 +179,7 @@ let g:user_emmet_leader_key='<C-e>'
 "--twitvim--
 "-----------
 
-let g:twitvim_browser_cmd='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+" let g:twitvim_browser_cmd='open'
 let g:twitvim_force_ssl=1
 let g:twitvim_count=40
 
@@ -239,8 +240,10 @@ let g:quickrun_config['markdown']={
 "-----------
 
 let g:tlist_javascript_settings = 'javascript;c:class;m:method;F:function;p:property'
-nnoremap <silent> ,l :<C-u>TlistToggle<CR>
+let g:Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 
+nnoremap <silent> ,l :<C-u>TlistToggle<CR>
+nnoremap <silent> ,L :<C-u>TlistAddFilesRecursive %:h<Tab><CR>
 
 "------------
 "--tag jump--
@@ -335,7 +338,7 @@ let g:neocomplete#sources#dictionary#dictionaries = {
       \ 'vimshell' : $HOME.'/.vimshell_hist',
       \ 'scheme' : $HOME.'/.gosh_completions',
       \ 'php' : $HOME.'/.vim/dict/php.dict',
-      \ 'ruby' : $HOME.'/.vim/dict/ruby.dict'
+      \ 'ruby' : [$HOME.'/.vim/dict/ruby.dict', $HOME.'/.vim/dict/ruby.rspec.dict']
       \ }
 
 " Define keyword.
@@ -449,5 +452,3 @@ autocmd FileType puppet     setlocal sw=2 sts=2 ts=2 et
 autocmd FileType tpl        setlocal sw=2 sts=2 ts=2 et
 
 colorscheme monochrome
-
-

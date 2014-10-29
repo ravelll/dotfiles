@@ -1,8 +1,8 @@
 function vagrant_with_direnv() {
-    if [ -f $3/.envrc ]; then
-      source $3/.envrc
-    fi
-    vagrant $1 $2
+  if [ -f $3/.envrc ]; then
+    source $3/.envrc
+  fi
+  vagrant $1 $2
 }
 
 function vagrant_peco_ssh() {
@@ -33,5 +33,3 @@ function vagrant_peco() {
   fi
 }
 zle -N vagrant_peco
-
-
