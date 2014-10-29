@@ -2,7 +2,7 @@
 # oh-my-zsh
 # (put top to overwrite ohmyzsh aliases)
 #
-export ZSH=$HOME/.oh-my-zsh
+ZSH=$HOME/.oh-my-zsh
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
@@ -10,28 +10,24 @@ source $ZSH/oh-my-zsh.sh
 #
 # PATH
 #
-export PATH="/usr/local/bin:/usr/local/heroku/bin:/Users/taniguchi/.rbenv/versions/2.1.1/bin:/Users/t308/.rbenv/shims:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/heroku/bin:/Users/taniguchi/.rbenv/versions/2.1.1/bin:/Users/t308/.rbenv/shims"
-
+#
+PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/heroku/bin:/opt/X11/bin:$HOME/.rbenv/shims:$PATH"
 
 #
 # programming language environment
 #
 ## nodebrew
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+PATH=$HOME/.nodebrew/current/bin:$PATH
 
 ## go
-export GOPATH="$HOME/.go"
-export PATH="$GOPATH/bin:$PATH"
+GOPATH="$HOME/.go"
+PATH="$GOPATH/bin:$PATH"
 
 ## perl
-export PERL_CPANM_OPT="--local-lib=$HOME/.perl-extlib"
-export PERL5LIB="$HOME/.perl-extlib/lib/perl5:$PERL5LIB"
+PERL_CPANM_OPT="--local-lib=$HOME/.perl-extlib"
+PERL5LIB="$HOME/.perl-extlib/lib/perl5:$PERL5LIB"
 
 ## ruby
-### gem
-GEM_HOME="/Users/taniguchi/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0"
-PATH="/Users/taniguchi/.rbenv/versions/2.1.1/bin:$PATH"
-
 ### rbenv
 path=($HOME/.rbenv/bin(N) $path)
 eval "$(rbenv init -)"
@@ -75,13 +71,13 @@ alias ssh='TERM=xterm ssh'
 
 ## vim
 EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim -c \"set fenc=utf-8\""
-export VIMRUNTIME=/Applications/MacVim.app/Contents/Resources/vim/runtime/
+VIMRUNTIME=/Applications/MacVim.app/Contents/Resources/vim/runtime/
 alias v='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias vi='v'
 alias vim='v'
 
 ## Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+PATH="/usr/local/heroku/bin:$PATH"
 
 ## z
 . `brew --prefix`/etc/profile.d/z.sh
