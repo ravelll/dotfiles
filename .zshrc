@@ -6,12 +6,10 @@ ZSH=$HOME/.oh-my-zsh
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
-
 #
 # PATH
 #
-#
-PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/heroku/bin:/opt/X11/bin:$HOME/.rbenv/shims:$PATH"
+PATH="/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/heroku/bin:/opt/X11/bin:$HOME/.rbenv/shims:$PATH"
 
 #
 # programming language environment
@@ -20,7 +18,7 @@ PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/heroku/bin:/opt/X1
 PATH=$HOME/.nodebrew/current/bin:$PATH
 
 ## go
-GOPATH="$HOME/.go"
+export GOPATH="$HOME/.go"
 PATH="$GOPATH/bin:$PATH"
 
 ## perl
@@ -40,11 +38,13 @@ alias bi='bundle install'
 alias bip='bundle install --path'
 alias rg='rails generate'
 
+## php
+PATH="$HOME/.composer/vendor/bin:$PATH"
+
 ## java
 ### aliases
 alias javac='javac -J-Dfile.encoding=UTF-8'
 alias java='java -Dfile.encoding=UTF-8'
-
 
 #
 # other tools environment
@@ -107,7 +107,6 @@ alias -g P='| peco'
 alias -g G='| pt'
 alias -g A='| ag'
 
-
 ## zsh
 ### git-completion
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
@@ -119,7 +118,6 @@ histfile=$home/.zsh_history
 histsize=1000000
 savehist=1000000
 setopt share_history
-
 
 ### zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -138,4 +136,3 @@ precmd () {
 #### show / unshow branch name by on git repos, or not
 RPROMPT="%1(v|%F{green}%1v%f|)"
 PROMPT='%F{cyan}%n %3d%f % '
-

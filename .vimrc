@@ -202,9 +202,9 @@ let g:indent_guides_guide_size=1
 "---------------
 
 " Plugin key-mappings.
-imap <C-[>     <Plug>(neosnippet_expand_or_jump)
-smap <C-[>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-[>     <Plug>(neosnippet_expand_target)
+imap <C-l>     <Plug>(neosnippet_expand_or_jump)
+smap <C-l>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-l>     <Plug>(neosnippet_expand_target)
 
 
 "--------------
