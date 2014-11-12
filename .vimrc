@@ -163,8 +163,11 @@ NeoBundle 'mattn/webapi-vim'
 NeoBundle 'moznion/hateblo.vim'
 NeoBundle 'rcmdnk/vim-markdown'
 NeoBundle 'TwitVim'
+NeoBundle 'nelstrom/vim-textobj-rubyblock'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'knt45/jq-wrapper.vim'
 
-""filetype plugin on
+"filetype plugin on
 NeoBundleCheck
 
 
@@ -173,6 +176,21 @@ NeoBundleCheck
 "--------------
 
 let g:user_emmet_leader_key='<C-e>'
+
+
+"------
+"--jq--
+"------
+
+command! -nargs=? Jq call s:Jq(<f-args>)
+function! s:Jq(...)
+    if 0 == a:0
+        let l:arg = "."
+    else
+        let l:arg = a:1
+    endif
+    execute "%! jq 95fe1a73-e2e2-4737-bea1-a44257c50fc8quot;" . l:arg . "95fe1a73-e2e2-4737-bea1-a44257c50fc8quot;"
+endfunction
 
 
 "-----------
@@ -202,9 +220,9 @@ let g:indent_guides_guide_size=1
 "---------------
 
 " Plugin key-mappings.
-imap <C-l>     <Plug>(neosnippet_expand_or_jump)
-smap <C-l>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-l>     <Plug>(neosnippet_expand_target)
+imap <C-'>     <Plug>(neosnippet_expand_or_jump)
+smap <C-'>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-'>     <Plug>(neosnippet_expand_target)
 
 
 "--------------
@@ -338,8 +356,10 @@ let g:neocomplete#sources#dictionary#dictionaries = {
       \ 'vimshell' : $HOME.'/.vimshell_hist',
       \ 'scheme' : $HOME.'/.gosh_completions',
       \ 'php' : $HOME.'/.vim/dict/php.dict',
-      \ 'ruby' : [$HOME.'/.vim/dict/ruby.dict', $HOME.'/.vim/dict/ruby.rspec.dict']
+      \ 'ruby' : $HOME.'/.vim/dict/ruby.dict'
       \ }
+
+" $HOME.'/.vim/dict/ruby.rspec.dict'
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
@@ -405,6 +425,13 @@ nmap <silent>,tc :call RunCurrentSpecFile()<CR>
 nmap <silent>,tn :call RunNearestSpec()<CR>
 nmap <silent>,tl :call RunLastSpec()<CR>
 nmap <silent>,ta :call RunAllSpecs()<CR>
+
+
+"-----------------------
+"--vim-textobj-rubybox--
+"-----------------------
+
+runtime macros/matchit.vim
 
 "--------------------
 "--filetype setting--
