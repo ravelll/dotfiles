@@ -5,6 +5,9 @@ filetype off
 "show encoding
 set statusline=[%{&fileencoding}]%{fugitive#statusline()}
 
+"command complement
+set wildmode=list,full
+
 "always show statusline
 set laststatus=2
 
@@ -16,6 +19,9 @@ set number
 
 "search
 set smartcase
+
+"enable backspace
+set backspace=indent,eol,start
 
 "search with highlighting
 set hlsearch
@@ -35,6 +41,7 @@ set noundofile
 set clipboard=unnamed,autoselect
 
 syntax on
+colorscheme monochrome
 
 "tab to space
 set smarttab
@@ -96,13 +103,15 @@ vnoremap <silent> ,s :OverCommandLine<CR>s/
 "--neobundle--
 "-------------
 
-set nocompatible
 
 if has('vim_starting')
+  if &compatible
+    set nocompatible
+  endif
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
@@ -131,6 +140,7 @@ NeoBundle 'ruby-matchit'
 NeoBundle 'tmhedberg/matchit'
 NeoBundle 'switch.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'comeonly/php.vim-html-enhanced'
 NeoBundle 'taglist.vim'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'tpope/vim-endwise'
@@ -165,10 +175,19 @@ NeoBundle 'rcmdnk/vim-markdown'
 NeoBundle 'TwitVim'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
 NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'knt45/jq-wrapper.vim'
+NeoBundle 'jcf/vim-latex'
+NeoBundle 'elzr/vim-json'
 
-"filetype plugin on
+call neobundle#end()
+filetype plugin indent on
 NeoBundleCheck
+
+
+"-----------------
+"--neocomplete-php
+"-----------------
+
+let g:neocomplete_php_locale = 'ja'
 
 
 "--------------
@@ -184,12 +203,12 @@ let g:user_emmet_leader_key='<C-e>'
 
 command! -nargs=? Jq call s:Jq(<f-args>)
 function! s:Jq(...)
-    if 0 == a:0
-        let l:arg = "."
-    else
-        let l:arg = a:1
-    endif
-    execute "%! jq 95fe1a73-e2e2-4737-bea1-a44257c50fc8quot;" . l:arg . "95fe1a73-e2e2-4737-bea1-a44257c50fc8quot;"
+  if 0 == a:0
+    let l:arg = "."
+  else
+    let l:arg = a:1
+  endif
+  execute "%! jq " . l:arg
 endfunction
 
 
@@ -220,9 +239,9 @@ let g:indent_guides_guide_size=1
 "---------------
 
 " Plugin key-mappings.
-imap <C-'>     <Plug>(neosnippet_expand_or_jump)
-smap <C-'>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-'>     <Plug>(neosnippet_expand_target)
+imap <C-[>     <Plug>(neosnippet_expand_or_jump)
+smap <C-[>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-[>     <Plug>(neosnippet_expand_target)
 
 
 "--------------
@@ -275,7 +294,8 @@ nnoremap <C-]> g<C-]>
 "------------
 
 nnoremap <silent> ,nt :<C-u>NERDTreeToggle<CR>
-let g:NERDTreeWinSize=20
+nnoremap <silent> ,nf :<C-u>NERDTreeFind<CR>
+let g:NERDTreeWinSize=40
 
 
 "-------------------
@@ -356,7 +376,8 @@ let g:neocomplete#sources#dictionary#dictionaries = {
       \ 'vimshell' : $HOME.'/.vimshell_hist',
       \ 'scheme' : $HOME.'/.gosh_completions',
       \ 'php' : $HOME.'/.vim/dict/php.dict',
-      \ 'ruby' : $HOME.'/.vim/dict/ruby.dict'
+      \ 'ruby' : $HOME.'/.vim/dict/ruby.dict',
+      \ 'javascript' : $HOME.'/.vim/dict/javascript.dict',
       \ }
 
 " $HOME.'/.vim/dict/ruby.rspec.dict'
@@ -431,13 +452,14 @@ nmap <silent>,ta :call RunAllSpecs()<CR>
 "--vim-textobj-rubybox--
 "-----------------------
 
-runtime macros/matchit.vim
+runtime $VIMRUNTIME/macros/matchit.vim
 
 "--------------------
 "--filetype setting--
 "--------------------
 autocmd BufNewFile,BufRead *.thor     setf ruby
-autocmd BufNewFile,BufRead *.html.erb setf javascript.html.eruby
+autocmd BufNewFile,BufRead *.tpl      setf smarty.html
+" autocmd BufNewFile,BufRead *.html.erb setf javascript.html.eruby
 
 "-------------------
 "--filetype indent--
@@ -477,5 +499,3 @@ autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
 autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
 autocmd FileType puppet     setlocal sw=2 sts=2 ts=2 et
 autocmd FileType tpl        setlocal sw=2 sts=2 ts=2 et
-
-colorscheme monochrome

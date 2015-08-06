@@ -19,11 +19,14 @@ PATH=$HOME/.nodebrew/current/bin:$PATH
 
 ## go
 export GOPATH="$HOME/.go"
-PATH="$GOPATH/bin:$PATH"
+export PATH=$PATH:$GOPATH/bin
 
 ## perl
 PERL_CPANM_OPT="--local-lib=$HOME/.perl-extlib"
 PERL5LIB="$HOME/.perl-extlib/lib/perl5:$PERL5LIB"
+### plenv
+export PATH="$HOME/.plenv/bin:$PATH"
+eval "$(plenv init -)"
 
 ## ruby
 ### rbenv
@@ -40,18 +43,20 @@ alias rg='rails generate'
 
 ## php
 PATH="$HOME/.composer/vendor/bin:$PATH"
+PATH="$HOME/.phpenv/bin:$PATH"
+eval "$(phpenv init -)"
 
 ## java
 ### aliases
 alias javac='javac -J-Dfile.encoding=UTF-8'
 alias java='java -Dfile.encoding=UTF-8'
 
+## Qt
+PATH="/usr/local/Cellar/qt5/5.4.0/bin/:$PATH"
+
 #
 # other tools environment
 #
-## ctags
-alias tag='ctags -R'
-
 ## git
 alias g='git'
 alias d='git diff'
@@ -70,11 +75,14 @@ alias ggpush='git push origin $(current_branch)'
 alias ssh='TERM=xterm ssh'
 
 ## vim
-EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim -c \"set fenc=utf-8\""
-VIMRUNTIME=/Applications/MacVim.app/Contents/Resources/vim/runtime/
-alias v='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias vi='v'
-alias vim='v'
+EDITOR="vim -c \"set fenc=utf-8\""
+VIMRUNTIME=/usr/local/Cellar/vim/*(/)/share/vim/vim74/
+alias v='env LANG=ja_JP.UTF-8 vim "$@"'
+
+### use MacVim
+# EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim -c \"set fenc=utf-8\""
+# VIMRUNTIME=/Applications/MacVim.app/Contents/Resources/vim/runtime/
+# alias v='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 
 ## Heroku Toolbelt
 PATH="/usr/local/heroku/bin:$PATH"
@@ -94,13 +102,16 @@ bindkey '^jz' peco_cd_history
 bindkey '^jd' peco_insert_history
 bindkey '^R'  peco_select_history
 bindkey '^js' peco_select_ghq
+bindkey '^jk' peco_kill
+
+## vagrant
+alias vag='vagrant'
 
 ## other aliases
 alias ls='ls -G'
+alias sl='ls'
 alias ll='ls -alFG'
 alias ms='massren'
-alias irr='cat ~/Dropbox/memo/irritation.md'
-alias virr='vi ~/Dropbox/memo/irritation.md'
 alias pe='ps -ef'
 
 alias -g P='| peco'

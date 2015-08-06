@@ -4,20 +4,14 @@
     "C-e" : "peco.EndOfLine",
     "C-b" : "peco.BackwardChar",
     "C-f" : "peco.ForwardChar",
-    "C-d" : "peco.DeleteForwardChar",
-    "C-h" : "peco.DeleteBackwardChar",
     "C-k" : "peco.KillEndOfLine",
-    "C-y" : "peco.ToggleSelection",
-    "C-n" : "peco.SelectNext",
-    "C-p" : "peco.SelectPrevious",
+    "C-y" : "peco.ToggleRangeMode",
+    "C-n" : "peco.SelectDown",
+    "C-p" : "peco.SelectUp",
     "C-v" : "peco.SelectNextPage",
     "M-v" : "peco.SelectPreviousPage",
-    "M-<" : "peco.SelectTop",
-    "M->" : "peco.SelectBottom",
     "C-m" : "peco.Finish",
     "C-j" : "peco.Finish",
-    "C-g" : "peco.Cancel",
-    "M-c" : "peco.ToggleCaseSensitive",
-    "C-s" : "peco.ToggleMark"
+    "C-d" : "peco.Cancel"
   }
 }

@@ -10,3 +10,4 @@ Vagrantfile
 .project
 .idea
 .secret
+npm-debug.log

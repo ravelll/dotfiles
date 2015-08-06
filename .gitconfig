@@ -36,7 +36,7 @@
   shd = stash drop
   sub = submodule
 [core]
-  editor = /Applications/MacVim.app/Contents/MacOS/Vim -c \"set fenc=utf-8\"
+  editor = vim -c \"set fenc=utf-8\"
   excludesfile = ~/.gitignore
   precomposeunicode = true
   pager = less -r
@@ -45,4 +45,4 @@
 [diff]
   noprefix = true
 [ghq]
-	root = /Users/t308/src
+	root = ~/src
