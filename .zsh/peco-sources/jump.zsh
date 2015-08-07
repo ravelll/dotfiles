@@ -21,7 +21,7 @@ function peco_get_destination_from_history() {
 # peco を使って cd 履歴の中からディレクトリを選択し cd するウィジェット
 function peco_cd_history() {
   local destination=$(peco_get_destination_from_history)
-  [ -n $destination ] && cd ${destination/#\~/${HOME}}
+  [ -n "$destination" ] && cd ${destination/#\~/${HOME}}
   zle reset-prompt
 }
 zle -N peco_cd_history

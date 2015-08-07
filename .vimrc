@@ -172,7 +172,6 @@ NeoBundle 'haya14busa/vim-migemo'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'moznion/hateblo.vim'
 NeoBundle 'rcmdnk/vim-markdown'
-NeoBundle 'TwitVim'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'jcf/vim-latex'
@@ -210,15 +209,6 @@ function! s:Jq(...)
   endif
   execute "%! jq " . l:arg
 endfunction
-
-
-"-----------
-"--twitvim--
-"-----------
-
-" let g:twitvim_browser_cmd='open'
-let g:twitvim_force_ssl=1
-let g:twitvim_count=40
 
 
 "---------------------
