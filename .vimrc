@@ -176,11 +176,20 @@ NeoBundle 'nelstrom/vim-textobj-rubyblock'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'jcf/vim-latex'
 NeoBundle 'elzr/vim-json'
+NeoBundle 'dgryski/vim-godef'
 
 call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
 
+"------------
+"--sudo-vim--
+"------------
+
+function! s:Sw()
+  execute "w sudo:%"
+endfunction
+command! Sw call s:Sw()
 
 "-----------------
 "--neocomplete-php
