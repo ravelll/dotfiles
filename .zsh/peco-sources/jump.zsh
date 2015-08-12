@@ -22,9 +22,9 @@ function peco_get_destination_from_history() {
 function peco_cd_history() {
   local destination=$(peco_get_destination_from_history)
   if [ -n "$destination" ]; then
-    BUFFER="cd $destination"
+    BUFFER="cd ${destination}"
+    zle accept-line
   fi
-  zle reset-prompt
 }
 zle -N peco_cd_history
 

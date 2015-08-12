@@ -20,6 +20,7 @@ PATH=$HOME/.nodebrew/current/bin:$PATH
 ## go
 export GOPATH="$HOME/.go"
 export PATH=$PATH:$GOPATH/bin
+alias gotags='gotags -R *.go >> tags'
 
 ## perl
 PERL_CPANM_OPT="--local-lib=$HOME/.perl-extlib"

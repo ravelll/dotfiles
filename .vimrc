@@ -121,6 +121,7 @@ NeoBundle 'Shougo/vimproc', {
   \ },
 \ }
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'fugitive.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'L9'
 NeoBundle 'sudo.vim'
@@ -177,6 +178,7 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'jcf/vim-latex'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'dgryski/vim-godef'
+NeoBundle 'majutsushi/tagbar'
 
 call neobundle#end()
 filetype plugin indent on
@@ -269,6 +271,43 @@ let g:quickrun_config={}
 let g:quickrun_config['markdown']={
   \   'outputter': 'browser'
   \ }
+
+
+"----------
+"--Tagbar--
+"----------
+
+nmap ,tb :TagbarToggle<CR>
+
+" for use gotags
+" https://github.com/jstemmer/gotags
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
 
 
 "-----------
