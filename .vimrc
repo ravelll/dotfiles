@@ -12,7 +12,7 @@ set wildmode=list,full
 set laststatus=2
 
 "file enc
-set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
+set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
 
 "show line number
 set number
