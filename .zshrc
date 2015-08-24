@@ -104,6 +104,7 @@ bindkey '^jd' peco_insert_history
 bindkey '^R'  peco_select_history
 bindkey '^js' peco_select_ghq
 bindkey '^jk' peco_kill
+bindkey '^jv' peco_vagrant
 
 ## vagrant
 alias vag='vagrant'
