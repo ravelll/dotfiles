@@ -107,7 +107,10 @@ bindkey '^jk' peco_kill
 bindkey '^jv' peco_vagrant
 
 ## vagrant
-alias vag='vagrant'
+alias vs='vagrant ssh'
+alias vh='vagrant halt'
+alias vp='vagrant provision'
+alias vu='vagrant up'
 
 ## other aliases
 alias ls='ls -G'
