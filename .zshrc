@@ -1,3 +1,6 @@
+
+# zsh
+
 #
 # oh-my-zsh
 # (put top to overwrite ohmyzsh aliases)
@@ -9,30 +12,43 @@ source $ZSH/oh-my-zsh.sh
 #
 # PATH
 #
-PATH="/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/heroku/bin:/opt/X11/bin:$HOME/.rbenv/shims:$PATH"
+export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin/:opt/X11/bin:$PATH"
+
 
 #
 # programming language environment
 #
 ## nodebrew
-PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH="$PATH:$HOME/.nodebrew/current/bin"
+
 
 ## go
 export GOPATH="$HOME/.go"
-export PATH=$PATH:$GOPATH/bin
+export PATH="$PATH:$GOPATH/bin"
 alias gotags='gotags -R *.go >> tags'
 
+
 ## perl
-PERL_CPANM_OPT="--local-lib=$HOME/.perl-extlib"
-PERL5LIB="$HOME/.perl-extlib/lib/perl5:$PERL5LIB"
+export PERL_CPANM_OPT="--local-lib=$HOME/.perl-extlib"
+export PERL5LIB="$HOME/.perl-extlib/lib/perl5:$PERL5LIB"
+
+
 ### plenv
-export PATH="$HOME/.plenv/bin:$PATH"
+export PATH="$PATH:$HOME/.plenv/bin"
 eval "$(plenv init -)"
+
+
+## php
+export PATH="$PATH:$HOME/.composer/vendor/bin"
+export PATH="$PATH:$HOME/.phpenv/bin"
+eval "$(phpenv init -)"
+
 
 ## ruby
 ### rbenv
-path=($HOME/.rbenv/bin(N) $path)
+export PATH="$PATH:$HOME/.rbenv/shims"
 eval "$(rbenv init -)"
+
 
 ### aliases
 alias rb='ruby'
@@ -42,18 +58,13 @@ alias bi='bundle install'
 alias bip='bundle install --path'
 alias rg='rails generate'
 
-## php
-PATH="$HOME/.composer/vendor/bin:$PATH"
-PATH="$HOME/.phpenv/bin:$PATH"
-eval "$(phpenv init -)"
-
 ## java
 ### aliases
 alias javac='javac -J-Dfile.encoding=UTF-8'
 alias java='java -Dfile.encoding=UTF-8'
 
 ## Qt
-PATH="/usr/local/Cellar/qt5/5.4.0/bin/:$PATH"
+export PATH="$PATH:/usr/local/Cellar/qt5/5.4.0/bin/"
 
 #
 # other tools environment
@@ -86,7 +97,7 @@ alias v='env LANG=ja_JP.UTF-8 vim "$@"'
 # alias v='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 
 ## Heroku Toolbelt
-PATH="/usr/local/heroku/bin:$PATH"
+export PATH="$PATH:/usr/local/heroku/bin"
 
 ## z
 . `brew --prefix`/etc/profile.d/z.sh
@@ -152,3 +163,5 @@ precmd () {
 #### show / unshow branch name by on git repos, or not
 RPROMPT="%1(v|%F{green}%1v%f|)"
 PROMPT='%F{cyan}%n %3d%f % '
+
+typeset -U path cdpath fpath manpath

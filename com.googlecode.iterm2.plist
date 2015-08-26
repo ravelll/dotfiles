@@ -112,7 +112,7 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>709 537 924 485 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>64 66 1389 961 0 0 1680 1027 </string>
+	<string>0 49 1680 978 0 0 1680 1027 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -670,7 +670,7 @@
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>Right Option Key Sends</key>
 			<integer>2</integer>
 			<key>Rows</key>
