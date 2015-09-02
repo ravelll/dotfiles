@@ -2,7 +2,7 @@
 # cd 履歴を記録
 setopt hist_ignore_all_dups
 typeset -U chpwd_functions
-CD_HISTORY_FILE=${HOME}/.cd_history_file # cd 履歴の記録先ファイル
+CD_HISTORY_FILE=${HOME}/.cd # cd 履歴の記録先ファイル
 
 function chpwd_record_history() {
   echo $PWD >> ${CD_HISTORY_FILE}

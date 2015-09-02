@@ -515,7 +515,7 @@ autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
 autocmd FileType css        setlocal sw=4 sts=4 ts=4 noet
 autocmd FileType diff       setlocal sw=4 sts=4 ts=4 noet
 autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 noet
-autocmd FileType go         setlocal sw=4 sts=4 ts=4 et
+autocmd FileType go         setlocal sw=4 sts=4 ts=4 noet
 autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
 autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
 autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et

@@ -14,7 +14,6 @@ source $ZSH/oh-my-zsh.sh
 #
 export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin/:opt/X11/bin:$PATH"
 
-
 #
 # programming language environment
 #
