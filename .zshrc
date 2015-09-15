@@ -69,6 +69,7 @@ export PATH="$PATH:/usr/local/Cellar/qt5/5.4.0/bin/"
 # other tools environment
 #
 ## git
+alias git='hub'
 alias g='git'
 alias d='git diff'
 alias dw='git diff --word-diff'
@@ -121,9 +122,11 @@ bindkey '^jv' peco_vagrant
 
 ## vagrant
 alias vs='vagrant ssh'
+alias vst='vagrant status'
 alias vh='vagrant halt'
 alias vp='vagrant provision'
 alias vu='vagrant up'
+alias vgs='vagrant-global-status'
 
 ## other aliases
 alias ls='ls -G'
