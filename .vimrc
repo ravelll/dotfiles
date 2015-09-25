@@ -506,8 +506,9 @@ runtime $VIMRUNTIME/macros/matchit.vim
 "--------------------
 "--filetype setting--
 "--------------------
-autocmd BufNewFile,BufRead *.thor     setf ruby
-autocmd BufNewFile,BufRead *.tpl      setf smarty.html
+autocmd BufNewFile,BufRead *.thor      setf ruby
+autocmd BufNewFile,BufRead Vagrantfile setf ruby
+autocmd BufNewFile,BufRead *.tpl       setf smarty.html
 " autocmd BufNewFile,BufRead *.html.erb setf javascript.html.eruby
 
 "-------------------

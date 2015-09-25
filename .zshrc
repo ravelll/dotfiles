@@ -99,6 +99,9 @@ EDITOR="vim -c \"set fenc=utf-8\""
 VIMRUNTIME=/usr/local/Cellar/vim/*(/)/share/vim/vim74/
 alias v='env LANG=ja_JP.UTF-8 vim "$@"'
 
+## neovim
+alias nv='nvim "$@"'
+
 ### use MacVim
 # EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim -c \"set fenc=utf-8\""
 # VIMRUNTIME=/Applications/MacVim.app/Contents/Resources/vim/runtime/
