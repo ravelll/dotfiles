@@ -9,6 +9,9 @@ ZSH=$HOME/.oh-my-zsh
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
+# Load local environment
+source ~/.localenv
+
 #
 # PATH
 #
@@ -31,13 +34,18 @@ alias gotags='gotags -R *.go >> tags'
 export PERL_CPANM_OPT="--local-lib=$HOME/.perl-extlib"
 export PERL5LIB="$HOME/.perl-extlib/lib/perl5:$PERL5LIB"
 
-
 ### plenv
 export PATH="$PATH:$HOME/.plenv/bin"
 eval "$(plenv init -)"
 
+## python
+### pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PATH:$PYENV_ROOT/bin"
+eval "$(pyenv init -)"
 
 ## php
+### phpenv
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 export PATH="$PATH:$HOME/.phpenv/bin"
 eval "$(phpenv init -)"
@@ -118,6 +126,7 @@ bindkey '^jk' peco_kill
 bindkey '^jv' peco_vagrant
 
 ## vagrant
+alias va='vagrant'
 alias vs='vagrant ssh'
 alias vst='vagrant status'
 alias vh='vagrant halt'
@@ -133,6 +142,7 @@ alias ms='massren'
 alias pe='ps -ef'
 
 alias -g P='| peco'
+alias -g N='| nkf'
 alias -g G='| pt'
 alias -g A='| ag'
 
@@ -157,9 +167,9 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '[%b]'
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () {
-    psvar=()
-    LANG=en_US.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+  psvar=()
+  LANG=en_US.js_JP.UTF-8 vcs_info
+  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 
 #### show / unshow branch name by on git repos, or not

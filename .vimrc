@@ -142,6 +142,7 @@ NeoBundle 'tmhedberg/matchit'
 NeoBundle 'switch.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'comeonly/php.vim-html-enhanced'
+NeoBundle 'joonty/vim-phpqa.git'
 NeoBundle 'taglist.vim'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'tpope/vim-endwise'
@@ -179,6 +180,7 @@ NeoBundle 'jcf/vim-latex'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'dgryski/vim-godef'
 NeoBundle 'majutsushi/tagbar'
+NeoBundle 'mattn/mkdpreview-vim'
 
 call neobundle#end()
 filetype plugin indent on
@@ -198,6 +200,13 @@ command! Sw call s:Sw()
 "-----------------
 
 let g:neocomplete_php_locale = 'ja'
+
+
+"--------------
+"--vim-phpqa---
+"--------------
+
+let g:phpqa_condesniffer_args = '--standard=Zend'
 
 
 "--------------
@@ -366,7 +375,6 @@ endfunction
 
 nnoremap <silent> ,ug :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <silent> ,ur :<C-u>UniteResume search-buffer<CR>
-
 nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 nnoremap <silent> ,uf :<C-u>Unite file_rec:!<CR>
@@ -385,7 +393,10 @@ nnoremap <silent> ,rs :<C-u>Unite rails/spec<CR>
 
 nnoremap <silent> ,uw :<C-u>Unite codic<CR>
 
+let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
+
 if executable('pt')
+  let g:unite_source_rec_async_command = ['pt', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
   let g:unite_source_grep_command = 'pt'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor'
   let g:unite_source_grep_recursive_opt = ''
