@@ -180,7 +180,8 @@ NeoBundle 'jcf/vim-latex'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'dgryski/vim-godef'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'mattn/mkdpreview-vim'
+NeoBundle 'ctrlp.vim'
+NeoBundle 'nixprime/cpsm'
 
 call neobundle#end()
 filetype plugin indent on
@@ -495,6 +496,18 @@ nmap <silent>,tc :call RunCurrentSpecFile()<CR>
 nmap <silent>,tn :call RunNearestSpec()<CR>
 nmap <silent>,tl :call RunLastSpec()<CR>
 nmap <silent>,ta :call RunAllSpecs()<CR>
+
+"---------
+"--CtrlP--
+"---------
+
+nnoremap <silent> <c-p><c-p> :CtrlP<CR>
+nnoremap <silent> <c-p><c-u> :CtrlPMRU<CR>
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_user_command = 'files -A %s'
+let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
+let g:ctrlp_max_height = 30
+let g:cpsm_query_inverting_delimiter = ' '
 
 
 "-----------------------
