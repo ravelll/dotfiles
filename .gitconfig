@@ -2,6 +2,7 @@
   name = gs3
   email = doub1e.31415@gmail.com
 [color]
+  ui = true
   diff = auto
   status = auto
   branch = auto
@@ -39,7 +40,10 @@
   editor = vim -c \"set fenc=utf-8\"
   excludesfile = ~/.gitignore
   precomposeunicode = true
-  pager = less -r
+[pager]
+  diff = diff-highlight | nkf -w | LESS=-R less
+  log  = diff-highlight | nkf -w | LESS=-R less
+  show = diff-highlight | nkf -w | LESS=-R less
 [push]
   default = simple
 [diff]
