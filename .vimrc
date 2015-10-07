@@ -182,6 +182,7 @@ NeoBundle 'dgryski/vim-godef'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'ctrlp.vim'
 NeoBundle 'nixprime/cpsm'
+NeoBundle 'scrooloose/syntastic'
 
 call neobundle#end()
 filetype plugin indent on
@@ -502,9 +503,11 @@ nmap <silent>,ta :call RunAllSpecs()<CR>
 "---------
 
 nnoremap <silent> <c-p><c-p> :CtrlP<CR>
-nnoremap <silent> <c-p><c-u> :CtrlPMRU<CR>
+nnoremap <silent> <c-p><c-l> :CtrlPClearCache<CR>
+nnoremap <silent> <c-p><c-m> :CtrlPMRU<CR>
+nnoremap <silent> <c-p><c-t> :CtrlPTag<CR>
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_user_command = 'files -A %s'
+let g:ctrlp_user_command = 'files -A -a %s'
 let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 let g:ctrlp_max_height = 30
 let g:cpsm_query_inverting_delimiter = ' '
@@ -515,6 +518,30 @@ let g:cpsm_query_inverting_delimiter = ' '
 "-----------------------
 
 runtime $VIMRUNTIME/macros/matchit.vim
+
+
+"--------------
+"--syntastic---
+"--------------
+
+nnoremap <silent> ,S :SyntasticToggleMode<CR>
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_mode_map = {
+      \ "mode": "active",
+      \ "active_filetypes": ["php"],
+      \ "passive_filetypes": ["ruby"] }
+
+let g:syntastic_php_checkers = ["php", "phpcs"]
+
 
 "--------------------
 "--filetype setting--
