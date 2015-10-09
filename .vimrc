@@ -498,6 +498,7 @@ nmap <silent>,tn :call RunNearestSpec()<CR>
 nmap <silent>,tl :call RunLastSpec()<CR>
 nmap <silent>,ta :call RunAllSpecs()<CR>
 
+
 "---------
 "--CtrlP--
 "---------
@@ -510,7 +511,7 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = 'files -A -a %s'
 let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 let g:ctrlp_max_height = 30
-let g:cpsm_query_inverting_delimiter = ' '
+let g:cpsm_query_inverting_delimiter = '\'
 
 
 "-----------------------
