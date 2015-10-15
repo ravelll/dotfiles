@@ -116,6 +116,9 @@ export PATH="$PATH:/usr/local/heroku/bin"
 ## tmux
 alias t='tmux -u'
 
+## GHQ
+export GHQ_ROOT="$HOME/src"
+
 ## peco
 source ~/.zsh/peco.zsh
 bindkey '^jr' peco_select_rake_task

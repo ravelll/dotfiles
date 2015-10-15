@@ -1,6 +1,6 @@
 .DS_Store
 tags
-/vendor/bundle
+/vendor
 .ruby-version
 .rbenv-version
 database.yml
