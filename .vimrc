@@ -1,4 +1,4 @@
-"// General Settings //
+"GENERAL SETTINGS {{{
 
 filetype off
 
@@ -32,6 +32,7 @@ set cindent
 "seve to current directory
 set browsedir=buffer
 
+"backup setting
 set autoread
 set nobackup
 set noswapfile
@@ -41,6 +42,8 @@ set noundofile
 set clipboard=unnamed,autoselect
 
 syntax on
+
+"colorscheme
 colorscheme monochrome
 
 "tab to space
@@ -62,19 +65,19 @@ function! HighlightSpaces()
 endfunction
 call HighlightSpaces()
 
-" escape insert mode
+"escape insert mode
 inoremap <silent> jj <ESC>
 
-" moving cursol in insert mode
+"moving cursol in insert mode
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
-" Esc removes search highlight
+"Esc removes search highlight
 nnoremap <Esc><Esc> :nohlsearch<CR>
 
-" complement brace
+"complement brace
 inoremap { {}<Left>
 inoremap [ []<Left>
 inoremap ( ()<Left>
@@ -83,26 +86,19 @@ inoremap ' ''<Left>
 inoremap < <><Left>
 inoremap <% <%%><Left><Left>
 
-" reload alias
+"reload alias
 nnoremap rr :e!<CR>
 
-
-" show under line to current line
+"show under line to current line
 nnoremap <silent> ,cl :set cursorline<CR>
 nnoremap <silent> ,cL :set nocursorline<CR>
 
+"}}}
 
 
-"// vim-over //
+"PLUGIN SETTINGS {{{
 
-nnoremap <silent> ,s :OverCommandLine<CR>%s/
-vnoremap <silent> ,s :OverCommandLine<CR>s/
-
-
-"-------------
-"--neobundle--
-"-------------
-
+"@neobundle
 
 if has('vim_starting')
   if &compatible
@@ -115,11 +111,11 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
-  \ 'build' : {
-    \ 'cygwin' : 'make -f make_cygwin.mak',
-    \ 'mac' : 'make -f make_mac.mak',
-  \ },
-\ }
+      \ 'build' : {
+      \ 'cygwin' : 'make -f make_cygwin.mak',
+      \ 'mac' : 'make -f make_mac.mak',
+      \ },
+      \ }
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'fugitive.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
@@ -141,8 +137,6 @@ NeoBundle 'ruby-matchit'
 NeoBundle 'tmhedberg/matchit'
 NeoBundle 'switch.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'comeonly/php.vim-html-enhanced'
-NeoBundle 'joonty/vim-phpqa.git'
 NeoBundle 'taglist.vim'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'tpope/vim-endwise'
@@ -188,40 +182,19 @@ call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
 
-"------------
-"--sudo-vim--
-"------------
-
+"@sudo vim
 function! s:Sw()
   execute "w sudo:%"
 endfunction
 command! Sw call s:Sw()
 
-"-----------------
-"--neocomplete-php
-"-----------------
-
+"@neocomplete php
 let g:neocomplete_php_locale = 'ja'
 
-
-"--------------
-"--vim-phpqa---
-"--------------
-
-let g:phpqa_condesniffer_args = '--standard=Zend'
-
-
-"--------------
-"--emmet-vim---
-"--------------
-
+"@emmet-vim
 let g:user_emmet_leader_key='<C-e>'
 
-
-"------
-"--jq--
-"------
-
+"@jq
 command! -nargs=? Jq call s:Jq(<f-args>)
 function! s:Jq(...)
   if 0 == a:0
@@ -232,11 +205,7 @@ function! s:Jq(...)
   execute "%! jq " . l:arg
 endfunction
 
-
-"---------------------
-"--vim-indent-guides--
-"---------------------
-
+"@vim-indent-guides
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=236
 
@@ -245,120 +214,83 @@ let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 
-
-"---------------
-"--neosnippets--
-"---------------
-
-" Plugin key-mappings.
+"@neosnippets
 imap <C-[>     <Plug>(neosnippet_expand_or_jump)
 smap <C-[>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-[>     <Plug>(neosnippet_expand_target)
 
-
-"--------------
-"--rename.vim--
-"--------------
-
-" Plugin key-mappings.
+"@rename.vim
 nnoremap <silent> ,mv :call Renamef()<CR>
 
-
-"-------------------------
-"--vim-rails+neosnippets--
-"-------------------------
-
+"@vim-rails + neosnippets
 autocmd User Rails.view*                 NeoSnippetSource ~/.vim/snippet/ruby.rails.view.snip
 autocmd User Rails.controller*           NeoSnippetSource ~/.vim/snippet/ruby.rails.controller.snip
 autocmd User Rails/db/migrate/*          NeoSnippetSource ~/.vim/snippet/ruby.rails.migrate.snip
 autocmd User Rails/config/routes.rb      NeoSnippetSource ~/.vim/snippet/ruby.rails.route.snip
 
-
-"------------
-"--quickrun--
-"------------
-
+"@quickrun
 let g:quickrun_config={}
 let g:quickrun_config['markdown']={
-  \   'outputter': 'browser'
-  \ }
+      \   'outputter': 'browser'
+      \ }
 
-
-"----------
-"--Tagbar--
-"----------
-
+"@Tagbar
 nmap ,tb :TagbarToggle<CR>
 
 " for use gotags
 " https://github.com/jstemmer/gotags
 let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
+      \ 'ctagstype' : 'go',
+      \ 'kinds'     : [
+      \ 'p:package',
+      \ 'i:imports:1',
+      \ 'c:constants',
+      \ 'v:variables',
+      \ 't:types',
+      \ 'n:interfaces',
+      \ 'w:fields',
+      \ 'e:embedded',
+      \ 'm:methods',
+      \ 'r:constructor',
+      \ 'f:functions'
+      \ ],
+      \ 'sro' : '.',
+      \ 'kind2scope' : {
+      \ 't' : 'ctype',
+      \ 'n' : 'ntype'
+      \ },
+      \ 'scope2kind' : {
+      \ 'ctype' : 't',
+      \ 'ntype' : 'n'
+      \ },
+      \ 'ctagsbin'  : 'gotags',
+      \ 'ctagsargs' : '-sort -silent'
+      \ }
 
-
-"-----------
-"--TagList--
-"-----------
-
+"@TagList
 let g:tlist_javascript_settings = 'javascript;c:class;m:method;F:function;p:property'
 let g:Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 
 nnoremap <silent> ,l :<C-u>TlistToggle<CR>
 nnoremap <silent> ,L :<C-u>TlistAddFilesRecursive %:h<Tab><CR>
 
-"------------
-"--tag jump--
-"------------
-
+"@tag jump
 nnoremap <C-]> g<C-]>
 
-
-"------------
-"--NERDTree--
-"------------
-
+"@NERDTree
 nnoremap <silent> ,nt :<C-u>NERDTreeToggle<CR>
 nnoremap <silent> ,nf :<C-u>NERDTreeFind<CR>
 let g:NERDTreeWinSize=40
 
-
-"-------------------
-"--operator-search--
-"-------------------
-
+"@operator-search
 nmap <Space>s <Plug>(operator-search)
 nmap <Space>/ <Plug>(operator-search)if
 
+"@VimOver
+nnoremap <silent> ,s :OverCommandLine<CR>%s/
+vnoremap <silent> ,s :OverCommandLine<CR>s/
 
-"---------
-"--unite--
-"---------
-
+"@unite {
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
@@ -395,19 +327,20 @@ nnoremap <silent> ,rs :<C-u>Unite rails/spec<CR>
 
 nnoremap <silent> ,uw :<C-u>Unite codic<CR>
 
-let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
-
-if executable('pt')
-  let g:unite_source_rec_async_command = ['pt', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
-  let g:unite_source_grep_command = 'pt'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor'
+if executable('hw')
+  let g:unite_source_rec_async_command = ['hw', '-f', '--no-color', '--no-group', '-a', '-l', '']
+  let g:unite_source_grep_command = 'hw'
+  let g:unite_source_grep_default_opts = '--no-group --no-color'
   let g:unite_source_grep_recursive_opt = ''
+else
+  let g:unite_source_rec_async_command = ['grep', '-R', '-S', '--color=never', '-h', '-l', '']
+  let g:unite_source_grep_command = 'hw'
+  let g:unite_source_grep_default_opts = '--color=never -R -S'
+  let g:unite_source_grep_recursive_opt = '-R'
 endif
+"}
 
-"---------------
-"--neocomplete--
-"---------------
-
+"@neocomplete {
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 
@@ -472,9 +405,9 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
+" if !exists('g:neocomplete#sources#omni#input_patterns')
+"   let g:neocomplete#sources#omni#input_patterns = {}
+" endif
 
 "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
@@ -483,14 +416,12 @@ endif
 "overwrite completefunc
 let g:neocomplete#force_overwrite_completefunc=1
 
+"}
 
-"---------------------------
-"--vim-rspec=>vim-dispatch--
-"---------------------------
-
+"@vim-rspec => vim-dispatch
 let s:bundle = neobundle#get('vim-rspec')
 function! s:bundle.hooks.on_source(bundle)
-   let g:rspec_command = 'Dispatch bundle exec rspec {spec}'
+  let g:rspec_command = 'Dispatch bundle exec rspec {spec}'
 endfunction
 
 nmap <silent>,tc :call RunCurrentSpecFile()<CR>
@@ -498,33 +429,22 @@ nmap <silent>,tn :call RunNearestSpec()<CR>
 nmap <silent>,tl :call RunLastSpec()<CR>
 nmap <silent>,ta :call RunAllSpecs()<CR>
 
-
-"---------
-"--CtrlP--
-"---------
-
+"@CtrlP
 nnoremap <silent> <c-p><c-p> :CtrlP<CR>
 nnoremap <silent> <c-p><c-l> :CtrlPClearCache<CR>
 nnoremap <silent> <c-p><c-m> :CtrlPMRU<CR>
 nnoremap <silent> <c-p><c-t> :CtrlPTag<CR>
+
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = 'files -A -a %s'
 let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 let g:ctrlp_max_height = 30
 let g:cpsm_query_inverting_delimiter = '\'
 
-
-"-----------------------
-"--vim-textobj-rubybox--
-"-----------------------
-
+"@vim-textobj-rubybox
 runtime $VIMRUNTIME/macros/matchit.vim
 
-
-"--------------
-"--syntastic---
-"--------------
-
+"@syntastic
 nnoremap <silent> ,S :SyntasticToggleMode<CR>
 
 set statusline+=%#warningmsg#
@@ -535,30 +455,23 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
 let g:syntastic_mode_map = {
       \ "mode": "active",
       \ "active_filetypes": ["php"],
       \ "passive_filetypes": ["ruby"] }
-
 let g:syntastic_php_checkers = ["php", "phpcs"]
 
+"}}}
 
-"--------------------
-"--filetype setting--
-"--------------------
+"filetype setting
 autocmd BufNewFile,BufRead *.thor      setf ruby
 autocmd BufNewFile,BufRead Vagrantfile setf ruby
 autocmd BufNewFile,BufRead *.tpl       setf smarty.html
 " autocmd BufNewFile,BufRead *.html.erb setf javascript.html.eruby
 
-"-------------------
-"--filetype indent--
-"-------------------
-
+"filetype indent
 filetype plugin indent on
 
-"respective filetype indent
 autocmd FileType sh         setlocal sw=2 sts=2 ts=2 et
 autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
 autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 noet
