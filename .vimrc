@@ -177,6 +177,7 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'ctrlp.vim'
 NeoBundle 'nixprime/cpsm'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'junegunn/vim-easy-align'
 
 call neobundle#end()
 filetype plugin indent on
@@ -330,11 +331,11 @@ nnoremap <silent> ,uw :<C-u>Unite codic<CR>
 if executable('hw')
   let g:unite_source_rec_async_command = ['hw', '-f', '--no-color', '--no-group', '-a', '-l', '']
   let g:unite_source_grep_command = 'hw'
-  let g:unite_source_grep_default_opts = '--no-group --no-color'
+  let g:unite_source_grep_default_opts = '-f -a -l --no-group --no-color'
   let g:unite_source_grep_recursive_opt = ''
 else
   let g:unite_source_rec_async_command = ['grep', '-R', '-S', '--color=never', '-h', '-l', '']
-  let g:unite_source_grep_command = 'hw'
+  let g:unite_source_grep_command = 'grep'
   let g:unite_source_grep_default_opts = '--color=never -R -S'
   let g:unite_source_grep_recursive_opt = '-R'
 endif
@@ -443,6 +444,10 @@ let g:cpsm_query_inverting_delimiter = '\'
 
 "@vim-textobj-rubybox
 runtime $VIMRUNTIME/macros/matchit.vim
+
+"@vim-easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 "@syntastic
 nnoremap <silent> ,S :SyntasticToggleMode<CR>
