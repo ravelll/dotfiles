@@ -178,6 +178,11 @@ NeoBundle 'ctrlp.vim'
 NeoBundle 'nixprime/cpsm'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'vim-scripts/tagbar-phpctags', {
+  \   'build' : {
+  \     'others' : 'chmod +x bin/phpctags',
+  \   },
+  \ }
 
 call neobundle#end()
 filetype plugin indent on
@@ -347,6 +352,9 @@ let g:acp_enableAtStartup = 0
 
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
+
+" TagBar, phpctags
+let g:tagbar_phpctags_memory_limit = '512M'
 
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
