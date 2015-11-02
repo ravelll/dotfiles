@@ -445,6 +445,10 @@ let g:cpsm_query_inverting_delimiter = '\'
 "@vim-textobj-rubybox
 runtime $VIMRUNTIME/macros/matchit.vim
 
+"@vim-tags
+let g:vim_tags_ctags_binary = '/usr/local/bin/ctags'
+let g:vim_tags_auto_generate = 1
+
 "@vim-easy-align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
