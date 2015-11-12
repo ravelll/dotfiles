@@ -182,6 +182,7 @@ NeoBundle 'vim-scripts/tagbar-phpctags', {
   \     'others' : 'chmod +x bin/phpctags',
   \   },
   \ }
+NeoBundle 'jwalton512/vim-blade'
 
 call neobundle#end()
 filetype plugin indent on
@@ -485,6 +486,7 @@ let g:syntastic_php_checkers = ["php", "phpcs"]
 autocmd BufNewFile,BufRead *.thor      setf ruby
 autocmd BufNewFile,BufRead Vagrantfile setf ruby
 autocmd BufNewFile,BufRead *.tpl       setf smarty.html
+autocmd BufNewFile,BufRead *.blade.php setf html.php.blade
 " autocmd BufNewFile,BufRead *.html.erb setf javascript.html.eruby
 
 "filetype indent
