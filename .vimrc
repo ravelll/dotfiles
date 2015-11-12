@@ -1,6 +1,8 @@
 "GENERAL SETTINGS {{{
-
 filetype off
+
+"search
+set ic
 
 "show encoding
 set statusline=[%{&fileencoding}]%{fugitive#statusline()}
@@ -16,9 +18,6 @@ set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
 
 "show line number
 set number
-
-"search
-set smartcase
 
 "enable backspace
 set backspace=indent,eol,start
@@ -99,7 +98,6 @@ nnoremap <silent> ,cL :set nocursorline<CR>
 "PLUGIN SETTINGS {{{
 
 "@neobundle
-
 if has('vim_starting')
   if &compatible
     set nocompatible
@@ -176,6 +174,7 @@ NeoBundle 'dgryski/vim-godef'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'ctrlp.vim'
 NeoBundle 'nixprime/cpsm'
+NeoBundle 'heavenshell/vim-slack'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'vim-scripts/tagbar-phpctags', {
@@ -229,10 +228,10 @@ xmap <C-[>     <Plug>(neosnippet_expand_target)
 nnoremap <silent> ,mv :call Renamef()<CR>
 
 "@vim-rails + neosnippets
-autocmd User Rails.view*                 NeoSnippetSource ~/.vim/snippet/ruby.rails.view.snip
-autocmd User Rails.controller*           NeoSnippetSource ~/.vim/snippet/ruby.rails.controller.snip
-autocmd User Rails/db/migrate/*          NeoSnippetSource ~/.vim/snippet/ruby.rails.migrate.snip
-autocmd User Rails/config/routes.rb      NeoSnippetSource ~/.vim/snippet/ruby.rails.route.snip
+autocmd User Rails.view*            NeoSnippetSource ~/.vim/snippet/ruby.rails.view.snip
+autocmd User Rails.controller*      NeoSnippetSource ~/.vim/snippet/ruby.rails.controller.snip
+autocmd User Rails/db/migrate/*     NeoSnippetSource ~/.vim/snippet/ruby.rails.migrate.snip
+autocmd User Rails/config/routes.rb NeoSnippetSource ~/.vim/snippet/ruby.rails.route.snip
 
 "@quickrun
 let g:quickrun_config={}
@@ -440,15 +439,17 @@ nmap <silent>,ta :call RunAllSpecs()<CR>
 
 "@CtrlP
 nnoremap <silent> <c-p><c-p> :CtrlP<CR>
-nnoremap <silent> <c-p><c-l> :CtrlPClearCache<CR>
-nnoremap <silent> <c-p><c-m> :CtrlPMRU<CR>
+nnoremap <silent> <c-p><c-l> :CtrlPLine<CR>
+nnoremap <silent> <c-p><c-u> :CtrlPMRU<CR>
 nnoremap <silent> <c-p><c-t> :CtrlPTag<CR>
 
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = 'files -A -a %s'
 let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
+let g:ctrlp_match_window = 'order:btt'
 let g:ctrlp_max_height = 30
 let g:cpsm_query_inverting_delimiter = '\'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|vendor)'
 
 "@vim-textobj-rubybox
 runtime $VIMRUNTIME/macros/matchit.vim
@@ -520,3 +521,4 @@ autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
 autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
 autocmd FileType puppet     setlocal sw=2 sts=2 ts=2 et
 autocmd FileType tpl        setlocal sw=2 sts=2 ts=2 et
+
