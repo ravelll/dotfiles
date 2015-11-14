@@ -1,9 +1,6 @@
 "GENERAL SETTINGS {{{
 filetype off
 
-"search
-set ic
-
 "show encoding
 set statusline=[%{&fileencoding}]%{fugitive#statusline()}
 
@@ -22,8 +19,17 @@ set number
 "enable backspace
 set backspace=indent,eol,start
 
+"use Very Magic
+nmap / /\v
+
+"case-insensitive search
+set ic
+
 "search with highlighting
 set hlsearch
+
+"Esc removes search highlight
+nnoremap <Esc><Esc> :nohlsearch<CR>
 
 "use indent algorythm to cindent
 set cindent
@@ -40,6 +46,7 @@ set noundofile
 "clipboard
 set clipboard=unnamed,autoselect
 
+"syntax highlighting
 syntax on
 
 "colorscheme
@@ -56,11 +63,11 @@ set shiftwidth=2
 augroup Spaces
   autocmd!
   autocmd ColorScheme * call HighlightSpaces()
-  autocmd BufWritePost,VimEnter * match Spaces /\s\+$/
+  autocmd BufWritePost,VimEnter * match Spaces /\(\s\+$\|\t\)/
 augroup END
 
 function! HighlightSpaces()
-  highlight Spaces cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
+  highlight Spaces cterm=reverse ctermfg=darkgreen gui=reverse guifg=darkgreen
 endfunction
 call HighlightSpaces()
 
@@ -72,9 +79,6 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
-
-"Esc removes search highlight
-nnoremap <Esc><Esc> :nohlsearch<CR>
 
 "complement brace
 inoremap { {}<Left>
@@ -159,7 +163,6 @@ NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'thoughtbot/vim-rspec'
 NeoBundle 'koron/codic-vim'
 NeoBundle 'rhysd/unite-codic.vim'
-NeoBundle 'Align'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'haya14busa/vim-migemo'
