@@ -128,6 +128,7 @@ NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/context_filetype.vim'
 NeoBundle 'rails.vim'
 NeoBundle 'surround.vim'
 NeoBundle 'scrooloose/nerdtree.git'
@@ -481,7 +482,8 @@ let g:syntastic_mode_map = {
       \ "mode": "active",
       \ "active_filetypes": ["php"],
       \ "passive_filetypes": ["ruby"] }
-let g:syntastic_php_checkers = ["php", "phpcs"]
+let g:syntastic_php_checkers = ['phpmd', 'php', 'phpcs']
+let g:syntastic_php_phpmd_post_args='$HOME/.composer/fixtures/ruleset.xml'
 
 "}}}
 
