@@ -152,7 +152,7 @@ NeoBundle 'osyo-manga/vim-operator-search'
 NeoBundle 'monochromegane/unite-yaml'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'szw/vim-tags'
-NeoBundle 'git://git.wincent.com/command-t.git'
+NeoBundle 'wincent/command-t'
 NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'pasela/unite-webcolorname'
 NeoBundle 'fxn/vim-monochrome'
@@ -480,8 +480,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = {
       \ "mode": "active",
-      \ "active_filetypes": ["php"],
-      \ "passive_filetypes": ["ruby"] }
+      \ "passive_filetypes": ['ruby', 'php'] }
 let g:syntastic_php_checkers = ['phpmd', 'php', 'phpcs']
 let g:syntastic_php_phpmd_post_args='$HOME/.composer/fixtures/ruleset.xml'
 
