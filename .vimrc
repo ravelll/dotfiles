@@ -478,11 +478,12 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
 let g:syntastic_mode_map = {
       \ "mode": "active",
       \ "passive_filetypes": ['ruby', 'php'] }
 let g:syntastic_php_checkers = ['phpmd', 'php', 'phpcs']
-let g:syntastic_php_phpmd_post_args='$HOME/.composer/fixtures/ruleset.xml'
+let g:syntastic_php_phpmd_post_args = '$HOME/.composer/fixtures/ruleset.xml'
 
 "}}}
 
