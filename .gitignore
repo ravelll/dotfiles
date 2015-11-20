@@ -3,6 +3,7 @@ tags
 /vendor
 .ruby-version
 .rbenv-version
+.php-version
 database.yml
 Vagrantfile
 /log/*.log
