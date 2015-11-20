@@ -49,4 +49,4 @@
 [diff]
   noprefix = true
 [ghq]
-	root = ~/src
+  root = ~/src
