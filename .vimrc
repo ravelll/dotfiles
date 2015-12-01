@@ -493,6 +493,15 @@ let g:syntastic_mode_map = {
 let g:syntastic_php_checkers = ['phpmd', 'php', 'phpcs']
 let g:syntastic_php_phpmd_post_args = '$HOME/.composer/fixtures/ruleset.xml'
 
+"@execute php-cs-fixer to opened file
+if executable('php-cs-fixer')
+  function! PhpFix()
+    execute ':! echo % | xargs -I % php-cs-fixer fix % --rules=@PSR2'
+  endfunction
+  nnoremap <silent> ,pf :call PhpFix()<CR>
+endif
+
+
 "}}}
 
 "filetype setting
