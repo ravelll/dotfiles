@@ -89,6 +89,14 @@ inoremap ' ''<Left>
 inoremap < <><Left>
 inoremap <% <%%><Left><Left>
 
+"copy file name
+if executable('pbcopy')
+  function! CopyFileName()
+    execute ':! echo % | pbcopy'
+  endfunction
+  nnoremap <silent> cc :call CopyFileName()<CR>
+endif
+
 "reload alias
 nnoremap rr :e!<CR>
 
