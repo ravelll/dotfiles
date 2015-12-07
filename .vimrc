@@ -1,71 +1,35 @@
 filetype off
 
-" show encoding
-set statusline=[%{&fileencoding}]%{fugitive#statusline()}
-
 " command complement
 set wildmode=list,full
 
+" sync vim copy to clipboard
+set clipboard=unnamed,autoselect
+
+" ==== DISPLAY INFOMATION ====
 " always show statusline
 set laststatus=2
 
-set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
-
+" show line number
 set number
 
-" enable backspace
-set backspace=indent,eol,start
+" show encoding
+set statusline=[%{&fileencoding}]%{fugitive#statusline()}
 
-" ========= searching ===========
-" lowercase -> case-insensitive search
-set ignorecase
+" fileencoding usage (left is prior right)
+set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
 
-" uppercase -> case-sensitive search
-set ignorecase
+" show current line
+nnoremap <silent> ,ul :set cursorline<CR>
+nnoremap <silent> ,uL :set nocursorline<CR>
 
-" use Very Magic
-nmap / /\v
-" ===============================
-
-" search with highlighting
-set hlsearch
-nnoremap <Esc><Esc> :nohlsearch<CR>
-
-set cindent
+" set 256color
+set t_Co=256
 
 set browsedir=buffer
+" ============================
 
-" ========= backup =============
-set autoread
-set nobackup
-set noswapfile
-set noundofile
-" ==============================
-
-
-" ======== keyconfigs ==========
-inoremap <silent> jj <ESC>
-
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
-
-inoremap { {}<Left>
-inoremap [ []<Left>
-inoremap ( ()<Left>
-inoremap " ""<Left>
-inoremap ' ''<Left>
-inoremap < <><Left>
-inoremap <% <%%><Left><Left>
-" ==============================
-
-set clipboard=unnamed,autoselect
-
-syntax on
-
-colorscheme monochrome
-
+" ======== TAB, SPACE ==========
 set smarttab
 set expandtab
 set tabstop=2
@@ -82,7 +46,62 @@ function! HighlightSpaces()
   highlight Spaces cterm=reverse ctermfg=darkgreen gui=reverse guifg=darkgreen
 endfunction
 call HighlightSpaces()
+" ==============================
 
+" ========= SEARCHING ===========
+" search with highlighting
+set hlsearch
+
+" stop highlighting
+nnoremap <Esc><Esc> :nohlsearch<CR>
+
+" use c indent algorithm
+set cindent
+
+" lowercase -> case-insensitive search
+set ignorecase
+
+" uppercase -> case-sensitive search
+set ignorecase
+
+" use Very Magic
+nmap / /\v
+" ===============================
+
+" === BACKUP ===
+set autoread
+set nobackup
+set noswapfile
+set noundofile
+" ==============
+
+" ===== KEYCONFIGS =======
+inoremap <silent> jj <ESC>
+
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+
+inoremap { {}<Left>
+inoremap [ []<Left>
+inoremap ( ()<Left>
+inoremap " ""<Left>
+inoremap ' ''<Left>
+inoremap < <><Left>
+inoremap <% <%%><Left><Left>
+
+nnoremap <Space>q :only<CR>
+
+" enable backspace
+set backspace=indent,eol,start
+" ========================
+
+" syntax highlight
+syntax on
+
+" colorscheme setting
+colorscheme monochrome
 
 " copy file name
 if executable('pbcopy')
@@ -92,16 +111,10 @@ if executable('pbcopy')
   nnoremap <silent> cc :call CopyFileName()<CR>
 endif
 
+" reloading
 nnoremap rr :e!<CR>
 
-" show under line to current line
-nnoremap <silent> ,cl :set cursorline<CR>
-nnoremap <silent> ,cL :set nocursorline<CR>
-
-set t_Co=256
-
 "}}}
-
 
 "PLUGIN SETTINGS {{{
 " leader
