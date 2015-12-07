@@ -13,3 +13,4 @@ Vagrantfile
 .secret
 npm-debug.log
 .eslintrc.js
+.php_cs.cache
