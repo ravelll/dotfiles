@@ -1,65 +1,79 @@
-"GENERAL SETTINGS {{{
 filetype off
 
-"show encoding
+" show encoding
 set statusline=[%{&fileencoding}]%{fugitive#statusline()}
 
-"command complement
+" command complement
 set wildmode=list,full
 
-"always show statusline
+" always show statusline
 set laststatus=2
 
-"file enc
 set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
 
-"show line number
 set number
 
-"enable backspace
+" enable backspace
 set backspace=indent,eol,start
 
-"use Very Magic
+" ========= searching ===========
+" lowercase -> case-insensitive search
+set ignorecase
+
+" uppercase -> case-sensitive search
+set ignorecase
+
+" use Very Magic
 nmap / /\v
+" ===============================
 
-"case-insensitive search
-set ic
-
-"search with highlighting
+" search with highlighting
 set hlsearch
-
-"Esc removes search highlight
 nnoremap <Esc><Esc> :nohlsearch<CR>
 
-"use indent algorythm to cindent
 set cindent
 
-"seve to current directory
 set browsedir=buffer
 
-"backup setting
+" ========= backup =============
 set autoread
 set nobackup
 set noswapfile
 set noundofile
+" ==============================
 
-"clipboard
+
+" ======== keyconfigs ==========
+inoremap <silent> jj <ESC>
+
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+
+inoremap { {}<Left>
+inoremap [ []<Left>
+inoremap ( ()<Left>
+inoremap " ""<Left>
+inoremap ' ''<Left>
+inoremap < <><Left>
+inoremap <% <%%><Left><Left>
+
+
+" ==============================
+
 set clipboard=unnamed,autoselect
 
-"syntax highlighting
 syntax on
 
-"colorscheme
 colorscheme monochrome
 
-"tab to space
 set smarttab
 set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 
-"emphasize tab and space
 augroup Spaces
   autocmd!
   autocmd ColorScheme * call HighlightSpaces()
@@ -71,25 +85,8 @@ function! HighlightSpaces()
 endfunction
 call HighlightSpaces()
 
-"escape insert mode
-inoremap <silent> jj <ESC>
 
-"moving cursol in insert mode
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
-
-"complement brace
-inoremap { {}<Left>
-inoremap [ []<Left>
-inoremap ( ()<Left>
-inoremap " ""<Left>
-inoremap ' ''<Left>
-inoremap < <><Left>
-inoremap <% <%%><Left><Left>
-
-"copy file name
+" copy file name
 if executable('pbcopy')
   function! CopyFileName()
     execute ':! echo % | pbcopy'
@@ -97,12 +94,13 @@ if executable('pbcopy')
   nnoremap <silent> cc :call CopyFileName()<CR>
 endif
 
-"reload alias
 nnoremap rr :e!<CR>
 
-"show under line to current line
+" show under line to current line
 nnoremap <silent> ,cl :set cursorline<CR>
 nnoremap <silent> ,cL :set nocursorline<CR>
+
+set t_Co=256
 
 "}}}
 
@@ -498,7 +496,7 @@ if executable('php-cs-fixer')
   function! PhpFix()
     execute ':! echo % | xargs -I % php-cs-fixer fix % --rules=@PSR2'
   endfunction
-  nnoremap <silent> ,pf :call PhpFix()<CR>
+  nnoremap <silent> ,ff *:call PhpFix()<CR>
 endif
 
 
