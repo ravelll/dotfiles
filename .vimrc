@@ -58,8 +58,6 @@ inoremap " ""<Left>
 inoremap ' ''<Left>
 inoremap < <><Left>
 inoremap <% <%%><Left><Left>
-
-
 " ==============================
 
 set clipboard=unnamed,autoselect
@@ -267,9 +265,14 @@ autocmd User Rails/db/migrate/*     NeoSnippetSource ~/.vim/snippet/ruby.rails.m
 autocmd User Rails/config/routes.rb NeoSnippetSource ~/.vim/snippet/ruby.rails.route.snip
 
 "@quickrun
-let g:quickrun_config={}
-let g:quickrun_config['markdown']={
-      \   'outputter': 'browser'
+let g:quickrun_config = {}
+let g:quickrun_config.ruby = {'command' : 'ruby'}
+let g:quickrun_config.markdown = {
+      \ 'outputter' : 'null',
+      \ 'command'   : 'open',
+      \ 'cmdopt'    : '-a',
+      \ 'args'      : 'Marked\ 2',
+      \ 'exec'      : '%c %o %a %s',
       \ }
 
 "@Tagbar
