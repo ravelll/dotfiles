@@ -106,6 +106,11 @@ set t_Co=256
 
 
 "PLUGIN SETTINGS {{{
+" leader
+let maplocalleader=','
+
+" use \ as , alternative
+noremap \ ,
 
 "@neobundle
 if has('vim_starting')
@@ -203,6 +208,23 @@ function! s:Sw()
   execute "w sudo:%"
 endfunction
 command! Sw call s:Sw()
+
+"@surround.vim
+nmap <LocalLeader>{ ysiw{
+nmap <LocalLeader>} ysiw}
+nmap <LocalLeader>[ ysiw[
+nmap <LocalLeader>] ysiw]
+nmap <LocalLeader>( ysiw(
+nmap <LocalLeader>) ysiw)
+nmap <LocalLeader>b ysiwb
+nmap <LocalLeader>< ysiw<
+nmap <LocalLeader>> ysiw>
+nmap <LocalLeader>" ysiw"
+nmap <LocalLeader>' ysiw'
+nmap <LocalLeader>` ysiw`
+nmap <LocalLeader>* ysiw*
+nmap <LocalLeader>/ ysiw/
+nmap <LocalLeader><LocalLeader>* ysiw*wysiw*
 
 "@neocomplete php
 let g:neocomplete_php_locale = 'ja'
