@@ -106,7 +106,7 @@ colorscheme monochrome
 " copy file name
 if executable('pbcopy')
   function! CopyFileName()
-    execute ':! echo % | pbcopy'
+    execute ':! printf % | pbcopy'
   endfunction
   nnoremap <silent> cc :call CopyFileName()<CR>
 endif
