@@ -114,7 +114,7 @@ export PATH="$PATH:/usr/local/heroku/bin"
 . `brew --prefix`/etc/profile.d/z.sh
 
 ## tmux
-alias t='tmux -u'
+alias t='tmux -u -2'
 
 ## GHQ
 export GHQ_ROOT="$HOME/src"
