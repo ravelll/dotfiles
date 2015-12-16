@@ -6,7 +6,7 @@ set wildmode=list,full
 " sync vim copy to clipboard
 set clipboard=unnamed,autoselect
 
-" ==== DISPLAY INFOMATION ====
+" ======== DISPLAY INFOMATION ========
 " always show statusline
 set laststatus=2
 
@@ -27,9 +27,9 @@ nnoremap <silent> ,uL :set nocursorline<CR>
 set t_Co=256
 
 set browsedir=buffer
-" ============================
+" ====================================
 
-" ======== TAB, SPACE ==========
+" =========== TAB, SPACE =============
 set smarttab
 set expandtab
 set tabstop=2
@@ -46,9 +46,9 @@ function! HighlightSpaces()
   highlight Spaces cterm=reverse ctermfg=darkgreen gui=reverse guifg=darkgreen
 endfunction
 call HighlightSpaces()
-" ==============================
+" ====================================
 
-" ========= SEARCHING ===========
+" ============ SEARCHING ==============
 " search with highlighting
 set hlsearch
 
@@ -66,16 +66,16 @@ set ignorecase
 
 " use Very Magic
 nmap / /\v
-" ===============================
+" =====================================
 
-" === BACKUP ===
+" ========= BACKUP =========
 set autoread
 set nobackup
 set noswapfile
 set noundofile
-" ==============
+" ==========================
 
-" ===== KEYCONFIGS =======
+" ========= KEYCONFIGS ==========
 inoremap <silent> jj <ESC>
 
 inoremap <C-j> <Down>
@@ -95,7 +95,7 @@ nnoremap <Space>q :only<CR>
 
 " enable backspace
 set backspace=indent,eol,start
-" ========================
+" ==============================
 
 " syntax highlight
 syntax on
@@ -532,7 +532,7 @@ let g:syntastic_php_phpmd_post_args = '$HOME/.composer/fixtures/ruleset.xml'
 "@execute php-cs-fixer to opened file
 if executable('php-cs-fixer')
   function! PhpFix()
-    execute ':! echo % | xargs -I % php-cs-fixer fix % --rules=@PSR2'
+    execute ':! echo % | xargs -I % php-cs-fixer fix % --rules=@PSR1,@PSR2'
   endfunction
   nnoremap <silent> ,ff *:call PhpFix()<CR>
 endif
