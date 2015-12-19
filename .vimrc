@@ -1,17 +1,14 @@
 filetype off
 
-" command complement
-set wildmode=list,full
-
-" sync vim copy to clipboard
-set clipboard=unnamed,autoselect
-
 " ======== DISPLAY INFOMATION ========
 " always show statusline
 set laststatus=2
 
 " show line number
 set number
+
+" command complement
+set wildmode=list,full
 
 " show encoding
 set statusline=[%{&fileencoding}]%{fugitive#statusline()}
@@ -26,7 +23,14 @@ nnoremap <silent> ,uL :set nocursorline<CR>
 " set 256color
 set t_Co=256
 
+" use init dir same as a file opening for selecting file
 set browsedir=buffer
+
+" syntax highlight
+syntax on
+
+" colorscheme setting
+colorscheme monochrome
 " ====================================
 
 " =========== TAB, SPACE =============
@@ -93,15 +97,16 @@ inoremap <% <%%><Left><Left>
 
 nnoremap <Space>q :only<CR>
 
+" reloading
+nnoremap rr :e!<CR>
+
 " enable backspace
 set backspace=indent,eol,start
 " ==============================
 
-" syntax highlight
-syntax on
-
-" colorscheme setting
-colorscheme monochrome
+" ============ COPY =============
+" sync vim copy to clipboard
+set clipboard=unnamed,autoselect
 
 " copy file name
 if executable('pbcopy')
@@ -110,13 +115,12 @@ if executable('pbcopy')
   endfunction
   nnoremap <silent> cc :call CopyFileName()<CR>
 endif
-
-" reloading
-nnoremap rr :e!<CR>
-
+" ===============================
 "}}}
 
-"PLUGIN SETTINGS {{{
+" {{{
+" ================== PLUGIN SETTINGS ==================
+"
 " leader
 let maplocalleader=','
 
@@ -524,8 +528,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_mode_map = {
-      \ "mode": "active",
-      \ "passive_filetypes": ['ruby', 'php'] }
+      \ "mode": "passive",
+      \ "active_filetypes": ['ruby', 'php'] }
 let g:syntastic_php_checkers = ['phpmd', 'php', 'phpcs']
 let g:syntastic_php_phpmd_post_args = '$HOME/.composer/fixtures/ruleset.xml'
 
@@ -538,7 +542,8 @@ if executable('php-cs-fixer')
 endif
 
 
-"}}}
+" =============================================================================
+" }}}
 
 "filetype setting
 autocmd BufNewFile,BufRead *.thor      setf ruby
