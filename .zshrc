@@ -25,6 +25,7 @@ export PATH="$PATH:$HOME/.nodebrew/current/bin"
 
 
 ## go
+export GOROOT="/usr/local/bin/"
 export GOPATH="$HOME/.go"
 export PATH="$PATH:$GOPATH/bin"
 alias gotags='gotags -R *.go >> tags'
