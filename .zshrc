@@ -23,13 +23,10 @@ export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin/:opt/X11/bin:$PATH"
 ## nodebrew
 export PATH="$PATH:$HOME/.nodebrew/current/bin"
 
-
 ## go
-export GOROOT="/usr/local/bin/"
 export GOPATH="$HOME/.go"
 export PATH="$PATH:$GOPATH/bin"
 alias gotags='gotags -R *.go >> tags'
-
 
 ## perl
 export PERL_CPANM_OPT="--local-lib=$HOME/.perl-extlib"
