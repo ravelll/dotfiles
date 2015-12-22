@@ -190,17 +190,13 @@ NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'thoughtbot/vim-rspec'
 NeoBundle 'koron/codic-vim'
 NeoBundle 'rhysd/unite-codic.vim'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'fatih/vim-go'
 NeoBundle 'haya14busa/vim-migemo'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'moznion/hateblo.vim'
 NeoBundle 'rcmdnk/vim-markdown'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
 NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'jcf/vim-latex'
 NeoBundle 'elzr/vim-json'
-NeoBundle 'dgryski/vim-godef'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'ctrlp.vim'
 NeoBundle 'nixprime/cpsm'
@@ -213,6 +209,9 @@ NeoBundle 'vim-scripts/tagbar-phpctags', {
   \   },
   \ }
 NeoBundle 'jwalton512/vim-blade'
+NeoBundle 'fatih/vim-go'
+NeoBundle 'dgryski/vim-godef'
+NeoBundle 'vim-jp/vim-go-extra'
 
 call neobundle#end()
 filetype plugin indent on
@@ -244,9 +243,6 @@ nmap <LocalLeader><LocalLeader>* ysiw*wysiw*
 "@neocomplete php
 let g:neocomplete_php_locale = 'ja'
 
-"@emmet-vim
-let g:user_emmet_leader_key='<C-e>'
-
 "@jq
 command! -nargs=? Jq call s:Jq(<f-args>)
 function! s:Jq(...)
@@ -268,18 +264,18 @@ let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 
 "@neosnippets
-imap <C-[>     <Plug>(neosnippet_expand_or_jump)
-smap <C-[>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-[>     <Plug>(neosnippet_expand_target)
+imap <C-e> <Plug>(neosnippet_expand_or_jump)
+smap <C-e> <Plug>(neosnippet_expand_or_jump)
+xmap <C-e> <Plug>(neosnippet_expand_target)
 
 "@rename.vim
 nnoremap <silent> ,mv :call Renamef()<CR>
 
 "@vim-rails + neosnippets
 autocmd User Rails.view*            NeoSnippetSource ~/.vim/snippet/ruby.rails.view.snip
-autocmd User Rails.controller*      NeoSnippetSource ~/.vim/snippet/ruby.rails.controller.snip
-autocmd User Rails/db/migrate/*     NeoSnippetSource ~/.vim/snippet/ruby.rails.migrate.snip
-autocmd User Rails/config/routes.rb NeoSnippetSource ~/.vim/snippet/ruby.rails.route.snip
+autocmd user rails.controller*      neosnippetsource ~/.vim/snippet/ruby.rails.controller.snip
+autocmd user rails/db/migrate/*     neosnippetsource ~/.vim/snippet/ruby.rails.migrate.snip
+autocmd user rails/config/routes.rb neosnippetsource ~/.vim/snippet/ruby.rails.route.snip
 
 "@quickrun
 let g:quickrun_config = {}
@@ -294,6 +290,9 @@ let g:quickrun_config.markdown = {
 
 "@Tagbar
 nmap ,tb :TagbarToggle<CR>
+
+" TagBar, phpctags
+let g:tagbar_phpctags_memory_limit = '512M'
 
 " for use gotags
 " https://github.com/jstemmer/gotags
@@ -398,15 +397,26 @@ else
 endif
 "}
 
+"@golang setting {
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_bin_path = '/usr/local/bin/go'
+
+exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+set completeopt=menu,preview
+
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+"}
+
 "@neocomplete {
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
-
-" TagBar, phpctags
-let g:tagbar_phpctags_memory_limit = '512M'
 
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
@@ -425,8 +435,6 @@ let g:neocomplete#sources#dictionary#dictionaries = {
       \ 'javascript' : $HOME.'/.vim/dict/javascript.dict',
       \ }
 
-" $HOME.'/.vim/dict/ruby.rspec.dict'
-
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
   let g:neocomplete#keyword_patterns = {}
@@ -434,16 +442,14 @@ endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
 " Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-u>     neocomplete#complete_common_string()
+inoremap <expr><C-g> neocomplete#undo_completion()
+inoremap <expr><C-u> neocomplete#complete_common_string()
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplete#smart_close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
 endfunction
 
 " <TAB>: completion.
@@ -452,11 +458,6 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-;> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
-
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -466,9 +467,9 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
-" if !exists('g:neocomplete#sources#omni#input_patterns')
-"   let g:neocomplete#sources#omni#input_patterns = {}
-" endif
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
 
 "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
@@ -476,6 +477,8 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 "overwrite completefunc
 let g:neocomplete#force_overwrite_completefunc=1
+
+let g:neocomplete#skip_auto_completion_time = ''
 
 "}
 
