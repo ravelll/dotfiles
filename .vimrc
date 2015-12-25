@@ -532,7 +532,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_mode_map = {
       \ "mode": "passive",
-      \ "active_filetypes": ['ruby', 'php'] }
+      \ "active_filetypes": ['ruby'] }
 let g:syntastic_php_checkers = ['phpmd', 'php', 'phpcs']
 let g:syntastic_php_phpmd_post_args = '$HOME/.composer/fixtures/ruleset.xml'
 
