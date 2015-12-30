@@ -198,7 +198,7 @@ NeoBundle 'nelstrom/vim-textobj-rubyblock'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'ctrlp.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'nixprime/cpsm'
 NeoBundle 'heavenshell/vim-slack'
 NeoBundle 'scrooloose/syntastic'
@@ -500,8 +500,8 @@ nnoremap <silent> <c-p><c-u> :CtrlPMRU<CR>
 nnoremap <silent> <c-p><c-t> :CtrlPTag<CR>
 
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_user_command = 'files -A -a %s'
-let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
+let g:ctrlp_user_command = 'files -a %s'
+" let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 let g:ctrlp_match_window = 'order:btt'
 let g:ctrlp_max_height = 30
 let g:cpsm_query_inverting_delimiter = '\'
