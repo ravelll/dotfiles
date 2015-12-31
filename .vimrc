@@ -140,9 +140,9 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
-      \ 'cygwin' : 'make -f make_cygwin.mak',
-      \ 'mac' : 'make -f make_mac.mak',
-      \ },
+      \     'mac' : 'make',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     },
       \ }
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'fugitive.vim'
@@ -501,11 +501,10 @@ nnoremap <silent> <c-p><c-t> :CtrlPTag<CR>
 
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = 'files -a %s'
-" let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
-let g:ctrlp_match_window = 'order:btt'
-let g:ctrlp_max_height = 30
+let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
+" let g:ctrlp_match_window = 'order:btt'
+let g:ctrlp_max_height = 40
 let g:cpsm_query_inverting_delimiter = '\'
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|vendor)'
 
 "@vim-textobj-rubybox
 runtime $VIMRUNTIME/macros/matchit.vim
