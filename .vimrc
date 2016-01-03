@@ -538,7 +538,7 @@ let g:syntastic_php_phpmd_post_args = '$HOME/.composer/fixtures/ruleset.xml'
 "@execute php-cs-fixer to opened file
 if executable('php-cs-fixer')
   function! PhpFix()
-    execute ':! echo % | xargs -I % php-cs-fixer fix % --rules=@PSR1,@PSR2'
+    execute ':! echo % | xargs -I % php-cs-fixer fix % --config-file=~/.php_cs'
   endfunction
   nnoremap <silent> ,ff *:call PhpFix()<CR>
 endif
