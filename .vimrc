@@ -344,13 +344,13 @@ nnoremap <silent> ,rs :<C-u>Unite rails/spec<CR>
 
 nnoremap <silent> ,uw :<C-u>Unite codic<CR>
 
-if executable('hw')
-  let g:unite_source_rec_async_command = ['hw', '-f', '--no-color', '--no-group', '-a', '-l', '']
-  let g:unite_source_grep_command = 'hw'
-  let g:unite_source_grep_default_opts = '-f -a -l --no-group --no-color'
+if executable('pt')
+  " let g:unite_source_rec_async_command = ['hw', '-f', '--no-color', '--no-group', '-a', '-l', '']
+  let g:unite_source_grep_command = 'pt'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
 else
-  let g:unite_source_rec_async_command = ['grep', '-R', '-S', '--color=never', '-h', '-l', '']
+  " let g:unite_source_rec_async_command = ['grep', '-R', '-S', '--color=never', '-h', '-l', '']
   let g:unite_source_grep_command = 'grep'
   let g:unite_source_grep_default_opts = '--color=never -R -S'
   let g:unite_source_grep_recursive_opt = '-R'
