@@ -208,6 +208,7 @@ NeoBundle 'vim-scripts/tagbar-phpctags', {
   \     'others' : 'chmod +x bin/phpctags',
   \   },
   \ }
+NeoBundle 'ravelll/PDV--phpDocumentor-for-Vim'
 NeoBundle 'jwalton512/vim-blade'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'dgryski/vim-godef'
@@ -568,6 +569,9 @@ if executable('php-cs-fixer')
   nnoremap <silent> ,ff *:call PhpFix()<CR>
 endif
 
+"@php-doc.vim
+nnoremap ,p :call PhpDocSingle()<CR>
+vnoremap ,p :call PhpDocRange()<CR>
 
 " =============================================================================
 " }}}
