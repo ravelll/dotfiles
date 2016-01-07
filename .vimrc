@@ -244,6 +244,20 @@ nmap <LocalLeader><LocalLeader>* ysiw*wysiw*
 "@neocomplete php
 let g:neocomplete_php_locale = 'ja'
 
+"@vim-multiple-cursors
+function! Multiple_cursors_before()
+  if exists(':NeoCompleteLock')==2
+    exe 'NeoCompleteLock'
+  endif
+endfunction
+
+" Called once only when the multiple selection is canceled (default <Esc>)
+function! Multiple_cursors_after()
+  if exists(':NeoCompleteUnlock')==2
+    exe 'NeoCompleteUnlock'
+  endif
+endfunction
+
 "@jq
 command! -nargs=? Jq call s:Jq(<f-args>)
 function! s:Jq(...)
@@ -279,61 +293,6 @@ autocmd user rails/db/migrate/*     neosnippetsource ~/.vim/snippet/ruby.rails.m
 autocmd user rails/config/routes.rb neosnippetsource ~/.vim/snippet/ruby.rails.route.snip
 
 "@quickrun
-let g:quickrun_config = {}
-let g:quickrun_config.ruby = {'command' : 'ruby'}
-let g:quickrun_config.markdown = {
-      \ 'outputter' : 'null',
-      \ 'command'   : 'open',
-      \ 'cmdopt'    : '-a',
-      \ 'args'      : 'Marked\ 2',
-      \ 'exec'      : '%c %o %a %s',
-      \ }
-
-"@Tagbar
-nmap ,tb :TagbarToggle<CR>
-
-" TagBar, phpctags
-let g:tagbar_phpctags_memory_limit = '512M'
-
-" for use gotags
-" https://github.com/jstemmer/gotags
-let g:tagbar_type_go = {
-      \ 'ctagstype' : 'go',
-      \ 'kinds'     : [
-      \ 'p:package',
-      \ 'i:imports:1',
-      \ 'c:constants',
-      \ 'v:variables',
-      \ 't:types',
-      \ 'n:interfaces',
-      \ 'w:fields',
-      \ 'e:embedded',
-      \ 'm:methods',
-      \ 'r:constructor',
-      \ 'f:functions'
-      \ ],
-      \ 'sro' : '.',
-      \ 'kind2scope' : {
-      \ 't' : 'ctype',
-      \ 'n' : 'ntype'
-      \ },
-      \ 'scope2kind' : {
-      \ 'ctype' : 't',
-      \ 'ntype' : 'n'
-      \ },
-      \ 'ctagsbin'  : 'gotags',
-      \ 'ctagsargs' : '-sort -silent'
-      \ }
-
-"@TagList
-let g:tlist_javascript_settings = 'javascript;c:class;m:method;F:function;p:property'
-let g:Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-
-nnoremap <silent> ,l :<C-u>TlistToggle<CR>
-nnoremap <silent> ,L :<C-u>TlistAddFilesRecursive %:h<Tab><CR>
-
-"@tag jump
-nnoremap <C-]> g<C-]>
 
 "@NERDTree
 nnoremap <silent> ,nt :<C-u>NERDTreeToggle<CR>
