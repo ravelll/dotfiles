@@ -210,9 +210,11 @@ NeoBundle 'vim-scripts/tagbar-phpctags', {
   \ }
 NeoBundle 'ravelll/PDV--phpDocumentor-for-Vim'
 NeoBundle 'jwalton512/vim-blade'
+NeoBundle 'vim-scripts/smarty-syntax'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'dgryski/vim-godef'
 NeoBundle 'vim-jp/vim-go-extra'
+NeoBundle 'AndrewRadev/splitjoin.vim'
 
 call neobundle#end()
 filetype plugin indent on
