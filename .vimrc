@@ -160,7 +160,6 @@ NeoBundle 'surround.vim'
 NeoBundle 'scrooloose/nerdtree.git'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'mhinz/vim-startify'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'edsono/vim-matchit'
 NeoBundle 'ruby-matchit'
@@ -551,11 +550,6 @@ let g:easy_align_delimiters = {
 \     'right_margin': 0
 \   }
 \ }
-
-"@startify
-let g:startify_custom_header =
-      \ map(split(system('figlet -funivers emacs | echo-sd -s'), '\n'), '"   ". v:val') + ['','']
-
 
 "@syntastic
 nnoremap <silent> ,S :SyntasticToggleMode<CR>
