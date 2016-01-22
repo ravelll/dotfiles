@@ -146,6 +146,7 @@ alias ll='ls -alFG'
 alias ms='massren'
 alias pe='ps -ef'
 alias men='env LANG=C man'
+alias rem='trash'
 
 alias -g P='| peco'
 alias -g N='| nkf'
