@@ -137,6 +137,8 @@ endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 
+"#}}
+"## vim-utility
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
@@ -144,25 +146,23 @@ NeoBundle 'Shougo/vimproc', {
       \     'cygwin' : 'make -f make_cygwin.mak',
       \     },
       \ }
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'fugitive.vim'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'L9'
-NeoBundle 'sudo.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'honza/vim-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/context_filetype.vim'
-NeoBundle 'rails.vim'
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'L9'
+NeoBundle 'sudo.vim'
 NeoBundle 'surround.vim'
 NeoBundle 'scrooloose/nerdtree.git'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'edsono/vim-matchit'
-NeoBundle 'ruby-matchit'
 NeoBundle 'tmhedberg/matchit'
 NeoBundle 'switch.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
@@ -182,19 +182,16 @@ NeoBundle 'wincent/command-t'
 NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'pasela/unite-webcolorname'
 NeoBundle 'fxn/vim-monochrome'
+NeoBundle 'changyuheng/color-scheme-holokai-for-vim'
 NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'basyura/unite-rails'
 NeoBundle 'rename.vim'
-NeoBundle 'othree/html5.vim'
 NeoBundle 'tpope/vim-dispatch'
-NeoBundle 'thoughtbot/vim-rspec'
 NeoBundle 'koron/codic-vim'
 NeoBundle 'rhysd/unite-codic.vim'
 NeoBundle 'haya14busa/vim-migemo'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'moznion/hateblo.vim'
 NeoBundle 'rcmdnk/vim-markdown'
-NeoBundle 'nelstrom/vim-textobj-rubyblock'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'majutsushi/tagbar'
@@ -203,18 +200,42 @@ NeoBundle 'nixprime/cpsm'
 NeoBundle 'heavenshell/vim-slack'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'vim-scripts/smarty-syntax'
+NeoBundle 'AndrewRadev/splitjoin.vim'
+
+"## git
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'fugitive.vim'
+
+"## ruby
+NeoBundle 'ruby-matchit'
+NeoBundle 'rails.vim'
+NeoBundle 'basyura/unite-rails'
+NeoBundle 'thoughtbot/vim-rspec'
+NeoBundle 'nelstrom/vim-textobj-rubyblock'
+
+"## HTML
+NeoBundle 'othree/html5.vim'
+
+"## PHP
+NeoBundle 'jwalton512/vim-blade'
+NeoBundle 'ravelll/PDV--phpDocumentor-for-Vim'
 NeoBundle 'vim-scripts/tagbar-phpctags', {
   \   'build' : {
   \     'others' : 'chmod +x bin/phpctags',
   \   },
   \ }
-NeoBundle 'ravelll/PDV--phpDocumentor-for-Vim'
-NeoBundle 'jwalton512/vim-blade'
-NeoBundle 'vim-scripts/smarty-syntax'
+
+"## golang
 NeoBundle 'fatih/vim-go'
 NeoBundle 'dgryski/vim-godef'
 NeoBundle 'vim-jp/vim-go-extra'
-NeoBundle 'AndrewRadev/splitjoin.vim'
+
+"## js
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
+NeoBundle 'justinj/vim-react-snippets'
+"#}}
 
 call neobundle#end()
 filetype plugin indent on
@@ -284,6 +305,9 @@ let g:indent_guides_guide_size=1
 imap <C-e> <Plug>(neosnippet_expand_or_jump)
 smap <C-e> <Plug>(neosnippet_expand_or_jump)
 xmap <C-e> <Plug>(neosnippet_expand_target)
+
+let g:neosnippet#enable_snipmate_compatibility = 1
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 "@rename.vim
 nnoremap <silent> ,mv :call Renamef()<CR>
@@ -509,7 +533,7 @@ nnoremap <silent> <c-p><c-u> :CtrlPMRU<CR>
 nnoremap <silent> <c-p><c-t> :CtrlPTag<CR>
 
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_user_command = 'files %s'
+let g:ctrlp_user_command = 'files -A %s'
 let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 " let g:ctrlp_match_window = 'order:btt'
 let g:ctrlp_max_height = 40
