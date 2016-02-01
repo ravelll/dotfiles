@@ -329,8 +329,12 @@ autocmd user rails/config/routes.rb neosnippetsource ~/.vim/snippet/ruby.rails.r
 
 "@quickrun
 let g:quickrun_config={}
-let g:quickrun_config['markdown']={
-      \   'outputter': 'browser'
+let g:quickrun_config.markdown = {
+      \ 'outputter' : 'null',
+      \ 'command'   : 'open',
+      \ 'cmdopt'    : '-a',
+      \ 'args'      : 'Marked\ 2',
+      \ 'exec'      : '%c %o %a %s',
       \ }
 
 "@Tagbar
