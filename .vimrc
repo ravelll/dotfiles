@@ -30,7 +30,7 @@ set browsedir=buffer
 syntax on
 
 " colorscheme setting
-colorscheme monochrome
+colorscheme murk
 " ====================================
 
 " =========== TAB, SPACE =============
@@ -47,7 +47,7 @@ augroup Spaces
 augroup END
 
 function! HighlightSpaces()
-  highlight Spaces cterm=reverse ctermfg=darkgreen gui=reverse guifg=darkgreen
+  highlight Spaces cterm=reverse ctermfg=243
 endfunction
 call HighlightSpaces()
 " ====================================
@@ -240,6 +240,15 @@ NeoBundle 'justinj/vim-react-snippets'
 call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
+
+"@airline
+let g:airline_left_sep='▶'
+let g:airline_right_sep='◀'
+let g:airline_theme='papercolor'
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline#enable#branch = 1
 
 "@sudo vim
 function! s:Sw()
