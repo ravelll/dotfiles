@@ -238,6 +238,8 @@ NeoBundle 'mxw/vim-jsx'
 NeoBundle 'justinj/vim-react-snippets'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'mattn/jscomplete-vim'
+NeoBundle 'nono/jquery.vim'
+NeoBundle 'jiangmiao/simple-javascript-indenter'
 "#}}
 
 call neobundle#end()
@@ -632,6 +634,7 @@ autocmd BufNewFile,BufRead *.thor      setf ruby
 autocmd BufNewFile,BufRead Vagrantfile setf ruby
 autocmd BufNewFile,BufRead *.tpl       setf smarty.html
 autocmd BufNewFile,BufRead *.blade.php setf html.php.blade
+autocmd BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 " autocmd BufNewFile,BufRead *.html.erb setf javascript.html.eruby
 
 "filetype indent
