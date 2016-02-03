@@ -183,7 +183,6 @@ NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'pasela/unite-webcolorname'
 NeoBundle 'fxn/vim-monochrome'
 NeoBundle 'ravelll/vim-murk'
-NeoBundle 'changyuheng/color-scheme-holokai-for-vim'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'rename.vim'
 NeoBundle 'tpope/vim-dispatch'
@@ -226,6 +225,7 @@ NeoBundle 'vim-scripts/tagbar-phpctags', {
   \     'others' : 'chmod +x bin/phpctags',
   \   },
   \ }
+NeoBundle 'shawncplus/phpcomplete.vim'
 
 "## golang
 NeoBundle 'fatih/vim-go'
@@ -236,6 +236,8 @@ NeoBundle 'vim-jp/vim-go-extra'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'justinj/vim-react-snippets'
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'mattn/jscomplete-vim'
 "#}}
 
 call neobundle#end()
@@ -290,6 +292,9 @@ function! Multiple_cursors_after()
     exe 'NeoCompleteUnlock'
   endif
 endfunction
+
+"@jscomplete-vim
+let g:jscomplete_use = ['dom', 'moz', 'es6th']
 
 "@jq
 command! -nargs=? Jq call s:Jq(<f-args>)
@@ -509,7 +514,7 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType javascript setlocal omnifunc=jscomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
