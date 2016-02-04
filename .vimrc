@@ -202,6 +202,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'vim-scripts/smarty-syntax'
 NeoBundle 'AndrewRadev/splitjoin.vim'
+NeoBundle 'andmarti1424/sc-im'
 
 "## git
 NeoBundle 'tpope/vim-fugitive'
