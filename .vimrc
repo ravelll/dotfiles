@@ -196,7 +196,12 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'nixprime/cpsm'
+NeoBundle 'nixprime/cpsm', {
+      \ 'build' : {
+      \     'mac' : './install',
+      \     },
+      \ }
+
 NeoBundle 'heavenshell/vim-slack'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'junegunn/vim-easy-align'
