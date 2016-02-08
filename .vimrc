@@ -116,6 +116,12 @@ if executable('pbcopy')
   nnoremap <silent> cc :call CopyFileName()<CR>
 endif
 " ===============================
+
+" ============ OTHERS =============
+nnoremap ,f :set filetype=
+
+" =================================
+
 "}}}
 
 " {{{
@@ -191,7 +197,8 @@ NeoBundle 'rhysd/unite-codic.vim'
 NeoBundle 'haya14busa/vim-migemo'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'moznion/hateblo.vim'
-NeoBundle 'rcmdnk/vim-markdown'
+" NeoBundle 'rcmdnk/vim-markdown'
+NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'majutsushi/tagbar'
@@ -619,14 +626,6 @@ let g:syntastic_mode_map = {
       \ "active_filetypes": ['ruby'] }
 let g:syntastic_php_checkers = ['phpmd', 'php', 'phpcs']
 let g:syntastic_php_phpmd_post_args = '$HOME/.composer/fixtures/ruleset.xml'
-
-"@execute php-cs-fixer to opened file
-if executable('php-cs-fixer')
-  function! PhpFix()
-    execute ':! echo % | xargs -I % php-cs-fixer fix % --config-file ~/.php_cs'
-  endfunction
-  nnoremap <silent> ,ff *:call PhpFix()<CR>
-endif
 
 "@php-doc.vim
 nnoremap ,p :call PhpDocSingle()<CR>
