@@ -158,39 +158,31 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/context_filetype.vim'
-
+"### visual effect
+NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'fxn/vim-monochrome'
+NeoBundle 'ravelll/vim-murk'
+NeoBundle 'ujihisa/unite-colorscheme'
+"## extend working
+NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'sudo.vim'
 NeoBundle 'surround.vim'
 NeoBundle 'scrooloose/nerdtree.git'
-NeoBundle 'rking/ag.vim'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'switch.vim'
 NeoBundle 'taglist.vim'
-NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'terryma/vim-multiple-cursors.git'
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'osyo-manga/vim-operator-search'
-NeoBundle 'wincent/command-t'
-
-"## style
-NeoBundle 'bling/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-
-NeoBundle 'Lokaltog/vim-easymotion'
-
-"## color
+NeoBundle 'tyru/open-browser.vim'
+"### color
 NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'pasela/unite-webcolorname'
 NeoBundle 'gorodinskiy/vim-coloresque'
-
-"## colorscheme
-NeoBundle 'fxn/vim-monochrome'
-NeoBundle 'ravelll/vim-murk'
-NeoBundle 'ujihisa/unite-colorscheme'
-
-"## backend utility
+"### backend utility
 NeoBundle 'L9'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'osyo-manga/vim-over'
@@ -199,21 +191,20 @@ NeoBundle 'nixprime/cpsm', {
       \     'mac' : './install',
       \     },
       \ }
-
-"## coding support
-NeoBundle 'edsono/vim-matchit'
+"### git
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'fugitive.vim'
+"## search and open
+NeoBundle 'szw/vim-tags'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'tpope/vim-abolish'
+"### coding support
 NeoBundle 'tmhedberg/matchit'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'AndrewRadev/splitjoin.vim'
-
-"## search and open
-NeoBundle 'szw/vim-tags'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'tpope/vim-abolish'
-
-"## treat specific type file
+"### treat specific type file
 NeoBundle 'elzr/vim-json'
 NeoBundle 'rename.vim'
 NeoBundle 'haya14busa/vim-migemo'
@@ -222,20 +213,13 @@ NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'junegunn/vim-easy-align'
-
-"## git
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'fugitive.vim'
-
-"## ruby
+"### ruby
 NeoBundle 'ruby-matchit'
 NeoBundle 'rails.vim'
 NeoBundle 'basyura/unite-rails'
-
-"## HTML
+"### HTML
 NeoBundle 'othree/html5.vim'
-
-"## PHP
+"### PHP
 NeoBundle 'jwalton512/vim-blade'
 NeoBundle 'ravelll/PDV--phpDocumentor-for-Vim'
 NeoBundle 'vim-scripts/tagbar-phpctags', {
@@ -244,13 +228,11 @@ NeoBundle 'vim-scripts/tagbar-phpctags', {
   \   },
   \ }
 NeoBundle 'shawncplus/phpcomplete.vim'
-
-"## golang
+"### golang
 NeoBundle 'fatih/vim-go'
 NeoBundle 'dgryski/vim-godef'
 NeoBundle 'vim-jp/vim-go-extra'
-
-"## js
+"### js
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'justinj/vim-react-snippets'
@@ -264,6 +246,7 @@ call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
 
+" ================= RESPECTIVE PLUGIN SETTING =================
 "@airline
 let g:airline_left_sep='▶'
 let g:airline_right_sep='◀'
@@ -624,7 +607,6 @@ let g:syntastic_php_phpmd_post_args = '$HOME/.composer/fixtures/ruleset.xml'
 "@php-doc.vim
 nnoremap ,p :call PhpDocSingle()<CR>
 vnoremap ,p :call PhpDocRange()<CR>
-
 " =============================================================================
 " }}}
 
