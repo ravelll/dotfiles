@@ -640,7 +640,7 @@ autocmd BufNewFile,BufRead *.tpl       setf smarty.html
 autocmd BufNewFile,BufRead *.blade.php setf html.php.blade
 autocmd BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 " autocmd BufNewFile,BufRead *.html.erb setf javascript.html.eruby
-autocmd VimEnter,BufRead,BufNewFile * if !&ft | set ft=markdown | endif
+autocmd VimEnter,BufRead,BufNewFile * if &ft == '' | set ft=markdown | endif
 
 "filetype indent
 filetype plugin indent on
