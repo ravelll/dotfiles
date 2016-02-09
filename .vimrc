@@ -144,7 +144,7 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 "#}}
-"## vim-utility
+"## Shougo-ware
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
@@ -155,65 +155,73 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'honza/vim-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/context_filetype.vim'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'L9'
+
 NeoBundle 'sudo.vim'
 NeoBundle 'surround.vim'
 NeoBundle 'scrooloose/nerdtree.git'
 NeoBundle 'rking/ag.vim'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'edsono/vim-matchit'
-NeoBundle 'tmhedberg/matchit'
 NeoBundle 'switch.vim'
-NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'taglist.vim'
-NeoBundle 'osyo-manga/vim-over'
-NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'ref.vim'
 NeoBundle 'terryma/vim-multiple-cursors.git'
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'osyo-manga/vim-operator-search'
-NeoBundle 'monochromegane/unite-yaml'
-NeoBundle 'tpope/vim-abolish'
-NeoBundle 'szw/vim-tags'
 NeoBundle 'wincent/command-t'
+
+"## style
+NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+
+NeoBundle 'Lokaltog/vim-easymotion'
+
+"## color
 NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'pasela/unite-webcolorname'
 NeoBundle 'gorodinskiy/vim-coloresque'
+
+"## colorscheme
 NeoBundle 'fxn/vim-monochrome'
 NeoBundle 'ravelll/vim-murk'
 NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'rename.vim'
-NeoBundle 'tpope/vim-dispatch'
-NeoBundle 'koron/codic-vim'
-NeoBundle 'rhysd/unite-codic.vim'
-NeoBundle 'haya14busa/vim-migemo'
+
+"## backend utility
+NeoBundle 'L9'
 NeoBundle 'mattn/webapi-vim'
-NeoBundle 'moznion/hateblo.vim'
-NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'elzr/vim-json'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'nixprime/cpsm', {
       \ 'build' : {
       \     'mac' : './install',
       \     },
       \ }
-NeoBundle 'heavenshell/vim-slack'
+
+"## coding support
+NeoBundle 'edsono/vim-matchit'
+NeoBundle 'tmhedberg/matchit'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'vim-scripts/smarty-syntax'
+NeoBundle 'honza/vim-snippets'
+NeoBundle 'tpope/vim-endwise'
 NeoBundle 'AndrewRadev/splitjoin.vim'
-NeoBundle 'andmarti1424/sc-im'
+
+"## search and open
+NeoBundle 'szw/vim-tags'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'tpope/vim-abolish'
+
+"## treat specific type file
+NeoBundle 'elzr/vim-json'
+NeoBundle 'rename.vim'
+NeoBundle 'haya14busa/vim-migemo'
+NeoBundle 'moznion/hateblo.vim'
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'junegunn/vim-easy-align'
 
 "## git
 NeoBundle 'tpope/vim-fugitive'
@@ -223,8 +231,6 @@ NeoBundle 'fugitive.vim'
 NeoBundle 'ruby-matchit'
 NeoBundle 'rails.vim'
 NeoBundle 'basyura/unite-rails'
-NeoBundle 'thoughtbot/vim-rspec'
-NeoBundle 'nelstrom/vim-textobj-rubyblock'
 
 "## HTML
 NeoBundle 'othree/html5.vim'
