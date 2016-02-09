@@ -554,17 +554,6 @@ let g:neocomplete#skip_auto_completion_time = ''
 
 "}
 
-"@vim-rspec => vim-dispatch
-let s:bundle = neobundle#get('vim-rspec')
-function! s:bundle.hooks.on_source(bundle)
-  let g:rspec_command = 'Dispatch bundle exec rspec {spec}'
-endfunction
-
-nmap <silent>,tc :call RunCurrentSpecFile()<CR>
-nmap <silent>,tn :call RunNearestSpec()<CR>
-nmap <silent>,tl :call RunLastSpec()<CR>
-nmap <silent>,ta :call RunAllSpecs()<CR>
-
 "@CtrlP
 nnoremap <silent> <c-p><c-p> :CtrlP<CR>
 nnoremap <silent> <c-p><c-l> :CtrlPLine<CR>
