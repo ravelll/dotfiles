@@ -255,6 +255,7 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 let g:airline#enable#branch = 1
+let g:airline_detect_modified = 0
 
 "@sudo vim
 function! s:Sw()
