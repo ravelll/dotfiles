@@ -187,6 +187,7 @@ NeoBundle 'szw/vim-tags'
 NeoBundle 'wincent/command-t'
 NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'pasela/unite-webcolorname'
+NeoBundle 'gorodinskiy/vim-coloresque'
 NeoBundle 'fxn/vim-monochrome'
 NeoBundle 'ravelll/vim-murk'
 NeoBundle 'ujihisa/unite-colorscheme'
@@ -197,7 +198,6 @@ NeoBundle 'rhysd/unite-codic.vim'
 NeoBundle 'haya14busa/vim-migemo'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'moznion/hateblo.vim'
-" NeoBundle 'rcmdnk/vim-markdown'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'elzr/vim-json'
@@ -208,7 +208,6 @@ NeoBundle 'nixprime/cpsm', {
       \     'mac' : './install',
       \     },
       \ }
-
 NeoBundle 'heavenshell/vim-slack'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'junegunn/vim-easy-align'
