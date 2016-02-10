@@ -26,11 +26,8 @@ set t_Co=256
 " use init dir same as a file opening for selecting file
 set browsedir=buffer
 
-" syntax highlight
-syntax on
-
 " colorscheme setting
-colorscheme murk
+silent! colorscheme murk
 " ====================================
 
 " =========== TAB, SPACE =============
@@ -182,6 +179,7 @@ NeoBundle 'osyo-manga/vim-operator-search'
 NeoBundle 'tyru/open-browser.vim'
 "### backend utility
 NeoBundle 'L9'
+NeoBundle 'mattn/benchvimrc-vim'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'nixprime/cpsm', {
@@ -655,3 +653,5 @@ autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
 autocmd FileType puppet     setlocal sw=2 sts=2 ts=2 et
 autocmd FileType tpl        setlocal sw=2 sts=2 ts=2 et
 
+" syntax highlight
+syntax on
