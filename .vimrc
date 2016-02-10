@@ -43,7 +43,7 @@ set shiftwidth=2
 augroup Spaces
   autocmd!
   autocmd ColorScheme * call HighlightSpaces()
-  autocmd BufWritePost,VimEnter * match Spaces /\(\s\+$\|\t\)/
+  autocmd BufWritePost,VimEnter,WinEnter * match Spaces /\(\s\+$\|\t\)/
 augroup END
 
 function! HighlightSpaces()
@@ -165,6 +165,8 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'fxn/vim-monochrome'
 NeoBundle 'ravelll/vim-murk'
 NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'lilydjwg/colorizer'
+NeoBundle 'pasela/unite-webcolorname'
 "## extend working
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'sudo.vim'
@@ -178,10 +180,6 @@ NeoBundle 'terryma/vim-multiple-cursors.git'
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'osyo-manga/vim-operator-search'
 NeoBundle 'tyru/open-browser.vim'
-"### color
-NeoBundle 'lilydjwg/colorizer'
-NeoBundle 'pasela/unite-webcolorname'
-NeoBundle 'gorodinskiy/vim-coloresque'
 "### backend utility
 NeoBundle 'L9'
 NeoBundle 'mattn/webapi-vim'
@@ -227,7 +225,7 @@ NeoBundle 'vim-scripts/tagbar-phpctags', {
   \     'others' : 'chmod +x bin/phpctags',
   \   },
   \ }
-NeoBundle 'shawncplus/phpcomplete.vim'
+" NeoBundle 'shawncplus/phpcomplete.vim'
 "### golang
 NeoBundle 'fatih/vim-go'
 NeoBundle 'dgryski/vim-godef'
@@ -256,6 +254,7 @@ if !exists('g:airline_symbols')
 endif
 let g:airline#enable#branch = 1
 let g:airline_detect_modified = 0
+let g:airline#extensions#whitespace#checks = ['indent', 'mixed-indent-file']
 
 "@vim-abolish
 nmap / :S/
@@ -300,6 +299,14 @@ function! Multiple_cursors_after()
   endif
 endfunction
 
+"@vim-indent-guides
+let g:indent_guides_auto_colors=0
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=235
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=236
+
 "@jscomplete-vim
 let g:jscomplete_use = ['dom', 'moz', 'es6th']
 
@@ -313,15 +320,6 @@ function! s:Jq(...)
   endif
   execute "%! jq " . l:arg
 endfunction
-
-"@vim-indent-guides
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=235
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=236
-
-let g:indent_guides_auto_colors=0
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=1
 
 "@neosnippets
 imap <C-e> <Plug>(neosnippet_expand_or_jump)
@@ -476,7 +474,8 @@ let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 
 " Use smartcase.
-let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#enable_smart_case = 0
+let g:neocomplete#enable_fuzzy_completion = 0
 
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
