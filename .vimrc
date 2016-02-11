@@ -178,6 +178,7 @@ NeoBundle 'kana/vim-operator-user'
 NeoBundle 'osyo-manga/vim-operator-search'
 NeoBundle 'tyru/open-browser.vim'
 "### backend utility
+NeoBundle 'Konfekt/FastFold'
 NeoBundle 'L9'
 NeoBundle 'mattn/benchvimrc-vim'
 NeoBundle 'mattn/webapi-vim'
@@ -606,6 +607,9 @@ let g:syntastic_php_phpmd_post_args = '$HOME/.composer/fixtures/ruleset.xml'
 "@php-doc.vim
 nnoremap ,p :call PhpDocSingle()<CR>
 vnoremap ,p :call PhpDocRange()<CR>
+
+"@FastFold
+let g:fastfold_savehook = 1
 " =============================================================================
 " }}}
 
