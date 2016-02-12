@@ -12,6 +12,4 @@ Vagrantfile
 .idea
 .secret
 npm-debug.log
-.eslintrc.js
-.eslintrc
 .php_cs.cache
