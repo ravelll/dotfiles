@@ -548,6 +548,8 @@ let g:ctrlp_user_command = 'files -A %s'
 let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 " let g:ctrlp_match_window = 'order:btt'
 let g:ctrlp_max_height = 40
+let g:ctrlp_max_depth = 40
+let g:ctrlp_max_files = 10000
 let g:cpsm_query_inverting_delimiter = '\'
 
 "@vim-textobj-rubybox
@@ -609,7 +611,7 @@ nnoremap ,p :call PhpDocSingle()<CR>
 vnoremap ,p :call PhpDocRange()<CR>
 
 "@FastFold
-let g:fastfold_savehook = 1
+let g:fastfold_savehook = 0
 " =============================================================================
 " }}}
 
