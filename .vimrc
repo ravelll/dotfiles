@@ -618,7 +618,7 @@ let g:fastfold_savehook = 0
 "filetype setting
 autocmd BufNewFile,BufRead *.thor      setf ruby
 autocmd BufNewFile,BufRead Vagrantfile setf ruby
-autocmd BufNewFile,BufRead *.tpl       setf smarty.html
+autocmd BufNewFile,BufRead *.tpl       setf html.javascript.smarty
 autocmd BufNewFile,BufRead *.blade.php setf html.php.blade
 autocmd BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 " autocmd BufNewFile,BufRead *.html.erb setf javascript.html.eruby
