@@ -183,11 +183,7 @@ NeoBundle 'L9'
 NeoBundle 'mattn/benchvimrc-vim'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'osyo-manga/vim-over'
-NeoBundle 'nixprime/cpsm', {
-      \ 'build' : {
-      \     'mac' : './install',
-      \     },
-      \ }
+NeoBundle 'nixprime/cpsm'
 "### git
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'fugitive.vim'
