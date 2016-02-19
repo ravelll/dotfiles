@@ -233,6 +233,9 @@ NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'mattn/jscomplete-vim'
 NeoBundle 'nono/jquery.vim'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
+"### puppet
+NeoBundle 'rodjek/vim-puppet'
+NeoBundle 'puppetlabs/puppet-syntax-vim'
 "#}}
 
 call neobundle#end()
