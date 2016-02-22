@@ -236,6 +236,8 @@ NeoBundle 'jiangmiao/simple-javascript-indenter'
 "### puppet
 NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'puppetlabs/puppet-syntax-vim'
+"### nginx
+NeoBundle 'evanmiller/nginx-vim-syntax'
 "#}}
 
 call neobundle#end()
