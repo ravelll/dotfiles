@@ -74,12 +74,15 @@ export PATH="$PATH:/usr/local/Cellar/qt5/5.4.0/bin/"
 #
 # other tools environment
 #
+## docker
+alias d='docker'
+alias d-m='docker-machine'
+alias d-c='docker-compose'
+
 ## git
 alias git='hub'
+compdef hub='git'
 alias g='git'
-alias d='git diff'
-alias dw='git diff --word-diff'
-alias dn='git diff --name-only'
 alias cm='git checkout master'
 function current_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
