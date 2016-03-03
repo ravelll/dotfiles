@@ -238,6 +238,9 @@ NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'puppetlabs/puppet-syntax-vim'
 "### nginx
 NeoBundle 'evanmiller/nginx-vim-syntax'
+"### SQL
+NeoBundle 'vim-scripts/sql.vim--Stinson'
+NeoBundle 'vim-scripts/SQLComplete.vim'
 "#}}
 
 call neobundle#end()
@@ -606,6 +609,8 @@ let g:syntastic_mode_map = {
       \ "active_filetypes": ['ruby'] }
 let g:syntastic_php_checkers = ['phpmd', 'php', 'phpcs']
 let g:syntastic_php_phpmd_post_args = '$HOME/.composer/fixtures/ruleset.xml'
+let g:syntastic_quiet_messages = {
+      \ "regex": "(camelCase|super-global)" }
 
 "@php-doc.vim
 nnoremap ,p :call PhpDocSingle()<CR>
