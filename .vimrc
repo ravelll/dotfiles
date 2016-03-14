@@ -341,6 +341,9 @@ autocmd user rails.controller*      neosnippetsource ~/.vim/snippet/ruby.rails.c
 autocmd user rails/db/migrate/*     neosnippetsource ~/.vim/snippet/ruby.rails.migrate.snip
 autocmd user rails/config/routes.rb neosnippetsource ~/.vim/snippet/ruby.rails.route.snip
 
+"@markdown
+let g:vim_markdown_json_frontmatter = 1
+
 "@quickrun
 let g:quickrun_config={}
 let g:quickrun_config.markdown = {
