@@ -260,7 +260,7 @@ let g:airline_detect_modified = 0
 let g:airline#extensions#whitespace#checks = ['indent', 'mixed-indent-file']
 
 "@vim-abolish
-nmap / :S/
+" nmap / :S/
 
 "@sudo vim
 function! s:Sw()
