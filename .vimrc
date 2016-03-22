@@ -79,6 +79,9 @@ set noundofile
 " ========= KEYCONFIGS ==========
 inoremap <silent> jj <ESC>
 
+nnoremap j gj
+nnoremap k gk
+
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-h> <Left>
@@ -343,6 +346,8 @@ autocmd user rails/config/routes.rb neosnippetsource ~/.vim/snippet/ruby.rails.r
 
 "@markdown
 let g:vim_markdown_json_frontmatter = 1
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
 
 "@quickrun
 let g:quickrun_config={}
