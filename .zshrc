@@ -114,6 +114,11 @@ export PATH="$PATH:/usr/local/heroku/bin"
 ## z
 . `brew --prefix`/etc/profile.d/z.sh
 
+## s
+if [ -f $GOPATH/src/github.com/zquestz/s/autocomplete/s-completion.bash ]; then
+  . $GOPATH/src/github.com/zquestz/s/autocomplete/s-completion.bash
+fi
+
 ## tmux
 alias t='tmux -u -2'
 
