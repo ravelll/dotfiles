@@ -157,9 +157,8 @@ alias men='env LANG=C man'
 alias rem='trash'
 
 alias -g P='| peco'
-alias -g N='| nkf'
-alias -g G='| pt'
-alias -g A='| ag'
+alias -g C='| pbcopy'
+alias -g G='| grep'
 
 ## zsh
 ### git-completion
