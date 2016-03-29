@@ -106,7 +106,7 @@ set backspace=indent,eol,start
 
 " ============ COPY =============
 " sync vim copy to clipboard
-set clipboard=unnamed,autoselect
+set clipboard=unnamed
 
 " copy file name
 if executable('pbcopy')
