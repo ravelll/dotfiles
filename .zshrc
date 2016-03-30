@@ -15,7 +15,7 @@ source ~/.localenv
 #
 # PATH
 #
-export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin/:opt/X11/bin:$PATH"
+export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin/:opt/X11/bin:$DOTPATH/bin:$PATH"
 
 #
 # programming language environment
