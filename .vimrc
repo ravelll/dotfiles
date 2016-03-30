@@ -77,7 +77,7 @@ set noundofile
 " ==========================
 
 " ========= KEYCONFIGS ==========
-inoremap <silent> jj <ESC>
+inoremap <silent> JK <ESC>
 
 nnoremap j gj
 nnoremap k gk
