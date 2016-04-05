@@ -237,6 +237,8 @@ NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'mattn/jscomplete-vim'
 NeoBundle 'nono/jquery.vim'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
+"### coffee
+NeoBundle 'kchmck/vim-coffee-script'
 "### puppet
 NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'puppetlabs/puppet-syntax-vim'
@@ -635,13 +637,14 @@ let g:fastfold_savehook = 0
 " }}}
 
 "filetype setting
+au BufRead,BufNewFile,BufReadPre *.coffee set filetype=coffee
 autocmd BufNewFile,BufRead *.thor      setf ruby
 autocmd BufNewFile,BufRead Vagrantfile setf ruby
 autocmd BufNewFile,BufRead *.tpl       setf html.javascript.smarty
 autocmd BufNewFile,BufRead *.blade.php setf html.php.blade
-autocmd BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+autocmd BufNewFile,BufRead jquery.*.js set ft=javascript syntax=jquery
 " autocmd BufNewFile,BufRead *.html.erb setf javascript.html.eruby
-autocmd VimEnter,BufRead,BufNewFile * if &ft == '' | set ft=markdown | endif
+autocmd VimEnter,BufNewFile,BufRead * if &ft == '' | set ft=markdown | endif
 
 "filetype indent
 filetype plugin indent on
@@ -650,6 +653,7 @@ autocmd FileType sh         setlocal sw=2 sts=2 ts=2 et
 autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
 autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 noet
 autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
+autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
 autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
 autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
 autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
