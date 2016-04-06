@@ -181,6 +181,7 @@ NeoBundle 'kana/vim-operator-user'
 NeoBundle 'osyo-manga/vim-operator-search'
 NeoBundle 'tyru/open-browser.vim'
 "### backend utility
+NeoBundle 'itchyny/vim-parenmatch'
 NeoBundle 'Konfekt/FastFold'
 NeoBundle 'L9'
 NeoBundle 'mattn/benchvimrc-vim'
@@ -267,6 +268,9 @@ let g:airline#extensions#whitespace#checks = ['indent', 'mixed-indent-file']
 
 "@vim-abolish
 " nmap / :S/
+
+"@parenmatch
+let g:loaded_matchparen = 1
 
 "@sudo vim
 function! s:Sw()
