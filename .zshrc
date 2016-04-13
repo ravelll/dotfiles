@@ -153,7 +153,7 @@ alias ls='ls -G'
 alias sl='ls'
 alias ll='ls -alFG'
 alias ms='massren'
-alias pe='ps -ef'
+alias ps='ps aux'
 alias men='env LANG=C man'
 alias rem='trash'
 
