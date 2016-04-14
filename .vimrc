@@ -366,6 +366,12 @@ let g:quickrun_config.markdown = {
       \ 'args'      : 'Marked\ 2',
       \ 'exec'      : '%c %o %a %s',
       \ }
+if executable('gjs')
+  let g:quickrun_config.javascript = {
+        \ 'command'   : 'gjs',
+        \ 'exec'      : '%c %s',
+        \ }
+endif
 
 "@Tagbar
 nmap ,tb :TagbarToggle<CR>
