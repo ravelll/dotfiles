@@ -40,7 +40,7 @@ set shiftwidth=2
 augroup Spaces
   autocmd!
   autocmd ColorScheme * call HighlightSpaces()
-  autocmd BufWritePost,VimEnter,WinEnter * match Spaces /\(\s\+$\|\t\)/
+  autocmd BufWritePost,VimEnter,WinEnter * match Spaces /\(\s\+$\)/
 augroup END
 
 function! HighlightSpaces()
@@ -152,6 +152,7 @@ NeoBundle 'Shougo/vimproc', {
       \     'cygwin' : 'make -f make_cygwin.mak',
       \     },
       \ }
+NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -271,6 +272,10 @@ let g:airline#extensions#whitespace#checks = ['indent', 'mixed-indent-file']
 
 "@parenmatch
 let g:loaded_matchparen = 1
+
+"@vimshell
+nnoremap <silent> ,vs :VimShell<CR>
+vnoremap <silent> ,vs :VimShellSendBuffer<CR>
 
 "@sudo vim
 function! s:Sw()
@@ -512,7 +517,7 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
       \ 'default' : '',
-      \ 'vimshell' : $HOME.'/.vimshell_hist',
+      \ 'vimshell' : $HOME.'/.zsh_history',
       \ 'scheme' : $HOME.'/.gosh_completions',
       \ 'php' : $HOME.'/.vim/dict/php.dict',
       \ 'ruby' : $HOME.'/.vim/dict/ruby.dict',
