@@ -181,6 +181,7 @@ NeoBundle 'terryma/vim-multiple-cursors.git'
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'osyo-manga/vim-operator-search'
 NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'tyru/open-browser-github.vim'
 "### backend utility
 NeoBundle 'itchyny/vim-parenmatch'
 NeoBundle 'Konfekt/FastFold'
