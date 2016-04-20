@@ -160,6 +160,7 @@ alias rem='trash'
 alias -g P='| peco'
 alias -g C='| pbcopy'
 alias -g G='| grep'
+alias -g S='| sort'
 
 ## zsh
 ### git-completion
