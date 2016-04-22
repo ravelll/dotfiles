@@ -146,6 +146,7 @@ alias vh='vagrant halt'
 alias vp='vagrant provision'
 alias vu='vagrant up'
 alias vr='vagrant reload'
+alias vd='vagrant destroy'
 alias vgs='vagrant-global-status'
 
 ## other aliases
