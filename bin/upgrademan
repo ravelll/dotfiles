@@ -5,7 +5,7 @@ brew_up () {
   brew upgrade
   brew cleanup
 
-  cd /Users/t308/src/github.com/ravelll/dotfiles
+  cd $HOME/src/github.com/ravelll/dotfiles
   brew brewdler dump --force
 }
 
