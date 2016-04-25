@@ -76,8 +76,8 @@ export PATH="$PATH:/usr/local/Cellar/qt5/5.4.0/bin/"
 #
 ## docker
 alias d='docker'
-alias d-m='docker-machine'
-alias d-c='docker-compose'
+alias dom='docker-machine'
+alias doc='docker-compose'
 
 ## git
 alias git='hub'
