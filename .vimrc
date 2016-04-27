@@ -47,6 +47,11 @@ function! HighlightSpaces()
   highlight Spaces cterm=reverse ctermfg=243
 endfunction
 call HighlightSpaces()
+
+function! s:TrimSpaces()
+  execute "s%/.* \+$//g"
+endfunction
+command! TrimSpaces call s:TrimSpaces()<CR>
 " ====================================
 
 " ============ SEARCHING ==============
