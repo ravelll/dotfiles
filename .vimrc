@@ -49,7 +49,7 @@ endfunction
 call HighlightSpaces()
 
 function! s:TrimSpaces()
-  execute '%s/.* \+$//'
+  execute '%s/ \+$//'
 endfunction
 command! TrimSpaces call s:TrimSpaces()
 " ====================================
