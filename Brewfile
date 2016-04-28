@@ -101,6 +101,7 @@ brew 'gjs'
 brew 'global', args: ['with-pygments', 'with-ctags']
 brew 'gnu-sed'
 brew 'libtasn1'
+brew 'nettle'
 brew 'gnutls'
 brew 'gotags'
 brew 'gperftools'
