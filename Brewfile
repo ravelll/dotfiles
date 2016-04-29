@@ -39,7 +39,7 @@ brew 'bash'
 brew 'bash-completion'
 brew 'bdw-gc'
 brew 'bison'
-brew 'icu4c', args: ['c++11']
+brew 'icu4c', args: ['c++11', 'universal']
 brew 'makedepend'
 brew 'openssl', args: ['universal']
 brew 'libevent'
