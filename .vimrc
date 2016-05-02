@@ -245,6 +245,8 @@ NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'mattn/jscomplete-vim'
 NeoBundle 'nono/jquery.vim'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
+"### TypeScript
+NeoBundle 'leafgarland/typescript-vim'
 "### coffee
 NeoBundle 'kchmck/vim-coffee-script'
 "### puppet
