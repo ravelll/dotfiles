@@ -71,7 +71,7 @@ set ignorecase
 set ignorecase
 
 " use Very Magic
-nmap / /\v
+nnoremap / /\v
 " =====================================
 
 " ========= BACKUP =========
@@ -277,7 +277,7 @@ let g:airline_detect_modified = 0
 let g:airline#extensions#whitespace#checks = ['indent', 'mixed-indent-file']
 
 "@vim-abolish
-" nmap / :S/
+" nnoremap / :S/
 
 "@parenmatch
 let g:loaded_matchparen = 1
@@ -293,21 +293,21 @@ endfunction
 command! Sw call s:Sw()
 
 "@surround.vim
-nmap <LocalLeader>{ ysiw{
-nmap <LocalLeader>} ysiw}
-nmap <LocalLeader>[ ysiw[
-nmap <LocalLeader>] ysiw]
-nmap <LocalLeader>( ysiw(
-nmap <LocalLeader>) ysiw)
-nmap <LocalLeader>b ysiwb
-nmap <LocalLeader>< ysiw<
-nmap <LocalLeader>> ysiw>
-nmap <LocalLeader>" ysiw"
-nmap <LocalLeader>' ysiw'
-nmap <LocalLeader>` ysiw`
-nmap <LocalLeader>* ysiw*
-nmap <LocalLeader>/ ysiw/
-nmap <LocalLeader><LocalLeader>* ysiw*wysiw*
+nnoremap <LocalLeader>{ ysiw{
+nnoremap <LocalLeader>} ysiw}
+nnoremap <LocalLeader>[ ysiw[
+nnoremap <LocalLeader>] ysiw]
+nnoremap <LocalLeader>( ysiw(
+nnoremap <LocalLeader>) ysiw)
+nnoremap <LocalLeader>b ysiwb
+nnoremap <LocalLeader>< ysiw<
+nnoremap <LocalLeader>> ysiw>
+nnoremap <LocalLeader>" ysiw"
+nnoremap <LocalLeader>' ysiw'
+nnoremap <LocalLeader>` ysiw`
+nnoremap <LocalLeader>* ysiw*
+nnoremap <LocalLeader>/ ysiw/
+nnoremap <LocalLeader><LocalLeader>* ysiw*wysiw*
 
 "@neocomplete php
 let g:neocomplete_php_locale = 'ja'
@@ -349,9 +349,9 @@ function! s:Jq(...)
 endfunction
 
 "@neosnippets
-imap <C-e> <Plug>(neosnippet_expand_or_jump)
-smap <C-e> <Plug>(neosnippet_expand_or_jump)
-xmap <C-e> <Plug>(neosnippet_expand_target)
+inoremap <C-e> <Plug>(neosnippet_expand_or_jump)
+snoremap <C-e> <Plug>(neosnippet_expand_or_jump)
+xnoremap <C-e> <Plug>(neosnippet_expand_target)
 
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
@@ -388,7 +388,7 @@ if executable('gjs')
 endif
 
 "@Tagbar
-nmap ,tb :TagbarToggle<CR>
+nnoremap ,tb :TagbarToggle<CR>
 
 " for use gotags
 " https://github.com/jstemmer/gotags
@@ -439,8 +439,8 @@ nnoremap <silent> ,nf :<C-u>NERDTreeFind<CR>
 let g:NERDTreeWinSize=40
 
 "@operator-search
-nmap <Space>s <Plug>(operator-search)
-nmap <Space>/ <Plug>(operator-search)if
+nnoremap <Space>s <Plug>(operator-search)
+nnoremap <Space>/ <Plug>(operator-search)if
 
 "@VimOver
 nnoremap <silent> ,s :OverCommandLine<CR>%s/
@@ -603,8 +603,8 @@ let g:vim_tags_ctags_binary = '/usr/local/bin/ctags'
 let g:vim_tags_auto_generate = 1
 
 "@vim-easy-align
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
+xnoremap ga <Plug>(EasyAlign)
+nnoremap ga <Plug>(EasyAlign)
 
 let g:easy_align_delimiters = {
 \ '>': { 'pattern': '>>\|=>\|>' },
@@ -661,7 +661,7 @@ let g:fastfold_savehook = 0
 " }}}
 
 "filetype setting
-au BufRead,BufNewFile,BufReadPre *.coffee set filetype=coffee
+autocmd BufRead,BufNewFile,BufReadPre *.coffee set filetype=coffee
 autocmd BufNewFile,BufRead *.thor      setf ruby
 autocmd BufNewFile,BufRead Vagrantfile setf ruby
 autocmd BufNewFile,BufRead *.tpl       setf html.javascript.smarty
