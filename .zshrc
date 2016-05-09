@@ -124,6 +124,7 @@ alias t='tmux -u -2'
 
 ## GHQ
 export GHQ_ROOT="$HOME/src"
+alias qg='ghq get'
 
 ## peco
 source ~/.zsh/peco.zsh
