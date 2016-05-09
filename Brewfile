@@ -47,11 +47,11 @@ brew 'gmp'
 brew 'mpfr'
 brew 'libmpc'
 brew 'isl'
-brew 'gcc', args: ['with-jit', 'with-nls', 'with-all-languages']
+brew 'gcc', args: ['with-all-languages', 'with-jit', 'with-nls']
 brew 'open-mpi', args: ['c++11']
 brew 'boost', args: ['c++11', 'with-icu4c', 'with-mpi', 'without-single']
 brew 'cloog'
-brew 'cmake', args: ['with-completion', 'without-docs', 'HEAD']
+brew 'cmake', args: ['HEAD', 'with-completion', 'without-docs']
 brew 'nkf'
 brew 'cmigemo'
 brew 'colordiff'
@@ -70,7 +70,7 @@ brew 'libxml2'
 brew 'spdylay'
 brew 'python3'
 brew 'nghttp2'
-brew 'curl', args: ['with-nghttp2', 'with-libssh2']
+brew 'curl', args: ['with-libssh2', 'with-nghttp2']
 brew 'go'
 brew 'direnv'
 brew 'ecj'
@@ -91,6 +91,7 @@ brew 'ffmpeg'
 brew 'figlet'
 brew 'gdb'
 brew 'gdk-pixbuf'
+brew 'giflib'
 brew 'nspr'
 brew 'jasper'
 brew 'libepoxy'
@@ -100,7 +101,7 @@ brew 'pango'
 brew 'hicolor-icon-theme'
 brew 'gtk+3'
 brew 'gjs'
-brew 'global', args: ['with-pygments', 'with-ctags']
+brew 'global', args: ['with-ctags', 'with-pygments']
 brew 'gnu-sed'
 brew 'libtasn1'
 brew 'nettle'
@@ -154,7 +155,6 @@ brew 'sip', args: ['with-python3']
 brew 'pyqt5'
 brew 'shiboken'
 brew 'pyside'
-brew 'ruby-build'
 brew 'rbenv'
 brew 'reattach-to-user-namespace'
 brew 'redis'
@@ -167,7 +167,7 @@ brew 'trash'
 brew 'tree'
 brew 'ttyrec'
 brew 'unixodbc'
-brew 'vim', args: ['with-lua', 'with-luajit', 'with-mzscheme', 'HEAD']
+brew 'vim', args: ['HEAD', 'with-lua', 'with-luajit', 'with-mzscheme']
 brew 'w3m'
 brew 'wget'
 brew 'z'
@@ -181,11 +181,9 @@ brew 'homebrew/dupes/groff'
 brew 'homebrew/dupes/ncurses'
 brew 'homebrew/dupes/zlib'
 brew 'homebrew/fuse/sshfs'
-brew 'homebrew/php/php56'
-brew 'homebrew/php/php70'
 brew 'homebrew/php/phpctags'
 brew 'homebrew/science/openblas'
-brew 'homebrew/python/numpy', args: ['with-python3', 'with-openblas']
+brew 'homebrew/python/numpy', args: ['with-openblas', 'with-python3']
 brew 'homebrew/versions/elasticsearch22'
 brew 'laurent22/massren/massren'
 brew 'monochromegane/sg/sg'
