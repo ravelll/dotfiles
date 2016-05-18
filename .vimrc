@@ -293,21 +293,21 @@ endfunction
 command! Sw call s:Sw()
 
 "@surround.vim
-nnoremap <LocalLeader>{ ysiw{
-nnoremap <LocalLeader>} ysiw}
-nnoremap <LocalLeader>[ ysiw[
-nnoremap <LocalLeader>] ysiw]
-nnoremap <LocalLeader>( ysiw(
-nnoremap <LocalLeader>) ysiw)
-nnoremap <LocalLeader>b ysiwb
-nnoremap <LocalLeader>< ysiw<
-nnoremap <LocalLeader>> ysiw>
-nnoremap <LocalLeader>" ysiw"
-nnoremap <LocalLeader>' ysiw'
-nnoremap <LocalLeader>` ysiw`
-nnoremap <LocalLeader>* ysiw*
-nnoremap <LocalLeader>/ ysiw/
-nnoremap <LocalLeader><LocalLeader>* ysiw*wysiw*
+nmap <LocalLeader>{ ysiw{
+nmap <LocalLeader>} ysiw}
+nmap <LocalLeader>[ ysiw[
+nmap <LocalLeader>] ysiw]
+nmap <LocalLeader>( ysiw(
+nmap <LocalLeader>) ysiw)
+nmap <LocalLeader>b ysiwb
+nmap <LocalLeader>< ysiw<
+nmap <LocalLeader>> ysiw>
+nmap <LocalLeader>" ysiw"
+nmap <LocalLeader>' ysiw'
+nmap <LocalLeader>` ysiw`
+nmap <LocalLeader>* ysiw*
+nmap <LocalLeader>/ ysiw/
+nmap <LocalLeader><LocalLeader>* ysiw*wysiw*
 
 "@neocomplete php
 let g:neocomplete_php_locale = 'ja'
@@ -349,9 +349,9 @@ function! s:Jq(...)
 endfunction
 
 "@neosnippets
-inoremap <C-e> <Plug>(neosnippet_expand_or_jump)
-snoremap <C-e> <Plug>(neosnippet_expand_or_jump)
-xnoremap <C-e> <Plug>(neosnippet_expand_target)
+imap <C-e> <Plug>(neosnippet_expand_or_jump)
+smap <C-e> <Plug>(neosnippet_expand_or_jump)
+xmap <C-e> <Plug>(neosnippet_expand_target)
 
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
