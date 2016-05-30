@@ -603,8 +603,8 @@ let g:vim_tags_ctags_binary = '/usr/local/bin/ctags'
 let g:vim_tags_auto_generate = 1
 
 "@vim-easy-align
-xnoremap ga <Plug>(EasyAlign)
-nnoremap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 let g:easy_align_delimiters = {
 \ '>': { 'pattern': '>>\|=>\|>' },
