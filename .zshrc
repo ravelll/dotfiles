@@ -48,12 +48,10 @@ export PATH="$PATH:$HOME/.composer/vendor/bin"
 export PATH="$PATH:$HOME/.phpenv/bin"
 eval "$(phpenv init -)"
 
-
 ## ruby
 ### rbenv
 export PATH="$PATH:$HOME/.rbenv/shims"
 eval "$(rbenv init -)"
-
 
 ### aliases
 alias rb='ruby'
@@ -102,6 +100,9 @@ alias v='env LANG=ja_JP.UTF-8 vim "$@"'
 
 ## neovim
 alias nv='nvim "$@"'
+
+## pt
+alias pt='pt -i'
 
 ### use MacVim
 # EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim -c \"set fenc=utf-8\""
