@@ -434,9 +434,11 @@ nnoremap <silent> ,o :OpenBrowser
 nnoremap <C-]> g<C-]>
 
 "@NERDTree
+let g:NERDTreeWinSize=30
 nnoremap <silent> ,nt :<C-u>NERDTreeToggle<CR>
 nnoremap <silent> ,nf :<C-u>NERDTreeFind<CR>
-let g:NERDTreeWinSize=40
+" close at once with vim
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "@operator-search
 nnoremap <Space>s <Plug>(operator-search)
