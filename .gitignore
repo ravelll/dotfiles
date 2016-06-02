@@ -1,11 +1,9 @@
 .DS_Store
 .bundle
+.env
 .idea
-.php-version
 .php_cs.cache
 .project
-.rbenv-version
-.ruby-version
 .secret
 .vagrant
 /log/*.log
@@ -13,4 +11,6 @@
 /vendor
 database.yml
 npm-debug.log
+secret.yml
 tags
+*.log
