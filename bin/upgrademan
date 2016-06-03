@@ -16,7 +16,6 @@ vim_up () {
 node_up () {
   nodebrew selfupdate
   nodebrew install-binary latest
-  nodebrew use latest
 }
 
 php_up () {
