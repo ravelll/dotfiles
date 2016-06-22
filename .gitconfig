@@ -50,5 +50,6 @@
   default = simple
 [diff]
   noprefix = true
+  compactionHeuristic = true
 [ghq]
   root = ~/src
