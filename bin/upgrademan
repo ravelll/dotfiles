@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/local/bin/zsh
 
 brew_up () {
   brew update
@@ -6,7 +6,7 @@ brew_up () {
   brew cleanup
 
   cd $HOME/src/github.com/ravelll/dotfiles
-  brew brewdler dump --force
+  brew bundle dump --force
 }
 
 vim_up () {
@@ -35,11 +35,11 @@ perl_up () {
 
 main () {
   brew_up
-  vim_up
   node_up
   php_up
   ruby_up
   perl_up
+  vim_up
 }
 
 main
