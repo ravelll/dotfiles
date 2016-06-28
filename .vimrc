@@ -236,6 +236,8 @@ NeoBundle 'vim-scripts/tagbar-phpctags', {
 NeoBundle 'fatih/vim-go'
 NeoBundle 'dgryski/vim-godef'
 NeoBundle 'vim-jp/vim-go-extra'
+"### elixir
+NeoBundle 'elixir-lang/vim-elixir'
 "### js
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
