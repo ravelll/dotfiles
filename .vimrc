@@ -429,7 +429,7 @@ nnoremap <silent> ,l :<C-u>TlistToggle<CR>
 nnoremap <silent> ,L :<C-u>TlistAddFilesRecursive %:h<Tab><CR>
 
 "@OpenGithub
-vnoremap <silent> gf :OpenGithubFile<CR>
+vnoremap <silent> og :OpenGithubFile<CR>
 
 "@tag jump
 nnoremap <C-]> g<C-]>
