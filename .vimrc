@@ -428,8 +428,8 @@ let g:Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 nnoremap <silent> ,l :<C-u>TlistToggle<CR>
 nnoremap <silent> ,L :<C-u>TlistAddFilesRecursive %:h<Tab><CR>
 
-"@OpenBrowser
-nnoremap <silent> ,o :OpenBrowser
+"@OpenGithub
+vnoremap <silent> gf :OpenGithubFile<CR>
 
 "@tag jump
 nnoremap <C-]> g<C-]>
