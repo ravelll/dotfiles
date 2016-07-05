@@ -9,10 +9,6 @@ brew_up () {
   brew bundle dump --force
 }
 
-vim_up () {
-  brew reinstall vim --with-lua --with-luajit --with-mzscheme --HEAD
-}
-
 node_up () {
   nodebrew selfupdate
   nodebrew install-binary latest
@@ -39,7 +35,6 @@ main () {
   php_up
   ruby_up
   perl_up
-  vim_up
 }
 
 main
