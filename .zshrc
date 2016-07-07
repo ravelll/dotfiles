@@ -132,6 +132,7 @@ source ~/.zsh/peco.zsh
 bindkey '^jr' peco_select_rake_task
 bindkey '^jb' peco_git_recent_branches
 bindkey '^jB' peco_git_recent_all_branches
+bindkey '^jt' peco_git_tags
 bindkey '^jl' peco_git_hashes
 bindkey '^jz' peco_cd_history
 bindkey '^jd' peco_insert_history

@@ -23,3 +23,12 @@ function peco_git_recent_all_branches () {
     zle clear-screen
 }
 zle -N peco_git_recent_all_branches
+
+function peco_git_tags () {
+    local selected_tag="$(git tag -l | peco)"
+    if [ -n "$selected_tag" ]; then
+        BUFFER="git checkout refs/tags/${selected_tag}"
+        zle accept-line
+    fi
+}
+zle -N peco_git_tags
