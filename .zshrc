@@ -1,13 +1,17 @@
-
+#
 # zsh
-
 #
-# oh-my-zsh
-# (put top to overwrite ohmyzsh aliases)
-#
+## oh-my-zsh
 ZSH=$HOME/.oh-my-zsh
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
+
+## zsh options
+setopt mark_dirs
+setopt no_beep
+setopt complete_aliases
+setopt correct
+setopt list_packed
 
 # Load local environment
 source ~/.localenv
@@ -97,6 +101,7 @@ alias ssh='TERM=xterm ssh'
 EDITOR="vim -c \"set fenc=utf-8\""
 VIMRUNTIME=/usr/local/Cellar/vim/*(/)/share/vim/vim74/
 alias v='env LANG=ja_JP.UTF-8 vim "$@"'
+alias vn='vim -u NONE'
 
 ## neovim
 alias nv='nvim "$@"'
