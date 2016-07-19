@@ -32,6 +32,7 @@
   l = log
   pu = pull
   r = reset
+  s = show
   st = status
   sh = stash
   shl = stash list
