@@ -53,7 +53,8 @@ brew 'gcc', args: ['with-all-languages', 'with-jit', 'with-nls']
 brew 'open-mpi', args: ['c++11']
 brew 'boost', args: ['c++11', 'with-icu4c', 'with-mpi', 'without-single']
 brew 'cloog'
-brew 'cmake', args: ['HEAD', 'with-completion', 'without-docs']
+brew 'sphinx-doc'
+brew 'cmake', args: ['with-completion', 'without-docs']
 brew 'nkf'
 brew 'cmigemo'
 brew 'colordiff'
