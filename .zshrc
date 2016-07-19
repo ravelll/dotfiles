@@ -165,6 +165,8 @@ alias ms='massren'
 alias ps='ps aux'
 alias men='env LANG=C man'
 alias rem='trash'
+alias tag='ctags -R'
+alias retag='rm tags;ctags -R'
 
 alias -g P='| peco'
 alias -g C='| pbcopy'
