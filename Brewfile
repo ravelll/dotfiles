@@ -177,7 +177,7 @@ brew 'trash'
 brew 'tree'
 brew 'ttyrec'
 brew 'unixodbc'
-brew 'vim', args: ['HEAD', 'with-lua', 'with-luajit', 'with-mzscheme']
+brew 'vim', args: ['with-lua', 'with-luajit', 'with-mzscheme']
 brew 'w3m'
 brew 'wget'
 brew 'z'
