@@ -652,7 +652,7 @@ let g:syntastic_mode_map = {
 let g:syntastic_php_checkers = ['phpmd', 'php', 'phpcs']
 let g:syntastic_php_phpmd_post_args = '$HOME/.composer/fixtures/ruleset.xml'
 let g:syntastic_quiet_messages = {
-      \ "regex": '^.*[Cc]amelCase.*$\|^.*global.*$' }
+      \ "regex": '.*[Cc]amelCase.*\|.*global.*\|.*minimum.*' }
 
 "@php-doc.vim
 nnoremap ,p :call PhpDocSingle()<CR>
