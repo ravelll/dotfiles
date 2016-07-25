@@ -66,11 +66,9 @@ brew 'libssh2'
 brew 'libev'
 brew 'jansson'
 brew 'libtool'
+brew 'spdylay'
 brew 'sqlite', args: ['universal']
 brew 'gdbm', args: ['universal']
-brew 'python', args: ['universal']
-brew 'libxml2'
-brew 'spdylay'
 brew 'python3'
 brew 'nghttp2'
 brew 'curl', args: ['with-libssh2', 'with-nghttp2']
@@ -87,6 +85,7 @@ brew 'exiftool'
 brew 'faac'
 brew 'fabric'
 brew 'texi2html'
+brew 'python', args: ['universal']
 brew 'yasm'
 brew 'x264'
 brew 'lame'
@@ -133,6 +132,7 @@ brew 'leiningen'
 brew 'libgpg-error'
 brew 'libgcrypt'
 brew 'libvo-aacenc'
+brew 'libxml2'
 brew 'libyaml'
 brew 'lua'
 brew 'luajit'
