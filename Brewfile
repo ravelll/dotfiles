@@ -54,7 +54,7 @@ brew 'open-mpi', args: ['c++11']
 brew 'boost', args: ['c++11', 'with-icu4c', 'with-mpi', 'without-single']
 brew 'cloog'
 brew 'sphinx-doc'
-brew 'cmake', args: ['with-completion', 'without-docs']
+brew 'cmake', args: ['HEAD', 'with-completion', 'without-docs']
 brew 'nkf'
 brew 'cmigemo'
 brew 'colordiff'
@@ -177,7 +177,7 @@ brew 'trash'
 brew 'tree'
 brew 'ttyrec'
 brew 'unixodbc'
-brew 'vim', args: ['with-lua', 'with-luajit', 'with-mzscheme']
+brew 'vim', args: ['HEAD', 'with-lua', 'with-luajit', 'with-mzscheme']
 brew 'w3m'
 brew 'wget'
 brew 'z'
