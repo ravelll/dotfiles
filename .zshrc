@@ -76,6 +76,9 @@ export PATH="$PATH:/usr/local/Cellar/qt5/5.4.0/bin/"
 #
 # other tools environment
 #
+## php-cs-fixer
+alias pf='./vendor/bin/php-cs-fixer fix "$@" --config-file=.php_cs'
+
 ## docker
 alias d='docker'
 alias dom='docker-machine'
