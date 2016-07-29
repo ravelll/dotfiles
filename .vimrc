@@ -173,6 +173,7 @@ NeoBundle 'ravelll/vim-murk'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'pasela/unite-webcolorname'
+NeoBundle 'simeji/winresizer'
 "## extend working
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'sudo.vim'
@@ -276,6 +277,9 @@ endif
 let g:airline#enable#branch = 1
 let g:airline_detect_modified = 0
 let g:airline#extensions#whitespace#checks = ['indent', 'mixed-indent-file']
+
+"@winresizer
+let g:winresizer_start_key = '<C-W>'
 
 "@vim-abolish
 " nnoremap / :S/
@@ -381,6 +385,7 @@ let g:quickrun_config.markdown = {
       \ 'args'      : 'Marked\ 2',
       \ 'exec'      : '%c %o %a %s',
       \ }
+let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
 if executable('gjs')
   let g:quickrun_config.javascript = {
         \ 'command'   : 'gjs',
