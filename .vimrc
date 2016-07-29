@@ -441,6 +441,7 @@ nnoremap <C-]> g<C-]>
 
 "@NERDTree
 let g:NERDTreeWinSize=30
+let g:NERDTreeShowHidden=1
 nnoremap <silent> ,nt :<C-u>NERDTreeToggle<CR>
 nnoremap <silent> ,nf :<C-u>NERDTreeFind<CR>
 " close at once with vim
