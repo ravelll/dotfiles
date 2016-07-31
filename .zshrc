@@ -76,6 +76,9 @@ export PATH="$PATH:/usr/local/Cellar/qt5/5.4.0/bin/"
 #
 # other tools environment
 #
+## homebrew
+alias cask='brew cask'
+
 ## php-cs-fixer
 alias pf='./vendor/bin/php-cs-fixer fix "$@" --config-file=.php_cs'
 
