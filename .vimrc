@@ -279,7 +279,7 @@ let g:airline_detect_modified = 0
 let g:airline#extensions#whitespace#checks = ['indent', 'mixed-indent-file']
 
 "@winresizer
-let g:winresizer_start_key = '<C-W>'
+let g:winresizer_start_key = ',w'
 
 "@vim-abolish
 " nnoremap / :S/
