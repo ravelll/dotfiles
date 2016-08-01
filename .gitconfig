@@ -32,6 +32,8 @@
   l = log
   pu = pull
   r = reset
+  back = reset HEAD^
+  fback = reset --hard HEAD^
   s = show
   st = status
   sh = stash
