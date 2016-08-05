@@ -61,8 +61,7 @@ eval "$(rbenv init -)"
 alias rb='ruby'
 alias be='bundle exec'
 alias rs='bundle exec rspec spec'
-alias bi='bundle install'
-alias bip='bundle install --path'
+alias bi='bundle install --path vendor/bundle'
 alias rg='rails generate'
 
 ## java
