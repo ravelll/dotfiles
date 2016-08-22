@@ -14,10 +14,8 @@
   ap = add -p
   b  = branch
   ba = branch -a
-  ci = commit
-  civ = commit -v
-  cia = commit -a
-  ciav = commit -a -v
+  ci = commit -v
+  cia = commit -v -a
   cie = commit --allow-empty
   co = checkout
   cm = checkout master
