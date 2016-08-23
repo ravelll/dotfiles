@@ -39,6 +39,7 @@
   shp = stash pop
   shd = stash drop
   sub = submodule
+  latestmerge = log -1 --merges --pretty=format:%H
 [core]
   editor = vim -c \"set fenc=utf-8\"
   excludesfile = ~/.gitignore
