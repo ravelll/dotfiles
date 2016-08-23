@@ -1,5 +1,9 @@
 filetype off
 
+augroup rc
+  autocmd!
+augroup END
+
 " ======== DISPLAY INFOMATION ========
 " always show statusline
 set laststatus=2
@@ -15,6 +19,7 @@ set statusline=[%{&fileencoding}]%{fugitive#statusline()}
 
 " fileencoding usage (left is prior right)
 set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
+scriptencoding utf-8,euc-jp,sjis,cp932,iso-2022-jp
 
 " show current line
 nnoremap <silent> ,ul :set cursorline<CR>
@@ -337,8 +342,8 @@ let g:indent_guides_auto_colors=0
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=235
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=236
+autocmd rc VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=235
+autocmd rc VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=236
 
 "@jscomplete-vim
 let g:jscomplete_use = ['dom', 'moz', 'es6th']
@@ -366,10 +371,10 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 nnoremap <silent> ,mv :call Renamef()<CR>
 
 "@vim-rails + neosnippets
-autocmd User Rails.view*            NeoSnippetSource ~/.vim/snippet/ruby.rails.view.snip
-autocmd user rails.controller*      neosnippetsource ~/.vim/snippet/ruby.rails.controller.snip
-autocmd user rails/db/migrate/*     neosnippetsource ~/.vim/snippet/ruby.rails.migrate.snip
-autocmd user rails/config/routes.rb neosnippetsource ~/.vim/snippet/ruby.rails.route.snip
+autocmd rc User Rails.view*            NeoSnippetSource ~/.vim/snippet/ruby.rails.view.snip
+autocmd rc User rails.controller*      neosnippetsource ~/.vim/snippet/ruby.rails.controller.snip
+autocmd rc User rails/db/migrate/*     neosnippetsource ~/.vim/snippet/ruby.rails.migrate.snip
+autocmd rc User rails/config/routes.rb neosnippetsource ~/.vim/snippet/ruby.rails.route.snip
 
 "@markdown
 let g:vim_markdown_json_frontmatter = 1
@@ -446,7 +451,7 @@ let g:NERDTreeShowHidden=1
 nnoremap <silent> ,nt :<C-u>NERDTreeToggle<CR>
 nnoremap <silent> ,nf :<C-u>NERDTreeFind<CR>
 " close at once with vim
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd rc bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "@operator-search
 nnoremap <Space>s <Plug>(operator-search)
@@ -515,7 +520,7 @@ let g:go_bin_path = '/usr/local/bin/'
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 set completeopt=menu,preview
 
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
+" autocmd FileType go autocmd BufWritePre <buffer> Fmt
 "}
 
 "@neocomplete {
@@ -568,11 +573,11 @@ inoremap <expr><C-;> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 
 " Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=jscomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd rc FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd rc FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd rc FileType javascript setlocal omnifunc=jscomplete#CompleteJS
+autocmd rc FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd rc FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
@@ -656,7 +661,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_mode_map = {
       \ "mode": "passive",
-      \ "active_filetypes": ['ruby', 'php'] }
+      \ "active_filetypes": ['ruby'] }
 let g:syntastic_php_checkers = ['phpmd', 'php', 'phpcs']
 let g:syntastic_php_phpmd_post_args = '$HOME/.composer/fixtures/ruleset.xml'
 let g:syntastic_quiet_messages = {
@@ -672,50 +677,50 @@ let g:fastfold_savehook = 0
 " }}}
 
 "filetype setting
-autocmd BufRead,BufNewFile,BufReadPre *.coffee set filetype=coffee
-autocmd BufNewFile,BufRead *.thor      setf ruby
-autocmd BufNewFile,BufRead Vagrantfile setf ruby
-autocmd BufNewFile,BufRead *.tpl       setf html.javascript.smarty
-autocmd BufNewFile,BufRead *.blade.php setf html.php.blade
-autocmd BufNewFile,BufRead jquery.*.js set ft=javascript syntax=jquery
+autocmd rc BufRead,BufNewFile,BufReadPre *.coffee set filetype=coffee
+autocmd rc BufNewFile,BufRead *.thor      setf ruby
+autocmd rc BufNewFile,BufRead Vagrantfile setf ruby
+autocmd rc BufNewFile,BufRead *.tpl       setf html.javascript.smarty
+autocmd rc BufNewFile,BufRead *.blade.php setf html.php.blade
+autocmd rc BufNewFile,BufRead jquery.*.js set ft=javascript syntax=jquery
 " autocmd BufNewFile,BufRead *.html.erb setf javascript.html.eruby
-autocmd VimEnter,BufNewFile,BufRead * if &ft == '' | set ft=markdown | endif
+autocmd rc VimEnter,BufNewFile,BufRead * if &ft == '' | set ft=markdown | endif
 
 "filetype indent
 filetype plugin indent on
 
-autocmd FileType sh         setlocal sw=2 sts=2 ts=2 et
-autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
-autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 noet
-autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
-autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
-autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
-autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
-autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
-autocmd FileType diff       setlocal sw=4 sts=4 ts=4 noet
-autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 noet
-autocmd FileType go         setlocal sw=4 sts=4 ts=4 noet
-autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
-autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
-autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
-autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
-autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
-autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
-autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
-autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
-autocmd FileType eruby      setlocal sw=2 sts=2 ts=2 et
-autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
-autocmd FileType vb         setlocal sw=4 sts=4 ts=4 noet
-autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
-autocmd FileType wsh        setlocal sw=4 sts=4 ts=4 et
-autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 noet
-autocmd FileType xml        setlocal sw=4 sts=4 ts=4 noet
-autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
-autocmd FileType zsh        setlocal sw=2 sts=2 ts=2 et
-autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
-autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
-autocmd FileType puppet     setlocal sw=2 sts=2 ts=2 et
-autocmd FileType tpl        setlocal sw=2 sts=2 ts=2 et
+autocmd rc FileType sh         setlocal sw=2 sts=2 ts=2 et
+autocmd rc FileType apache     setlocal sw=4 sts=4 ts=4 et
+autocmd rc FileType aspvbs     setlocal sw=4 sts=4 ts=4 noet
+autocmd rc FileType c          setlocal sw=4 sts=4 ts=4 et
+autocmd rc FileType coffee     setlocal sw=2 sts=2 ts=2 et
+autocmd rc FileType cpp        setlocal sw=4 sts=4 ts=4 et
+autocmd rc FileType cs         setlocal sw=4 sts=4 ts=4 et
+autocmd rc FileType css        setlocal sw=2 sts=2 ts=2 et
+autocmd rc FileType diff       setlocal sw=4 sts=4 ts=4 noet
+autocmd rc FileType eruby      setlocal sw=4 sts=4 ts=4 noet
+autocmd rc FileType go         setlocal sw=4 sts=4 ts=4 noet
+autocmd rc FileType html       setlocal sw=2 sts=2 ts=2 et
+autocmd rc FileType java       setlocal sw=4 sts=4 ts=4 et
+autocmd rc FileType javascript setlocal sw=2 sts=2 ts=2 et
+autocmd rc FileType perl       setlocal sw=4 sts=4 ts=4 et
+autocmd rc FileType php        setlocal sw=4 sts=4 ts=4 et
+autocmd rc FileType python     setlocal sw=4 sts=4 ts=4 et
+autocmd rc FileType ruby       setlocal sw=2 sts=2 ts=2 et
+autocmd rc FileType haml       setlocal sw=2 sts=2 ts=2 et
+autocmd rc FileType eruby      setlocal sw=2 sts=2 ts=2 et
+autocmd rc FileType sql        setlocal sw=4 sts=4 ts=4 et
+autocmd rc FileType vb         setlocal sw=4 sts=4 ts=4 noet
+autocmd rc FileType vim        setlocal sw=2 sts=2 ts=2 et
+autocmd rc FileType wsh        setlocal sw=4 sts=4 ts=4 et
+autocmd rc FileType xhtml      setlocal sw=4 sts=4 ts=4 noet
+autocmd rc FileType xml        setlocal sw=4 sts=4 ts=4 noet
+autocmd rc FileType yaml       setlocal sw=2 sts=2 ts=2 et
+autocmd rc FileType zsh        setlocal sw=2 sts=2 ts=2 et
+autocmd rc FileType scala      setlocal sw=2 sts=2 ts=2 et
+autocmd rc FileType coffee     setlocal sw=2 sts=2 ts=2 et
+autocmd rc FileType puppet     setlocal sw=2 sts=2 ts=2 et
+autocmd rc FileType tpl        setlocal sw=2 sts=2 ts=2 et
 
 " syntax highlight
 syntax on
