@@ -604,7 +604,7 @@ nnoremap <silent> <c-p><c-t> :CtrlPTag<CR>
 
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = 'files -A %s'
-let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
+" let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 " let g:ctrlp_match_window = 'order:btt'
 let g:ctrlp_max_height = 40
 let g:ctrlp_max_depth = 40
