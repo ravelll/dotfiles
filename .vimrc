@@ -239,6 +239,8 @@ NeoBundle 'vim-scripts/tagbar-phpctags', {
   \   },
   \ }
 " NeoBundle 'shawncplus/phpcomplete.vim'
+"### scala
+NeoBundle 'derekwyatt/vim-scala'
 "### golang
 NeoBundle 'fatih/vim-go'
 NeoBundle 'dgryski/vim-godef'
