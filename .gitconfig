@@ -23,7 +23,7 @@
   cln = !git fetch --prune | git branch --merged | grep -v \\* | xargs -I % git branch -d %
   d  = diff
   dc = diff --cached
-  dw = diff --word-diff
+  dw = diff --word-diff=color
   dn = diff --name-only
   f = fetch
   fp = fetch --prune
