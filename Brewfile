@@ -151,7 +151,7 @@ brew 'node'
 brew 'nodebrew'
 brew 'ossp-uuid'
 brew 'pandoc'
-brew 'postgresql', service_restart: true
+brew 'postgresql'
 brew 'qt'
 brew 'qt5'
 brew 'poppler'
