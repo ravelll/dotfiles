@@ -70,6 +70,7 @@ brew 'libev'
 brew 'jansson'
 brew 'libtool'
 brew 'spdylay'
+brew 'jemalloc'
 brew 'sqlite', args: ['universal']
 brew 'gdbm', args: ['universal']
 brew 'python3'
@@ -209,4 +210,5 @@ brew 'motemen/ghq/ghq'
 brew 'osx-cross/avr/avr-binutils'
 brew 'osx-cross/avr/avr-gcc'
 brew 'osx-cross/avr/avr-libc'
+cask 'magican'
 cask 'tunnelblick'
