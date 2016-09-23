@@ -113,7 +113,6 @@ brew 'gsettings-desktop-schemas'
 brew 'jasper'
 brew 'gtk+3'
 brew 'gjs'
-brew 'global', args: ['with-ctags', 'with-pygments']
 brew 'gnu-sed'
 brew 'libtasn1'
 brew 'nettle'
