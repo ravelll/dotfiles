@@ -606,12 +606,12 @@ nnoremap <silent> <c-p><c-t> :CtrlPTag<CR>
 
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = 'files -A -i "^(\\.git|\\.hg|\\.svn|_darcs|\\.bzr|vendor)$" %s'
-" let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
+let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 let g:ctrlp_match_window = 'order:btt'
 let g:ctrlp_max_height = 60
 let g:ctrlp_max_depth = 40
 let g:ctrlp_max_files = 10000
-" let g:cpsm_query_inverting_delimiter = '\'
+let g:cpsm_query_inverting_delimiter = '\'
 
 "@vim-textobj-rubybox
 runtime $VIMRUNTIME/macros/matchit.vim
