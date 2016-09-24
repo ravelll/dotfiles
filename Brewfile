@@ -172,7 +172,7 @@ brew 'pyqt5'
 brew 'shiboken'
 brew 'pyside'
 brew 'rbenv'
-brew 'reattach-to-user-namespace'
+brew 'reattach-to-user-namespace', args: ['HEAD']
 brew 'redis', service_restart: true
 brew 's3cmd'
 brew 'scala'
@@ -180,7 +180,7 @@ brew 'sslscan'
 brew 'the_platinum_searcher'
 brew 'the_silver_searcher'
 brew 'tig'
-brew 'tmux'
+brew 'tmux', args: ['HEAD']
 brew 'trash'
 brew 'tree'
 brew 'ttyrec'
