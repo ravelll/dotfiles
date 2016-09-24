@@ -87,8 +87,6 @@ set noundofile
 " ==========================
 
 " ========= KEYCONFIGS ==========
-inoremap <silent> JK <ESC>
-
 nnoremap j gj
 nnoremap k gk
 
@@ -102,8 +100,9 @@ inoremap [ []<Left>
 inoremap ( ()<Left>
 inoremap " ""<Left>
 inoremap ' ''<Left>
-inoremap < <><Left>
-inoremap <% <%%><Left><Left>
+" inoremap < <><Left>
+inoremap <% <%  %><Left><Left><Left>
+inoremap <%= <%=  %><Left><Left><Left>
 
 nnoremap <Space>q :only<CR>
 
@@ -231,6 +230,7 @@ NeoBundle 'basyura/unite-rails'
 NeoBundle 'sunaku/vim-ruby-minitest'
 "### HTML
 NeoBundle 'othree/html5.vim'
+NeoBundle 'alvan/vim-closetag'
 "### PHP
 NeoBundle 'jwalton512/vim-blade'
 NeoBundle 'ravelll/PDV--phpDocumentor-for-Vim'
@@ -289,6 +289,9 @@ let g:airline#extensions#whitespace#checks = ['indent', 'mixed-indent-file']
 
 "@winresizer
 let g:winresizer_start_key = ',w'
+
+"@vim-closetag
+let g:closetag_filenames = "*.html*"
 
 "@vim-abolish
 " nnoremap / :S/
@@ -606,7 +609,7 @@ nnoremap <silent> <c-p><c-u> :CtrlPMRU<CR>
 nnoremap <silent> <c-p><c-t> :CtrlPTag<CR>
 
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_user_command = 'files -A -i "^(\\.git|\\.hg|\\.svn|_darcs|\\.bzr|vendor)$" %s'
+let g:ctrlp_user_command = 'files -A -i "^(\\.git|\\.hg|\\.svn|_darcs|\\.bzr|vendor|tmp)$" %s'
 let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 let g:ctrlp_match_window = 'order:btt'
 let g:ctrlp_max_height = 60
