@@ -132,7 +132,7 @@ if [ -f $GOPATH/src/github.com/zquestz/s/autocomplete/s-completion.bash ]; then
 fi
 
 ## tmux
-alias t='tmux -u -2'
+alias t='tmux'
 
 ## GHQ
 export GHQ_ROOT="$HOME/src"
