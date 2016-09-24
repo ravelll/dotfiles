@@ -228,6 +228,7 @@ NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'ruby-matchit'
 NeoBundle 'rails.vim'
 NeoBundle 'basyura/unite-rails'
+NeoBundle 'sunaku/vim-ruby-minitest'
 "### HTML
 NeoBundle 'othree/html5.vim'
 "### PHP
