@@ -148,7 +148,7 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/Users/t308/.vim/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/.vim/repos/github.com/Shougo/dein.vim
 
 " Required:
 call dein#begin($HOME.'/.vim')
