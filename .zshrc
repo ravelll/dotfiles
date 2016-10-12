@@ -24,8 +24,11 @@ export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin/:opt/X11/bin:$DOTPATH/
 #
 # programming language environment
 #
-## nodebrew
+## javascript
+### nodebrew
 export PATH="$PATH:$HOME/.nodebrew/current/bin"
+### yarn
+export PATH="$HOME/.yarn/bin:$PATH"
 
 ## go
 export GOPATH="$HOME"
@@ -209,3 +212,5 @@ PROMPT="%F{yellow}%n ▶ %/%f %1(v|%F{green}%1v%f|)
 $ "
 
 typeset -U path cdpath fpath manpath
+
+export PATH="$HOME/.yarn/bin:$PATH"
