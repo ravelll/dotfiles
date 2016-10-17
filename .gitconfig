@@ -28,6 +28,7 @@
   f = fetch
   fp = fetch --prune
   l = log
+  lfp = log --first-parent
   pu = pull
   r = reset
   back = reset HEAD^
