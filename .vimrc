@@ -68,6 +68,7 @@ nnoremap <Esc><Esc> :nohlsearch<CR>
 
 " use c indent algorithm
 set cindent
+set breakindent
 
 " lowercase -> case-insensitive search
 set ignorecase
