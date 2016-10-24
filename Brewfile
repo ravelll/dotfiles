@@ -27,7 +27,6 @@ brew 'pkg-config'
 brew 'makedepend'
 brew 'openssl', args: ['universal']
 brew 'ansible'
-brew 'xz'
 brew 'gettext'
 brew 'libffi'
 brew 'pcre'
@@ -73,6 +72,7 @@ brew 'jemalloc'
 brew 'libev'
 brew 'gdbm', args: ['universal']
 brew 'sqlite', args: ['universal']
+brew 'xz'
 brew 'python3'
 brew 'libtool'
 brew 'spdylay'
@@ -155,14 +155,14 @@ brew 'mcrypt'
 brew 'md5deep'
 brew 'md5sha1sum'
 brew 'mecab'
-brew 'memcached', service_restart: true
+brew 'memcached', restart_service: true
 brew 'mercurial'
-brew 'mysql', service_restart: true
+brew 'mysql', restart_service: true
 brew 'node'
 brew 'nodebrew'
 brew 'ossp-uuid'
 brew 'pandoc'
-brew 'postgresql', service_restart: true
+brew 'postgresql', restart_service: true
 brew 'qt5'
 brew 'poppler'
 brew 'pdfgrep'
@@ -175,7 +175,7 @@ brew 'pyqt5'
 brew 'qt'
 brew 'rbenv'
 brew 'reattach-to-user-namespace', args: ['HEAD']
-brew 'redis', service_restart: true
+brew 'redis', restart_service: true
 brew 's3cmd'
 brew 'scala'
 brew 'sslscan'
