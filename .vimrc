@@ -90,6 +90,8 @@ set noundofile
 nnoremap j gj
 nnoremap k gk
 
+nnoremap H h
+
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-h> <Left>
@@ -124,6 +126,7 @@ if executable('pbcopy')
   endfunction
   nnoremap <silent> cc :call CopyFileName()<CR>
 endif
+
 " ===============================
 
 " ============ OTHERS =============
