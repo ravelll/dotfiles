@@ -64,7 +64,7 @@ command! TrimSpaces call s:TrimSpaces()
 set hlsearch
 
 " stop highlighting
-nnoremap <Esc><Esc> :nohlsearch<CR>
+nnoremap <C-[><C-[> :nohlsearch<CR>
 
 " use c indent algorithm
 set cindent
