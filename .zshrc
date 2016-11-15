@@ -208,7 +208,7 @@ precmd () {
 }
 
 #### show / unshow branch name by on git repos, or not
-PROMPT="%F{yellow}%n ▶ %/%f %1(v|%F{green}%1v%f|)
+PROMPT="%F{cyan}%n ▶ %/%f %1(v|%F{green}%1v%f|)
 $ "
 
 typeset -U path cdpath fpath manpath
