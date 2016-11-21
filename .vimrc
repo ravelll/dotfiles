@@ -218,6 +218,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'AndrewRadev/splitjoin.vim'
+NeoBundle 'haya14busa/vim-auto-programming'
 "### treat specific type file
 NeoBundle 'elzr/vim-json'
 NeoBundle 'rename.vim'
@@ -236,7 +237,6 @@ NeoBundle 'sunaku/vim-ruby-minitest'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'alvan/vim-closetag'
 "### PHP
-NeoBundle 'jwalton512/vim-blade'
 NeoBundle 'ravelll/PDV--phpDocumentor-for-Vim'
 NeoBundle 'vim-scripts/tagbar-phpctags', {
   \   'build' : {
@@ -273,6 +273,9 @@ NeoBundle 'evanmiller/nginx-vim-syntax'
 "### SQL
 NeoBundle 'vim-scripts/sql.vim--Stinson'
 NeoBundle 'vim-scripts/SQLComplete.vim'
+"### templates"
+NeoBundle 'slim-template/vim-slim'
+NeoBundle 'jwalton512/vim-blade'
 "#}}
 
 call neobundle#end()
@@ -730,11 +733,13 @@ let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
 "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 "overwrite completefunc
-let g:neocomplete#force_overwrite_completefunc=1
-
+let g:neocomplete#force_overwrite_completefunc=0
 let g:neocomplete#skip_auto_completion_time = ''
 
 "}
+
+"@auto-programming
+set completefunc=autoprogramming#complete
 
 "@CtrlP
 nnoremap <silent> <c-p><c-p> :CtrlP<CR>
@@ -821,9 +826,9 @@ autocmd rc BufRead,BufNewFile,BufReadPre *.coffee set filetype=coffee
 autocmd rc BufNewFile,BufRead *.thor      setf ruby
 autocmd rc BufNewFile,BufRead Vagrantfile setf ruby
 autocmd rc BufNewFile,BufRead *.tpl       setf html.javascript.smarty
+autocmd rc BufNewFile,BufRead *.erb       setf html.eruby
 autocmd rc BufNewFile,BufRead *.blade.php setf html.php.blade
 autocmd rc BufNewFile,BufRead jquery.*.js set ft=javascript syntax=jquery
-" autocmd BufNewFile,BufRead *.html.erb setf javascript.html.eruby
 autocmd rc VimEnter,BufNewFile,BufRead * if &ft == '' | set ft=markdown | endif
 
 "filetype indent
