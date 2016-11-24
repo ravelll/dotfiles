@@ -24,6 +24,10 @@ export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin/:opt/X11/bin:$DOTPATH/
 #
 # programming language environment
 #
+# anyenv
+export PATH="$PATH:$HOME/.anyenv/bin"
+eval "$(anyenv init -)"
+
 ## javascript
 ### nodebrew
 export PATH="$PATH:$HOME/.nodebrew/current/bin"
@@ -38,27 +42,6 @@ alias gotags='gotags -R ./* >> tags'
 ## perl
 export PERL_CPANM_OPT="--local-lib=$HOME/.perl-extlib"
 export PERL5LIB="$HOME/.perl-extlib/lib/perl5:$PERL5LIB"
-
-### plenv
-export PATH="$PATH:$HOME/.plenv/bin"
-eval "$(plenv init -)"
-
-## python
-### pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PATH:$PYENV_ROOT/bin"
-eval "$(pyenv init -)"
-
-## php
-### phpenv
-export PATH="$PATH:$HOME/.composer/vendor/bin"
-export PATH="$PATH:$HOME/.phpenv/bin"
-eval "$(phpenv init -)"
-
-## ruby
-### rbenv
-export PATH="$PATH:$HOME/.rbenv/shims"
-eval "$(rbenv init -)"
 
 ### aliases
 alias rb='ruby'
