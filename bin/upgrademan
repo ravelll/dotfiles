@@ -1,6 +1,6 @@
 #!/usr/local/bin/zsh
 
-brew_up () {
+brew_update () {
   brew update
   brew upgrade
   brew cleanup
@@ -14,27 +14,13 @@ node_up () {
   nodebrew install-binary latest
 }
 
-php_up () {
-  cd ~/.phpenv/plugins/php-build
-  git pull origin master
-}
-
-ruby_up () {
-  cd ~/.rbenv/plugins/ruby-build
-  git pull origin master
-}
-
-perl_up () {
-  cd ~/.plenv/plugins/perl-build
-  git pull origin master
+anyenv_update () {
+  anyenv update
 }
 
 main () {
-  brew_up
-  node_up
-  php_up
-  ruby_up
-  perl_up
+  brew_update
+  anyenv_update
 }
 
 main
