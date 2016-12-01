@@ -18,16 +18,17 @@ tap 'monochromegane/pt'
 tap 'osx-cross/avr'
 tap 'phinze/cask'
 tap 'simeji/jid'
+cask 'java'
 cask 'osxfuse'
 cask 'xquartz'
 brew 'ack'
 brew 'libyaml'
 brew 'openssl@1.1'
-brew 'gdbm', args: ['universal']
+brew 'gdbm'
 brew 'openssl', args: ['universal']
 brew 'readline'
-brew 'sqlite', args: ['universal']
-brew 'python', args: ['universal']
+brew 'sqlite'
+brew 'python'
 brew 'ansible'
 brew 'gettext'
 brew 'libffi'
@@ -172,7 +173,6 @@ brew 'pyenv'
 brew 'qt5'
 brew 'sip', args: ['with-python3']
 brew 'pyqt5'
-brew 'qt'
 brew 'reattach-to-user-namespace', args: ['HEAD']
 brew 'redis', restart_service: true
 brew 's3cmd'
@@ -195,8 +195,6 @@ brew 'yasm'
 brew 'z'
 brew 'zsh'
 brew 'zsh-completions'
-brew 'homebrew/boneyard/shiboken'
-brew 'homebrew/boneyard/pyside'
 brew 'homebrew/boneyard/rbenv-readline'
 brew 'homebrew/completions/docker-completion'
 brew 'homebrew/completions/gem-completion'
