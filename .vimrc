@@ -133,6 +133,8 @@ endif
 " ============ OTHERS =============
 nnoremap ,f :set filetype=
 
+" No beep or notify visually
+set visualbell t_vb=
 " =================================
 
 "}}}
