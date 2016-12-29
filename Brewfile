@@ -58,6 +58,7 @@ brew 'gcc', args: ['with-all-languages', 'with-jit', 'with-nls']
 brew 'libevent'
 brew 'open-mpi', args: ['c++11']
 brew 'boost', args: ['c++11', 'with-icu4c', 'with-mpi', 'without-single']
+brew 'c-ares'
 brew 'cloog'
 brew 'cmake', args: ['HEAD', 'with-completion', 'without-docs']
 brew 'cmigemo'
@@ -217,6 +218,7 @@ brew 'simeji/jid/jid'
 cask 'atom'
 cask 'docker'
 cask 'docker-toolbox'
+cask 'keepassx'
 cask 'kindle'
 cask 'magican'
 cask 'tunnelblick'
