@@ -28,6 +28,9 @@ export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin/:opt/X11/bin:$DOTPATH/
 export PATH="$PATH:$HOME/.anyenv/bin"
 eval "$(anyenv init -)"
 
+# PHP
+alias ce='composer exec'
+
 ## javascript
 ### nodebrew
 export PATH="$PATH:$HOME/.nodebrew/current/bin"
