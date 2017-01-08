@@ -59,6 +59,8 @@ brew 'libevent'
 brew 'open-mpi', args: ['c++11']
 brew 'boost', args: ['c++11', 'with-icu4c', 'with-mpi', 'without-single']
 brew 'c-ares'
+brew 'gmp@4'
+brew 'isl@0.12'
 brew 'cloog'
 brew 'cmake', args: ['HEAD', 'with-completion', 'without-docs']
 brew 'cmigemo'
@@ -111,6 +113,7 @@ brew 'lua'
 brew 'gnuplot'
 brew 'libtasn1'
 brew 'nettle'
+brew 'p11-kit'
 brew 'gnutls'
 brew 'gotags'
 brew 'gperftools'
