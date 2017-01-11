@@ -135,6 +135,13 @@ nnoremap ,f :set filetype=
 
 " No beep or notify visually
 set visualbell t_vb=
+
+" Update
+function! s:UpdateLibs()
+  execute 'NeoBundleUpdate'
+  execute 'GoUpdateBinaries'
+endfunction
+command! Up call s:UpdateLibs()
 " =================================
 
 "}}}
