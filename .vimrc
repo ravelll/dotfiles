@@ -92,6 +92,7 @@ nnoremap j gj
 nnoremap k gk
 
 nnoremap H h
+vnoremap H h
 
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
