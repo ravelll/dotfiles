@@ -1,10 +1,38 @@
-#
-# zsh
-#
-## oh-my-zsh
+## zsh
+### oh-my-zsh
 ZSH=$HOME/.oh-my-zsh
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
+
+### git-completion
+fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+autoload -U compinit
+compinit -u
+
+### history
+histfile=$home/.zsh_history
+histsize=1000000
+savehist=1000000
+setopt share_history
+
+### zsh-completions
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+### prompt format
+autoload -Uz vcs_info
+
+zstyle ':vcs_info:*' formats '[%b]'
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd () {
+  psvar=()
+  LANG=en_US.js_JP.UTF-8 vcs_info
+  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+
+#### show / unshow branch name by on git repos, or not
+PROMPT="%F{cyan}%n ▶ %/%f %1(v|%F{green}%1v%f|)
+$ "
+typeset -U path cdpath fpath manpath
 
 ## zsh options
 setopt mark_dirs
@@ -167,37 +195,3 @@ alias -g P='| peco'
 alias -g C='| pbcopy'
 alias -g G='| grep'
 alias -g S='| sort'
-
-## zsh
-### git-completion
-fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-autoload -U compinit
-compinit -u
-
-### history
-histfile=$home/.zsh_history
-histsize=1000000
-savehist=1000000
-setopt share_history
-
-### zsh-completions
-fpath=(/usr/local/share/zsh-completions $fpath)
-
-### prompt format
-autoload -Uz vcs_info
-
-zstyle ':vcs_info:*' formats '[%b]'
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
-precmd () {
-  psvar=()
-  LANG=en_US.js_JP.UTF-8 vcs_info
-  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-}
-
-#### show / unshow branch name by on git repos, or not
-PROMPT="%F{cyan}%n ▶ %/%f %1(v|%F{green}%1v%f|)
-$ "
-
-typeset -U path cdpath fpath manpath
-
-export PATH="$HOME/.yarn/bin:$PATH"
