@@ -286,6 +286,8 @@ NeoBundle 'vim-scripts/SQLComplete.vim'
 "### templates"
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'jwalton512/vim-blade'
+"### terraform
+NeoBundle 'hashivim/vim-terraform'
 "#}}
 
 call neobundle#end()
