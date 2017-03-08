@@ -177,7 +177,6 @@ brew 'python3'
 brew 'spdylay'
 brew 'nghttp2'
 brew 'nkf'
-brew 'nodebrew'
 brew 'numpy', args: ['with-openblas', 'with-python3']
 brew 'open-mpi', args: ['c++11']
 brew 'openexr'
