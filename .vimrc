@@ -11,6 +11,9 @@ set laststatus=2
 " show line number
 set number
 
+set ambiwidth=double
+set lazyredraw
+
 " command complement
 set wildmode=list,full
 
