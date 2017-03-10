@@ -62,8 +62,6 @@ alias ce='composer exec'
 ## javascript
 ### nodebrew
 export PATH="$PATH:$HOME/.nodebrew/current/bin"
-### yarn
-export PATH="$PATH:`yarn global bin`"
 
 ## go
 export GOPATH="$HOME"
