@@ -189,10 +189,10 @@ brew 'peco'
 brew 'phantomjs'
 brew 'postgresql', restart_service: true
 brew 'pyenv'
-brew 'qt@5.7'
+brew 'qt5'
 brew 'sip', args: ['with-python3']
 brew 'pyqt5'
-brew 'qt5'
+brew 'qt@5.7'
 brew 'rails-completion'
 brew 're2c'
 brew 'reattach-to-user-namespace', args: ['HEAD']
