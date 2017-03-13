@@ -7,20 +7,13 @@ brew_update () {
 
   cd $HOME/src/github.com/ravelll/dotfiles
   brew bundle dump --force
-}
-
-node_up () {
-  nodebrew selfupdate
-  nodebrew install-binary latest
-}
-
-anyenv_update () {
-  anyenv update
+  cd -
 }
 
 main () {
   brew_update
-  anyenv_update
+  anyenv update
+  nodebrew selfupdate
 }
 
 main
