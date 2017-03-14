@@ -185,7 +185,7 @@ alias sl='ls'
 alias ll='ls -alFG'
 alias ms='massren'
 alias ps='ps aux'
-alias men='env LANG=C man'
+alias man='env LANG=C man'
 alias rem='trash'
 alias tags='rm tags > /dev/null 2>&1; ctags -R'
 
