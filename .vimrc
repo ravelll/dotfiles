@@ -266,10 +266,10 @@ NeoBundle 'vim-jp/vim-go-extra'
 "### elixir
 NeoBundle 'elixir-lang/vim-elixir'
 "### js
-NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'justinj/vim-react-snippets'
-NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'othree/yajs.vim'
+NeoBundle 'othree/javascript-libraries-syntax.vim'
 NeoBundle 'mattn/jscomplete-vim'
 NeoBundle 'nono/jquery.vim'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
