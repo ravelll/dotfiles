@@ -28,7 +28,6 @@ brew 'gdbm'
 brew 'openssl', args: ['universal']
 brew 'python'
 brew 'ansible'
-brew 'apple-gcc42'
 brew 'freetype'
 brew 'fontconfig'
 brew 'gettext'
@@ -178,7 +177,6 @@ brew 'pyenv'
 brew 'qt'
 brew 'pyqt'
 brew 'rails-completion'
-brew 'rbenv-readline'
 brew 're2c'
 brew 'reattach-to-user-namespace', args: ['HEAD']
 brew 'redis', restart_service: true
