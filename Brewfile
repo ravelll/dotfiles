@@ -190,7 +190,7 @@ brew 'texi2html'
 brew 'the_platinum_searcher'
 brew 'the_silver_searcher'
 brew 'tig'
-brew 'tmux'
+brew 'tmux', args: ['with-utf8proc']
 brew 'trash'
 brew 'tree'
 brew 'ttyrec'
