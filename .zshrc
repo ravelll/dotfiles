@@ -102,7 +102,7 @@ alias ssh='TERM=xterm ssh'
 
 ## vim
 EDITOR="vim -c \"set fenc=utf-8\""
-VIMRUNTIME=/usr/local/Cellar/vim/*(/)/share/vim/vim74/
+VIMRUNTIME=/usr/local/Cellar/vim/*(/)/share/vim/*(/)/
 alias v='env LANG=ja_JP.UTF-8 vim "$@"'
 
 ## pt
