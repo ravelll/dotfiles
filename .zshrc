@@ -56,9 +56,6 @@ export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin/:opt/X11/bin:$DOTPATH/
 export PATH="$PATH:$HOME/.anyenv/bin"
 eval "$(anyenv init -)"
 
-# PHP
-alias ce='composer exec'
-
 ## javascript
 ### nodebrew
 export PATH="$PATH:$HOME/.nodebrew/current/bin"
@@ -73,17 +70,9 @@ export PERL_CPANM_OPT="--local-lib=$HOME/.perl-extlib"
 export PERL5LIB="$HOME/.perl-extlib/lib/perl5:$PERL5LIB"
 
 ### aliases
-alias rb='ruby'
 alias be='bundle exec'
 alias ber='bundle exec ruby'
-alias rs='bundle exec rspec spec'
 alias bi='bundle install --path vendor/bundle'
-alias rg='rails generate'
-
-## java
-### aliases
-alias javac='javac -J-Dfile.encoding=UTF-8'
-alias java='java -Dfile.encoding=UTF-8'
 
 ## Qt
 export PATH="$PATH:/usr/local/Cellar/qt5/5.4.0/bin/"
@@ -97,14 +86,7 @@ alias cask='brew cask'
 ## php-cs-fixer
 alias pf='./vendor/bin/php-cs-fixer fix "$@" --config-file=.php_cs'
 
-## docker
-alias d='docker'
-alias dom='docker-machine'
-alias doc='docker-compose'
-
 ## git
-alias git='hub'
-compdef hub='git'
 alias g='git'
 alias cm='git checkout master'
 function current_branch() {
@@ -122,18 +104,9 @@ alias ssh='TERM=xterm ssh'
 EDITOR="vim -c \"set fenc=utf-8\""
 VIMRUNTIME=/usr/local/Cellar/vim/*(/)/share/vim/vim74/
 alias v='env LANG=ja_JP.UTF-8 vim "$@"'
-alias vn='vim -u NONE'
-
-## neovim
-alias nv='nvim "$@"'
 
 ## pt
 alias pt='pt -i'
-
-### use MacVim
-# EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim -c \"set fenc=utf-8\""
-# VIMRUNTIME=/Applications/MacVim.app/Contents/Resources/vim/runtime/
-# alias v='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 
 ## Heroku Toolbelt
 export PATH="$PATH:/usr/local/heroku/bin"
@@ -186,10 +159,4 @@ alias ll='ls -alFG'
 alias ms='massren'
 alias ps='ps aux'
 alias man='env LANG=C man'
-alias rem='trash'
 alias tags='rm tags > /dev/null 2>&1; ctags -R'
-
-alias -g P='| peco'
-alias -g C='| pbcopy'
-alias -g G='| grep'
-alias -g S='| sort'
