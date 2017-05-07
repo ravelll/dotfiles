@@ -90,7 +90,7 @@ brew 'gmp'
 brew 'isl'
 brew 'mpfr'
 brew 'libmpc'
-brew 'gcc', args: ['with-all-languages', 'with-jit', 'with-nls']
+brew 'gcc', args: ['with-jit', 'with-nls']
 brew 'gd'
 brew 'gdb'
 brew 'shared-mime-info'
