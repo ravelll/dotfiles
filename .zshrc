@@ -6,8 +6,12 @@ source $ZSH/oh-my-zsh.sh
 
 ### git-completion
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-autoload -U compinit
-compinit -u
+autoload -Uz compinit
+if [[ -n ~/.zcompdump(#qN.mh+24) ]];then
+  compinit;
+else
+  compinit -C;
+fi
 
 ### history
 histfile=$home/.zsh_history
@@ -114,11 +118,6 @@ export PATH="$PATH:/usr/local/heroku/bin"
 ## z
 . `brew --prefix`/etc/profile.d/z.sh
 
-## s
-if [ -f $GOPATH/src/github.com/zquestz/s/autocomplete/s-completion.bash ]; then
-  . $GOPATH/src/github.com/zquestz/s/autocomplete/s-completion.bash
-fi
-
 ## tmux
 alias t='tmux -2 -u -l'
 
@@ -160,3 +159,7 @@ alias ms='massren'
 alias ps='ps aux'
 alias man='env LANG=C man'
 alias tags='rm tags > /dev/null 2>&1; ctags -R'
+
+if (which zprof > /dev/null) ;then
+  zprof | less
+fi
