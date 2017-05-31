@@ -45,23 +45,18 @@ source ~/.localenv
 #
 # PATH
 #
-export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin/:opt/X11/bin:$DOTPATH/bin:$PATH"
+if [ -z $TMUX ]; then
+  export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin/:opt/X11/bin:$HOME/bin:$HOME/.anyenv/bin:$HOME/.nodebrew/current/bin:/usr/local/heroku/bin:$DOTPATH/bin:$PATH"
+fi
 
 #
 # programming language environment
 #
 # anyenv
-export PATH="$PATH:$HOME/.anyenv/bin"
-eval "$(anyenv init -)"
-
-## javascript
-### nodebrew
-export PATH="$PATH:$HOME/.nodebrew/current/bin"
+eval "$(anyenv init - --no-rehash)"
 
 ## go
 export GOPATH="$HOME"
-export PATH="$PATH:$GOPATH/bin"
-alias gotags='gotags -R ./* >> tags'
 
 ## perl
 export PERL_CPANM_OPT="--local-lib=$HOME/.perl-extlib"
@@ -71,9 +66,6 @@ export PERL5LIB="$HOME/.perl-extlib/lib/perl5:$PERL5LIB"
 alias be='bundle exec'
 alias ber='bundle exec ruby'
 alias bi='bundle install --path vendor/bundle'
-
-## Qt
-export PATH="$PATH:/usr/local/Cellar/qt5/5.4.0/bin/"
 
 #
 # other tools environment
@@ -105,9 +97,6 @@ alias v='env LANG=ja_JP.UTF-8 vim "$@"'
 
 ## pt
 alias pt='pt -i'
-
-## Heroku Toolbelt
-export PATH="$PATH:/usr/local/heroku/bin"
 
 ## z
 . `brew --prefix`/etc/profile.d/z.sh
