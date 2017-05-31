@@ -38,6 +38,7 @@ setopt no_beep
 setopt complete_aliases
 setopt correct
 setopt list_packed
+setopt no_global_rcs
 
 # Load local environment
 source ~/.localenv
