@@ -71,6 +71,9 @@ alias bi='bundle install --path vendor/bundle'
 #
 # other tools environment
 #
+## direnv
+eval "$(direnv hook zsh)"
+
 ## homebrew
 alias cask='brew cask'
 
