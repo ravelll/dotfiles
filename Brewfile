@@ -96,7 +96,7 @@ brew "gdb"
 brew "shared-mime-info"
 brew "gdk-pixbuf"
 brew "gem-completion"
-brew "ghq"
+brew "ghq", args: ["HEAD"]
 brew "git-lfs"
 brew "gsettings-desktop-schemas"
 brew "icu4c", args: ["c++11"]
