@@ -181,7 +181,6 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('bling/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('nathanaelkane/vim-indent-guides')
-  call dein#add('fxn/vim-monochrome')
   call dein#add('ravelll/vim-murk')
   call dein#add('ujihisa/unite-colorscheme')
   call dein#add('lilydjwg/colorizer')
@@ -202,6 +201,7 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('tyru/open-browser.vim')
   call dein#add('tyru/open-browser-github.vim')
   call dein#add('kana/vim-metarw')
+  call dein#add('ivalkeen/vim-ctrlp-tjump')
   "### backend utility
   call dein#add('itchyny/vim-parenmatch')
   call dein#add('Konfekt/FastFold')
@@ -438,7 +438,8 @@ nnoremap <silent> ,L :<C-u>TlistAddFilesRecursive %:h<Tab><CR>
 vnoremap <silent> og :OpenGithubFile<CR>
 
 "@tag jump
-nnoremap <C-]> g<C-]>
+nnoremap <c-]> :CtrlPtjump<cr>
+vnoremap <c-]> :CtrlPtjumpVisual<cr>
 
 "@NERDTree
 let g:NERDTreeWinSize=30
