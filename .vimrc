@@ -107,7 +107,6 @@ inoremap [ []<Left>
 inoremap ( ()<Left>
 inoremap " ""<Left>
 inoremap ' ''<Left>
-" inoremap < <><Left>
 inoremap <% <%  %><Left><Left><Left>
 inoremap <%= <%=  %><Left><Left><Left>
 
@@ -142,7 +141,7 @@ set visualbell t_vb=
 
 " Update
 function! s:UpdateLibs()
-  execute 'NeoBundleUpdate'
+  call dein#update()
   execute 'GoUpdateBinaries'
 endfunction
 command! Up call s:UpdateLibs()
@@ -224,7 +223,6 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('tpope/vim-endwise')
   "### treat specific type file
   call dein#add('elzr/vim-json')
-  call dein#add('vim-scripts/rename.vim')
   call dein#add('haya14busa/vim-migemo')
   call dein#add('plasticboy/vim-markdown')
   call dein#add('kana/vim-textobj-user')
@@ -273,13 +271,11 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('vim-scripts/SQLComplete.vim')
   "### terraform
   call dein#add('hashivim/vim-terraform')
-  "#}}
 
   call dein#end()
   call dein#save_state()
 endif
 
-" Required:
 filetype plugin indent on
 syntax enable
 
@@ -299,15 +295,8 @@ let g:winresizer_start_key = ',w'
 "@vim-closetag
 let g:closetag_filenames = "*.html*"
 
-"@vim-abolish
-" nnoremap / :S/
-
 "@parenmatch
 let g:loaded_matchparen = 1
-
-"@vimshell
-nnoremap <silent> ,vs :VimShell<CR>
-vnoremap <silent> ,vs :VimShellSendBuffer<CR>
 
 "@sudo vim
 function! s:Sw()
@@ -331,9 +320,6 @@ nmap <LocalLeader>` ysiw`
 nmap <LocalLeader>* ysiw*
 nmap <LocalLeader>/ ysiw/
 nmap <LocalLeader><LocalLeader>* ysiw*wysiw*
-
-"@neocomplete php
-let g:neocomplete_php_locale = 'ja'
 
 "@vim-multiple-cursors
 function! Multiple_cursors_before()
@@ -378,9 +364,6 @@ xmap <C-e> <Plug>(neosnippet_expand_target)
 
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.vim/repos/github.com/Shougo/vim-snippets/snippets'
-
-"@rename.vim
-nnoremap <silent> ,mv :call Renamef()<CR>
 
 "@vim-rails + neosnippets
 autocmd rc User Rails.view*            NeoSnippetSource ~/.vim/snippet/ruby.rails.view.snip
@@ -479,10 +462,7 @@ let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
 let g:unite_source_rec_min_cache_files = 1
 let g:unite_source_rec_max_cache_files = 25000
-
 call unite#custom#source('file_rec', 'ignore_pattern', '\(png\|.git\|jpeg\|jpg\)$')
-" call unite#custom#source('file_rec', 'filters', ['converter_relative_word'])
-" call unite#custom#source('file_mru', 'filters', ['converter_relative_word'])
 
 function! ChangeCurrentDirectoryToProjectRoot()
   let root = unite#util#path2project_directory(expand('%'))
@@ -508,8 +488,6 @@ nnoremap <silent> ,rf :<C-u>Unite rails/config<CR>
 nnoremap <silent> ,rh :<C-u>Unite rails/helper<CR>
 nnoremap <silent> ,rs :<C-u>Unite rails/spec<CR>
 
-nnoremap <silent> ,uw :<C-u>Unite codic<CR>
-
 if executable('pt')
   let g:unite_source_grep_command = 'pt'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
@@ -531,8 +509,7 @@ let g:go_bin_path = '/usr/local/bin/'
 
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 set completeopt=menu,preview
-
-" autocmd FileType go autocmd BufWritePre <buffer> Fmt
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
 "}
 
 "@neocomplete {
@@ -597,14 +574,13 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
 endif
 
 let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 "overwrite completefunc
 let g:neocomplete#force_overwrite_completefunc=0
 let g:neocomplete#skip_auto_completion_time = ''
-
 "}
 
 "@CtrlP
