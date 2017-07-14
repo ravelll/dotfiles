@@ -394,6 +394,9 @@ if executable('gjs')
         \ }
 endif
 
+"@vim-ctrlp-tjump
+let g:ctrlp_tjump_only_silent = 1
+
 "@Tagbar
 nnoremap ,tb :TagbarToggle<CR>
 
@@ -575,7 +578,7 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
 endif
 
 let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
-let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+" let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
@@ -672,6 +675,8 @@ autocmd rc BufNewFile,BufRead *.tpl       setf html.javascript.smarty
 autocmd rc BufNewFile,BufRead *.erb       setf html.eruby
 autocmd rc BufNewFile,BufRead *.blade.php setf html.php.blade
 autocmd rc BufNewFile,BufRead jquery.*.js set ft=javascript syntax=jquery
+
+"set default filetype markdown
 autocmd rc VimEnter,BufNewFile,BufRead * if &ft == '' | set ft=markdown | endif
 
 "filetype indent
