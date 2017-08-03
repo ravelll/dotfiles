@@ -1,5 +1,6 @@
 tap "caius/jo"
 tap "caskroom/cask"
+tap "caskroom/fonts"
 tap "homebrew/boneyard"
 tap "homebrew/brewdler"
 tap "homebrew/bundle"
@@ -208,23 +209,23 @@ brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 cask "docker"
 cask "docker-toolbox"
 cask "flux"
-cask "gimp"
-cask "keepassxc"
-cask "kindle"
-cask "skitch"
-cask "tunnelblick"
-cask "night-owl"
-cask "appcleaner"
-cask "dropbox"
-cask "slack"
-cask "iterm2"
+cask "gimp" unless test("d", "/Applications/GIMP.app")
+cask "keepassxc" unless test("d", "/Applications/KeePassXC.app")
+cask "kindle" unless test("d", "/Applications/Kindle.app")
+cask "skitch" unless test("d", "/Applications/Skitch.app")
+cask "tunnelblick" unless test("d", "/Applications/Tunnelblick.app")
+cask "night-owl" unless test("d", "/Applications/Night\ Owl.app")
+cask "appcleaner" unless test("d", "/Applications/AppCleaner.app")
+cask "dropbox" unless test("d", "/Applications/Dropbox.app")
+cask "slack" unless test("d", "/Applications/Slack.app")
+cask "iterm2" unless test("d", "/Applications/iTerm.app")
 cask "steermouse"
-cask "hyperswitch"
-cask "google-chrome"
-cask "google-japanese-ime"
-cask "dash"
-cask "smcfancontrol"
-cask "alfred"
-cask "karabiner-elements"
+cask "hyperswitch" unless test("d", "/Applications/HyperSwitch.app")
+cask "google-chrome" unless test("d", "/Applications/Google\ Chrome.app")
+cask "google-japanese-ime" unless test("d", "/Applications/GoogleJapaneseInput.localized")
+cask "dash" unless test("d", "/Applications/Dash.app")
+cask "smcfancontrol" unless test("d", "/Applications/smcFanControl.app")
+cask "alfred" unless test("d", "/Applications/Alfred\ 3.app")
+cask "karabiner-elements" unless test("d", "/Applications/Karabiner-Elements.app")
 cask "font-inconsolata"
 cask "font-ricty-diminished"
