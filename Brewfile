@@ -1,5 +1,6 @@
 tap "caius/jo"
 tap "caskroom/cask"
+tap "caskroom/fonts"
 tap "homebrew/boneyard"
 tap "homebrew/brewdler"
 tap "homebrew/bundle"
