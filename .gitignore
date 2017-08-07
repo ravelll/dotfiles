@@ -12,6 +12,5 @@
 /vendor
 database.yml
 npm-debug.log
-secrets.yml
 tags
 *.log
