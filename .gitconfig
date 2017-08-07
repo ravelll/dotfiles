@@ -10,6 +10,7 @@
   grep = auto
 [alias]
   a = add
+  aa = add -A
   ai = add -i
   ap = add -p
   b  = branch
