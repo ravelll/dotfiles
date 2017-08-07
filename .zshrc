@@ -141,7 +141,7 @@ alias vgs='vagrant-global-status'
 ## other aliases
 alias ls='ls -G'
 alias sl='ls'
-alias ll='ls -alFG'
+alias ll='exa -alhFG --git'
 alias ms='massren'
 alias ps='ps aux'
 alias man='env LANG=C man'
