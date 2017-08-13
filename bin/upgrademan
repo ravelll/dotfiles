@@ -4,10 +4,6 @@ brew_update () {
   brew update
   brew upgrade
   brew cleanup
-
-  cd $HOME/src/github.com/ravelll/dotfiles
-  brew bundle dump --force
-  cd -
 }
 
 main () {
