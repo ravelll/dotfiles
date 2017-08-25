@@ -10,7 +10,6 @@
 /log/*.log
 /tmp
 /vendor
-database.yml
 npm-debug.log
 tags
 *.log
