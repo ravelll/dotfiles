@@ -228,5 +228,8 @@ cask "dash" unless test("d", "/Applications/Dash.app")
 cask "smcfancontrol" unless test("d", "/Applications/smcFanControl.app")
 cask "alfred" unless test("d", "/Applications/Alfred\ 3.app")
 cask "karabiner-elements" unless test("d", "/Applications/Karabiner-Elements.app")
+cask "marked" unless test("d", "/Applications/Marked\ 2.app")
+cask "vagrant" unless test("x", "/usr/local/bin/vagrant")
+cask "virtualbox" unless test("d", "/Applications/VirtualBox.app")
 cask "font-inconsolata"
 cask "font-ricty-diminished"
