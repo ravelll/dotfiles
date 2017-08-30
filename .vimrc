@@ -494,7 +494,7 @@ nnoremap <silent> ,rs :<C-u>Unite rails/spec<CR>
 
 if executable('pt')
   let g:unite_source_grep_command = 'pt'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_default_opts = '-i --nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
 else
   let g:unite_source_grep_command = 'grep'
