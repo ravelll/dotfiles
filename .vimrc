@@ -249,13 +249,10 @@ if dein#load_state($HOME.'/.vim')
   "### JavaScript
   call dein#add('othree/yajs.vim')
   call dein#add('othree/javascript-libraries-syntax.vim')
-  call dein#add('pangloss/vim-javascript')
   call dein#add('mxw/vim-jsx')
   call dein#add('justinj/vim-react-snippets')
-  call dein#add('jelera/vim-javascript-syntax')
-  call dein#add('mattn/jscomplete-vim')
   call dein#add('nono/jquery.vim')
-  call dein#add('jiangmiao/simple-javascript-indenter')
+  call dein#add('ternjs/tern_for_vim')
   "### TypeScript
   call dein#add('leafgarland/typescript-vim')
   call dein#add('Quramy/tsuquyomi')
@@ -568,7 +565,7 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " Enable omni completion.
 autocmd rc FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd rc FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd rc FileType javascript setlocal omnifunc=jscomplete#CompleteJS
+autocmd rc FileType javascript setlocal omnifunc=tern#Complete
 autocmd rc FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd rc FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
