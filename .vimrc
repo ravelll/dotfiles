@@ -290,7 +290,7 @@ let g:airline#extensions#whitespace#checks = ['indent', 'mixed-indent-file']
 let g:winresizer_start_key = ',w'
 
 "@vim-closetag
-let g:closetag_filenames = "*.html*"
+let g:closetag_filenames = "*.html*,*.js"
 
 "@parenmatch
 let g:loaded_matchparen = 1
