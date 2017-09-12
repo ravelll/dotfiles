@@ -248,11 +248,11 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('elixir-lang/vim-elixir')
   "### JavaScript
   call dein#add('othree/yajs.vim')
+  call dein#add('othree/es.next.syntax.vim')
   call dein#add('othree/javascript-libraries-syntax.vim')
-  call dein#add('mxw/vim-jsx')
-  call dein#add('justinj/vim-react-snippets')
-  call dein#add('nono/jquery.vim')
+  call dein#add('maxmellon/vim-jsx-pretty')
   call dein#add('ternjs/tern_for_vim')
+  call dein#add('pangloss/vim-javascript')
   "### TypeScript
   call dein#add('leafgarland/typescript-vim')
   call dein#add('Quramy/tsuquyomi')
@@ -340,8 +340,11 @@ let g:indent_guides_guide_size=1
 autocmd rc VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=235
 autocmd rc VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=236
 
-"@jscomplete-vim
-let g:jscomplete_use = ['dom', 'moz', 'es6th']
+"@javascript-libraries-syntax.vim
+let g:used_javascript_libs = 'jquery,react,flux'
+let b:javascript_lib_use_jquery = 1
+let b:javascript_lib_use_react = 1
+let b:javascript_lib_use_flux = 1
 
 "@jq
 command! -nargs=? Jq call s:Jq(<f-args>)
