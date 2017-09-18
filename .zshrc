@@ -79,6 +79,7 @@ alias cask='brew cask'
 
 ## php-cs-fixer
 alias pf='./vendor/bin/php-cs-fixer fix "$@" --config-file=.php_cs'
+alias vpi='$EDITOR $(php -i | grep "Loaded Configuration File" | cut -d" " -f5)'
 
 ## git
 alias g='git'
@@ -95,7 +96,7 @@ alias ggpush='git push origin $(current_branch)'
 alias ssh='TERM=xterm ssh'
 
 ## vim
-EDITOR="vim -c \"set fenc=utf-8\""
+EDITOR="vim"
 VIMRUNTIME=/usr/local/Cellar/vim/*(/)/share/vim/*(/)/
 alias v='env LANG=ja_JP.UTF-8 vim "$@"'
 
