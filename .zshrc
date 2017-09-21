@@ -47,8 +47,10 @@ source ~/.localenv
 # PATH
 #
 if [ -z $TMUX ]; then
-  export PATH="opt/X11/bin:$HOME/bin:$HOME/.anyenv/bin:$HOME/.nodebrew/current/bin:/usr/local/heroku/bin:$DOTPATH/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin/:$PATH"
+  export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin/:/opt/X11/bin:$HOME/bin:$HOME/.anyenv/bin:/usr/local/heroku/bin:$PATH"
 fi
+
+export PATH="$HOME/.nodebrew/current/bin:$PATH"
 
 #
 # programming language environment
