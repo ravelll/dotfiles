@@ -207,6 +207,7 @@ brew "itchyny/fillin/fillin"
 brew "laurent22/massren/massren"
 brew "simeji/jid/jid"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
+brew "m4"
 cask "docker"
 cask "docker-toolbox"
 cask "flux"
