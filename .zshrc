@@ -148,7 +148,7 @@ alias ll='exa -alhFG --git'
 alias ms='massren'
 alias ps='ps aux'
 alias man='env LANG=C man'
-alias tags='rm tags > /dev/null 2>&1; ctags -R'
+alias tags='rm tags > /dev/null 2>&1; ctags -R > /dev/null 2>&1'
 
 if (which zprof > /dev/null) ;then
   zprof | less
