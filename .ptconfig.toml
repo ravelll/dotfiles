@@ -1,1 +1,1 @@
-ignore = ["tags"]
+ignore = ["tags", "composer.phar"]
