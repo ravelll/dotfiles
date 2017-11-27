@@ -253,6 +253,8 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('maxmellon/vim-jsx-pretty')
   call dein#add('ternjs/tern_for_vim')
   call dein#add('pangloss/vim-javascript')
+  "### Elm
+  call dein#add('ElmCast/elm-vim')
   "### TypeScript
   call dein#add('leafgarland/typescript-vim')
   call dein#add('Quramy/tsuquyomi')
@@ -283,6 +285,17 @@ endif
 let g:airline#enable#branch = 1
 let g:airline_detect_modified = 0
 let g:airline#extensions#whitespace#checks = ['indent', 'mixed-indent-file']
+
+"@elm-vim
+let g:elm_jump_to_error = 0
+let g:elm_make_output_file = "elm.js"
+let g:elm_make_show_warnings = 0
+let g:elm_syntastic_show_warnings = 0
+let g:elm_browser_command = ""
+let g:elm_detailed_complete = 0
+let g:elm_format_autosave = 1
+let g:elm_format_fail_silently = 0
+let g:elm_setup_keybindings = 1
 
 "@winresizer
 let g:winresizer_start_key = ',w'
