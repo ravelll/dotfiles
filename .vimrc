@@ -261,8 +261,6 @@ if dein#load_state($HOME.'/.vim')
   "### Puppet
   call dein#add('rodjek/vim-puppet')
   call dein#add('puppetlabs/puppet-syntax-vim')
-  "### nginx
-  call dein#add('evanmiller/nginx-vim-syntax')
   "### SQL
   call dein#add('vim-scripts/sql.vim--Stinson')
   call dein#add('vim-scripts/SQLComplete.vim')
@@ -535,7 +533,6 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 let g:neocomplete#sources#dictionary#dictionaries = {
       \ 'default' : '',
       \ 'vimshell' : $HOME.'/.zsh_history',
-      \ 'scheme' : $HOME.'/.gosh_completions',
       \ 'php' : $HOME.'/.vim/dict/php.dict',
       \ 'ruby' : $HOME.'/.vim/dict/ruby.dict',
       \ 'javascript' : $HOME.'/.vim/dict/javascript.dict',
