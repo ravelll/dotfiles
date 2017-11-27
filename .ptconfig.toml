@@ -1,1 +1,2 @@
-ignore = ["tags", "composer.phar"]
+color = true
+ignore = ["tags", "composer.phar", "composer.lock"]
