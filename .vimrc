@@ -218,7 +218,7 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('tpope/vim-abolish')
   "### coding support
   call dein#add('tmhedberg/matchit')
-  call dein#add('scrooloose/syntastic')
+  call dein#add('w0rp/ale')
   call dein#add('honza/vim-snippets')
   call dein#add('tpope/vim-endwise')
   "### treat specific type file
@@ -649,24 +649,10 @@ let g:easy_align_delimiters = {
 \ }
 
 "@syntastic
-nnoremap <silent> ,S :SyntasticToggleMode<CR>
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_mode_map = {
-      \ "mode": "passive",
-      \ "active_filetypes": ['ruby', 'php'] }
-let g:syntastic_php_checkers = ['phpmd', 'php', 'phpcs']
-let g:syntastic_php_phpmd_post_args = '$HOME/.composer/fixtures/ruleset.xml'
-let g:syntastic_quiet_messages = {
-      \ "regex": '.*[Cc]amelCase.*\|.*global.*\|.*minimum.*' }
+let g:ale_fix_on_save = 1
+let g:ale_linters = {
+      \ 'php': ['phpmd', 'php', 'phpcs'],
+      \}
 
 "@php-doc.vim
 nnoremap ,p :call PhpDocSingle()<CR>
