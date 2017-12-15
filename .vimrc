@@ -202,6 +202,7 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('tyru/open-browser-github.vim')
   call dein#add('kana/vim-metarw')
   call dein#add('ivalkeen/vim-ctrlp-tjump')
+  call dein#add('haya14busa/vim-edgemotion')
   "### backend utility
   call dein#add('itchyny/vim-parenmatch')
   call dein#add('Konfekt/FastFold')
@@ -596,6 +597,10 @@ let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
 let g:neocomplete#force_overwrite_completefunc=0
 let g:neocomplete#skip_auto_completion_time = ''
 "}
+
+"@vim-edgemotion
+nmap <C-j> <Plug>(edgemotion-j)
+nmap <C-k> <Plug>(edgemotion-k)
 
 "@CtrlP
 nnoremap <silent> <c-p><c-p> :CtrlP<CR>
