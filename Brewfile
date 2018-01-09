@@ -66,9 +66,6 @@ brew "libusb-compat"
 brew "dfu-programmer"
 brew "dfu-util"
 brew "direnv"
-brew "docker-completion"
-brew "docker-compose-completion"
-brew "docker-machine-completion"
 brew "ecj"
 brew "eigen"
 brew "jpeg"
@@ -95,7 +92,7 @@ brew "gdb"
 brew "shared-mime-info"
 brew "gdk-pixbuf"
 brew "gem-completion"
-brew "ghq", args: ["HEAD"]
+brew "ghq"
 brew "git-lfs"
 brew "gsettings-desktop-schemas"
 brew "icu4c", args: ["c++11"]
@@ -125,7 +122,6 @@ brew "graphicsmagick"
 brew "graphviz"
 brew "groff"
 brew "heroku"
-brew "htop"
 brew "hub"
 brew "ilmbase"
 brew "imagemagick@6"
@@ -209,13 +205,11 @@ brew "simeji/jid/jid"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 brew "m4"
 cask "docker"
-cask "docker-toolbox"
 cask "flux"
 cask "gimp" unless test("d", "/Applications/GIMP.app")
 cask "keepassxc" unless test("d", "/Applications/KeePassXC.app")
 cask "kindle" unless test("d", "/Applications/Kindle.app")
 cask "skitch" unless test("d", "/Applications/Skitch.app")
-cask "tunnelblick" unless test("d", "/Applications/Tunnelblick.app")
 cask "night-owl" unless test("d", "/Applications/Night\ Owl.app")
 cask "appcleaner" unless test("d", "/Applications/AppCleaner.app")
 cask "dropbox" unless test("d", "/Applications/Dropbox.app")
