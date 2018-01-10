@@ -248,12 +248,11 @@ if dein#load_state($HOME.'/.vim')
   "### Elixir
   call dein#add('elixir-lang/vim-elixir')
   "### JavaScript
-  call dein#add('othree/yajs.vim')
-  call dein#add('othree/es.next.syntax.vim')
-  call dein#add('othree/javascript-libraries-syntax.vim')
-  call dein#add('maxmellon/vim-jsx-pretty')
-  call dein#add('ternjs/tern_for_vim')
   call dein#add('pangloss/vim-javascript')
+  call dein#add('mattn/jscomplete-vim')
+  call dein#add('jelera/vim-javascript-syntax')
+  call dein#add('briancollins/vim-jst')
+  call dein#add('posva/vim-vue')
   "### Elm
   call dein#add('ElmCast/elm-vim')
   "### TypeScript
