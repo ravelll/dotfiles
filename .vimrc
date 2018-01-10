@@ -656,6 +656,7 @@ let g:easy_align_delimiters = {
 let g:ale_fix_on_save = 1
 let g:ale_linters = {
       \ 'php': ['phpmd', 'php', 'phpcs'],
+      \ 'html': []
       \}
 
 "@php-doc.vim
