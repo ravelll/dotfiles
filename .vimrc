@@ -301,7 +301,7 @@ let g:elm_setup_keybindings = 1
 let g:winresizer_start_key = ',w'
 
 "@vim-closetag
-let g:closetag_filenames = "*.html*,*.js"
+let g:closetag_filenames = "*.html*,*.js,*.jsx,*.vue"
 
 "@parenmatch
 let g:loaded_matchparen = 1
