@@ -658,6 +658,9 @@ let g:ale_linters = {
       \ 'php': ['phpmd', 'php', 'phpcs'],
       \ 'html': []
       \}
+let g:ale_pattern_options = {
+\ '\.\(test\|spec\)\.js$': {'ale_linters': [], 'ale_fixers': []}
+\}
 
 "@php-doc.vim
 nnoremap ,p :call PhpDocSingle()<CR>
