@@ -600,6 +600,8 @@ let g:neocomplete#skip_auto_completion_time = ''
 "@vim-edgemotion
 nmap <C-j> <Plug>(edgemotion-j)
 nmap <C-k> <Plug>(edgemotion-k)
+vmap <C-j> <Plug>(edgemotion-j)
+vmap <C-k> <Plug>(edgemotion-k)
 
 "@CtrlP
 nnoremap <silent> <c-p><c-p> :CtrlP<CR>
