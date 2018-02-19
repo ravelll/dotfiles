@@ -15,8 +15,8 @@ function peco_git_recent_all_branches () {
         perl -pne 's{^refs/(heads|remotes)/}{}' | \
         peco --query "$LBUFFER")
     if [ -n "$selected_branch" ]; then
-        branch_name_array=("${(s,/,)selected_branch}")
-        branch_name=$branch_name_array[-1]
+        branch_name=$(echo $selected_branch | \
+          perl -pne 's{^origin/}{}')
         BUFFER="git checkout ${branch_name}"
         zle accept-line
     fi
