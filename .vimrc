@@ -222,6 +222,7 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('w0rp/ale')
   call dein#add('honza/vim-snippets')
   call dein#add('tpope/vim-endwise')
+  call dein#add('tpope/vim-repeat')
   "### treat specific type file
   call dein#add('elzr/vim-json')
   call dein#add('haya14busa/vim-migemo')
@@ -400,7 +401,7 @@ let g:quickrun_config.markdown = {
 let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
 if executable('gjs')
   let g:quickrun_config.javascript = {
-        \ 'command'   : 'gjs',
+        \ 'command'   : 'node',
         \ 'exec'      : '%c %s',
         \ }
 endif
@@ -462,6 +463,15 @@ nnoremap <silent> ,nt :<C-u>NERDTreeToggle<CR>
 nnoremap <silent> ,nf :<C-u>NERDTreeFind<CR>
 " close at once with vim
 autocmd rc bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"@vim-repeat
+silent! call repeat#set("\<Plug>Dsurround")
+silent! call repeat#set("\<Plug>Csurround")
+silent! call repeat#set("\<Plug>CSurround")
+silent! call repeat#set("\<Plug>Ysurround")
+silent! call repeat#set("\<Plug>YSurround")
+silent! call repeat#set("\<Plug>Yssurround")
+silent! call repeat#set("\<Plug>YSsurround")
 
 "@operator-search
 nnoremap <Space>s <Plug>(operator-search)
