@@ -694,6 +694,7 @@ autocmd rc BufNewFile,BufRead jquery.*.js set ft=javascript syntax=jquery
 
 "set default filetype markdown
 autocmd rc VimEnter,BufNewFile,BufRead * if &ft == '' | set ft=markdown | endif
+autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'vue' | syntax sync fromstart | endif
 
 "filetype indent
 filetype plugin indent on
