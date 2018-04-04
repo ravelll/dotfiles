@@ -58,7 +58,7 @@ eval "$(anyenv init - --no-rehash)"
 
 ## go
 export GOPATH="$HOME/dev"
-export PATH="$HOME/dev:$PATH"
+export PATH="$HOME/dev/bin:$PATH"
 
 ## perl
 export PERL_CPANM_OPT="--local-lib=$HOME/.perl-extlib"
