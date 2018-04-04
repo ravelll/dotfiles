@@ -50,8 +50,6 @@ if [ -z $TMUX ]; then
   export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin/:/opt/X11/bin:$HOME/bin:$HOME/.anyenv/bin:/usr/local/heroku/bin:$PATH"
 fi
 
-export PATH="$HOME/.nodebrew/current/bin:$PATH"
-
 #
 # programming language environment
 #
@@ -59,7 +57,8 @@ export PATH="$HOME/.nodebrew/current/bin:$PATH"
 eval "$(anyenv init - --no-rehash)"
 
 ## go
-export GOPATH="$HOME"
+export GOPATH="$HOME/dev"
+export PATH="$HOME/dev:$PATH"
 
 ## perl
 export PERL_CPANM_OPT="--local-lib=$HOME/.perl-extlib"
