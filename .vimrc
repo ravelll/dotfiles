@@ -244,8 +244,6 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('ravelll/PDV--phpDocumentor-for-Vim')
   "### Golang
   call dein#add('fatih/vim-go')
-  call dein#add('dgryski/vim-godef')
-  call dein#add('vim-jp/vim-go-extra')
   "### Elixir
   call dein#add('elixir-lang/vim-elixir')
   "### JavaScript
@@ -531,10 +529,6 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_bin_path = '/usr/local/bin/'
-
-exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
-set completeopt=menu,preview
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
 "}
 
 "@neocomplete {
