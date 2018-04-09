@@ -111,7 +111,7 @@ alias pt='pt -i'
 alias t='tmux -2 -u -l'
 
 ## GHQ
-export GHQ_ROOT="$HOME/src"
+export GHQ_ROOT="$HOME/dev/src"
 alias qg='ghq get'
 
 ## peco

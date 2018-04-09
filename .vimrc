@@ -691,6 +691,7 @@ autocmd rc BufNewFile,BufRead *.tpl       setf html.javascript.smarty
 autocmd rc BufNewFile,BufRead *.erb       setf html.eruby
 autocmd rc BufNewFile,BufRead *.blade.php setf html.php.blade
 autocmd rc BufNewFile,BufRead jquery.*.js set ft=javascript syntax=jquery
+autocmd rc BufNewFile,BufRead *.vue setlocal filetype=vue.html.javascript.css
 
 "set default filetype markdown
 autocmd rc VimEnter,BufNewFile,BufRead * if &ft == '' | set ft=markdown | endif
