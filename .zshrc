@@ -140,6 +140,10 @@ alias vr='vagrant reload'
 alias vd='vagrant destroy'
 alias vgs='vagrant-global-status'
 
+## docker
+alias d='docker'
+alias dc='docker-compose'
+
 ## other aliases
 alias ls='ls -G'
 alias sl='ls'
