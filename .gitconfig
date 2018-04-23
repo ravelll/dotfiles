@@ -13,8 +13,8 @@
   aa = add -A
   ai = add -i
   ap = add -p
-  b  = branch
-  ba = branch -a
+  b  = branch --sort=-authordate
+  ba = branch -a --sort=-authordate
   ci = commit -v
   cia = commit -v -a
   cie = commit --allow-empty
