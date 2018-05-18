@@ -32,6 +32,7 @@
   lfp = log --first-parent
   pu = pull
   r = reset
+  rmu = !git status -u | egrep '^\t' | tr -d '\t' | xargs rm
   back = reset HEAD^
   fback = reset --hard HEAD^
   s = show
