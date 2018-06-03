@@ -35,7 +35,7 @@ set t_Co=256
 set browsedir=buffer
 
 " colorscheme setting
-silent! colorscheme murk
+silent! colorscheme iceberg
 " ====================================
 
 " =========== TAB, SPACE =============
@@ -183,6 +183,7 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('nathanaelkane/vim-indent-guides')
   call dein#add('ravelll/vim-murk')
+  call dein#add('cocopon/iceberg.vim')
   call dein#add('ujihisa/unite-colorscheme')
   call dein#add('lilydjwg/colorizer')
   call dein#add('pasela/unite-webcolorname')
