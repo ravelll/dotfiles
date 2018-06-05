@@ -214,7 +214,6 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('nixprime/cpsm')
   "### git
   call dein#add('tpope/vim-fugitive')
-  call dein#add('vim-scripts/fugitive.vim')
   "## search and open
   call dein#add('szw/vim-tags')
   call dein#add('ctrlpvim/ctrlp.vim')
