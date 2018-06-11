@@ -1,17 +1,36 @@
+cask "keepassxc" unless test("d", "/Applications/KeePassXC.app")
+cask "slack" unless test("d", "/Applications/Slack.app")
+cask "phinze/cask/docker" unless test("x", "/usr/local/bin/docker")
+cask "phinze/cask/gimp" unless test("d", "/Applications/GIMP.app")
+cask "phinze/cask/kindle" unless test("d", "/Applications/Kindle.app")
+cask "phinze/cask/skitch" unless test("d", "/Applications/Skitch.app")
+cask "phinze/cask/night-owl" unless test("d", "/Applications/Night\ Owl.app")
+cask "phinze/cask/appcleaner" unless test("d", "/Applications/AppCleaner.app")
+cask "phinze/cask/dropbox" unless test("d", "/Applications/Dropbox.app")
+cask "phinze/cask/iterm2" unless test("d", "/Applications/iTerm.app")
+cask "phinze/cask/steermouse"
+cask "phinze/cask/jasper" unless test("d", "/Applications/Jasper.app")
+cask "phinze/cask/java" unless test("d", "/System/Library/Java")
+cask "phinze/cask/hyperswitch" unless test("d", "/Applications/HyperSwitch.app")
+cask "phinze/cask/google-chrome" unless test("d", "/Applications/Google\ Chrome.app")
+cask "phinze/cask/google-japanese-ime" unless test("d", "/Applications/GoogleJapaneseInput.localized")
+cask "phinze/cask/dash" unless test("d", "/Applications/Dash.app")
+cask "phinze/cask/smcfancontrol" unless test("d", "/Applications/smcFanControl.app")
+cask "phinze/cask/alfred" unless test("d", "/Applications/Alfred\ 4.app")
+cask "phinze/cask/karabiner-elements" unless test("d", "/Applications/Karabiner-Elements.app")
+cask "phinze/cask/marked" unless test("d", "/Applications/Marked\ 2.app")
+cask "phinze/cask/vagrant" unless test("x", "/usr/local/bin/vagrant")
+cask "phinze/cask/virtualbox" unless test("d", "/Applications/VirtualBox.app")
+cask "phinze/cask/xquartz" unless test("x", "/opt/X11/bin/Xquartz")
+cask "homebrew/cask-fonts/font-inconsolata"
+cask "homebrew/cask-fonts/font-ricty-diminished"
 tap "simeji/jid"
 tap "laurent22/massren"
 tap "caius/jo"
 tap "phinze/cask"
-tap "homebrew/dupes"
-tap "homebrew/fuse"
-tap "homebrew/completions"
 tap "homebrew/brewdler"
-tap "homebrew/science"
 tap "homebrew/core"
-tap "homebrew/php"
-tap "homebrew/versions"
 tap "homebrew/boneyard"
-tap "homebrew/python"
 tap "homebrew/cask"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
@@ -60,7 +79,6 @@ brew "dfu-programmer"
 brew "dfu-util"
 brew "direnv"
 brew "docker-compose-completion"
-brew "ecj"
 brew "eigen"
 brew "jpeg"
 brew "wxmac"
@@ -98,7 +116,6 @@ brew "nspr"
 brew "gjs"
 brew "go"
 brew "glide"
-brew "gmp@4"
 brew "gnu-sed", args: ["with-default-names"]
 brew "libtasn1"
 brew "nettle"
@@ -118,7 +135,6 @@ brew "hub"
 brew "ilmbase"
 brew "imagemagick@6"
 brew "imlib2"
-brew "isl@0.12"
 brew "jo"
 brew "mozjpeg"
 brew "jpeg-archive"
@@ -199,29 +215,3 @@ brew "zsh-completions"
 brew "laurent22/massren/massren"
 brew "simeji/jid/jid"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
-cask "keepassxc" unless test("d", "/Applications/KeePassXC.app")
-cask "slack" unless test("d", "/Applications/Slack.app")
-cask "phinze/cask/docker" unless test("x", "/usr/local/bin/docker")
-cask "phinze/cask/gimp" unless test("d", "/Applications/GIMP.app")
-cask "phinze/cask/kindle" unless test("d", "/Applications/Kindle.app")
-cask "phinze/cask/skitch" unless test("d", "/Applications/Skitch.app")
-cask "phinze/cask/night-owl" unless test("d", "/Applications/Night\ Owl.app")
-cask "phinze/cask/appcleaner" unless test("d", "/Applications/AppCleaner.app")
-cask "phinze/cask/dropbox" unless test("d", "/Applications/Dropbox.app")
-cask "phinze/cask/iterm2" unless test("d", "/Applications/iTerm.app")
-cask "phinze/cask/steermouse"
-cask "phinze/cask/jasper" unless test("d", "/Applications/Jasper.app")
-cask "phinze/cask/java" unless test("d", "/System/Library/Java")
-cask "phinze/cask/hyperswitch" unless test("d", "/Applications/HyperSwitch.app")
-cask "phinze/cask/google-chrome" unless test("d", "/Applications/Google\ Chrome.app")
-cask "phinze/cask/google-japanese-ime" unless test("d", "/Applications/GoogleJapaneseInput.localized")
-cask "phinze/cask/dash" unless test("d", "/Applications/Dash.app")
-cask "phinze/cask/smcfancontrol" unless test("d", "/Applications/smcFanControl.app")
-cask "phinze/cask/alfred" unless test("d", "/Applications/Alfred\ 4.app")
-cask "phinze/cask/karabiner-elements" unless test("d", "/Applications/Karabiner-Elements.app")
-cask "phinze/cask/marked" unless test("d", "/Applications/Marked\ 2.app")
-cask "phinze/cask/vagrant" unless test("x", "/usr/local/bin/vagrant")
-cask "phinze/cask/virtualbox" unless test("d", "/Applications/VirtualBox.app")
-cask "phinze/cask/xquartz" unless test("x", "/opt/X11/bin/Xquartz")
-cask "homebrew/cask-fonts/font-inconsolata"
-cask "homebrew/cask-fonts/font-ricty-diminished"
