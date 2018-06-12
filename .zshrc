@@ -6,11 +6,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 autoload -Uz compinit
 
-### oh-my-zsh
-ZSH=$HOME/.oh-my-zsh
-plugins=(git)
-source $ZSH/oh-my-zsh.sh
-
 ### history
 histfile=$home/.zsh_history
 histsize=1000000
@@ -84,6 +79,8 @@ alias vpi='$EDITOR $(php -i | grep "Loaded Configuration File" | cut -d" " -f5)'
 
 ## git
 alias g='git'
+alias gd='git diff'
+alias gst='git status'
 alias cm='git checkout master'
 function current_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
