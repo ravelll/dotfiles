@@ -7,9 +7,26 @@ fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 autoload -Uz compinit
 
 ### history
-histfile=$home/.zsh_history
-histsize=1000000
-savehist=1000000
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=530000
+SAVEHIST=530000
+case $HIST_STAMPS in
+  "mm/dd/yyyy") alias history='fc -fl 1' ;;
+  "dd.mm.yyyy") alias history='fc -El 1' ;;
+  "yyyy-mm-dd") alias history='fc -il 1' ;;
+  *) alias history='fc -l 1' ;;
+esac
+
+setopt auto_cd
+setopt multios
+setopt prompt_subst
+setopt append_history
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt inc_append_history
 setopt share_history
 
 ### prompt format
@@ -36,7 +53,9 @@ setopt list_packed
 setopt no_global_rcs
 
 # Load local environment
-source ~/.localenv
+if [ -f ~/.localenv ]; then
+  source ~/.localenv
+fi
 
 #
 # PATH
