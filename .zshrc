@@ -1,10 +1,15 @@
-## zsh
-### zsh-completions
-fpath=(/usr/local/share/zsh-completions $fpath)
-
-### git-completion
+## completion
+fpath=($(brew --prefix)/share/zsh-completions $fpath)
+fpath=($(brew --prefix)/share/zsh/functions $fpath)
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-autoload -Uz compinit
+autoload -U compinit; compinit -C
+
+zstyle ':completion:*:default' menu select=2
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' completer _complete _ignored
+zstyle ':completion:*' use-cache yes
+zstyle ':completion:*' cache-path ~/.zsh/cache
 
 ### history
 HISTFILE=$HOME/.zsh_history
@@ -22,6 +27,7 @@ setopt multios
 setopt prompt_subst
 setopt append_history
 setopt extended_history
+setopt hist_find_no_dups
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
 setopt hist_ignore_space
