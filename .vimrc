@@ -125,12 +125,8 @@ set backspace=indent,eol,start
 set clipboard=unnamed
 
 " copy file name
-if executable('pbcopy')
-  function! CopyFileName()
-    execute ':! printf % | pbcopy'
-  endfunction
-  nnoremap <silent> cc :call CopyFileName()<CR>
-endif
+nnoremap <silent> cc :let @+ = remove(split(expand("%"), "/"), -1)<CR>
+nnoremap <silent> CC :let @+ = expand("%:p")<CR>
 
 " ===============================
 
