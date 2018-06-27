@@ -3,5 +3,6 @@ function peco_kill() {
   do
     sudo kill $pid
   done
+  zle accept-line
 }
 zle -N peco_kill
