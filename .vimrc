@@ -9,7 +9,7 @@ augroup END
 set laststatus=2
 
 " show line number
-set number
+set nonumber
 
 set ambiwidth=double
 set lazyredraw
