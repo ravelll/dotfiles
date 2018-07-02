@@ -207,7 +207,7 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('vim-scripts/L9')
   call dein#add('mattn/benchvimrc-vim')
   call dein#add('osyo-manga/vim-over')
-  call dein#add('nixprime/cpsm')
+  call dein#add('FelikZ/ctrlp-py-matcher')
   "### git
   call dein#add('tpope/vim-fugitive')
   "## search and open
@@ -615,12 +615,11 @@ nnoremap <silent> <c-p><c-t> :CtrlPTag<CR>
 
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = 'files -A -i "^(\\.git|\\.hg|\\.svn|_darcs|\\.bzr|vendor|node_modules|tmp|\\.tmp)$" %s'
-let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
+let g:ctrlp_match_func = {'match': 'pymatcher#PyMatch'}
 let g:ctrlp_match_window = 'order:btt'
 let g:ctrlp_max_height = 60
 let g:ctrlp_max_depth = 40
 let g:ctrlp_max_files = 10000
-let g:cpsm_query_inverting_delimiter = '\'
 
 "@vim-textobj-rubybox
 runtime $VIMRUNTIME/macros/matchit.vim
