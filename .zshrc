@@ -170,12 +170,13 @@ alias dc='docker-compose'
 ## other aliases
 alias ls='ls -G'
 alias sl='ls'
-alias ll='exa -alhFG --git'
+alias ll='ls -alhFG'
 alias ms='massren'
 alias ps='ps aux'
 alias man='env LANG=C man'
 alias tags='rm tags > /dev/null 2>&1; ctags -R > /dev/null 2>&1'
 alias size='du -h -d 1'
+alias cat='bat'
 
 if (which zprof > /dev/null) ;then
   zprof | less
