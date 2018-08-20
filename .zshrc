@@ -1,3 +1,10 @@
+#
+# PATH
+#
+if [ -z $TMUX ]; then
+  export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin/:/opt/X11/bin:$HOME/bin:$HOME/.anyenv/bin:/usr/local/heroku/bin:$PATH"
+fi
+
 ## completion
 fpath=($(brew --prefix)/share/zsh-completions $fpath)
 fpath=($(brew --prefix)/share/zsh/functions $fpath)
@@ -35,6 +42,7 @@ setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
 setopt share_history
+unset zle_bracketed_paste
 
 ### prompt format
 autoload -Uz vcs_info
@@ -62,13 +70,6 @@ setopt no_global_rcs
 # Load local environment
 if [ -f ~/.localenv ]; then
   source ~/.localenv
-fi
-
-#
-# PATH
-#
-if [ -z $TMUX ]; then
-  export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin/:/opt/X11/bin:$HOME/bin:$HOME/.anyenv/bin:/usr/local/heroku/bin:$PATH"
 fi
 
 #
@@ -180,6 +181,7 @@ alias cat='bat'
 alias -g ...='cd ../../'
 alias -g ....='cd ../../../'
 alias -- -='cd -'
+alias -g P='| peco'
 
 if (which zprof > /dev/null) ;then
   zprof | less

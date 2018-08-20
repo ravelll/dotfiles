@@ -107,7 +107,6 @@ inoremap [ []<Left>
 inoremap ( ()<Left>
 inoremap " ""<Left>
 inoremap ' ''<Left>
-inoremap ` ``<Left>
 inoremap <% <%  %><Left><Left><Left>
 inoremap <%= <%=  %><Left><Left><Left>
 
@@ -249,7 +248,6 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('jelera/vim-javascript-syntax')
   call dein#add('briancollins/vim-jst')
   call dein#add('posva/vim-vue')
-  call dein#add('flowtype/vim-flow', { 'build': { 'mac': 'npm install -g flow-bin' }})
   "### Elm
   call dein#add('ElmCast/elm-vim')
   "### TypeScript
