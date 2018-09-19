@@ -99,7 +99,6 @@ vnoremap H h
 
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
-inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
 inoremap { {}<Left>
@@ -166,7 +165,6 @@ if dein#load_state($HOME.'/.vim')
   "## Shougo-ware
   call dein#add('Shougo/dein.vim')
   call dein#add('Shougo/vimproc', { 'build': 'make' })
-  call dein#add('Shougo/vimshell.vim')
   call dein#add('Shougo/neocomplete.vim')
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
@@ -177,9 +175,8 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('bling/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('nathanaelkane/vim-indent-guides')
-  call dein#add('ravelll/vim-murk')
+  " call dein#add('ravelll/vim-murk')
   call dein#add('cocopon/iceberg.vim')
-  call dein#add('ujihisa/unite-colorscheme')
   call dein#add('lilydjwg/colorizer')
   call dein#add('pasela/unite-webcolorname')
   call dein#add('simeji/winresizer')
@@ -204,7 +201,7 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('itchyny/vim-parenmatch')
   call dein#add('Konfekt/FastFold')
   call dein#add('vim-scripts/L9')
-  call dein#add('mattn/benchvimrc-vim')
+  " call dein#add('mattn/benchvimrc-vim')
   call dein#add('osyo-manga/vim-over')
   call dein#add('FelikZ/ctrlp-py-matcher')
   "### git
@@ -236,33 +233,30 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('othree/html5.vim')
   call dein#add('alvan/vim-closetag')
   "### PHP
-  call dein#add('jwalton512/vim-blade')
-  call dein#add('ravelll/PDV--phpDocumentor-for-Vim')
+  " call dein#add('ravelll/PDV--phpDocumentor-for-Vim')
   "### Golang
   call dein#add('fatih/vim-go')
   "### Elixir
-  call dein#add('elixir-lang/vim-elixir')
+  " call dein#add('elixir-lang/vim-elixir')
   "### JavaScript
   call dein#add('pangloss/vim-javascript')
   call dein#add('mattn/jscomplete-vim')
   call dein#add('jelera/vim-javascript-syntax')
   call dein#add('briancollins/vim-jst')
   call dein#add('posva/vim-vue')
-  "### Elm
-  call dein#add('ElmCast/elm-vim')
   "### TypeScript
   call dein#add('leafgarland/typescript-vim')
   call dein#add('Quramy/tsuquyomi')
   "### CoffeeScript
-  call dein#add('kchmck/vim-coffee-script')
+  " call dein#add('kchmck/vim-coffee-script')
   "### Puppet
-  call dein#add('rodjek/vim-puppet')
-  call dein#add('puppetlabs/puppet-syntax-vim')
+  " call dein#add('rodjek/vim-puppet')
+  " call dein#add('puppetlabs/puppet-syntax-vim')
   "### SQL
   call dein#add('vim-scripts/sql.vim--Stinson')
   call dein#add('vim-scripts/SQLComplete.vim')
-  "### terraform
-  call dein#add('hashivim/vim-terraform')
+  "### toml
+  call dein#add('cespare/vim-toml')
 
   call dein#end()
   call dein#save_state()

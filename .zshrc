@@ -106,6 +106,7 @@ alias vpi='$EDITOR $(php -i | grep "Loaded Configuration File" | cut -d" " -f5)'
 
 ## git
 alias g='git'
+alias gg='git grep'
 alias gd='git diff'
 alias gst='git status'
 alias cm='git checkout master'
