@@ -11,14 +11,13 @@ set laststatus=2
 " show line number
 set nonumber
 
+set noshowmode
+
 set ambiwidth=double
 set lazyredraw
 
 " command complement
 set wildmode=list,full
-
-" show encoding
-set statusline=[%{&fileencoding}]%{fugitive#statusline()}
 
 " fileencoding usage (left is prior right)
 set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
@@ -34,8 +33,6 @@ set t_Co=256
 " use init dir same as a file opening for selecting file
 set browsedir=buffer
 
-" colorscheme setting
-silent! colorscheme iceberg
 " ====================================
 
 " =========== TAB, SPACE =============
@@ -172,12 +169,10 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('Shougo/neomru.vim')
   call dein#add('Shougo/context_filetype.vim')
   "### visual effect
-  call dein#add('bling/vim-airline')
-  call dein#add('vim-airline/vim-airline-themes')
+  call dein#add('itchyny/lightline.vim')
   call dein#add('nathanaelkane/vim-indent-guides')
   " call dein#add('ravelll/vim-murk')
   call dein#add('cocopon/iceberg.vim')
-  call dein#add('lilydjwg/colorizer')
   call dein#add('pasela/unite-webcolorname')
   call dein#add('simeji/winresizer')
   "## extend working
@@ -266,25 +261,17 @@ filetype plugin indent on
 syntax enable
 
 " ================= RESPECTIVE PLUGIN SETTING =================
-"@airline
-let g:airline_theme='base16'
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline#enable#branch = 1
-let g:airline_detect_modified = 0
-let g:airline#extensions#whitespace#checks = ['indent', 'mixed-indent-file']
-
-"@elm-vim
-let g:elm_jump_to_error = 0
-let g:elm_make_output_file = "elm.js"
-let g:elm_make_show_warnings = 0
-let g:elm_syntastic_show_warnings = 0
-let g:elm_browser_command = ""
-let g:elm_detailed_complete = 0
-let g:elm_format_autosave = 1
-let g:elm_format_fail_silently = 0
-let g:elm_setup_keybindings = 1
+"@lightline
+let g:lightline = {
+  \ 'colorscheme': 'one',
+  \ 'active': {
+  \   'left': [ ['mode', 'paste'],
+  \             ['branch', 'readonly', 'filename', 'modified'] ]
+  \ },
+  \ 'component_function': {
+  \   'branch': 'fugitive#head'
+  \ },
+  \ }
 
 "@winresizer
 let g:winresizer_start_key = ',w'
@@ -721,3 +708,6 @@ autocmd rc FileType tpl        setlocal sw=2 sts=2 ts=2 et
 
 " syntax highlight
 syntax on
+
+" colorscheme setting
+silent! colorscheme iceberg
