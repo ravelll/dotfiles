@@ -328,12 +328,6 @@ let g:indent_guides_guide_size=1
 autocmd rc VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=235
 autocmd rc VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=236
 
-"@javascript-libraries-syntax.vim
-let g:used_javascript_libs = 'jquery,react,flux'
-let b:javascript_lib_use_jquery = 1
-let b:javascript_lib_use_react = 1
-let b:javascript_lib_use_flux = 1
-
 "@jq
 command! -nargs=? Jq call s:Jq(<f-args>)
 function! s:Jq(...)
@@ -648,10 +642,6 @@ let g:ale_pattern_options = {
 \ '\.\(test\|spec\)\.js$': {'ale_linters': [], 'ale_fixers': []}
 \}
 
-"@php-doc.vim
-nnoremap ,p :call PhpDocSingle()<CR>
-vnoremap ,p :call PhpDocRange()<CR>
-
 "@FastFold
 let g:fastfold_savehook = 0
 " =============================================================================
@@ -661,10 +651,7 @@ let g:fastfold_savehook = 0
 autocmd rc BufRead,BufNewFile,BufReadPre *.coffee set filetype=coffee
 autocmd rc BufNewFile,BufRead *.thor      setf ruby
 autocmd rc BufNewFile,BufRead Vagrantfile setf ruby
-autocmd rc BufNewFile,BufRead *.tpl       setf html.javascript.smarty
 autocmd rc BufNewFile,BufRead *.erb       setf html.eruby
-autocmd rc BufNewFile,BufRead *.blade.php setf html.php.blade
-autocmd rc BufNewFile,BufRead jquery.*.js set ft=javascript syntax=jquery
 
 "set default filetype markdown
 autocmd rc VimEnter,BufNewFile,BufRead * if &ft == '' | set ft=markdown | endif
@@ -675,7 +662,6 @@ filetype plugin indent on
 
 autocmd rc FileType sh         setlocal sw=2 sts=2 ts=2 et
 autocmd rc FileType apache     setlocal sw=4 sts=4 ts=4 et
-autocmd rc FileType aspvbs     setlocal sw=4 sts=4 ts=4 noet
 autocmd rc FileType c          setlocal sw=4 sts=4 ts=4 et
 autocmd rc FileType coffee     setlocal sw=2 sts=2 ts=2 et
 autocmd rc FileType cpp        setlocal sw=4 sts=4 ts=4 et
@@ -696,15 +682,11 @@ autocmd rc FileType eruby      setlocal sw=2 sts=2 ts=2 et
 autocmd rc FileType sql        setlocal sw=4 sts=4 ts=4 et
 autocmd rc FileType vb         setlocal sw=4 sts=4 ts=4 noet
 autocmd rc FileType vim        setlocal sw=2 sts=2 ts=2 et
-autocmd rc FileType wsh        setlocal sw=4 sts=4 ts=4 et
-autocmd rc FileType xhtml      setlocal sw=4 sts=4 ts=4 noet
 autocmd rc FileType xml        setlocal sw=4 sts=4 ts=4 noet
 autocmd rc FileType yaml       setlocal sw=2 sts=2 ts=2 et
 autocmd rc FileType zsh        setlocal sw=2 sts=2 ts=2 et
 autocmd rc FileType scala      setlocal sw=2 sts=2 ts=2 et
 autocmd rc FileType coffee     setlocal sw=2 sts=2 ts=2 et
-autocmd rc FileType puppet     setlocal sw=2 sts=2 ts=2 et
-autocmd rc FileType tpl        setlocal sw=2 sts=2 ts=2 et
 
 " syntax highlight
 syntax on
