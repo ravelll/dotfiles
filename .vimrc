@@ -94,10 +94,6 @@ nnoremap k gk
 nnoremap H h
 vnoremap H h
 
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
-
 inoremap { {}<Left>
 inoremap [ []<Left>
 inoremap ( ()<Left>
@@ -163,6 +159,9 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('Shougo/dein.vim')
   call dein#add('Shougo/vimproc', { 'build': 'make' })
   call dein#add('Shougo/neocomplete.vim')
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('roxma/nvim-yarp')
+  call dein#add('roxma/vim-hug-neovim-rpc')
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('Shougo/unite.vim')
@@ -196,6 +195,8 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('itchyny/vim-parenmatch')
   call dein#add('Konfekt/FastFold')
   call dein#add('vim-scripts/L9')
+  call dein#add('prabirshrestha/async.vim')
+  call dein#add('prabirshrestha/vim-lsp')
   " call dein#add('mattn/benchvimrc-vim')
   call dein#add('osyo-manga/vim-over')
   call dein#add('FelikZ/ctrlp-py-matcher')
@@ -214,6 +215,7 @@ if dein#load_state($HOME.'/.vim')
   "### treat specific type file
   call dein#add('elzr/vim-json')
   call dein#add('haya14busa/vim-migemo')
+  call dein#add('godlygeek/tabular')
   call dein#add('plasticboy/vim-markdown')
   call dein#add('kana/vim-textobj-user')
   call dein#add('majutsushi/tagbar')
@@ -261,6 +263,9 @@ filetype plugin indent on
 syntax enable
 
 " ================= RESPECTIVE PLUGIN SETTING =================
+"@deoplete
+let g:deoplete#enable_at_startup = 1
+
 "@lightline
 let g:lightline = {
   \ 'colorscheme': 'one',
@@ -354,9 +359,9 @@ autocmd rc User rails/db/migrate/*     neosnippetsource ~/.vim/snippet/ruby.rail
 autocmd rc User rails/config/routes.rb neosnippetsource ~/.vim/snippet/ruby.rails.route.snip
 
 "@markdown
+set conceallevel=2
 let g:vim_markdown_json_frontmatter = 1
 let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_conceal = 0
 let g:vim_markdown_new_list_item_indent = 0
 
 "@quickrun
@@ -511,7 +516,7 @@ nnoremap <silent> <LocalLeader>g :GoImports
 let g:acp_enableAtStartup = 0
 
 " Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_at_startup = 0
 
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 0
