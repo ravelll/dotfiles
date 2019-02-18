@@ -94,10 +94,6 @@ nnoremap k gk
 nnoremap H h
 vnoremap H h
 
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
-
 inoremap { {}<Left>
 inoremap [ []<Left>
 inoremap ( ()<Left>
@@ -163,6 +159,9 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('Shougo/dein.vim')
   call dein#add('Shougo/vimproc', { 'build': 'make' })
   call dein#add('Shougo/neocomplete.vim')
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('roxma/nvim-yarp')
+  call dein#add('roxma/vim-hug-neovim-rpc')
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('Shougo/unite.vim')
@@ -196,6 +195,8 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('itchyny/vim-parenmatch')
   call dein#add('Konfekt/FastFold')
   call dein#add('vim-scripts/L9')
+  call dein#add('prabirshrestha/async.vim')
+  call dein#add('prabirshrestha/vim-lsp')
   " call dein#add('mattn/benchvimrc-vim')
   call dein#add('osyo-manga/vim-over')
   call dein#add('FelikZ/ctrlp-py-matcher')
@@ -214,6 +215,7 @@ if dein#load_state($HOME.'/.vim')
   "### treat specific type file
   call dein#add('elzr/vim-json')
   call dein#add('haya14busa/vim-migemo')
+  call dein#add('godlygeek/tabular')
   call dein#add('plasticboy/vim-markdown')
   call dein#add('kana/vim-textobj-user')
   call dein#add('majutsushi/tagbar')
@@ -227,31 +229,25 @@ if dein#load_state($HOME.'/.vim')
   "### HTML
   call dein#add('othree/html5.vim')
   call dein#add('alvan/vim-closetag')
-  "### PHP
-  " call dein#add('ravelll/PDV--phpDocumentor-for-Vim')
   "### Golang
   call dein#add('fatih/vim-go')
-  "### Elixir
-  " call dein#add('elixir-lang/vim-elixir')
   "### JavaScript
   call dein#add('pangloss/vim-javascript')
   call dein#add('mattn/jscomplete-vim')
   call dein#add('jelera/vim-javascript-syntax')
   call dein#add('briancollins/vim-jst')
   call dein#add('posva/vim-vue')
+  call dein#add('ternjs/tern_for_vim')
+  call dein#add('maxmellon/vim-jsx-pretty')
   "### TypeScript
   call dein#add('leafgarland/typescript-vim')
   call dein#add('Quramy/tsuquyomi')
-  "### CoffeeScript
-  " call dein#add('kchmck/vim-coffee-script')
-  "### Puppet
-  " call dein#add('rodjek/vim-puppet')
-  " call dein#add('puppetlabs/puppet-syntax-vim')
   "### SQL
   call dein#add('vim-scripts/sql.vim--Stinson')
   call dein#add('vim-scripts/SQLComplete.vim')
   "### toml
   call dein#add('cespare/vim-toml')
+  call dein#add('mattn/vim-starwars')
 
   call dein#end()
   call dein#save_state()
@@ -261,6 +257,60 @@ filetype plugin indent on
 syntax enable
 
 " ================= RESPECTIVE PLUGIN SETTING =================
+"@deoplete
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#var('omni', 'input_patterns', {
+  \ 'ruby': ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::'],
+  \})
+call deoplete#custom#option('yarp', v:true)
+
+"@ Language Server
+if executable('typescript-language-server')
+  augroup LspTypeScript
+    au!
+    autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'typescript-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server', '--stdio']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+        \ 'whitelist': ['typescript'],
+        \ })
+    autocmd FileType typescript setlocal omnifunc=lsp#complete
+  augroup END
+endif
+if executable('gopls')
+  augroup LspGo
+    au!
+    autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'go-lang',
+        \ 'cmd': {server_info->['gopls']},
+        \ 'whitelist': ['go'],
+        \ })
+    autocmd FileType go setlocal omnifunc=lsp#complete
+    autocmd FileType python,go nmap gd <plug>(lsp-definition)
+  augroup END
+endif
+if executable('solargraph')
+  augroup LspRuby
+    au!
+    autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'solargraph',
+        \ 'cmd': {server_info->['solargraph', 'stdio']},
+        \ 'whitelist': ['ruby'],
+        \ })
+    autocmd FileType ruby setlocal omnifunc=lsp#complete
+  augroup END
+endif
+
+let g:lsp_async_completion = 0
+
+"@deoplete-tern
+" Use deoplete.
+let g:tern_request_timeout = 1
+let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
+
+" Add extra filetypes
+let g:tern#filetypes = ['vue']
+
 "@lightline
 let g:lightline = {
   \ 'colorscheme': 'one',
@@ -354,9 +404,9 @@ autocmd rc User rails/db/migrate/*     neosnippetsource ~/.vim/snippet/ruby.rail
 autocmd rc User rails/config/routes.rb neosnippetsource ~/.vim/snippet/ruby.rails.route.snip
 
 "@markdown
+set conceallevel=2
 let g:vim_markdown_json_frontmatter = 1
 let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_conceal = 0
 let g:vim_markdown_new_list_item_indent = 0
 
 "@quickrun
@@ -511,7 +561,7 @@ nnoremap <silent> <LocalLeader>g :GoImports
 let g:acp_enableAtStartup = 0
 
 " Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_at_startup = 0
 
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 0
@@ -524,9 +574,7 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
       \ 'default' : '',
-      \ 'vimshell' : $HOME.'/.zsh_history',
       \ 'php' : $HOME.'/.vim/dict/php.dict',
-      \ 'ruby' : $HOME.'/.vim/dict/ruby.dict',
       \ 'javascript' : $HOME.'/.vim/dict/javascript.dict',
       \ }
 
