@@ -183,6 +183,7 @@ alias -g ...='cd ../../'
 alias -g ....='cd ../../../'
 alias -- -='cd -'
 alias -g P='| peco'
+alias notify='terminal-notifier -title "" -subtitle "" -message ""'
 
 if (which zprof > /dev/null) ;then
   zprof | less
