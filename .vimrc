@@ -8,35 +8,39 @@ augroup END
 " always show statusline
 set laststatus=2
 
-" show line number
+" show no line number
 set nonumber
 
+" no putting message
 set noshowmode
 
+" Use twice the width of ASCII characters
 set ambiwidth=double
+
+" not be redrawn while executing macros, registers and other commands that have not been typed
+" and postpones updating the window title
 set lazyredraw
 
 " command complement
 set wildmode=list,full
 
 " fileencoding usage (left is prior right)
-set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
-scriptencoding utf-8,euc-jp,sjis,cp932,iso-2022-jp
+set fileencodings=utf-8
+scriptencoding utf-8
 
 " show current line
 nnoremap <silent> ,ul :set cursorline<CR>
 nnoremap <silent> ,uL :set nocursorline<CR>
 
-" set 256color
-set t_Co=256
-
 " use init dir same as a file opening for selecting file
 set browsedir=buffer
-
 " ====================================
 
 " =========== TAB, SPACE =============
+" displays tabs with spaces same as shiftwidth
 set smarttab
+
+" input spaces using tab key
 set expandtab
 set tabstop=2
 set softtabstop=2
@@ -118,7 +122,6 @@ set clipboard=unnamed
 " copy file name
 nnoremap <silent> cc :let @+ = remove(split(expand("%"), "/"), -1)<CR>
 nnoremap <silent> CC :let @+ = expand("%:p")<CR>
-
 " ===============================
 
 " ============ OTHERS =============
@@ -126,15 +129,7 @@ nnoremap ,f :set filetype=
 
 " No beep or notify visually
 set visualbell t_vb=
-
-" Update
-function! s:UpdateLibs()
-  call dein#update()
-  execute 'GoUpdateBinaries'
-endfunction
-command! Up call s:UpdateLibs()
 " =================================
-
 "}}}
 
 " {{{
@@ -158,43 +153,33 @@ if dein#load_state($HOME.'/.vim')
   "## Shougo-ware
   call dein#add('Shougo/dein.vim')
   call dein#add('Shougo/vimproc', { 'build': 'make' })
-  call dein#add('Shougo/neocomplete.vim')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('roxma/nvim-yarp')
   call dein#add('roxma/vim-hug-neovim-rpc')
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('Shougo/unite.vim')
   call dein#add('Shougo/neomru.vim')
   call dein#add('Shougo/context_filetype.vim')
   "### visual effect
   call dein#add('itchyny/lightline.vim')
   call dein#add('nathanaelkane/vim-indent-guides')
-  " call dein#add('ravelll/vim-murk')
   call dein#add('cocopon/iceberg.vim')
-  call dein#add('pasela/unite-webcolorname')
   call dein#add('simeji/winresizer')
   "## extend working
-  call dein#add('Lokaltog/vim-easymotion')
-  call dein#add('vim-scripts/sudo.vim')
   call dein#add('vim-scripts/surround.vim')
   call dein#add('scrooloose/nerdtree.git')
   call dein#add('tomtom/tcomment_vim')
   call dein#add('vim-scripts/taglist.vim')
   call dein#add('thinca/vim-quickrun')
   call dein#add('terryma/vim-multiple-cursors.git')
-  call dein#add('kana/vim-operator-user')
-  call dein#add('osyo-manga/vim-operator-search')
   call dein#add('mattn/webapi-vim')
   call dein#add('tyru/open-browser.vim')
-  call dein#add('tyru/open-browser-github.vim')
   call dein#add('kana/vim-metarw')
   call dein#add('ivalkeen/vim-ctrlp-tjump')
   call dein#add('haya14busa/vim-edgemotion')
   "### backend utility
   call dein#add('itchyny/vim-parenmatch')
   call dein#add('Konfekt/FastFold')
-  call dein#add('vim-scripts/L9')
   call dein#add('prabirshrestha/async.vim')
   call dein#add('prabirshrestha/vim-lsp')
   " call dein#add('mattn/benchvimrc-vim')
@@ -214,17 +199,11 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('tpope/vim-repeat')
   "### treat specific type file
   call dein#add('elzr/vim-json')
-  call dein#add('haya14busa/vim-migemo')
-  call dein#add('godlygeek/tabular')
   call dein#add('plasticboy/vim-markdown')
   call dein#add('kana/vim-textobj-user')
   call dein#add('majutsushi/tagbar')
   call dein#add('junegunn/vim-easy-align')
   "### Ruby
-  call dein#add('vim-scripts/ruby-matchit')
-  call dein#add('vim-scripts/rails.vim')
-  call dein#add('basyura/unite-rails')
-  call dein#add('sunaku/vim-ruby-minitest')
   call dein#add('slim-template/vim-slim')
   "### HTML
   call dein#add('othree/html5.vim')
@@ -247,7 +226,6 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('vim-scripts/SQLComplete.vim')
   "### toml
   call dein#add('cespare/vim-toml')
-  call dein#add('mattn/vim-starwars')
 
   call dein#end()
   call dein#save_state()
@@ -289,17 +267,17 @@ if executable('gopls')
     autocmd FileType python,go nmap gd <plug>(lsp-definition)
   augroup END
 endif
-if executable('solargraph')
-  augroup LspRuby
-    au!
-    autocmd User lsp_setup call lsp#register_server({
-        \ 'name': 'solargraph',
-        \ 'cmd': {server_info->['solargraph', 'stdio']},
-        \ 'whitelist': ['ruby'],
-        \ })
-    autocmd FileType ruby setlocal omnifunc=lsp#complete
-  augroup END
-endif
+" if executable('solargraph')
+"   augroup LspRuby
+"     au!
+"     autocmd User lsp_setup call lsp#register_server({
+"         \ 'name': 'solargraph',
+"         \ 'cmd': {server_info->['solargraph', 'stdio']},
+"         \ 'whitelist': ['ruby'],
+"         \ })
+"     autocmd FileType ruby setlocal omnifunc=lsp#complete
+"   augroup END
+" endif
 
 let g:lsp_async_completion = 0
 
@@ -356,20 +334,6 @@ nmap <LocalLeader>/ ysiw/
 nmap <LocalLeader><Space> ysiw<Space><Space>
 nmap <LocalLeader><LocalLeader>* ysiw*wysiw*
 
-"@vim-multiple-cursors
-function! Multiple_cursors_before()
-  if exists(':NeoCompleteLock')==2
-    exe 'NeoCompleteLock'
-  endif
-endfunction
-
-" Called once only when the multiple selection is canceled (default <Esc>)
-function! Multiple_cursors_after()
-  if exists(':NeoCompleteUnlock')==2
-    exe 'NeoCompleteUnlock'
-  endif
-endfunction
-
 "@vim-indent-guides
 let g:indent_guides_auto_colors=0
 let g:indent_guides_enable_on_vim_startup=1
@@ -397,12 +361,6 @@ xmap <C-e> <Plug>(neosnippet_expand_target)
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.vim/repos/github.com/Shougo/vim-snippets/snippets'
 
-"@vim-rails + neosnippets
-autocmd rc User Rails.view*            NeoSnippetSource ~/.vim/snippet/ruby.rails.view.snip
-autocmd rc User rails.controller*      neosnippetsource ~/.vim/snippet/ruby.rails.controller.snip
-autocmd rc User rails/db/migrate/*     neosnippetsource ~/.vim/snippet/ruby.rails.migrate.snip
-autocmd rc User rails/config/routes.rb neosnippetsource ~/.vim/snippet/ruby.rails.route.snip
-
 "@markdown
 set conceallevel=2
 let g:vim_markdown_json_frontmatter = 1
@@ -419,12 +377,6 @@ let g:quickrun_config.markdown = {
       \ 'exec'      : '%c %o %a %s',
       \ }
 let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
-if executable('gjs')
-  let g:quickrun_config.javascript = {
-        \ 'command'   : 'node',
-        \ 'exec'      : '%c %s',
-        \ }
-endif
 
 "@vim-ctrlp-tjump
 let g:ctrlp_tjump_only_silent = 1
@@ -469,9 +421,6 @@ let g:Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 nnoremap <silent> ,l :<C-u>TlistToggle<CR>
 nnoremap <silent> ,L :<C-u>TlistAddFilesRecursive %:h<Tab><CR>
 
-"@OpenGithub
-vnoremap <silent> og :OpenGithubFile<CR>
-
 "@tag jump
 nnoremap <c-]> :CtrlPtjump<cr>
 vnoremap <c-]> :CtrlPtjumpVisual<cr>
@@ -501,49 +450,6 @@ nnoremap <Space>/ <Plug>(operator-search)if
 nnoremap <silent> ,s :OverCommandLine<CR>%s/
 vnoremap <silent> ,s :OverCommandLine<CR>s/
 
-"@unite {
-let g:unite_enable_start_insert=1
-let g:unite_source_history_yank_enable =1
-let g:unite_source_file_mru_limit = 200
-let g:unite_source_rec_min_cache_files = 1
-let g:unite_source_rec_max_cache_files = 25000
-call unite#custom#source('file_rec', 'ignore_pattern', '\(png\|.git\|jpeg\|jpg\)$')
-
-function! ChangeCurrentDirectoryToProjectRoot()
-  let root = unite#util#path2project_directory(expand('%'))
-  execute ":lcd " . root
-endfunction
-:au BufEnter * :call ChangeCurrentDirectoryToProjectRoot()
-
-nnoremap <silent> ,ug :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-nnoremap <silent> ,ur :<C-u>UniteResume search-buffer<CR>
-nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
-nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
-nnoremap <silent> ,uf :<C-u>Unite file_rec:!<CR>
-nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
-nnoremap <silent> ,uc :<C-u>Unite webcolorname<CR>
-
-nnoremap <silent> ,rm :<C-u>Unite rails/model<CR>
-nnoremap <silent> ,rv :<C-u>Unite rails/view<CR>
-nnoremap <silent> ,rc :<C-u>Unite rails/controller<CR>
-nnoremap <silent> ,rl :<C-u>Unite rails/lib<CR>
-nnoremap <silent> ,rd :<C-u>Unite rails/db<CR>
-nnoremap <silent> ,rf :<C-u>Unite rails/config<CR>
-nnoremap <silent> ,rh :<C-u>Unite rails/helper<CR>
-nnoremap <silent> ,rs :<C-u>Unite rails/spec<CR>
-
-if executable('pt')
-  let g:unite_source_grep_command = 'pt'
-  let g:unite_source_grep_default_opts = '-i --nogroup --nocolor --column'
-  let g:unite_source_grep_recursive_opt = ''
-else
-  let g:unite_source_grep_command = 'grep'
-  let g:unite_source_grep_default_opts = '--color=never -R -S'
-  let g:unite_source_grep_recursive_opt = '-R'
-endif
-"}
-
 "@golang setting {
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -554,74 +460,6 @@ let g:go_fmt_command = 'goimports'
 let g:go_bin_path = $HOME.'/dev/bin/'
 
 nnoremap <silent> <LocalLeader>g :GoImports 
-"}
-
-"@neocomplete {
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 0
-
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 0
-let g:neocomplete#enable_fuzzy_completion = 0
-
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-      \ 'default' : '',
-      \ 'php' : $HOME.'/.vim/dict/php.dict',
-      \ 'javascript' : $HOME.'/.vim/dict/javascript.dict',
-      \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-  let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g> neocomplete#undo_completion()
-inoremap <expr><C-u> neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-endfunction
-
-" <TAB>: completion.
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-;> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-
-" Enable omni completion.
-autocmd rc FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd rc FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd rc FileType javascript setlocal omnifunc=tern#Complete
-autocmd rc FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd rc FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-
-let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
-" let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-"overwrite completefunc
-let g:neocomplete#force_overwrite_completefunc=0
-let g:neocomplete#skip_auto_completion_time = ''
 "}
 
 "@vim-edgemotion
@@ -680,7 +518,7 @@ let g:easy_align_delimiters = {
 \   }
 \ }
 
-"@syntastic
+"@ale
 let g:ale_fix_on_save = 1
 let g:ale_linters = {
       \ 'php': ['phpmd', 'php', 'phpcs'],
@@ -696,9 +534,7 @@ let g:fastfold_savehook = 0
 " }}}
 
 "filetype setting
-autocmd rc BufRead,BufNewFile,BufReadPre *.coffee set filetype=coffee
 autocmd rc BufNewFile,BufRead *.thor      setf ruby
-autocmd rc BufNewFile,BufRead Vagrantfile setf ruby
 autocmd rc BufNewFile,BufRead *.erb       setf html.eruby
 
 "set default filetype markdown
@@ -709,17 +545,12 @@ autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'vue' | syntax sync fromstart
 filetype plugin indent on
 
 autocmd rc FileType sh         setlocal sw=2 sts=2 ts=2 et
-autocmd rc FileType apache     setlocal sw=4 sts=4 ts=4 et
 autocmd rc FileType c          setlocal sw=4 sts=4 ts=4 et
-autocmd rc FileType coffee     setlocal sw=2 sts=2 ts=2 et
 autocmd rc FileType cpp        setlocal sw=4 sts=4 ts=4 et
-autocmd rc FileType cs         setlocal sw=4 sts=4 ts=4 et
 autocmd rc FileType css        setlocal sw=2 sts=2 ts=2 et
 autocmd rc FileType diff       setlocal sw=4 sts=4 ts=4 noet
-autocmd rc FileType eruby      setlocal sw=4 sts=4 ts=4 noet
 autocmd rc FileType go         setlocal sw=4 sts=4 ts=4 noet
 autocmd rc FileType html       setlocal sw=2 sts=2 ts=2 et
-autocmd rc FileType java       setlocal sw=4 sts=4 ts=4 et
 autocmd rc FileType javascript setlocal sw=2 sts=2 ts=2 et
 autocmd rc FileType perl       setlocal sw=4 sts=4 ts=4 et
 autocmd rc FileType php        setlocal sw=4 sts=4 ts=4 et
@@ -728,13 +559,10 @@ autocmd rc FileType ruby       setlocal sw=2 sts=2 ts=2 et
 autocmd rc FileType haml       setlocal sw=2 sts=2 ts=2 et
 autocmd rc FileType eruby      setlocal sw=2 sts=2 ts=2 et
 autocmd rc FileType sql        setlocal sw=4 sts=4 ts=4 et
-autocmd rc FileType vb         setlocal sw=4 sts=4 ts=4 noet
 autocmd rc FileType vim        setlocal sw=2 sts=2 ts=2 et
 autocmd rc FileType xml        setlocal sw=4 sts=4 ts=4 noet
 autocmd rc FileType yaml       setlocal sw=2 sts=2 ts=2 et
 autocmd rc FileType zsh        setlocal sw=2 sts=2 ts=2 et
-autocmd rc FileType scala      setlocal sw=2 sts=2 ts=2 et
-autocmd rc FileType coffee     setlocal sw=2 sts=2 ts=2 et
 
 " syntax highlight
 syntax on
