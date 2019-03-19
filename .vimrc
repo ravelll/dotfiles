@@ -171,7 +171,7 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('tomtom/tcomment_vim')
   call dein#add('vim-scripts/taglist.vim')
   call dein#add('thinca/vim-quickrun')
-  call dein#add('terryma/vim-multiple-cursors.git')
+  call dein#add('terryma/vim-multiple-cursors')
   call dein#add('mattn/webapi-vim')
   call dein#add('tyru/open-browser.vim')
   call dein#add('kana/vim-metarw')
@@ -192,7 +192,6 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('ctrlpvim/ctrlp.vim')
   call dein#add('tpope/vim-abolish')
   "### coding support
-  call dein#add('tmhedberg/matchit')
   call dein#add('w0rp/ale')
   call dein#add('honza/vim-snippets')
   call dein#add('tpope/vim-endwise')
@@ -359,7 +358,7 @@ smap <C-e> <Plug>(neosnippet_expand_or_jump)
 xmap <C-e> <Plug>(neosnippet_expand_target)
 
 let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory='~/.vim/repos/github.com/Shougo/vim-snippets/snippets'
+let g:neosnippet#snippets_directory='~/.vim/repos/github.com/honza/vim-snippets/snippets'
 
 "@markdown
 set conceallevel=2
