@@ -68,3 +68,5 @@
   required = true
 [init]
   templatedir = ~/.git_template
+[github]
+	user = ravelll
