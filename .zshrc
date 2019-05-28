@@ -171,6 +171,7 @@ alias d='docker'
 alias dc='docker-compose'
 
 ## other aliases
+alias o='open'
 alias ls='ls -G'
 alias sl='ls'
 alias ll='ls -alhFG'
