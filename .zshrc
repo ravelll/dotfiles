@@ -2,7 +2,7 @@
 # PATH
 #
 if [ -z $TMUX ]; then
-  export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin/:/opt/X11/bin:$HOME/bin:$HOME/.anyenv/bin:/usr/local/heroku/bin:$PATH"
+  export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin/:/opt/X11/bin:$HOME/bin:$HOME/.anyenv/bin:$PATH"
 fi
 
 ## completion
@@ -100,10 +100,6 @@ eval "$(direnv hook zsh)"
 ## homebrew
 alias cask='brew cask'
 
-## php-cs-fixer
-alias pf='./vendor/bin/php-cs-fixer fix "$@" --config-file=.php_cs'
-alias vpi='$EDITOR $(php -i | grep "Loaded Configuration File" | cut -d" " -f5)'
-
 ## git
 alias g='git'
 alias gg='git grep'
@@ -169,19 +165,6 @@ bindkey '^jd' peco_insert_history
 bindkey '^R'  peco_select_history
 bindkey '^js' peco_select_ghq
 bindkey '^jk' peco_kill
-bindkey '^jv' peco_vagrant
-
-## vagrant
-alias va='vagrant'
-alias vs='vagrant ssh'
-alias vst='vagrant status'
-alias vh='vagrant halt'
-alias vha='vagrant-global-status | cut -d" " -f1 | xargs vagrant halt'
-alias vp='vagrant provision'
-alias vu='vagrant up'
-alias vr='vagrant reload'
-alias vd='vagrant destroy'
-alias vgs='vagrant-global-status'
 
 ## docker
 alias d='docker'
@@ -196,7 +179,6 @@ alias ps='ps aux'
 alias man='env LANG=C man'
 alias tags='rm tags > /dev/null 2>&1; ctags -R > /dev/null 2>&1'
 alias size='du -h -d 1'
-alias cat='bat'
 alias -g ...='cd ../../'
 alias -g ....='cd ../../../'
 alias -- -='cd -'
