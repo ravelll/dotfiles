@@ -204,6 +204,7 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('junegunn/vim-easy-align')
   "### Ruby
   call dein#add('slim-template/vim-slim')
+  call dein#add('vim-ruby/vim-ruby')
   "### HTML
   call dein#add('othree/html5.vim')
   call dein#add('alvan/vim-closetag')
@@ -263,7 +264,7 @@ if executable('gopls')
         \ 'whitelist': ['go'],
         \ })
     autocmd FileType go setlocal omnifunc=lsp#complete
-    autocmd FileType python,go nmap gd <plug>(lsp-definition)
+    autocmd FileType go nmap gd <plug>(lsp-definition)
   augroup END
 endif
 " if executable('solargraph')
@@ -278,7 +279,7 @@ endif
 "   augroup END
 " endif
 
-let g:lsp_async_completion = 0
+" let g:lsp_async_completion = 0
 
 "@deoplete-tern
 " Use deoplete.
@@ -361,10 +362,11 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.vim/repos/github.com/honza/vim-snippets/snippets'
 
 "@markdown
-set conceallevel=2
 let g:vim_markdown_json_frontmatter = 1
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_new_list_item_indent = 0
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
 
 "@quickrun
 let g:quickrun_config={}
@@ -457,6 +459,8 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = 'goimports'
 let g:go_bin_path = $HOME.'/dev/bin/'
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 
 nnoremap <silent> <LocalLeader>g :GoImports 
 "}
@@ -521,9 +525,9 @@ let g:easy_align_delimiters = {
 "@ale
 let g:ale_fix_on_save = 1
 let g:ale_linters = {
-      \ 'php': ['phpmd', 'php', 'phpcs'],
-      \ 'html': []
-      \}
+	\ 'go': ['gopls'],
+  \ 'html': []
+	\}
 let g:ale_pattern_options = {
 \ '\.\(test\|spec\)\.js$': {'ale_linters': [], 'ale_fixers': []}
 \}
