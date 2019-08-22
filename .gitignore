@@ -12,3 +12,5 @@
 **/tags
 *.log
 **/.zsh/cache
+evans
+.byebug_history

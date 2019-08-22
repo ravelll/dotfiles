@@ -177,6 +177,7 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('kana/vim-metarw')
   call dein#add('ivalkeen/vim-ctrlp-tjump')
   call dein#add('haya14busa/vim-edgemotion')
+  call dein#add('AndrewRadev/linediff.vim')
   "### backend utility
   call dein#add('itchyny/vim-parenmatch')
   call dein#add('Konfekt/FastFold')
@@ -204,7 +205,6 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('junegunn/vim-easy-align')
   "### Ruby
   call dein#add('slim-template/vim-slim')
-  call dein#add('vim-ruby/vim-ruby')
   "### HTML
   call dein#add('othree/html5.vim')
   call dein#add('alvan/vim-closetag')
@@ -226,6 +226,8 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('vim-scripts/SQLComplete.vim')
   "### toml
   call dein#add('cespare/vim-toml')
+  "### GraphQL
+  call dein#add('jparise/vim-graphql')
 
   call dein#end()
   call dein#save_state()
@@ -267,17 +269,17 @@ if executable('gopls')
     autocmd FileType go nmap gd <plug>(lsp-definition)
   augroup END
 endif
-" if executable('solargraph')
-"   augroup LspRuby
-"     au!
-"     autocmd User lsp_setup call lsp#register_server({
-"         \ 'name': 'solargraph',
-"         \ 'cmd': {server_info->['solargraph', 'stdio']},
-"         \ 'whitelist': ['ruby'],
-"         \ })
-"     autocmd FileType ruby setlocal omnifunc=lsp#complete
-"   augroup END
-" endif
+if executable('solargraph')
+  augroup LspRuby
+    au!
+    autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'solargraph',
+        \ 'cmd': {server_info->['solargraph', 'stdio']},
+        \ 'whitelist': ['ruby'],
+        \ })
+    autocmd FileType ruby setlocal omnifunc=lsp#complete
+  augroup END
+endif
 
 " let g:lsp_async_completion = 0
 
@@ -478,7 +480,7 @@ nnoremap <silent> <c-p><c-u> :CtrlPMRU<CR>
 nnoremap <silent> <c-p><c-t> :CtrlPTag<CR>
 
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_root_markers = ['Dockerfile']
+let g:ctrlp_root_markers = ['Dockerfile', 'kubernetes']
 let g:ctrlp_user_command = 'files -A -i "^(\\.git|\\.hg|\\.svn|_darcs|\\.bzr|vendor|node_modules|tmp|\\.tmp)$" %s'
 let g:ctrlp_match_func = {'match': 'pymatcher#PyMatch'}
 let g:ctrlp_match_window = 'order:btt'
