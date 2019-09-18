@@ -10,6 +10,7 @@ set laststatus=2
 
 " show no line number
 set nonumber
+set signcolumn=number
 
 " no putting message
 set noshowmode
@@ -125,6 +126,7 @@ nnoremap <silent> CC :let @+ = expand("%:p")<CR>
 " ===============================
 
 " ============ OTHERS =============
+set regexpengine=1
 nnoremap ,f :set filetype=
 
 " No beep or notify visually
@@ -205,6 +207,7 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('junegunn/vim-easy-align')
   "### Ruby
   call dein#add('slim-template/vim-slim')
+  call dein#add('todesking/ruby_hl_lvar.vim')
   "### HTML
   call dein#add('othree/html5.vim')
   call dein#add('alvan/vim-closetag')
@@ -243,6 +246,9 @@ call deoplete#custom#var('omni', 'input_patterns', {
   \ 'ruby': ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::'],
   \})
 call deoplete#custom#option('yarp', v:true)
+call deoplete#custom#option('auto_complete_delay', 100)
+call deoplete#custom#option('num_processes', 1)
+" set completeopt+=noinsert
 
 "@ Language Server
 if executable('typescript-language-server')
@@ -539,7 +545,10 @@ let g:fastfold_savehook = 0
 " =============================================================================
 " }}}
 
-"filetype setting
+"@ For ruby
+autocmd rc FileType ruby setlocal iskeyword+=?
+
+"""filetype setting
 autocmd rc BufNewFile,BufRead *.thor      setf ruby
 autocmd rc BufNewFile,BufRead *.erb       setf html.eruby
 
