@@ -99,14 +99,6 @@ nnoremap k gk
 nnoremap H h
 vnoremap H h
 
-inoremap { {}<Left>
-inoremap [ []<Left>
-inoremap ( ()<Left>
-inoremap " ""<Left>
-inoremap ' ''<Left>
-inoremap <% <%  %><Left><Left><Left>
-inoremap <%= <%=  %><Left><Left><Left>
-
 nnoremap <Space>q :only<CR>
 
 " reloading
@@ -199,6 +191,7 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('honza/vim-snippets')
   call dein#add('tpope/vim-endwise')
   call dein#add('tpope/vim-repeat')
+  call dein#add('cohama/lexima.vim')
   "### treat specific type file
   call dein#add('elzr/vim-json')
   call dein#add('plasticboy/vim-markdown')
