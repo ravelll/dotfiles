@@ -111,7 +111,7 @@ function current_branch() {
   ref=$(git rev-parse --short HEAD 2> /dev/null) || return
   echo ${ref#refs/heads/}
 }
-alias ggpu='git pull origin $(current_branch)'
+alias ggpu='git pull origin $(current_branch) --rebase'
 alias ggpush='git push origin $(current_branch)'
 
 ## ssh

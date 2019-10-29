@@ -18,8 +18,9 @@
   ci = commit -v
   cia = commit -v -a
   cie = commit --allow-empty
-  co = checkout
-  cm = checkout master
+  s = switch
+  sm = switch master
+  sd = switch develop
   cl = clone
   cln = !git fetch --prune | git branch --merged | grep -v \\* | xargs -I % git branch -d %
   d  = diff
@@ -30,18 +31,16 @@
   fp = fetch --prune
   l = log
   lfp = log --first-parent
-  pu = pull
+  pu = pull --rebase
   r = reset
   rmu = !git status -u | egrep '^\t' | tr -d '\t' | xargs rm
   back = reset HEAD^
   fback = reset --hard HEAD^
-  s = show
   st = status
   sh = stash
   shl = stash list
   shp = stash pop
   shd = stash drop
-  sub = submodule
   latestmerge = log -1 --merges --pretty=format:%H
   tmpignore = update-index --assume-unchanged
   tmpignores = !git ls-files -v | grep -E '^h' | cut -d' ' -f2

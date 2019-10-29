@@ -83,6 +83,9 @@ set ignorecase
 
 " use Very Magic
 nnoremap / /\v
+
+" open quick-fix in vimgrep automatically
+autocmd QuickFixCmdPost *grep* cwindow
 " =====================================
 
 " ========= BACKUP =========
@@ -120,6 +123,14 @@ nnoremap <silent> CC :let @+ = expand("%:p")<CR>
 " ============ OTHERS =============
 set regexpengine=1
 nnoremap ,f :set filetype=
+
+inoremap { {}<Left>
+inoremap [ []<Left>
+inoremap ( ()<Left>
+inoremap " ""<Left>
+inoremap ' ''<Left>
+inoremap <% <%  %><Left><Left><Left>
+inoremap <%= <%=  %><Left><Left><Left>
 
 " No beep or notify visually
 set visualbell t_vb=
@@ -191,7 +202,7 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('honza/vim-snippets')
   call dein#add('tpope/vim-endwise')
   call dein#add('tpope/vim-repeat')
-  call dein#add('cohama/lexima.vim')
+  " call dein#add('cohama/lexima.vim')
   "### treat specific type file
   call dein#add('elzr/vim-json')
   call dein#add('plasticboy/vim-markdown')
@@ -242,6 +253,22 @@ call deoplete#custom#option('yarp', v:true)
 call deoplete#custom#option('auto_complete_delay', 100)
 call deoplete#custom#option('num_processes', 1)
 " set completeopt+=noinsert
+
+"@vim-multiple-cursors
+"" avoid the conflict with deplete
+func! Multiple_cursors_before()
+  if deoplete#is_enabled()
+    call deoplete#disable()
+    let g:deoplete_is_enable_before_multi_cursors = 1
+  else
+    let g:deoplete_is_enable_before_multi_cursors = 0
+  endif
+endfunc
+func! Multiple_cursors_after()
+  if g:deoplete_is_enable_before_multi_cursors
+    call deoplete#enable()
+  endif
+endfunc
 
 "@ Language Server
 if executable('typescript-language-server')
