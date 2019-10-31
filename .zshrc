@@ -105,7 +105,7 @@ alias g='git'
 alias gg='git grep'
 alias gd='git diff'
 alias gst='git status'
-alias cm='git checkout master'
+alias cm='git switch master'
 function current_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(git rev-parse --short HEAD 2> /dev/null) || return
@@ -186,6 +186,7 @@ alias -- -='cd -'
 alias -g P='| peco'
 alias notify='terminal-notifier -title "" -subtitle "" -message ""'
 alias pe="pet exec"
+alias pr="hub browse -- pull/$(git symbolic-ref --short HEAD)"
 
 if (which zprof > /dev/null) ;then
   zprof | less

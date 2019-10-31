@@ -32,7 +32,7 @@
   l = log
   lfp = log --first-parent
   pu = pull --rebase
-  r = reset
+  r = restore
   rmu = !git status -u | egrep '^\t' | tr -d '\t' | xargs rm
   back = reset HEAD^
   fback = reset --hard HEAD^
