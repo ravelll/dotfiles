@@ -140,7 +140,7 @@ set visualbell t_vb=
 " {{{
 " ================== PLUGIN SETTINGS ==================
 " leader
-let maplocalleader=','
+let g:mapleader = ','
 
 " use \ as , alternative
 noremap \ ,
@@ -575,6 +575,7 @@ autocmd rc BufNewFile,BufRead *.erb       setf html.eruby
 "set default filetype markdown
 autocmd rc VimEnter,BufNewFile,BufRead * if &ft == '' | set ft=markdown | endif
 autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'vue' | syntax sync fromstart | endif
+autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'typescriptreact' | set ft=typescript | endif
 
 "filetype indent
 filetype plugin indent on
