@@ -405,7 +405,8 @@ let g:quickrun_config.markdown = {
       \ 'args'      : 'Marked\ 2',
       \ 'exec'      : '%c %o %a %s',
       \ }
-let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
+nnoremap ,q :QuickRun<CR>
+vnoremap ,q :QuickRun<CR>
 
 "@vim-ctrlp-tjump
 let g:ctrlp_tjump_only_silent = 1
