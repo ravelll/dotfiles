@@ -139,6 +139,9 @@ set visualbell t_vb=
 
 " {{{
 " ================== PLUGIN SETTINGS ==================
+" disable all mappings defined by ftplugins
+let g:no_plugin_maps=0
+
 " leader
 let g:mapleader = ','
 
@@ -211,7 +214,7 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('junegunn/vim-easy-align')
   "### Ruby
   call dein#add('slim-template/vim-slim')
-  call dein#add('todesking/ruby_hl_lvar.vim')
+  " call dein#add('todesking/ruby_hl_lvar.vim')
   "### HTML
   call dein#add('othree/html5.vim')
   call dein#add('alvan/vim-closetag')
@@ -252,7 +255,7 @@ call deoplete#custom#var('omni', 'input_patterns', {
 call deoplete#custom#option('yarp', v:true)
 call deoplete#custom#option('auto_complete_delay', 100)
 call deoplete#custom#option('num_processes', 1)
-" set completeopt+=noinsert
+set completeopt+=noselect
 
 "@vim-multiple-cursors
 "" avoid the conflict with deplete
@@ -345,22 +348,22 @@ endfunction
 command! Sw call s:Sw()
 
 "@surround.vim
-nmap <LocalLeader>{ ysiw{
-nmap <LocalLeader>} ysiw}
-nmap <LocalLeader>[ ysiw[
-nmap <LocalLeader>] ysiw]
-nmap <LocalLeader>( ysiw(
-nmap <LocalLeader>) ysiw)
-nmap <LocalLeader>b ysiwb
-nmap <LocalLeader>< ysiw<
-nmap <LocalLeader>> ysiw>
-nmap <LocalLeader>" ysiw"
-nmap <LocalLeader>' ysiw'
-nmap <LocalLeader>` ysiw`
-nmap <LocalLeader>* ysiw*
-nmap <LocalLeader>/ ysiw/
-nmap <LocalLeader><Space> ysiw<Space><Space>
-nmap <LocalLeader><LocalLeader>* ysiw*wysiw*
+nmap <Leader>{ ysiw{
+nmap <Leader>} ysiw}
+nmap <Leader>[ ysiw[
+nmap <Leader>] ysiw]
+nmap <Leader>( ysiw(
+nmap <Leader>) ysiw)
+nmap <Leader>b ysiwb
+nmap <Leader>< ysiw<
+nmap <Leader>> ysiw>
+nmap <Leader>" ysiw"
+nmap <Leader>' ysiw'
+nmap <Leader>` ysiw`
+nmap <Leader>* ysiw*
+nmap <Leader>/ ysiw/
+nmap <Leader><Space> ysiw<Space><Space>
+nmap <Leader><Leader>* ysiw*wysiw*
 
 "@vim-indent-guides
 let g:indent_guides_auto_colors=0
@@ -488,10 +491,8 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = 'goimports'
 let g:go_bin_path = $HOME.'/dev/bin/'
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
 
-nnoremap <silent> <LocalLeader>g :GoImports 
+nnoremap <silent> <Leader>g :GoImports 
 "}
 
 "@vim-edgemotion
