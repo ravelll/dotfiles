@@ -1,10 +1,12 @@
+" vim: foldmethod=marker
+
 filetype off
 
 augroup rc
   autocmd!
 augroup END
 
-" ======== DISPLAY INFOMATION ========
+" ===== DISPLAYING ===== {{{
 " always show statusline
 set laststatus=2
 
@@ -25,8 +27,8 @@ set lazyredraw
 " command complement
 set wildmode=list,full
 
-" fileencoding usage (left is prior right)
-set fileencodings=utf-8
+" fileencoding usage
+set fileencoding=utf-8 fileformat=unix
 scriptencoding utf-8
 
 " show current line
@@ -35,9 +37,14 @@ nnoremap <silent> ,uL :set nocursorline<CR>
 
 " use init dir same as a file opening for selecting file
 set browsedir=buffer
-" ====================================
 
-" =========== TAB, SPACE =============
+" when use vim in tmux, set the number of colors to 256
+if $TERM == 'screen'
+  set t_Co=256
+endif
+" }}}
+
+" ===== TAB, SPACE ===== {{{
 " displays tabs with spaces same as shiftwidth
 set smarttab
 
@@ -62,9 +69,9 @@ function! s:TrimSpaces()
   execute '%s/ \+$//'
 endfunction
 command! TrimSpaces call s:TrimSpaces()
-" ====================================
+" }}}
 
-" ============ SEARCHING ==============
+" ===== SEARCHING ===== {{{
 " search with highlighting
 set hlsearch
 
@@ -86,16 +93,16 @@ nnoremap / /\v
 
 " open quick-fix in vimgrep automatically
 autocmd QuickFixCmdPost *grep* cwindow
-" =====================================
+" }}}
 
-" ========= BACKUP =========
+" ===== BACKUP ===== {{{
 set autoread
 set nobackup
 set noswapfile
 set noundofile
-" ==========================
+" }}}
 
-" ========= KEYCONFIGS ==========
+" ===== BASIC KEYCONFIGS ===== {{{
 nnoremap j gj
 nnoremap k gk
 
@@ -107,20 +114,26 @@ nnoremap <Space>q :only<CR>
 " reloading
 nnoremap rr :e!<CR>
 
+" leader
+let g:mapleader = ','
+
+" use \ as , alternative
+noremap \ ,
+
 " enable backspace
 set backspace=indent,eol,start
-" ==============================
+""}}}
 
-" ============ COPY =============
+" ===== COPYING ===== {{{
 " sync vim copy to clipboard
 set clipboard=unnamed
 
 " copy file name
 nnoremap <silent> cc :let @+ = remove(split(expand("%"), "/"), -1)<CR>
 nnoremap <silent> CC :let @+ = expand("%:p")<CR>
-" ===============================
+" }}}
 
-" ============ OTHERS =============
+" ============ OTHER USEFULS ============= {{{
 set regexpengine=1
 nnoremap ,f :set filetype=
 
@@ -134,21 +147,12 @@ inoremap <%= <%=  %><Left><Left><Left>
 
 " No beep or notify visually
 set visualbell t_vb=
-" =================================
 "}}}
 
-" {{{
-" ================== PLUGIN SETTINGS ==================
+" ================== PLUGIN LOADING(dein) ================== {{{
 " disable all mappings defined by ftplugins
 let g:no_plugin_maps=0
 
-" leader
-let g:mapleader = ','
-
-" use \ as , alternative
-noremap \ ,
-
-"@dein
 if &compatible
   set nocompatible
 endif
@@ -194,6 +198,7 @@ if dein#load_state($HOME.'/.vim')
   " call dein#add('mattn/benchvimrc-vim')
   call dein#add('osyo-manga/vim-over')
   call dein#add('FelikZ/ctrlp-py-matcher')
+  call dein#add('vim-jp/autofmt')
   "### git
   call dein#add('tpope/vim-fugitive')
   "## search and open
@@ -239,14 +244,16 @@ if dein#load_state($HOME.'/.vim')
   "### GraphQL
   call dein#add('jparise/vim-graphql')
 
+  call dein#add('vim/killersheep')
   call dein#end()
   call dein#save_state()
 endif
 
 filetype plugin indent on
 syntax enable
+" }}}
 
-" ================= RESPECTIVE PLUGIN SETTING =================
+" ========== PLUGIN SETTINGS =========== {{{
 "@deoplete
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#var('omni', 'input_patterns', {
@@ -272,6 +279,13 @@ func! Multiple_cursors_after()
     call deoplete#enable()
   endif
 endfunc
+
+
+"@autofmt
+set formatexpr=autofmt#japanese#formatexpr()
+let autofmt_allow_over_tw=1
+set formatoptions+=mM
+set smartindent
 
 "@ Language Server
 if executable('typescript-language-server')
@@ -508,7 +522,7 @@ nnoremap <silent> <c-p><c-u> :CtrlPMRU<CR>
 nnoremap <silent> <c-p><c-t> :CtrlPTag<CR>
 
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_root_markers = ['Dockerfile', 'kubernetes']
+let g:ctrlp_root_markers = ['Dockerfile', 'kubernetes', '*.gemspec']
 let g:ctrlp_user_command = 'files -A -i "^(\\.git|\\.hg|\\.svn|_darcs|\\.bzr|vendor|node_modules|tmp|\\.tmp)$" %s'
 let g:ctrlp_match_func = {'match': 'pymatcher#PyMatch'}
 let g:ctrlp_match_window = 'order:btt'
@@ -570,7 +584,7 @@ let g:fastfold_savehook = 0
 "@ For ruby
 autocmd rc FileType ruby setlocal iskeyword+=?
 
-"""filetype setting
+""filetype setting
 autocmd rc BufNewFile,BufRead *.thor      setf ruby
 autocmd rc BufNewFile,BufRead *.erb       setf html.eruby
 

@@ -89,7 +89,7 @@ export PERL5LIB="$HOME/.perl-extlib/lib/perl5:$PERL5LIB"
 ### aliases
 alias be='bundle exec'
 alias ber='bundle exec ruby'
-alias bi='bundle install --path vendor/bundle'
+alias bi='bundle install'
 
 #
 # other tools environment
