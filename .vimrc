@@ -1,5 +1,3 @@
-" vim: foldmethod=marker
-
 filetype off
 
 augroup rc
@@ -82,11 +80,7 @@ nnoremap <C-[><C-[> :nohlsearch<CR>
 set cindent
 set breakindent
 
-" lowercase -> case-insensitive search
-set ignorecase
-
-" uppercase -> case-sensitive search
-set ignorecase
+set smartcase
 
 " use Very Magic
 nnoremap / /\v
@@ -205,6 +199,7 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('szw/vim-tags')
   call dein#add('ctrlpvim/ctrlp.vim')
   call dein#add('tpope/vim-abolish')
+  call dein#add('liuchengxu/vim-clap')
   "### coding support
   call dein#add('w0rp/ale')
   call dein#add('honza/vim-snippets')
@@ -256,12 +251,15 @@ syntax enable
 " ========== PLUGIN SETTINGS =========== {{{
 "@deoplete
 let g:deoplete#enable_at_startup = 1
-call deoplete#custom#var('omni', 'input_patterns', {
-  \ 'ruby': ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::'],
+" call deoplete#custom#var('omni', 'input_patterns', {
+"   \ 'ruby': ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::'],
+"   \})
+call deoplete#custom#var('omni', 'keyword_patterns', {
+  \ 'ruby': '[a-zA-Z_]\w*[!?]?',
   \})
 call deoplete#custom#option('yarp', v:true)
 call deoplete#custom#option('auto_complete_delay', 100)
-call deoplete#custom#option('num_processes', 1)
+call deoplete#custom#option('num_processes', 4)
 set completeopt+=noselect
 
 "@vim-multiple-cursors
@@ -505,8 +503,6 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = 'goimports'
 let g:go_bin_path = $HOME.'/dev/bin/'
-
-nnoremap <silent> <Leader>g :GoImports 
 "}
 
 "@vim-edgemotion
