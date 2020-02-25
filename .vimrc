@@ -227,6 +227,7 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('briancollins/vim-jst')
   call dein#add('posva/vim-vue')
   call dein#add('ternjs/tern_for_vim')
+  call dein#add('yuezk/vim-js')
   call dein#add('maxmellon/vim-jsx-pretty')
   "### TypeScript
   call dein#add('leafgarland/typescript-vim')
@@ -348,7 +349,7 @@ let g:lightline = {
 let g:winresizer_start_key = ',w'
 
 "@vim-closetag
-let g:closetag_filenames = "*.html*,*.js,*.jsx,*.vue"
+let g:closetag_filenames = "*.html*,*.js,*.jsx,*.vue,*.tsx,*.ts"
 
 "@parenmatch
 let g:loaded_matchparen = 1
@@ -587,7 +588,6 @@ autocmd rc BufNewFile,BufRead *.erb       setf html.eruby
 "set default filetype markdown
 autocmd rc VimEnter,BufNewFile,BufRead * if &ft == '' | set ft=markdown | endif
 autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'vue' | syntax sync fromstart | endif
-autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'typescriptreact' | set ft=typescript | endif
 
 "filetype indent
 filetype plugin indent on
