@@ -141,6 +141,11 @@ inoremap <%= <%=  %><Left><Left><Left>
 
 " No beep or notify visually
 set visualbell t_vb=
+
+" load the local specific config file
+if filereadable(expand('~/.localvimrc'))
+  source ~/.localvimrc
+endif
 "}}}
 
 " ================== PLUGIN LOADING(dein) ================== {{{
@@ -349,7 +354,7 @@ let g:lightline = {
 let g:winresizer_start_key = ',w'
 
 "@vim-closetag
-let g:closetag_filenames = "*.html*,*.js,*.jsx,*.vue,*.tsx,*.ts"
+let g:closetag_filenames = "*.html*,*.js,*.jsx,*.vue,*.ts,*.tsx"
 
 "@parenmatch
 let g:loaded_matchparen = 1
@@ -588,6 +593,7 @@ autocmd rc BufNewFile,BufRead *.erb       setf html.eruby
 "set default filetype markdown
 autocmd rc VimEnter,BufNewFile,BufRead * if &ft == '' | set ft=markdown | endif
 autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'vue' | syntax sync fromstart | endif
+autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'typescriptreact' | set ft=typescript.tsx | endif
 
 "filetype indent
 filetype plugin indent on
