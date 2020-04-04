@@ -103,7 +103,7 @@ alias cask='brew cask'
 ## git
 alias g='git'
 alias gg='git grep'
-alias gd='git diff'
+alias gd='git diff --relative'
 alias gst='git status'
 alias cm='git switch master'
 function current_branch() {

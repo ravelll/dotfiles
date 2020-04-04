@@ -23,7 +23,7 @@
   sd = switch develop
   cl = clone
   cln = !git fetch --prune | git branch --merged | grep -v \\* | xargs -I % git branch -d %
-  d  = diff
+  d  = diff --relative
   dc = diff --cached
   dw = diff --word-diff=color
   dn = diff --name-only

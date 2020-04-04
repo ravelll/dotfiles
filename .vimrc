@@ -80,7 +80,7 @@ nnoremap <C-[><C-[> :nohlsearch<CR>
 set cindent
 set breakindent
 
-set smartcase
+set ignorecase
 
 " use Very Magic
 nnoremap / /\v
@@ -577,6 +577,7 @@ let g:ale_linters = {
 let g:ale_pattern_options = {
 \ '\.\(test\|spec\)\.js$': {'ale_linters': [], 'ale_fixers': []}
 \}
+nnoremap <silent> ,e :ALENext<CR>
 
 "@FastFold
 let g:fastfold_savehook = 0
