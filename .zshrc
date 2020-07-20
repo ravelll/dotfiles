@@ -62,7 +62,6 @@ typeset -U path cdpath fpath manpath
 ## zsh options
 setopt mark_dirs
 setopt no_beep
-setopt complete_aliases
 setopt correct
 setopt list_packed
 setopt no_global_rcs
@@ -101,6 +100,7 @@ eval "$(direnv hook zsh)"
 alias cask='brew cask'
 
 ## git
+compdef g='git'
 alias g='git'
 alias gg='git grep'
 alias gd='git diff --relative'
@@ -111,7 +111,7 @@ function current_branch() {
   ref=$(git rev-parse --short HEAD 2> /dev/null) || return
   echo ${ref#refs/heads/}
 }
-alias ggpu='git pull origin $(current_branch) --rebase'
+alias ggpu='git pull origin $(current_branch) --ff-only'
 alias ggpush='git push origin $(current_branch)'
 
 ## ssh
@@ -158,7 +158,7 @@ source ~/.zsh/peco.zsh
 bindkey '^jr' peco_select_rake_task
 bindkey '^jb' peco_git_recent_branches
 bindkey '^jB' peco_git_recent_all_branches
-bindkey '^jt' peco_git_tags
+bindkey '^jT' peco_git_tags
 bindkey '^jl' peco_git_hashes
 bindkey '^jz' peco_cd_history
 bindkey '^jd' peco_insert_history
@@ -167,11 +167,12 @@ bindkey '^js' peco_select_ghq
 bindkey '^jk' peco_kill
 
 ## docker
+compdef d='docker'
 alias d='docker'
+compdef dc='docker-compose'
 alias dc='docker-compose'
 
 ## other aliases
-alias o='open'
 alias ls='ls -G'
 alias sl='ls'
 alias ll='ls -alhFG'

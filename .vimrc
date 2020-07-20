@@ -190,7 +190,7 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('haya14busa/vim-edgemotion')
   call dein#add('AndrewRadev/linediff.vim')
   "### backend utility
-  call dein#add('itchyny/vim-parenmatch')
+  " call dein#add('itchyny/vim-parenmatch')
   call dein#add('Konfekt/FastFold')
   call dein#add('prabirshrestha/async.vim')
   call dein#add('prabirshrestha/vim-lsp')
@@ -213,7 +213,7 @@ if dein#load_state($HOME.'/.vim')
   " call dein#add('cohama/lexima.vim')
   "### treat specific type file
   call dein#add('elzr/vim-json')
-  call dein#add('plasticboy/vim-markdown')
+  " call dein#add('plasticboy/vim-markdown')
   call dein#add('kana/vim-textobj-user')
   call dein#add('majutsushi/tagbar')
   call dein#add('junegunn/vim-easy-align')
@@ -245,7 +245,6 @@ if dein#load_state($HOME.'/.vim')
   "### GraphQL
   call dein#add('jparise/vim-graphql')
 
-  call dein#add('vim/killersheep')
   call dein#end()
   call dein#save_state()
 endif
@@ -261,8 +260,8 @@ let g:deoplete#enable_at_startup = 1
 "   \ 'ruby': ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::'],
 "   \})
 call deoplete#custom#var('omni', 'keyword_patterns', {
-  \ 'ruby': '[a-zA-Z_]\w*[!?]?',
-  \})
+      \ 'ruby': '[a-zA-Z_]\w*[!?]?',
+      \})
 call deoplete#custom#option('yarp', v:true)
 call deoplete#custom#option('auto_complete_delay', 100)
 call deoplete#custom#option('num_processes', 4)
@@ -411,11 +410,11 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.vim/repos/github.com/honza/vim-snippets/snippets'
 
 "@markdown
-let g:vim_markdown_json_frontmatter = 1
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_new_list_item_indent = 0
-let g:vim_markdown_conceal = 0
-let g:vim_markdown_conceal_code_blocks = 0
+" let g:vim_markdown_json_frontmatter = 1
+" let g:vim_markdown_folding_disabled = 1
+" let g:vim_markdown_new_list_item_indent = 0
+" let g:vim_markdown_conceal = 0
+" let g:vim_markdown_conceal_code_blocks = 0
 
 "@quickrun
 let g:quickrun_config={}

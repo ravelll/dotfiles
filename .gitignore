@@ -14,3 +14,4 @@
 **/.zsh/cache
 evans
 .byebug_history
+.solargraph.yml

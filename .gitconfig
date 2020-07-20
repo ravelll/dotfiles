@@ -28,10 +28,9 @@
   dw = diff --word-diff=color
   dn = diff --name-only
   f = fetch
-  fp = fetch --prune
   l = log
   lfp = log --first-parent
-  pu = pull --rebase
+  pu = pull --ff-only
   r = restore
   rmu = !git status -u | egrep '^\t' | tr -d '\t' | xargs rm
   back = reset HEAD^
@@ -58,11 +57,8 @@
 [diff]
   noprefix = true
   compactionHeuristic = true
-[filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-  required = true
+[fetch]
+  prune = true
 [init]
   templatedir = ~/.git_template
 [github]
