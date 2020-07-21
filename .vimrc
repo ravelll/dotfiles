@@ -213,12 +213,13 @@ if dein#load_state($HOME.'/.vim')
   " call dein#add('cohama/lexima.vim')
   "### treat specific type file
   call dein#add('elzr/vim-json')
-  " call dein#add('plasticboy/vim-markdown')
+  call dein#add('plasticboy/vim-markdown')
   call dein#add('kana/vim-textobj-user')
   call dein#add('majutsushi/tagbar')
   call dein#add('junegunn/vim-easy-align')
   "### Ruby
   call dein#add('slim-template/vim-slim')
+  call dein#add('pocke/rbs.vim')
   " call dein#add('todesking/ruby_hl_lvar.vim')
   "### HTML
   call dein#add('othree/html5.vim')
@@ -410,11 +411,11 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.vim/repos/github.com/honza/vim-snippets/snippets'
 
 "@markdown
-" let g:vim_markdown_json_frontmatter = 1
-" let g:vim_markdown_folding_disabled = 1
-" let g:vim_markdown_new_list_item_indent = 0
-" let g:vim_markdown_conceal = 0
-" let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_json_frontmatter = 1
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_new_list_item_indent = 0
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
 
 "@quickrun
 let g:quickrun_config={}
