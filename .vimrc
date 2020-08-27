@@ -29,6 +29,10 @@ set wildmode=list,full
 set fileencoding=utf-8 fileformat=unix
 scriptencoding utf-8
 
+" fileencoding usage (left is prior right)
+" set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
+" scriptencoding utf-8,euc-jp,sjis,cp932,iso-2022-jp
+
 " show current line
 nnoremap <silent> ,ul :set cursorline<CR>
 nnoremap <silent> ,uL :set nocursorline<CR>
@@ -245,6 +249,8 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('cespare/vim-toml')
   "### GraphQL
   call dein#add('jparise/vim-graphql')
+  "### Terraform
+  call dein#add('hashivim/vim-terraform')
 
   call dein#end()
   call dein#save_state()
@@ -410,6 +416,9 @@ xmap <C-e> <Plug>(neosnippet_expand_target)
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.vim/repos/github.com/honza/vim-snippets/snippets'
 
+"@vim-json
+let g:vim_json_syntax_conceal = 0
+
 "@markdown
 let g:vim_markdown_json_frontmatter = 1
 let g:vim_markdown_folding_disabled = 1
@@ -524,7 +533,7 @@ nnoremap <silent> <c-p><c-u> :CtrlPMRU<CR>
 nnoremap <silent> <c-p><c-t> :CtrlPTag<CR>
 
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_root_markers = ['Dockerfile', 'kubernetes', '*.gemspec']
+let g:ctrlp_root_markers = ['Dockerfile', 'kubernetes', '*.gemspec', 'tsconfig.*']
 let g:ctrlp_user_command = 'files -A -i "^(\\.git|\\.hg|\\.svn|_darcs|\\.bzr|vendor|node_modules|tmp|\\.tmp)$" %s'
 let g:ctrlp_match_func = {'match': 'pymatcher#PyMatch'}
 let g:ctrlp_match_window = 'order:btt'
