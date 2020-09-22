@@ -2,7 +2,7 @@
 # PATH
 #
 if [ -z $TMUX ]; then
-  export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin/:/opt/X11/bin:$HOME/bin:$HOME/.anyenv/bin:$PATH"
+  export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin/:/opt/X11/bin:$HOME/bin:$HOME/.anyenv/bin:$PATH"
 fi
 
 ## completion

@@ -44,6 +44,7 @@
   tmpignore = update-index --assume-unchanged
   tmpignores = !git ls-files -v | grep -E '^h' | cut -d' ' -f2
   untmpignore = update-index --no-assume-unchanged
+  openpr = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
 [core]
   editor = vim -c \"set fenc=utf-8\"
   excludesfile = ~/.gitignore

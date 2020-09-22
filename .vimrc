@@ -435,6 +435,13 @@ let g:quickrun_config.markdown = {
       \ 'args'      : 'Marked\ 2',
       \ 'exec'      : '%c %o %a %s',
       \ }
+let g:quickrun_config['typescript'] = { 'type' : 'typescript/tsc' }
+let g:quickrun_config['typescript/tsc'] = {
+      \   'command': 'tsc',
+      \   'exec': ['%c --target esnext --module commonjs --lib esnext,dom %o %s', 'node %s:r.js'],
+      \   'tempfile': '%{tempname()}.ts',
+      \   'hook/sweep/files': ['%S:p:r.js'],
+      \ }
 nnoremap ,q :QuickRun<CR>
 vnoremap ,q :QuickRun<CR>
 
