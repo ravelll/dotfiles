@@ -200,7 +200,7 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('prabirshrestha/vim-lsp')
   " call dein#add('mattn/benchvimrc-vim')
   call dein#add('osyo-manga/vim-over')
-  call dein#add('FelikZ/ctrlp-py-matcher')
+  call dein#add('mattn/ctrlp-matchfuzzy')
   call dein#add('vim-jp/autofmt')
   "### git
   call dein#add('tpope/vim-fugitive')
@@ -542,7 +542,7 @@ nnoremap <silent> <c-p><c-t> :CtrlPTag<CR>
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_root_markers = ['Dockerfile', 'kubernetes', '*.gemspec', 'tsconfig.*']
 let g:ctrlp_user_command = 'files -A -i "^(\\.git|\\.hg|\\.svn|_darcs|\\.bzr|vendor|node_modules|tmp|\\.tmp)$" %s'
-let g:ctrlp_match_func = {'match': 'pymatcher#PyMatch'}
+let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
 let g:ctrlp_match_window = 'order:btt'
 let g:ctrlp_max_height = 60
 let g:ctrlp_max_depth = 40
