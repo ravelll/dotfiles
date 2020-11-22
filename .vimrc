@@ -225,6 +225,8 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('slim-template/vim-slim')
   call dein#add('pocke/rbs.vim')
   " call dein#add('todesking/ruby_hl_lvar.vim')
+  "### Rust
+  call dein#add('rust-lang/rust.vim')
   "### HTML
   call dein#add('othree/html5.vim')
   call dein#add('alvan/vim-closetag')
@@ -331,6 +333,17 @@ if executable('solargraph')
         \ 'whitelist': ['ruby'],
         \ })
     autocmd FileType ruby setlocal omnifunc=lsp#complete
+  augroup END
+endif
+if executable('rls')
+  augroup LspRust
+    au!
+    autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+    autocmd FileType rust setlocal omnifunc=lsp#complete
   augroup END
 endif
 
