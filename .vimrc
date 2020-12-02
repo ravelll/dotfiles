@@ -150,6 +150,8 @@ set visualbell t_vb=
 if filereadable(expand('~/.localvimrc'))
   source ~/.localvimrc
 endif
+
+autocmd rc bufenter * if (winnr('$') == 1 && &buftype == "quickfix") | q | endif
 "}}}
 
 " ================== PLUGIN LOADING(dein) ================== {{{
