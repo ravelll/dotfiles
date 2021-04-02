@@ -608,6 +608,7 @@ let g:ale_linters = {
 let g:ale_pattern_options = {
 \ '\.\(test\|spec\)\.js$': {'ale_linters': [], 'ale_fixers': []}
 \}
+let g:ale_deno_executable = ''
 nnoremap <silent> ,e :ALENext<CR>
 
 "@FastFold
