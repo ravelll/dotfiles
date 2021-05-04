@@ -88,6 +88,9 @@ export PERL5LIB="$HOME/.perl-extlib/lib/perl5:$PERL5LIB"
 ## rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
+## python
+export PATH="$HOME/.local/bin:$PATH"
+
 ### aliases
 alias be='bundle exec'
 alias ber='bundle exec ruby'

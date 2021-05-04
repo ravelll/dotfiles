@@ -171,6 +171,7 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('Shougo/dein.vim')
   call dein#add('Shougo/vimproc', { 'build': 'make' })
   call dein#add('Shougo/deoplete.nvim')
+  call dein#add('lighttiger2505/deoplete-vim-lsp')
   call dein#add('roxma/nvim-yarp')
   call dein#add('roxma/vim-hug-neovim-rpc')
   call dein#add('Shougo/neosnippet.vim')
@@ -267,19 +268,27 @@ syntax enable
 " ========== PLUGIN SETTINGS =========== {{{
 "@deoplete
 let g:deoplete#enable_at_startup = 1
-" call deoplete#custom#var('omni', 'input_patterns', {
-"   \ 'ruby': ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::'],
-"   \})
 call deoplete#custom#var('omni', 'keyword_patterns', {
-      \ 'ruby': '[a-zA-Z_]\w*[!?]?',
-      \})
-call deoplete#custom#option('yarp', v:true)
-call deoplete#custom#option('auto_complete_delay', 100)
-call deoplete#custom#option('num_processes', 4)
+  \ 'ruby': '[a-zA-Z_]\w*[!?]?',
+  \ })
+call deoplete#custom#option({
+  \ 'yarp': v:true,
+  \ 'auto_complete': v:true,
+  \ 'auto_complete_delay': 100,
+  \ 'min_pattern_length': 2,
+  \ 'smart_case': v:true,
+  \ 'num_processes': 4,
+  \ })
+let s:use_lsp_sources = ['lsp', 'dictionary', 'file']
+call deoplete#custom#option('sources', {
+  \ 'python': s:use_lsp_sources,
+  \ })
+call deoplete#custom#source('LanguageClient', 'rank', 500)
+call deoplete#custom#source('LanguageClient', 'dup', v:false)
 set completeopt+=noselect
 
 "@vim-multiple-cursors
-"" avoid the conflict with deplete
+"" avoid conflict with deoplete
 func! Multiple_cursors_before()
   if deoplete#is_enabled()
     call deoplete#disable()
@@ -293,7 +302,6 @@ func! Multiple_cursors_after()
     call deoplete#enable()
   endif
 endfunc
-
 
 "@autofmt
 set formatexpr=autofmt#japanese#formatexpr()
@@ -348,8 +356,17 @@ if executable('rls')
     autocmd FileType rust setlocal omnifunc=lsp#complete
   augroup END
 endif
-
-" let g:lsp_async_completion = 0
+if executable('pyls')
+  augroup LspPython
+    au!
+    autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+    autocmd FileType python setlocal omnifunc=lsp#complete
+  augroup END
+endif
 
 "@deoplete-tern
 " Use deoplete.
@@ -603,6 +620,7 @@ let g:easy_align_delimiters = {
 let g:ale_fix_on_save = 1
 let g:ale_linters = {
 	\ 'go': ['gopls'],
+	\ 'python': ['pyls'],
   \ 'html': []
 	\}
 let g:ale_pattern_options = {
