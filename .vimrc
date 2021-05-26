@@ -157,109 +157,106 @@ autocmd rc bufenter * if (winnr('$') == 1 && &buftype == "quickfix") | q | endif
 " ================== PLUGIN LOADING(dein) ================== {{{
 " disable all mappings defined by ftplugins
 let g:no_plugin_maps=0
-
 if &compatible
   set nocompatible
 endif
 
-set runtimepath+=$HOME/.vim/repos/github.com/Shougo/dein.vim
+" set runtimepath+=$HOME/.vim/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 
-if dein#load_state($HOME.'/.vim')
-  call dein#begin($HOME.'/.vim')
+call dein#begin('/Users/taniguchi/.cache/dein')
+call dein#add('/Users/taniguchi/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-  "## Shougo-ware
-  call dein#add('Shougo/dein.vim')
-  call dein#add('Shougo/vimproc', { 'build': 'make' })
-  call dein#add('Shougo/deoplete.nvim')
-  call dein#add('lighttiger2505/deoplete-vim-lsp')
-  call dein#add('roxma/nvim-yarp')
-  call dein#add('roxma/vim-hug-neovim-rpc')
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('Shougo/neomru.vim')
-  call dein#add('Shougo/context_filetype.vim')
-  "### visual effect
-  call dein#add('itchyny/lightline.vim')
-  call dein#add('nathanaelkane/vim-indent-guides')
-  call dein#add('cocopon/iceberg.vim')
-  call dein#add('simeji/winresizer')
-  "## extend working
-  call dein#add('vim-scripts/surround.vim')
-  call dein#add('scrooloose/nerdtree.git')
-  call dein#add('tomtom/tcomment_vim')
-  call dein#add('vim-scripts/taglist.vim')
-  call dein#add('thinca/vim-quickrun')
-  call dein#add('terryma/vim-multiple-cursors')
-  call dein#add('mattn/webapi-vim')
-  call dein#add('tyru/open-browser.vim')
-  call dein#add('kana/vim-metarw')
-  call dein#add('ivalkeen/vim-ctrlp-tjump')
-  call dein#add('haya14busa/vim-edgemotion')
-  call dein#add('AndrewRadev/linediff.vim')
-  "### backend utility
-  " call dein#add('itchyny/vim-parenmatch')
-  call dein#add('Konfekt/FastFold')
-  call dein#add('prabirshrestha/async.vim')
-  call dein#add('prabirshrestha/vim-lsp')
-  " call dein#add('mattn/benchvimrc-vim')
-  call dein#add('osyo-manga/vim-over')
-  call dein#add('mattn/ctrlp-matchfuzzy')
-  call dein#add('vim-jp/autofmt')
-  "### git
-  call dein#add('tpope/vim-fugitive')
-  "## search and open
-  call dein#add('szw/vim-tags')
-  call dein#add('ctrlpvim/ctrlp.vim')
-  call dein#add('tpope/vim-abolish')
-  call dein#add('liuchengxu/vim-clap')
-  "### coding support
-  call dein#add('w0rp/ale')
-  call dein#add('honza/vim-snippets')
-  call dein#add('tpope/vim-endwise')
-  call dein#add('tpope/vim-repeat')
-  " call dein#add('cohama/lexima.vim')
-  "### treat specific type file
-  call dein#add('elzr/vim-json')
-  call dein#add('plasticboy/vim-markdown')
-  call dein#add('kana/vim-textobj-user')
-  call dein#add('majutsushi/tagbar')
-  call dein#add('junegunn/vim-easy-align')
-  "### Ruby
-  call dein#add('slim-template/vim-slim')
-  call dein#add('pocke/rbs.vim')
-  " call dein#add('todesking/ruby_hl_lvar.vim')
-  "### Rust
-  call dein#add('rust-lang/rust.vim')
-  "### HTML
-  call dein#add('othree/html5.vim')
-  call dein#add('alvan/vim-closetag')
-  "### Golang
-  call dein#add('fatih/vim-go')
-  "### JavaScript
-  call dein#add('pangloss/vim-javascript')
-  call dein#add('mattn/jscomplete-vim')
-  call dein#add('jelera/vim-javascript-syntax')
-  call dein#add('briancollins/vim-jst')
-  call dein#add('posva/vim-vue')
-  call dein#add('ternjs/tern_for_vim')
-  call dein#add('yuezk/vim-js')
-  call dein#add('maxmellon/vim-jsx-pretty')
-  "### TypeScript
-  call dein#add('leafgarland/typescript-vim')
-  call dein#add('Quramy/tsuquyomi')
-  "### SQL
-  call dein#add('vim-scripts/sql.vim--Stinson')
-  call dein#add('vim-scripts/SQLComplete.vim')
-  "### toml
-  call dein#add('cespare/vim-toml')
-  "### GraphQL
-  call dein#add('jparise/vim-graphql')
-  "### Terraform
-  call dein#add('hashivim/vim-terraform')
+"## Shougo-ware
+call dein#add('Shougo/vimproc', { 'build': 'make' })
+call dein#add('Shougo/deoplete.nvim')
+call dein#add('lighttiger2505/deoplete-vim-lsp')
+call dein#add('roxma/nvim-yarp')
+call dein#add('roxma/vim-hug-neovim-rpc')
+call dein#add('Shougo/neosnippet.vim')
+call dein#add('Shougo/neosnippet-snippets')
+call dein#add('Shougo/neomru.vim')
+call dein#add('Shougo/context_filetype.vim')
+"### visual effect
+call dein#add('itchyny/lightline.vim')
+call dein#add('nathanaelkane/vim-indent-guides')
+call dein#add('cocopon/iceberg.vim')
+call dein#add('simeji/winresizer')
+"## extend working
+call dein#add('vim-scripts/surround.vim')
+call dein#add('scrooloose/nerdtree.git')
+call dein#add('tomtom/tcomment_vim')
+call dein#add('vim-scripts/taglist.vim')
+call dein#add('thinca/vim-quickrun')
+call dein#add('terryma/vim-multiple-cursors')
+call dein#add('mattn/webapi-vim')
+call dein#add('tyru/open-browser.vim')
+call dein#add('kana/vim-metarw')
+call dein#add('ivalkeen/vim-ctrlp-tjump')
+call dein#add('haya14busa/vim-edgemotion')
+call dein#add('AndrewRadev/linediff.vim')
+"### backend utility
+" call dein#add('itchyny/vim-parenmatch')
+call dein#add('Konfekt/FastFold')
+call dein#add('prabirshrestha/async.vim')
+call dein#add('prabirshrestha/vim-lsp')
+" call dein#add('mattn/benchvimrc-vim')
+call dein#add('osyo-manga/vim-over')
+call dein#add('mattn/ctrlp-matchfuzzy')
+call dein#add('vim-jp/autofmt')
+"### git
+call dein#add('tpope/vim-fugitive')
+"## search and open
+call dein#add('szw/vim-tags')
+call dein#add('ctrlpvim/ctrlp.vim')
+call dein#add('tpope/vim-abolish')
+call dein#add('liuchengxu/vim-clap')
+"### coding support
+call dein#add('w0rp/ale')
+call dein#add('honza/vim-snippets')
+call dein#add('tpope/vim-endwise')
+call dein#add('tpope/vim-repeat')
+" call dein#add('cohama/lexima.vim')
+"### treat specific type file
+call dein#add('elzr/vim-json')
+call dein#add('plasticboy/vim-markdown')
+call dein#add('kana/vim-textobj-user')
+call dein#add('majutsushi/tagbar')
+call dein#add('junegunn/vim-easy-align')
+"### Ruby
+call dein#add('slim-template/vim-slim')
+call dein#add('pocke/rbs.vim')
+" call dein#add('todesking/ruby_hl_lvar.vim')
+"### Rust
+call dein#add('rust-lang/rust.vim')
+"### HTML
+call dein#add('othree/html5.vim')
+call dein#add('alvan/vim-closetag')
+"### Golang
+call dein#add('fatih/vim-go')
+"### JavaScript
+call dein#add('pangloss/vim-javascript')
+call dein#add('mattn/jscomplete-vim')
+call dein#add('jelera/vim-javascript-syntax')
+call dein#add('briancollins/vim-jst')
+call dein#add('posva/vim-vue')
+call dein#add('ternjs/tern_for_vim')
+call dein#add('yuezk/vim-js')
+call dein#add('maxmellon/vim-jsx-pretty')
+"### TypeScript
+call dein#add('leafgarland/typescript-vim')
+call dein#add('Quramy/tsuquyomi')
+"### SQL
+call dein#add('vim-scripts/sql.vim--Stinson')
+call dein#add('vim-scripts/SQLComplete.vim')
+"### toml
+call dein#add('cespare/vim-toml')
+"### GraphQL
+call dein#add('jparise/vim-graphql')
+"### Terraform
+call dein#add('hashivim/vim-terraform')
 
-  call dein#end()
-  call dein#save_state()
-endif
+call dein#end()
 
 filetype plugin indent on
 syntax enable
