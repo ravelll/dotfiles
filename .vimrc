@@ -164,8 +164,8 @@ endif
 " set runtimepath+=$HOME/.vim/repos/github.com/Shougo/dein.vim
 set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 
-call dein#begin('/Users/taniguchi/.cache/dein')
-call dein#add('/Users/taniguchi/.cache/dein/repos/github.com/Shougo/dein.vim')
+call dein#begin($HOME.'/.cache/dein')
+call dein#add($HOME.'/.cache/dein/repos/github.com/Shougo/dein.vim')
 
 "## Shougo-ware
 call dein#add('Shougo/vimproc', { 'build': 'make' })

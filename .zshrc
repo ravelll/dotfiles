@@ -89,7 +89,12 @@ export PERL5LIB="$HOME/.perl-extlib/lib/perl5:$PERL5LIB"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 ## python
-export PATH="$HOME/.local/bin:$PATH"
+export PYENV_ROOT="$HOME/.anyenv/envs/pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
 ### aliases
 alias be='bundle exec'
