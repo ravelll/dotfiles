@@ -642,6 +642,7 @@ autocmd rc BufNewFile,BufRead *.erb       setf html.eruby
 autocmd rc VimEnter,BufNewFile,BufRead * if &ft == '' | set ft=markdown | endif
 autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'vue' | syntax sync fromstart | endif
 autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'typescriptreact' | set ft=typescript.tsx | endif
+autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'javascript' | set ft=javascript.jsx | endif
 
 "filetype indent
 filetype plugin indent on
