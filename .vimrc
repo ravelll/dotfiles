@@ -240,7 +240,6 @@ call dein#add('mattn/jscomplete-vim')
 call dein#add('jelera/vim-javascript-syntax')
 call dein#add('briancollins/vim-jst')
 call dein#add('posva/vim-vue')
-call dein#add('ternjs/tern_for_vim')
 call dein#add('yuezk/vim-js')
 call dein#add('maxmellon/vim-jsx-pretty')
 "### TypeScript
@@ -569,7 +568,7 @@ nnoremap <silent> <c-p><c-u> :CtrlPMRU<CR>
 nnoremap <silent> <c-p><c-t> :CtrlPTag<CR>
 
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_root_markers = ['Dockerfile', 'kubernetes', '*.gemspec', 'tsconfig.*']
+let g:ctrlp_root_markers = ['Dockerfile', 'kubernetes', '*.gemspec', 'tsconfig.*', '.git']
 let g:ctrlp_user_command = 'files -A -i "^(\\.git|\\.hg|\\.svn|_darcs|\\.bzr|vendor|node_modules|tmp|\\.tmp)$" %s'
 let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
 let g:ctrlp_match_window = 'order:btt'
