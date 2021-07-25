@@ -28,6 +28,8 @@ set wildmode=list,full
 " fileencoding usage
 set fileencoding=utf-8 fileformat=unix
 scriptencoding utf-8
+set list
+set listchars=eol:↲
 
 " fileencoding usage (left is prior right)
 " set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
