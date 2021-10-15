@@ -128,6 +128,9 @@ alias v='env LANG=ja_JP.UTF-8 vim "$@"'
 ## pt
 alias pt='pt -i'
 
+## ripgrep
+alias rp='rg'
+
 ## z
 . `brew --prefix`/etc/profile.d/z.sh
 
@@ -176,9 +179,9 @@ compdef dc='docker-compose'
 alias dc='docker-compose'
 
 ## other aliases
-alias ls='ls -G'
+alias ls='lsd'
 alias sl='ls'
-alias ll='ls -alhFG'
+alias ll='ls -alF'
 alias ms='massren'
 alias ps='ps aux'
 alias man='env LANG=C man'
