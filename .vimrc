@@ -87,7 +87,7 @@ set breakindent
 set ignorecase
 
 " use Very Magic
-nnoremap / /\v
+" nnoremap / /\v
 
 " open quick-fix in vimgrep automatically
 autocmd QuickFixCmdPost *grep* cwindow
@@ -202,7 +202,6 @@ call dein#add('prabirshrestha/async.vim')
 call dein#add('prabirshrestha/vim-lsp')
 " call dein#add('mattn/benchvimrc-vim')
 call dein#add('osyo-manga/vim-over')
-call dein#add('mattn/ctrlp-matchfuzzy')
 call dein#add('vim-jp/autofmt')
 "### git
 call dein#add('tpope/vim-fugitive')
@@ -227,6 +226,8 @@ call dein#add('junegunn/vim-easy-align')
 call dein#add('slim-template/vim-slim')
 call dein#add('pocke/rbs.vim')
 " call dein#add('todesking/ruby_hl_lvar.vim')
+"### Scala
+call dein#add('derekwyatt/vim-scala')
 "### Rust
 call dein#add('rust-lang/rust.vim')
 "### HTML
@@ -242,6 +243,7 @@ call dein#add('briancollins/vim-jst')
 call dein#add('posva/vim-vue')
 call dein#add('yuezk/vim-js')
 call dein#add('maxmellon/vim-jsx-pretty')
+call dein#add('prettier/vim-prettier', {'build': 'npm install'})
 "### TypeScript
 call dein#add('leafgarland/typescript-vim')
 call dein#add('Quramy/tsuquyomi')
@@ -563,18 +565,20 @@ vmap <C-k> <Plug>(edgemotion-k)
 
 "@CtrlP
 nnoremap <silent> <c-p><c-p> :CtrlP<CR>
+nnoremap <silent> <c-p><c-d> :CtrlPBookmarkDir<CR>
 nnoremap <silent> <c-p><c-l> :CtrlPLine<CR>
 nnoremap <silent> <c-p><c-u> :CtrlPMRU<CR>
 nnoremap <silent> <c-p><c-t> :CtrlPTag<CR>
 
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_root_markers = ['Dockerfile', 'kubernetes', '*.gemspec', 'tsconfig.*', '.git']
-let g:ctrlp_user_command = 'files -A -i "^(\\.git|\\.hg|\\.svn|_darcs|\\.bzr|vendor|node_modules|tmp|\\.tmp)$" %s'
-let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
+let g:ctrlp_root_markers = ['Dockerfile', 'kubernetes', '*.gemspec', 'tsconfig.*', '.git', 'README.md']
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.git|vendor|node_modules)$',
+  \ }
 let g:ctrlp_match_window = 'order:btt'
 let g:ctrlp_max_height = 60
 let g:ctrlp_max_depth = 40
-let g:ctrlp_max_files = 10000
+let g:ctrlp_max_files = 500000
 
 "@vim-textobj-rubybox
 runtime $VIMRUNTIME/macros/matchit.vim
@@ -658,6 +662,7 @@ autocmd rc FileType perl       setlocal sw=4 sts=4 ts=4 et
 autocmd rc FileType php        setlocal sw=4 sts=4 ts=4 et
 autocmd rc FileType python     setlocal sw=4 sts=4 ts=4 et
 autocmd rc FileType ruby       setlocal sw=2 sts=2 ts=2 et
+autocmd rc FileType scala      setlocal sw=2 sts=2 ts=2 et
 autocmd rc FileType haml       setlocal sw=2 sts=2 ts=2 et
 autocmd rc FileType eruby      setlocal sw=2 sts=2 ts=2 et
 autocmd rc FileType sql        setlocal sw=4 sts=4 ts=4 et
