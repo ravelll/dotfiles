@@ -382,7 +382,7 @@ let g:lightline = {
   \             ['branch', 'readonly', 'filename', 'modified'] ]
   \ },
   \ 'component_function': {
-  \   'branch': 'fugitive#head'
+  \   'branch': 'FugitiveHead'
   \ },
   \ }
 
