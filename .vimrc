@@ -191,6 +191,7 @@ call dein#add('thinca/vim-quickrun')
 call dein#add('terryma/vim-multiple-cursors')
 call dein#add('mattn/webapi-vim')
 call dein#add('tyru/open-browser.vim')
+call dein#add('tyru/open-browser-github.vim')
 call dein#add('kana/vim-metarw')
 call dein#add('ivalkeen/vim-ctrlp-tjump')
 call dein#add('haya14busa/vim-edgemotion')
@@ -210,6 +211,7 @@ call dein#add('szw/vim-tags')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('tpope/vim-abolish')
 call dein#add('liuchengxu/vim-clap')
+call dein#add('mattn/ctrlp-matchfuzzy')
 "### coding support
 call dein#add('w0rp/ale')
 call dein#add('honza/vim-snippets')
@@ -247,6 +249,7 @@ call dein#add('prettier/vim-prettier', {'build': 'npm install'})
 "### TypeScript
 call dein#add('leafgarland/typescript-vim')
 call dein#add('Quramy/tsuquyomi')
+call dein#add('pantharshit00/vim-prisma')
 "### SQL
 call dein#add('vim-scripts/sql.vim--Stinson')
 call dein#add('vim-scripts/SQLComplete.vim')
@@ -307,7 +310,7 @@ let autofmt_allow_over_tw=1
 set formatoptions+=mM
 set smartindent
 
-"@ Language Server
+"@Language Server
 if executable('typescript-language-server')
   augroup LspTypeScript
     au!
@@ -475,6 +478,10 @@ let g:quickrun_config['typescript/tsc'] = {
 nnoremap ,q :QuickRun<CR>
 vnoremap ,q :QuickRun<CR>
 
+"@open-browser-github.vim
+nnoremap ,o :OpenGithubFile<CR>
+vnoremap ,o :OpenGithubFile<CR>
+
 "@vim-ctrlp-tjump
 let g:ctrlp_tjump_only_silent = 1
 
@@ -579,6 +586,7 @@ let g:ctrlp_match_window = 'order:btt'
 let g:ctrlp_max_height = 60
 let g:ctrlp_max_depth = 40
 let g:ctrlp_max_files = 500000
+let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
 
 "@vim-textobj-rubybox
 runtime $VIMRUNTIME/macros/matchit.vim
