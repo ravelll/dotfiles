@@ -173,9 +173,7 @@ bindkey '^js' peco_select_ghq
 bindkey '^jk' peco_kill
 
 ## docker
-compdef d='docker'
 alias d='docker'
-compdef dc='docker-compose'
 alias dc='docker-compose'
 
 ## other aliases

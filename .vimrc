@@ -579,14 +579,16 @@ nnoremap <silent> <c-p><c-t> :CtrlPTag<CR>
 
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_root_markers = ['Dockerfile', 'kubernetes', '*.gemspec', 'tsconfig.*', '.git', 'README.md']
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.git|vendor|node_modules)$',
-  \ }
+" let g:ctrlp_custom_ignore = {
+"   \ 'dir':  '\v[\/](\.git|vendor|node_modules)$',
+"   \ }
 let g:ctrlp_match_window = 'order:btt'
 let g:ctrlp_max_height = 60
 let g:ctrlp_max_depth = 40
 let g:ctrlp_max_files = 500000
 let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+" let g:ctrlp_user_command = ['files']
 
 "@vim-textobj-rubybox
 runtime $VIMRUNTIME/macros/matchit.vim
