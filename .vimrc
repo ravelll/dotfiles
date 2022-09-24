@@ -280,7 +280,8 @@ call deoplete#custom#option({
   \ 'smart_case': v:true,
   \ 'num_processes': 4,
   \ })
-let s:use_lsp_sources = ['lsp', 'dictionary', 'file']
+" let s:use_lsp_sources = ['lsp', 'dictionary', 'file']
+let s:use_lsp_sources = ['lsp']
 call deoplete#custom#option('sources', {
   \ 'python': s:use_lsp_sources,
   \ })
@@ -685,4 +686,5 @@ autocmd rc FileType zsh        setlocal sw=2 sts=2 ts=2 et
 syntax on
 
 " colorscheme setting
+set background=dark
 silent! colorscheme iceberg
