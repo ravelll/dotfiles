@@ -14,6 +14,7 @@ set signcolumn=number
 
 " no putting message
 set noshowmode
+set shortmess+=c "surpress messages like 'match 1 of 6'
 
 " Use twice the width of ASCII characters
 set ambiwidth=double
