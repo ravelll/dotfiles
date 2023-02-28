@@ -197,6 +197,7 @@ call dein#add('kana/vim-metarw')
 call dein#add('ivalkeen/vim-ctrlp-tjump')
 call dein#add('haya14busa/vim-edgemotion')
 call dein#add('AndrewRadev/linediff.vim')
+call dein#add('rhysd/vim-healthcheck')
 "### backend utility
 " call dein#add('itchyny/vim-parenmatch')
 call dein#add('Konfekt/FastFold')
@@ -221,7 +222,7 @@ call dein#add('tpope/vim-repeat')
 " call dein#add('cohama/lexima.vim')
 "### treat specific type file
 call dein#add('elzr/vim-json')
-call dein#add('plasticboy/vim-markdown')
+call dein#add('preservim/vim-markdown')
 call dein#add('kana/vim-textobj-user')
 call dein#add('majutsushi/tagbar')
 call dein#add('junegunn/vim-easy-align')
@@ -454,12 +455,12 @@ let g:neosnippet#snippets_directory='~/.vim/repos/github.com/honza/vim-snippets/
 "@vim-json
 let g:vim_json_syntax_conceal = 0
 
-"@markdown
+"@vim-markdown
 let g:vim_markdown_json_frontmatter = 1
 let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_new_list_item_indent = 2
 
 "@quickrun
 let g:quickrun_config={}
@@ -682,6 +683,7 @@ autocmd rc FileType vim        setlocal sw=2 sts=2 ts=2 et
 autocmd rc FileType xml        setlocal sw=4 sts=4 ts=4 noet
 autocmd rc FileType yaml       setlocal sw=2 sts=2 ts=2 et
 autocmd rc FileType zsh        setlocal sw=2 sts=2 ts=2 et
+autocmd rc FileType markdown   setlocal sw=2 sts=2 ts=2 et
 
 " syntax highlight
 syntax on

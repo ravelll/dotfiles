@@ -1,3 +1,4 @@
+# zmodload zsh/zprof && zprof
 #
 # PATH
 #
@@ -6,10 +7,10 @@ if [ -z $TMUX ]; then
 fi
 
 ## completion
-fpath=($(brew --prefix)/share/zsh-completions $fpath)
-fpath=($(brew --prefix)/share/zsh/functions $fpath)
-fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-autoload -U compinit; compinit -C
+fpath=(/opt/homebrew/share/zsh-completions $fpath)
+fpath=(/opt/homebrew/share/zsh/functions $fpath)
+fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
+autoload -Uz compinit; compinit -C
 
 zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
@@ -126,13 +127,13 @@ VIMRUNTIME=/usr/local/Cellar/vim/*(/)/share/vim/*(/)/
 alias v='env LANG=ja_JP.UTF-8 vim "$@"'
 
 ## pt
-alias pt='pt -i'
+alias pt='pt -i --hidden'
 
 ## ripgrep
-alias rp='rg'
+alias rp='rg --hidden'
 
 ## z
-. `brew --prefix`/etc/profile.d/z.sh
+. /opt/homebrew/etc/profile.d/z.sh
 
 ## tmux
 alias t='tmux -2 -u -l'
@@ -161,7 +162,6 @@ alias qn='ghq-new'
 
 ## peco
 source ~/.zsh/peco.zsh
-bindkey '^jr' peco_select_rake_task
 bindkey '^jb' peco_git_recent_branches
 bindkey '^jB' peco_git_recent_all_branches
 bindkey '^jT' peco_git_tags
@@ -170,7 +170,6 @@ bindkey '^jz' peco_cd_history
 bindkey '^jd' peco_insert_history
 bindkey '^R'  peco_select_history
 bindkey '^js' peco_select_ghq
-bindkey '^jk' peco_kill
 
 ## docker
 alias d='docker'
