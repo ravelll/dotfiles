@@ -212,10 +212,9 @@ call dein#add('tpope/vim-fugitive')
 call dein#add('szw/vim-tags')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('tpope/vim-abolish')
-call dein#add('liuchengxu/vim-clap')
 call dein#add('mattn/ctrlp-matchfuzzy')
 "### coding support
-call dein#add('w0rp/ale')
+call dein#add('dense-analysis/ale')
 call dein#add('honza/vim-snippets')
 call dein#add('tpope/vim-endwise')
 call dein#add('tpope/vim-repeat')
@@ -632,9 +631,9 @@ let g:easy_align_delimiters = {
 "@ale
 let g:ale_fix_on_save = 1
 let g:ale_linters = {
-	\ 'go': ['gopls'],
 	\ 'python': ['pyls'],
-  \ 'html': []
+  \ 'html': [],
+  \ 'go': [],
 	\}
 let g:ale_pattern_options = {
 \ '\.\(test\|spec\)\.js$': {'ale_linters': [], 'ale_fixers': []}
