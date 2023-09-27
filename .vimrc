@@ -649,6 +649,9 @@ let g:fastfold_savehook = 0
 "@ For ruby
 autocmd rc FileType ruby setlocal iskeyword+=?
 
+"@ For go
+autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'go' | nnoremap <silent> ,gi :GoInfo<CR> | endif
+
 ""filetype setting
 autocmd rc BufNewFile,BufRead *.thor      setf ruby
 autocmd rc BufNewFile,BufRead *.erb       setf html.eruby
