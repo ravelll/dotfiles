@@ -45,19 +45,29 @@ setopt inc_append_history
 setopt share_history
 unset zle_bracketed_paste
 
-### prompt format
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' formats '[%b]'
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
-precmd () {
-  psvar=()
-  LANG=en_US.js_JP.UTF-8 vcs_info
-  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-}
+if [ -f $(brew --prefix)/opt/spaceship/spaceship.zsh ]; then
+  source $(brew --prefix)/opt/spaceship/spaceship.zsh
+  SPACESHIP_TIME_COLOR=101
+  SPACESHIP_TIME_SHOW=true
+  SPACESHIP_DIR_TRUNC_REPO=false
+  SPACESHIP_GIT_BRANCH_COLOR=77
+  SPACESHIP_GIT_STATUS_COLOR=122
+else
+  ### prompt format
+  autoload -Uz vcs_info
+  zstyle ':vcs_info:*' formats '[%b]'
+  zstyle ':vcs_info:*' actionformats '[%b|%a]'
+  precmd () {
+    psvar=()
+    LANG=en_US.js_JP.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+  }
 
-#### show / unshow branch name by on git repos, or not
-PROMPT="%F{magenta}%D{%T}%f %F{cyan}%/%f %1(v|%F{green}%1v%f|)
+  #### show / unshow branch name by on git repos, or not
+  PROMPT="%F{magenta}%D{%T}%f %F{cyan}%/%f %1(v|%F{green}%1v%f|)
 $ "
+fi
+
 typeset -U path cdpath fpath manpath
 
 ## zsh options
