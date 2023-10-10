@@ -52,6 +52,7 @@ if [ -f $(brew --prefix)/opt/spaceship/spaceship.zsh ]; then
   SPACESHIP_DIR_TRUNC_REPO=false
   SPACESHIP_GIT_BRANCH_COLOR=77
   SPACESHIP_GIT_STATUS_COLOR=122
+  SPACESHIP_AWS_SHOW=false
 else
   ### prompt format
   autoload -Uz vcs_info
@@ -90,14 +91,18 @@ eval "$(anyenv init - --no-rehash)"
 
 ## go
 export GOPATH="$HOME/dev"
-export PATH="$HOME/dev/bin:$PATH"
+if [ -z $TMUX ]; then
+  export PATH="$HOME/dev/bin:$PATH"
+fi
 
 ## perl
 export PERL_CPANM_OPT="--local-lib=$HOME/.perl-extlib"
 export PERL5LIB="$HOME/.perl-extlib/lib/perl5:$PERL5LIB"
 
 ## rust
-export PATH="$HOME/.cargo/bin:$HOME/.cargo/env:$PATH"
+if [ -z $TMUX ]; then
+  export PATH="$HOME/.cargo/bin:$HOME/.cargo/env:$PATH"
+fi
 
 ### aliases
 alias be='bundle exec'
