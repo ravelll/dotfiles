@@ -10,7 +10,6 @@ set laststatus=2
 
 " show no line number
 set nonumber
-set signcolumn=number
 
 " no putting message
 set noshowmode
@@ -29,10 +28,6 @@ set wildmode=list,full
 " fileencoding usage
 set fileencoding=utf-8 fileformat=unix
 scriptencoding utf-8
-
-" fileencoding usage (left is prior right)
-" set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
-" scriptencoding utf-8,euc-jp,sjis,cp932,iso-2022-jp
 
 " show current line
 nnoremap <silent> ,ul :set cursorline<CR>
@@ -84,7 +79,6 @@ nnoremap <C-[><C-[> :nohlsearch<CR>
 " use c indent algorithm
 set cindent
 set breakindent
-
 set ignorecase
 
 " use Very Magic
@@ -170,12 +164,9 @@ call dein#add($HOME.'/.cache/dein/repos/github.com/Shougo/dein.vim')
 
 "## Shougo-ware
 call dein#add('Shougo/vimproc', { 'build': 'make' })
-call dein#add('Shougo/deoplete.nvim')
-call dein#add('lighttiger2505/deoplete-vim-lsp')
-call dein#add('roxma/nvim-yarp')
-call dein#add('roxma/vim-hug-neovim-rpc')
-call dein#add('Shougo/neosnippet.vim')
-call dein#add('Shougo/neosnippet-snippets')
+call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' })
+" call dein#add('Shougo/neosnippet.vim')
+" call dein#add('Shougo/neosnippet-snippets')
 call dein#add('Shougo/neomru.vim')
 call dein#add('Shougo/context_filetype.vim')
 "### visual effect
@@ -199,11 +190,9 @@ call dein#add('haya14busa/vim-edgemotion')
 call dein#add('AndrewRadev/linediff.vim')
 call dein#add('rhysd/vim-healthcheck')
 "### backend utility
-" call dein#add('itchyny/vim-parenmatch')
 call dein#add('Konfekt/FastFold')
 call dein#add('prabirshrestha/async.vim')
 call dein#add('prabirshrestha/vim-lsp')
-" call dein#add('mattn/benchvimrc-vim')
 call dein#add('osyo-manga/vim-over')
 call dein#add('vim-jp/autofmt')
 "### git
@@ -218,7 +207,6 @@ call dein#add('dense-analysis/ale')
 call dein#add('honza/vim-snippets')
 call dein#add('tpope/vim-endwise')
 call dein#add('tpope/vim-repeat')
-" call dein#add('cohama/lexima.vim')
 "### treat specific type file
 call dein#add('elzr/vim-json')
 call dein#add('preservim/vim-markdown')
@@ -228,7 +216,6 @@ call dein#add('junegunn/vim-easy-align')
 "### Ruby
 call dein#add('slim-template/vim-slim')
 call dein#add('pocke/rbs.vim')
-" call dein#add('todesking/ruby_hl_lvar.vim')
 "### Scala
 call dein#add('derekwyatt/vim-scala')
 "### Rust
@@ -268,116 +255,33 @@ syntax enable
 " }}}
 
 " ========== PLUGIN SETTINGS =========== {{{
-"@deoplete
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#var('omni', 'keyword_patterns', {
-  \ 'ruby': '[a-zA-Z_]\w*[!?]?',
-  \ })
-call deoplete#custom#option({
-  \ 'yarp': v:true,
-  \ 'auto_complete': v:true,
-  \ 'auto_complete_delay': 100,
-  \ 'min_pattern_length': 2,
-  \ 'smart_case': v:true,
-  \ 'num_processes': 4,
-  \ })
-" let s:use_lsp_sources = ['lsp', 'dictionary', 'file']
-let s:use_lsp_sources = ['lsp']
-call deoplete#custom#option('sources', {
-  \ 'python': s:use_lsp_sources,
-  \ })
-call deoplete#custom#source('LanguageClient', 'rank', 500)
-call deoplete#custom#source('LanguageClient', 'dup', v:false)
-set completeopt+=noselect
+"@Coc
+set updatetime=300
+set signcolumn=yes
 
-"@vim-multiple-cursors
-"" avoid conflict with deoplete
-func! Multiple_cursors_before()
-  if deoplete#is_enabled()
-    call deoplete#disable()
-    let g:deoplete_is_enable_before_multi_cursors = 1
-  else
-    let g:deoplete_is_enable_before_multi_cursors = 0
-  endif
-endfunc
-func! Multiple_cursors_after()
-  if g:deoplete_is_enable_before_multi_cursors
-    call deoplete#enable()
-  endif
-endfunc
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <c-@> coc#refresh()
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 "@autofmt
 set formatexpr=autofmt#japanese#formatexpr()
 let autofmt_allow_over_tw=1
 set formatoptions+=mM
 set smartindent
-
-"@Language Server
-if executable('typescript-language-server')
-  augroup LspTypeScript
-    au!
-    autocmd User lsp_setup call lsp#register_server({
-        \ 'name': 'typescript-language-server',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server', '--stdio']},
-        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-        \ 'whitelist': ['typescript'],
-        \ })
-    autocmd FileType typescript setlocal omnifunc=lsp#complete
-  augroup END
-endif
-if executable('gopls')
-  augroup LspGo
-    au!
-    autocmd User lsp_setup call lsp#register_server({
-        \ 'name': 'go-lang',
-        \ 'cmd': {server_info->['gopls']},
-        \ 'whitelist': ['go'],
-        \ })
-    autocmd FileType go setlocal omnifunc=lsp#complete
-    autocmd FileType go nmap gd <plug>(lsp-definition)
-  augroup END
-endif
-if executable('solargraph')
-  augroup LspRuby
-    au!
-    autocmd User lsp_setup call lsp#register_server({
-        \ 'name': 'solargraph',
-        \ 'cmd': {server_info->['solargraph', 'stdio']},
-        \ 'whitelist': ['ruby'],
-        \ })
-    autocmd FileType ruby setlocal omnifunc=lsp#complete
-  augroup END
-endif
-if executable('rls')
-  augroup LspRust
-    au!
-    autocmd User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rls']},
-        \ 'whitelist': ['rust'],
-        \ })
-    autocmd FileType rust setlocal omnifunc=lsp#complete
-  augroup END
-endif
-if executable('pyls')
-  augroup LspPython
-    au!
-    autocmd User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
-    autocmd FileType python setlocal omnifunc=lsp#complete
-  augroup END
-endif
-
-"@deoplete-tern
-" Use deoplete.
-let g:tern_request_timeout = 1
-let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
-
-" Add extra filetypes
-let g:tern#filetypes = ['vue']
 
 "@lightline
 let g:lightline = {
@@ -581,16 +485,12 @@ nnoremap <silent> <c-p><c-t> :CtrlPTag<CR>
 
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_root_markers = ['Dockerfile', 'kubernetes', '*.gemspec', 'tsconfig.*', '.git', 'README.md']
-" let g:ctrlp_custom_ignore = {
-"   \ 'dir':  '\v[\/](\.git|vendor|node_modules)$',
-"   \ }
 let g:ctrlp_match_window = 'order:btt'
 let g:ctrlp_max_height = 60
 let g:ctrlp_max_depth = 40
 let g:ctrlp_max_files = 500000
 let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-" let g:ctrlp_user_command = ['files']
 
 "@vim-textobj-rubybox
 runtime $VIMRUNTIME/macros/matchit.vim
