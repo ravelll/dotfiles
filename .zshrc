@@ -158,6 +158,7 @@ alias v='env LANG=ja_JP.UTF-8 vim "$@"'
 alias pt='pt -i --hidden'
 
 ## ripgrep
+export RIPGREP_CONFIG_PATH="$HOME"
 alias rp='rg --hidden'
 
 ## z
@@ -207,7 +208,6 @@ alias dc='docker-compose'
 alias ls='lsd'
 alias sl='ls'
 alias ll='ls -alF'
-alias ms='massren'
 alias ps='ps aux'
 alias man='env LANG=C man'
 alias tags='rm tags > /dev/null 2>&1; ctags -R > /dev/null 2>&1'

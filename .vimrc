@@ -79,6 +79,7 @@ nnoremap <C-[><C-[> :nohlsearch<CR>
 " use c indent algorithm
 set cindent
 set breakindent
+
 set ignorecase
 
 " use Very Magic
@@ -165,8 +166,8 @@ call dein#add($HOME.'/.cache/dein/repos/github.com/Shougo/dein.vim')
 "## Shougo-ware
 call dein#add('Shougo/vimproc', { 'build': 'make' })
 call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' })
-" call dein#add('Shougo/neosnippet.vim')
-" call dein#add('Shougo/neosnippet-snippets')
+call dein#add('Shougo/neosnippet.vim')
+call dein#add('Shougo/neosnippet-snippets')
 call dein#add('Shougo/neomru.vim')
 call dein#add('Shougo/context_filetype.vim')
 "### visual effect
@@ -352,7 +353,6 @@ imap <C-e> <Plug>(neosnippet_expand_or_jump)
 smap <C-e> <Plug>(neosnippet_expand_or_jump)
 xmap <C-e> <Plug>(neosnippet_expand_target)
 
-let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.vim/repos/github.com/honza/vim-snippets/snippets'
 
 "@vim-json
@@ -460,6 +460,9 @@ nnoremap <Space>/ <Plug>(operator-search)if
 nnoremap <silent> ,s :OverCommandLine<CR>%s/
 vnoremap <silent> ,s :OverCommandLine<CR>s/
 
+"@vim-go
+let g:go_fmt_autosave = 0
+
 "@golang setting {
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -550,7 +553,7 @@ let g:fastfold_savehook = 0
 autocmd rc FileType ruby setlocal iskeyword+=?
 
 "@ For go
-autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'go' | nnoremap <silent> ,gi :GoInfo<CR> | endif
+autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'go' | nnoremap <silent> ,gi :GoInfo<CR> | nnoremap <silent> FF :GoFmt<CR> | set noignorecase | endif
 
 ""filetype setting
 autocmd rc BufNewFile,BufRead *.thor      setf ruby
