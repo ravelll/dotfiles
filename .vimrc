@@ -205,7 +205,6 @@ call dein#add('tpope/vim-abolish')
 call dein#add('mattn/ctrlp-matchfuzzy')
 "### coding support
 call dein#add('dense-analysis/ale')
-call dein#add('honza/vim-snippets')
 call dein#add('tpope/vim-endwise')
 call dein#add('tpope/vim-repeat')
 "### treat specific type file
@@ -274,7 +273,7 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <silent><expr> <c-@> coc#refresh()
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
@@ -353,7 +352,8 @@ imap <C-e> <Plug>(neosnippet_expand_or_jump)
 smap <C-e> <Plug>(neosnippet_expand_or_jump)
 xmap <C-e> <Plug>(neosnippet_expand_target)
 
-let g:neosnippet#snippets_directory='~/.vim/repos/github.com/honza/vim-snippets/snippets'
+"@tsuquyomi
+let g:tsuquyomi_nodejs_path	= '~/.anyenv/envs/nodenv/shims/node'
 
 "@vim-json
 let g:vim_json_syntax_conceal = 0
@@ -538,11 +538,17 @@ let g:ale_linters = {
   \ 'html': [],
   \ 'go': [],
 	\}
+let g:ale_fixers = {
+  \ 'python': ['isort', 'black']
+  \ }
 let g:ale_pattern_options = {
 \ '\.\(test\|spec\)\.js$': {'ale_linters': [], 'ale_fixers': []}
 \}
 let g:ale_deno_executable = ''
 nnoremap <silent> ,e :ALENext<CR>
+
+"https://www.drumm.sh/blog/2021/05/29/vim-python-dev-environment/
+autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'python' | let g:ale_disable_lsp = 1 | endif
 
 "@FastFold
 let g:fastfold_savehook = 0
