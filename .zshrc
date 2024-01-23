@@ -58,7 +58,6 @@ if [ -f $(brew --prefix)/opt/spaceship/spaceship.zsh ]; then
   SPACESHIP_DIR_TRUNC_REPO=false
   SPACESHIP_GIT_BRANCH_COLOR=77
   SPACESHIP_GIT_STATUS_COLOR=122
-  SPACESHIP_AWS_SHOW=false
 else
   ### prompt format
   autoload -Uz vcs_info

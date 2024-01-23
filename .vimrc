@@ -493,7 +493,7 @@ nnoremap <silent> <c-p><c-u> :CtrlPMRU<CR>
 nnoremap <silent> <c-p><c-t> :CtrlPTag<CR>
 
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_root_markers = ['Dockerfile', 'kubernetes', '*.gemspec', 'tsconfig.*', '.git', 'README.md']
+let g:ctrlp_root_markers = ['Dockerfile', 'kubernetes', '*.gemspec', 'tsconfig.*', '.git', 'README.md', 'pyproject.toml']
 let g:ctrlp_match_window = 'order:btt'
 let g:ctrlp_max_height = 60
 let g:ctrlp_max_depth = 40
@@ -540,9 +540,9 @@ let g:easy_align_delimiters = {
 "@ale
 let g:ale_fix_on_save = 1
 let g:ale_linters = {
-	\ 'python': ['pyls'],
+	\ 'python': [],
   \ 'html': [],
-  \ 'go': [],
+  \ 'go': ['revive'],
 	\}
 let g:ale_fixers = {
   \ 'python': ['isort', 'black']
@@ -554,7 +554,8 @@ let g:ale_deno_executable = ''
 nnoremap <silent> ,e :ALENext<CR>
 
 "https://www.drumm.sh/blog/2021/05/29/vim-python-dev-environment/
-autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'python' | let g:ale_disable_lsp = 1 | endif
+" autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'python' | let g:ale_disable_lsp = 1 | endif
+autocmd FileType python let b:coc_root_patterns = ['.git', '.env', 'venv', '.venv', 'setup.cfg', 'setup.py', 'pyproject.toml', 'pyrightconfig.json']
 
 "@FastFold
 let g:fastfold_savehook = 0

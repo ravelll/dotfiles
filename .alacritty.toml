@@ -1,0 +1,37 @@
+[colors.bright]
+black = "#676767"
+blue = "#6871ff"
+cyan = "#5ffdff"
+green = "#5ff967"
+magenta = "#ff76ff"
+red = "#ff6d67"
+white = "#fffefe"
+yellow = "#fefb67"
+
+[colors.normal]
+black = "#000000"
+blue = "#6871ff"
+cyan = "#00c5c7"
+green = "#00c200"
+magenta = "#c930c7"
+red = "#c91b00"
+white = "#c7c7c7"
+yellow = "#c7c400"
+
+[colors.primary]
+background = "#1c1c1c"
+foreground = "#c7c7c7"
+
+[font]
+size = 14.0
+
+[font.normal]
+family = "Hack Nerd Font"
+style = "Regular"
+
+[window]
+decorations = "buttonless"
+
+[window.dimensions]
+columns = 380
+lines = 80

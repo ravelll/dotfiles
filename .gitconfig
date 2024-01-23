@@ -50,14 +50,21 @@
   excludesfile = ~/.gitignore
   precomposeunicode = true
 [pager]
-  diff = diff-highlight | nkf -w | LESS=-R less
+  diff = true
+  # diff = diff-highlight | nkf -w | LESS=-R less
   log  = diff-highlight | nkf -w | LESS=-R less
   show = diff-highlight | nkf -w | LESS=-R less
 [push]
   default = simple
 [diff]
+  external = difft --display inline
+  # tool = difftastic
   noprefix = true
   compactionHeuristic = true
+# [difftool]
+#   prompt = false
+# [difftool "difftastic"]
+#   cmd = difft "$LOCAL" "$REMOTE"
 [fetch]
   prune = true
 [init]

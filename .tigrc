@@ -2,3 +2,5 @@ set main-view = date id author commit-title:graph=yes,refs=yes
 bind generic <Ctrl-F> move-page-down
 bind generic <Ctrl-B> move-page-up
 bind main C !@bash -c "echo -n %(commit) | pbcopy"
+bind main D !git diff %(commit)^ %(commit)
+bind status D !git diff -- %(file)
