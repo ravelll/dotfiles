@@ -157,7 +157,7 @@ alias v='env LANG=ja_JP.UTF-8 vim "$@"'
 alias pt='pt -i --hidden'
 
 ## ripgrep
-export RIPGREP_CONFIG_PATH="$HOME"
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 alias rp='rg --hidden'
 
 ## z
