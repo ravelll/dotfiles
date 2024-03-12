@@ -466,16 +466,12 @@ nnoremap <Space>/ <Plug>(operator-search)if
 nnoremap <silent> ,s :OverCommandLine<CR>%s/
 vnoremap <silent> ,s :OverCommandLine<CR>s/
 
-"@vim-go
-let g:go_fmt_autosave = 0
-
 "@golang setting {
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-let g:go_fmt_command = 'goimports'
 let g:go_bin_path = $HOME.'/dev/bin/'
 "}
 
