@@ -216,6 +216,8 @@ call dein#add('junegunn/vim-easy-align')
 "### Ruby
 call dein#add('slim-template/vim-slim')
 call dein#add('pocke/rbs.vim')
+"### python
+call dein#add('Vimjas/vim-python-pep8-indent')
 "### Scala
 call dein#add('derekwyatt/vim-scala')
 "### Rust
@@ -536,13 +538,13 @@ let g:easy_align_delimiters = {
 "@ale
 let g:ale_fix_on_save = 1
 let g:ale_linters = {
-	\ 'python': [],
   \ 'html': [],
   \ 'go': ['revive'],
 	\}
-let g:ale_fixers = {
-  \ 'python': ['isort', 'black']
-  \ }
+" let g:ale_python_auto_poetry = 1
+" let g:ale_python_auto_virtualenv = 1
+" let g:ale_python_ruff_auto_poetry = 1
+" let g:ale_python_ruff_change_directory = 1
 let g:ale_pattern_options = {
 \ '\.\(test\|spec\)\.js$': {'ale_linters': [], 'ale_fixers': []}
 \}
