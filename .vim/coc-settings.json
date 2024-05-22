@@ -35,10 +35,11 @@
       }
     }
   },
-  "python.linting.ruffEnabled": true,
-  "python.linting.mypyEnabled": true,
+  "python.linting.ruffEnabled": false,
+  "python.linting.mypyEnabled": false,
   "python.analysis.diagnosticSeverityOverrides": {
     "reportPrivateImportUsage": "information",
-    "reportPossiblyUnboundVariable": "warning"
+    "reportPossiblyUnboundVariable": "warning",
+    "reportMissingTypeStubs": "information"
   }
 }
