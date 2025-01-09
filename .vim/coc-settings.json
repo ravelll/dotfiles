@@ -41,5 +41,26 @@
     "reportPrivateImportUsage": "information",
     "reportPossiblyUnboundVariable": "warning",
     "reportMissingTypeStubs": "information"
-  }
+  },
+  "solargraph.diagnostics": true,
+  "solargraph.transport": "stdio",
+  "solargraph.externalServer": {
+    "host": "localhost",
+    "port": 8091
+  },
+  "solargraph.useBundler": false,
+  "solargraph.shell": "/opt/homebrew/bin/zsh",
+  "solargraph.completion": true,
+  "solargraph.hover": true,
+  "suggest.enablePreselect": false,
+  "suggest.triggerAfterInsertEnter": true,
+  "suggest.timeout": 500,
+  "suggest.minTriggerInputLength": 1,
+  "suggest.triggerCompletionWait": 100,
+  "suggest.snippetIndicator": "►",
+  "suggest.autoTrigger": "always",
+  "suggest.enablePreview": true,
+  "coc.preferences.enableFloatHighlight": true,
+  "suggest.floatEnable": true,
+  "suggest.noselect": true
 }

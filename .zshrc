@@ -13,15 +13,15 @@ if [ -z $TMUX ]; then
 fi
 
 ## completion
-fpath=(/opt/homebrew/share/zsh-completions $fpath)
 fpath=(/opt/homebrew/share/zsh/functions $fpath)
 fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
-autoload -Uz compinit; compinit -C
+autoload -Uz compinit; compinit
 
 zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' completer _complete _ignored
+zstyle ':completion:*' ignored-patterns
 zstyle ':completion:*' use-cache yes
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
