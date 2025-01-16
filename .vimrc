@@ -190,6 +190,7 @@ call dein#add('ivalkeen/vim-ctrlp-tjump')
 call dein#add('haya14busa/vim-edgemotion')
 call dein#add('AndrewRadev/linediff.vim')
 call dein#add('rhysd/vim-healthcheck')
+call dein#add('github/copilot.vim')
 "### backend utility
 call dein#add('Konfekt/FastFold')
 call dein#add('prabirshrestha/async.vim')
@@ -575,8 +576,8 @@ autocmd rc BufNewFile,BufRead *.erb       setf html.eruby
 "set default filetype markdown
 autocmd rc VimEnter,BufNewFile,BufRead * if &ft == '' | set ft=markdown | endif
 autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'vue' | syntax sync fromstart | endif
-autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'typescriptreact' | set ft=typescript.tsx | endif
-autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'javascript' | set ft=javascript.jsx | endif
+" autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'typescriptreact' | set ft=typescript.tsx | endif
+" autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'javascript' | set ft=javascript.jsx | endif
 
 "filetype indent
 filetype plugin indent on
