@@ -150,7 +150,6 @@ alias ssh='TERM=xterm ssh'
 
 ## vim
 EDITOR="vim"
-VIMRUNTIME=/usr/local/Cellar/vim/*(/)/share/vim/*(/)/
 alias v='env LANG=ja_JP.UTF-8 vim "$@"'
 
 ## pt

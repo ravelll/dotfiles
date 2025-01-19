@@ -82,9 +82,6 @@ set breakindent
 
 set ignorecase
 
-" use Very Magic
-" nnoremap / /\v
-
 " open quick-fix in vimgrep automatically
 autocmd QuickFixCmdPost *grep* cwindow
 " }}}
@@ -99,14 +96,10 @@ set noundofile
 " ===== BASIC KEYCONFIGS ===== {{{
 nnoremap j gj
 nnoremap k gk
-
 nnoremap H h
 vnoremap H h
 
 nnoremap <Space>q :only<CR>
-
-" reloading
-nnoremap rr :e!<CR>
 
 " leader
 let g:mapleader = ','
@@ -166,10 +159,10 @@ call dein#add($HOME.'/.cache/dein/repos/github.com/Shougo/dein.vim')
 "## Shougo-ware
 call dein#add('Shougo/vimproc', { 'build': 'make' })
 call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' })
-call dein#add('Shougo/neosnippet.vim')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('Shougo/neomru.vim')
-call dein#add('Shougo/context_filetype.vim')
+" call dein#add('Shougo/neosnippet.vim')
+" call dein#add('Shougo/neosnippet-snippets')
+" call dein#add('Shougo/neomru.vim')
+" call dein#add('Shougo/context_filetype.vim')
 "### visual effect
 call dein#add('itchyny/lightline.vim')
 call dein#add('nathanaelkane/vim-indent-guides')
@@ -179,7 +172,6 @@ call dein#add('simeji/winresizer')
 call dein#add('vim-scripts/surround.vim')
 call dein#add('scrooloose/nerdtree.git')
 call dein#add('tomtom/tcomment_vim')
-call dein#add('vim-scripts/taglist.vim')
 call dein#add('thinca/vim-quickrun')
 call dein#add('terryma/vim-multiple-cursors')
 call dein#add('mattn/webapi-vim')
@@ -187,7 +179,6 @@ call dein#add('tyru/open-browser.vim')
 call dein#add('tyru/open-browser-github.vim')
 call dein#add('kana/vim-metarw')
 call dein#add('ivalkeen/vim-ctrlp-tjump')
-call dein#add('haya14busa/vim-edgemotion')
 call dein#add('AndrewRadev/linediff.vim')
 call dein#add('rhysd/vim-healthcheck')
 call dein#add('github/copilot.vim')
@@ -196,23 +187,17 @@ call dein#add('Konfekt/FastFold')
 call dein#add('prabirshrestha/async.vim')
 call dein#add('prabirshrestha/vim-lsp')
 call dein#add('osyo-manga/vim-over')
-call dein#add('vim-jp/autofmt')
 "### git
 call dein#add('tpope/vim-fugitive')
 "## search and open
-call dein#add('szw/vim-tags')
 call dein#add('ctrlpvim/ctrlp.vim')
-call dein#add('tpope/vim-abolish')
 call dein#add('mattn/ctrlp-matchfuzzy')
 "### coding support
 call dein#add('dense-analysis/ale')
 call dein#add('tpope/vim-endwise')
-call dein#add('tpope/vim-repeat')
 "### treat specific type file
 call dein#add('elzr/vim-json')
 call dein#add('preservim/vim-markdown')
-call dein#add('kana/vim-textobj-user')
-call dein#add('majutsushi/tagbar')
 call dein#add('junegunn/vim-easy-align')
 "### Ruby
 call dein#add('slim-template/vim-slim')
@@ -226,20 +211,15 @@ call dein#add('rust-lang/rust.vim')
 "### HTML
 call dein#add('othree/html5.vim')
 call dein#add('alvan/vim-closetag')
-"### Golang
+"### Go
 call dein#add('fatih/vim-go')
 "### JavaScript
 call dein#add('pangloss/vim-javascript')
-call dein#add('mattn/jscomplete-vim')
 call dein#add('jelera/vim-javascript-syntax')
-call dein#add('briancollins/vim-jst')
-call dein#add('posva/vim-vue')
 call dein#add('yuezk/vim-js')
 call dein#add('maxmellon/vim-jsx-pretty')
-call dein#add('prettier/vim-prettier', {'build': 'npm install'})
 "### TypeScript
 call dein#add('leafgarland/typescript-vim')
-call dein#add('Quramy/tsuquyomi')
 call dein#add('pantharshit00/vim-prisma')
 "### SQL
 call dein#add('vim-scripts/sql.vim--Stinson')
@@ -363,9 +343,6 @@ imap <C-e> <Plug>(neosnippet_expand_or_jump)
 smap <C-e> <Plug>(neosnippet_expand_or_jump)
 xmap <C-e> <Plug>(neosnippet_expand_target)
 
-"@tsuquyomi
-let g:tsuquyomi_nodejs_path	= '~/.anyenv/envs/nodenv/shims/node'
-
 "@vim-json
 let g:vim_json_syntax_conceal = 0
 
@@ -402,43 +379,6 @@ vnoremap ,o :OpenGithubFile<CR>
 "@vim-ctrlp-tjump
 let g:ctrlp_tjump_only_silent = 1
 
-"@Tagbar
-nnoremap ,tb :TagbarToggle<CR>
-
-" for use gotags
-" https://github.com/jstemmer/gotags
-let g:tagbar_type_go = {
-      \ 'ctagstype' : 'go',
-      \ 'kinds'     : [
-      \ 'p:package',
-      \ 'i:imports:1',
-      \ 'c:constants',
-      \ 'v:variables',
-      \ 't:types',
-      \ 'n:interfaces',
-      \ 'w:fields',
-      \ 'e:embedded',
-      \ 'm:methods',
-      \ 'r:constructor',
-      \ 'f:functions'
-      \ ],
-      \ 'sro' : '.',
-      \ 'kind2scope' : {
-      \ 't' : 'ctype',
-      \ 'n' : 'ntype'
-      \ },
-      \ 'scope2kind' : {
-      \ 'ctype' : 't',
-      \ 'ntype' : 'n'
-      \ },
-      \ 'ctagsbin'  : 'gotags',
-      \ 'ctagsargs' : '-sort -silent'
-      \ }
-
-"@TagList
-let g:tlist_javascript_settings = 'javascript;c:class;m:method;F:function;p:property'
-let g:Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-
 nnoremap <silent> ,l :<C-u>TlistToggle<CR>
 nnoremap <silent> ,L :<C-u>TlistAddFilesRecursive %:h<Tab><CR>
 
@@ -453,15 +393,6 @@ nnoremap <silent> ,nt :<C-u>NERDTreeToggle<CR>
 nnoremap <silent> ,nf :<C-u>NERDTreeFind<CR>
 " close at once with vim
 autocmd rc bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-"@vim-repeat
-silent! call repeat#set("\<Plug>Dsurround")
-silent! call repeat#set("\<Plug>Csurround")
-silent! call repeat#set("\<Plug>CSurround")
-silent! call repeat#set("\<Plug>Ysurround")
-silent! call repeat#set("\<Plug>YSurround")
-silent! call repeat#set("\<Plug>Yssurround")
-silent! call repeat#set("\<Plug>YSsurround")
 
 "@operator-search
 nnoremap <Space>s <Plug>(operator-search)
@@ -501,13 +432,6 @@ let g:ctrlp_max_depth = 40
 let g:ctrlp_max_files = 500000
 let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
-"@vim-textobj-rubybox
-runtime $VIMRUNTIME/macros/matchit.vim
-
-"@vim-tags
-let g:vim_tags_ctags_binary = '/usr/local/bin/ctags'
-let g:vim_tags_auto_generate = 1
 
 "@vim-easy-align
 xmap ga <Plug>(EasyAlign)
@@ -576,8 +500,6 @@ autocmd rc BufNewFile,BufRead *.erb       setf html.eruby
 "set default filetype markdown
 autocmd rc VimEnter,BufNewFile,BufRead * if &ft == '' | set ft=markdown | endif
 autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'vue' | syntax sync fromstart | endif
-" autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'typescriptreact' | set ft=typescript.tsx | endif
-" autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'javascript' | set ft=javascript.jsx | endif
 
 "filetype indent
 filetype plugin indent on
