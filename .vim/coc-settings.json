@@ -57,7 +57,7 @@
   "suggest.timeout": 500,
   "suggest.minTriggerInputLength": 1,
   "suggest.triggerCompletionWait": 100,
-  "suggest.snippetIndicator": "►",
+  "suggest.snippetIndicator": " ►",
   "suggest.autoTrigger": "always",
   "suggest.enablePreview": true,
   "coc.preferences.enableFloatHighlight": true,
