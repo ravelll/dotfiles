@@ -4,6 +4,8 @@ augroup rc
   autocmd!
 augroup END
 
+let g:mapleader = ','
+
 " ===== DISPLAYING ===== {{{
 " always show statusline
 set laststatus=2
@@ -100,9 +102,6 @@ nnoremap H h
 vnoremap H h
 
 nnoremap <Space>q :only<CR>
-
-" leader
-let g:mapleader = ','
 
 " use \ as , alternative
 noremap \ ,
@@ -371,18 +370,15 @@ let g:quickrun_config['typescript/tsc'] = {
       \   'tempfile': '%{tempname()}.ts',
       \   'hook/sweep/files': ['%S:p:r.js'],
       \ }
-nnoremap ,q :QuickRun<CR>
-vnoremap ,q :QuickRun<CR>
+nnoremap <Leader>q :QuickRun<CR>
+vnoremap <Leader>q :QuickRun<CR>
 
 "@open-browser-github.vim
-nnoremap ,o :OpenGithubFile<CR>
-vnoremap ,o :OpenGithubFile<CR>
+nnoremap <Leader>o :OpenGithubFile<CR>
+vnoremap <Leader>o :OpenGithubFile<CR>
 
 "@vim-ctrlp-tjump
 let g:ctrlp_tjump_only_silent = 1
-
-nnoremap <silent> ,l :<C-u>TlistToggle<CR>
-nnoremap <silent> ,L :<C-u>TlistAddFilesRecursive %:h<Tab><CR>
 
 "@tag jump
 nnoremap <c-]> :CtrlPtjump<cr>
@@ -391,18 +387,22 @@ vnoremap <c-]> :CtrlPtjumpVisual<cr>
 "@NERDTree
 let g:NERDTreeWinSize=30
 let g:NERDTreeShowHidden=1
-nnoremap <silent> ,nt :<C-u>NERDTreeToggle<CR>
-nnoremap <silent> ,nf :<C-u>NERDTreeFind<CR>
+nnoremap <silent> <Leader>nt :<C-u>NERDTreeToggle<CR>
+nnoremap <silent> <Leader>nf :<C-u>NERDTreeFind<CR>
 " close at once with vim
 autocmd rc bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"@fzf.vim
+nnoremap <silent> <Leader>g :Rg<Space>
+nnoremap <silent> <Leader>G :RG<Space>
 
 "@operator-search
 nnoremap <Space>s <Plug>(operator-search)
 nnoremap <Space>/ <Plug>(operator-search)if
 
 "@VimOver
-nnoremap <silent> ,s :OverCommandLine<CR>%s/
-vnoremap <silent> ,s :OverCommandLine<CR>s/
+nnoremap <silent> <Leader>s :OverCommandLine<CR>%s/
+vnoremap <silent> <Leader>s :OverCommandLine<CR>s/
 
 "@golang setting {
 let g:go_highlight_functions = 1
@@ -412,12 +412,6 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_bin_path = $HOME.'/dev/bin/'
 "}
-
-"@vim-edgemotion
-nmap <C-j> <Plug>(edgemotion-j)
-nmap <C-k> <Plug>(edgemotion-k)
-vmap <C-j> <Plug>(edgemotion-j)
-vmap <C-k> <Plug>(edgemotion-k)
 
 "@CtrlP
 nnoremap <silent> <c-p><c-p> :CtrlP<CR>
@@ -478,7 +472,7 @@ let g:ale_pattern_options = {
 \ '\.\(test\|spec\)\.js$': {'ale_linters': [], 'ale_fixers': []}
 \}
 let g:ale_deno_executable = ''
-nnoremap <silent> ,e :ALENext<CR>
+nnoremap <silent> <Leader>e :ALENext<CR>
 
 "https://www.drumm.sh/blog/2021/05/29/vim-python-dev-environment/
 " autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'python' | let g:ale_disable_lsp = 1 | endif
