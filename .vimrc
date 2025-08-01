@@ -182,6 +182,8 @@ call dein#add('ivalkeen/vim-ctrlp-tjump')
 call dein#add('AndrewRadev/linediff.vim')
 call dein#add('rhysd/vim-healthcheck')
 call dein#add('github/copilot.vim')
+call dein#add('junegunn/fzf', #{ build: { -> fzf#install() } })
+call dein#add('junegunn/fzf.vim')
 "### backend utility
 call dein#add('Konfekt/FastFold')
 call dein#add('prabirshrestha/async.vim')
