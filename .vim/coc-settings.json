@@ -1,38 +1,27 @@
 {
-  "languageserver": {
-    "dls": {
-      "command": "diagnostic-languageserver",
-      "args": ["--stdio"],
-      "filetypes": ["go"],
-      "initializationOptions": {
-        "linters": {
-          "revive": {
-            "command": "revive",
-            "rootPatterns": [],
-            "isStdout": true,
-            "isStderr": false,
-            "debounce": 100,
-            "args": ["%filepath"],
-            "offsetLine": 0,
-            "offsetColumn": 0,
-            "sourceName": "revive",
-            "formatLines": 1,
-            "formatPattern": [
-              "^[^:]+:(\\d+):(\\d+):\\s(.*)$",
-              {
-                "line": 1,
-                "column": 2,
-                "message": [3]
-              }
-            ]
-          }
-        },
-        "formatters": {},
-        "filetypes": {
-          "go": "revive"
-        },
-        "formatFiletypes": {}
-      }
+  "diagnostic-languageserver.filetypes": {
+    "go": "revive"
+  },
+  "diagnostic-languageserver.linters": {
+    "revive": {
+      "command": "revive",
+      "rootPatterns": [],
+      "isStdout": true,
+      "isStderr": false,
+      "debounce": 100,
+      "args": ["%filepath"],
+      "offsetLine": 0,
+      "offsetColumn": 0,
+      "sourceName": "revive",
+      "formatLines": 1,
+      "formatPattern": [
+        "^[^:]+:(\\d+):(\\d+):\\s(.*)$",
+        {
+          "line": 1,
+          "column": 2,
+          "message": 3
+        }
+      ]
     }
   },
   "python.linting.ruffEnabled": false,
@@ -42,16 +31,6 @@
     "reportPossiblyUnboundVariable": "warning",
     "reportMissingTypeStubs": "information"
   },
-  "solargraph.diagnostics": true,
-  "solargraph.transport": "stdio",
-  "solargraph.externalServer": {
-    "host": "localhost",
-    "port": 8091
-  },
-  "solargraph.useBundler": false,
-  "solargraph.shell": "/opt/homebrew/bin/zsh",
-  "solargraph.completion": true,
-  "solargraph.hover": true,
   "suggest.enablePreselect": false,
   "suggest.triggerAfterInsertEnter": true,
   "suggest.timeout": 500,
@@ -62,5 +41,45 @@
   "suggest.enablePreview": true,
   "coc.preferences.enableFloatHighlight": true,
   "suggest.floatEnable": true,
-  "suggest.noselect": true
+  "suggest.noselect": true,
+  "languageserver": {
+    "ruby-lsp": {
+      "command": "ruby-lsp",
+      "initializationOptions": {
+        "enabledFeatures": {
+          "codeActions": true,
+          "codeLens": true,
+          "completion": true,
+          "definition": true,
+          "diagnostics": true,
+          "documentHighlights": true,
+          "documentLink": true,
+          "documentSymbols": true,
+          "foldingRanges": true,
+          "formatting": true,
+          "hover": true,
+          "inlayHint": true,
+          "onTypeFormatting": true,
+          "selectionRanges": true,
+          "semanticHighlighting": true,
+          "signatureHelp": true,
+          "typeHierarchy": true,
+          "workspaceSymbol": true
+        }
+      },
+      "filetypes": ["ruby", "eruby", "rake", "thor", "irb", "rbs"],
+      "featuresConfiguration": {
+        "inlayHint": {
+          "implicitHashValue": true,
+          "implicitRescue": true
+        }
+      },
+      "indexing": {
+        "excludedMagicComments": ["compiled:true"]
+      },
+      "formatter": "auto",
+      "linters": [],
+      "experimentalFeaturesEnabled": false
+    }
+  }
 }

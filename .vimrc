@@ -462,15 +462,17 @@ let g:easy_align_delimiters = {
 let g:ale_fix_on_save = 1
 let g:ale_linters = {
   \ 'html': [],
+  \ 'markdown': [],
+  \ 'eruby': ['rubocop'],
   \ 'go': ['revive'],
 	\}
 " let g:ale_python_auto_poetry = 1
 " let g:ale_python_auto_virtualenv = 1
 " let g:ale_python_ruff_auto_poetry = 1
 " let g:ale_python_ruff_change_directory = 1
-let g:ale_pattern_options = {
-\ '\.\(test\|spec\)\.js$': {'ale_linters': [], 'ale_fixers': []}
-\}
+" let g:ale_pattern_options = {
+" \ '\.\(test\|spec\)\.js$': {'ale_linters': [], 'ale_fixers': []}
+" \}
 let g:ale_deno_executable = ''
 nnoremap <silent> <Leader>e :ALENext<CR>
 
@@ -490,8 +492,8 @@ autocmd rc FileType ruby setlocal iskeyword+=?
 autocmd rc VimEnter,BufNewFile,BufRead * if &ft == 'go' | nnoremap <silent> ,gi :GoInfo<CR> | nnoremap <silent> FF :GoFmt<CR> | set noignorecase | endif
 
 ""filetype setting
-autocmd rc BufNewFile,BufRead *.thor      setf ruby
-autocmd rc BufNewFile,BufRead *.erb       setf html.eruby
+" autocmd rc BufNewFile,BufRead *.thor      setf ruby
+" autocmd rc BufNewFile,BufRead *.erb       setf html.eruby
 
 "set default filetype markdown
 autocmd rc VimEnter,BufNewFile,BufRead * if &ft == '' | set ft=markdown | endif
