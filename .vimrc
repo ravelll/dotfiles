@@ -183,6 +183,9 @@ call dein#add('rhysd/vim-healthcheck')
 call dein#add('github/copilot.vim')
 call dein#add('junegunn/fzf', #{ build: { -> fzf#install() } })
 call dein#add('junegunn/fzf.vim')
+call dein#add('kana/vim-textobj-user')
+call dein#add('kana/vim-textobj-indent')
+call dein#add('haya14busa/vim-edgemotion')
 "### backend utility
 call dein#add('Konfekt/FastFold')
 call dein#add('prabirshrestha/async.vim')
@@ -399,6 +402,10 @@ nnoremap <silent> <Leader>G :RG<Space>
 "@operator-search
 nnoremap <Space>s <Plug>(operator-search)
 nnoremap <Space>/ <Plug>(operator-search)if
+
+"@vim-edgemotion
+map <C-j> <Plug>(edgemotion-j)
+map <C-k> <Plug>(edgemotion-k)
 
 "@VimOver
 nnoremap <silent> <Leader>s :OverCommandLine<CR>%s/
