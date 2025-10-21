@@ -1,4 +1,3 @@
-# zmodload zsh/zprof && zprof
 #
 # PATH
 #
@@ -9,19 +8,32 @@ if [ -z $TMUX ]; then
     eval `/usr/libexec/path_helper -s`
   fi
 
-  export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin/:/opt/X11/bin:$HOME/bin:$HOME/.anyenv/bin:$PATH"
+  # Consolidate all PATH modifications
+  export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin/:/opt/X11/bin:$HOME/bin:$HOME/.anyenv/bin:$HOME/dev/bin:$HOME/.cargo/bin:$HOME/.cargo/env:$PATH"
 fi
 
-## completion
-fpath=(/opt/homebrew/share/zsh/functions $fpath)
-fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
-autoload -Uz compinit; compinit
+# Cache brew prefix to avoid expensive subshell calls
+export HOMEBREW_PREFIX="/opt/homebrew"
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
+export HOMEBREW_REPOSITORY="/opt/homebrew"
+export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:"
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
+
+## completion - optimized with caching
+fpath=($HOMEBREW_PREFIX/share/zsh/functions $HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
+autoload -Uz compinit
+
+# Only regenerate .zcompdump once a day for faster startup
+if [[ -n ${HOME}/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
 
 zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' completer _complete _ignored
-zstyle ':completion:*' ignored-patterns
 zstyle ':completion:*' use-cache yes
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
@@ -43,16 +55,15 @@ setopt append_history
 setopt extended_history
 setopt hist_find_no_dups
 setopt hist_expire_dups_first
-setopt hist_ignore_dups
-setopt hist_ignore_all_dups
+setopt hist_ignore_all_dups  # Covers hist_ignore_dups
 setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
 setopt share_history
-unset zle_bracketed_paste
 
-if [ -f $(brew --prefix)/opt/spaceship/spaceship.zsh ]; then
-  source $(brew --prefix)/opt/spaceship/spaceship.zsh
+# Prompt configuration - cached brew prefix
+if [ -f $HOMEBREW_PREFIX/opt/spaceship/spaceship.zsh ]; then
+  source $HOMEBREW_PREFIX/opt/spaceship/spaceship.zsh
   SPACESHIP_TIME_COLOR=101
   SPACESHIP_TIME_SHOW=true
   SPACESHIP_DIR_TRUNC_REPO=false
@@ -98,18 +109,10 @@ fi
 
 ## go
 export GOPATH="$HOME/dev"
-if [ -z $TMUX ]; then
-  export PATH="$HOME/dev/bin:$PATH"
-fi
 
 ## perl
 export PERL_CPANM_OPT="--local-lib=$HOME/.perl-extlib"
 export PERL5LIB="$HOME/.perl-extlib/lib/perl5:$PERL5LIB"
-
-## rust
-if [ -z $TMUX ]; then
-  export PATH="$HOME/.cargo/bin:$HOME/.cargo/env:$PATH"
-fi
 
 ### aliases
 alias be='bundle exec'
@@ -121,14 +124,6 @@ alias bi='bundle install'
 #
 ## direnv
 eval "$(direnv hook zsh)"
-
-## homebrew
-alias cask='brew cask'
-export HOMEBREW_PREFIX="/opt/homebrew";
-export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
-export HOMEBREW_REPOSITORY="/opt/homebrew";
-export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
-export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 
 ## git
 compdef g='git'
@@ -160,7 +155,7 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 alias rp='rg --hidden'
 
 ## z
-. /opt/homebrew/etc/profile.d/z.sh
+[ -f $HOMEBREW_PREFIX/etc/profile.d/z.sh ] && . $HOMEBREW_PREFIX/etc/profile.d/z.sh
 
 ## tmux
 alias t='tmux -2 -u -l'
@@ -188,15 +183,17 @@ function ghq-new() {
 alias qn='ghq-new'
 
 ## peco
-source ~/.zsh/peco.zsh
-bindkey '^jb' peco_git_recent_branches
-bindkey '^jB' peco_git_recent_all_branches
-bindkey '^jT' peco_git_tags
-bindkey '^jl' peco_git_hashes
-bindkey '^jz' peco_cd_history
-bindkey '^jd' peco_insert_history
-bindkey '^R'  peco_select_history
-bindkey '^js' peco_select_ghq
+if [ -f ~/.zsh/peco.zsh ]; then
+  source ~/.zsh/peco.zsh
+  bindkey '^jb' peco_git_recent_branches
+  bindkey '^jB' peco_git_recent_all_branches
+  bindkey '^jT' peco_git_tags
+  bindkey '^jl' peco_git_hashes
+  bindkey '^jz' peco_cd_history
+  bindkey '^jd' peco_insert_history
+  bindkey '^R'  peco_select_history
+  bindkey '^js' peco_select_ghq
+fi
 
 ## docker
 alias d='docker'
@@ -217,7 +214,3 @@ alias -g P='| peco'
 alias notify='terminal-notifier -title "" -subtitle "" -message ""'
 alias pe="pet exec"
 alias pr="hub browse -- pull/$(git symbolic-ref --short HEAD)"
-
-if (which zprof > /dev/null) ;then
-  zprof | less
-fi
