@@ -1,5 +1,3 @@
-filetype off
-
 augroup rc
   autocmd!
 augroup END
@@ -37,11 +35,6 @@ nnoremap <silent> ,uL :set nocursorline<CR>
 
 " use init dir same as a file opening for selecting file
 set browsedir=buffer
-
-" when use vim in tmux, set the number of colors to 256
-if $TERM == 'screen'
-  set t_Co=256
-endif
 " }}}
 
 " ===== TAB, SPACE ===== {{{
@@ -120,7 +113,6 @@ nnoremap <silent> CC :let @+ = expand("%:p")<CR>
 " }}}
 
 " ============ OTHER USEFULS ============= {{{
-set regexpengine=1
 nnoremap ,f :set filetype=
 
 inoremap { {}<Left>
@@ -145,9 +137,6 @@ autocmd rc bufenter * if (winnr('$') == 1 && &buftype == "quickfix") | q | endif
 " ================== PLUGIN LOADING(dein) ================== {{{
 " disable all mappings defined by ftplugins
 let g:no_plugin_maps=0
-if &compatible
-  set nocompatible
-endif
 
 " set runtimepath+=$HOME/.vim/repos/github.com/Shougo/dein.vim
 set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
@@ -156,12 +145,7 @@ call dein#begin($HOME.'/.cache/dein')
 call dein#add($HOME.'/.cache/dein/repos/github.com/Shougo/dein.vim')
 
 "## Shougo-ware
-call dein#add('Shougo/vimproc', { 'build': 'make' })
 call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' })
-" call dein#add('Shougo/neosnippet.vim')
-" call dein#add('Shougo/neosnippet-snippets')
-" call dein#add('Shougo/neomru.vim')
-" call dein#add('Shougo/context_filetype.vim')
 "### visual effect
 call dein#add('itchyny/lightline.vim')
 call dein#add('nathanaelkane/vim-indent-guides')
@@ -169,11 +153,10 @@ call dein#add('cocopon/iceberg.vim')
 call dein#add('simeji/winresizer')
 "## extend working
 call dein#add('vim-scripts/surround.vim')
-call dein#add('scrooloose/nerdtree.git')
+call dein#add('scrooloose/nerdtree', {'on_cmd': 'NERDTreeToggle'})
 call dein#add('tomtom/tcomment_vim')
-call dein#add('thinca/vim-quickrun')
-call dein#add('terryma/vim-multiple-cursors')
-call dein#add('mattn/webapi-vim')
+call dein#add('thinca/vim-quickrun', {'on_cmd': 'QuickRun'})
+" call dein#add('terryma/vim-multiple-cursors')
 call dein#add('tyru/open-browser.vim')
 call dein#add('tyru/open-browser-github.vim')
 call dein#add('kana/vim-metarw')
@@ -188,8 +171,6 @@ call dein#add('kana/vim-textobj-indent')
 call dein#add('haya14busa/vim-edgemotion')
 "### backend utility
 call dein#add('Konfekt/FastFold')
-call dein#add('prabirshrestha/async.vim')
-call dein#add('prabirshrestha/vim-lsp')
 call dein#add('osyo-manga/vim-over')
 "### git
 call dein#add('tpope/vim-fugitive')
@@ -470,7 +451,6 @@ let g:ale_fix_on_save = 1
 let g:ale_linters = {
   \ 'html': [],
   \ 'markdown': [],
-  \ 'eruby': ['rubocop'],
   \ 'go': ['revive'],
 	\}
 " let g:ale_python_auto_poetry = 1
