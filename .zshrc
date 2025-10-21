@@ -8,22 +8,19 @@ if [ -z $TMUX ]; then
     eval `/usr/libexec/path_helper -s`
   fi
 
-  # Consolidate all PATH modifications
   export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin/:/opt/X11/bin:$HOME/bin:$HOME/.anyenv/bin:$HOME/dev/bin:$HOME/.cargo/bin:$HOME/.cargo/env:$PATH"
 fi
 
-# Cache brew prefix to avoid expensive subshell calls
 export HOMEBREW_PREFIX="/opt/homebrew"
 export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
 export HOMEBREW_REPOSITORY="/opt/homebrew"
 export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:"
 export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
 
-## completion - optimized with caching
+## completion
 fpath=($HOMEBREW_PREFIX/share/zsh/functions $HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
 autoload -Uz compinit
 
-# Only regenerate .zcompdump once a day for faster startup
 if [[ -n ${HOME}/.zcompdump(#qN.mh+24) ]]; then
   compinit
 else
@@ -55,13 +52,12 @@ setopt append_history
 setopt extended_history
 setopt hist_find_no_dups
 setopt hist_expire_dups_first
-setopt hist_ignore_all_dups  # Covers hist_ignore_dups
+setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
 setopt share_history
 
-# Prompt configuration - cached brew prefix
 if [ -f $HOMEBREW_PREFIX/opt/spaceship/spaceship.zsh ]; then
   source $HOMEBREW_PREFIX/opt/spaceship/spaceship.zsh
   SPACESHIP_TIME_COLOR=101
