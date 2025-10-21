@@ -357,6 +357,9 @@ let g:quickrun_config['typescript/tsc'] = {
 nnoremap <Leader>q :QuickRun<CR>
 vnoremap <Leader>q :QuickRun<CR>
 
+"@open-browser.vim
+nnoremap <Leader>b <Plug>(openbrowser-open)
+
 "@open-browser-github.vim
 nnoremap <Leader>o :OpenGithubFile<CR>
 vnoremap <Leader>o :OpenGithubFile<CR>
