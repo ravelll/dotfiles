@@ -1,0 +1,11 @@
+background = 1c1c1c
+foreground = c7c7c7
+
+font-family = Hack Nerd Font
+font-style = Regular
+font-size = 18
+
+macos-icon = microchip
+
+window-height = 60
+window-width = 180
