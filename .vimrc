@@ -1,7 +1,6 @@
 augroup rc
   autocmd!
 augroup END
-
 let g:mapleader = ','
 
 " ===== DISPLAYING ===== {{{
