@@ -81,5 +81,10 @@
       "linters": [],
       "experimentalFeaturesEnabled": false
     }
+  },
+  "[terraform]": {
+    "editor.codeActionsOnSave": {
+      "source.formatAll.terraform": true
+    }
   }
 }
