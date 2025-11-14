@@ -127,7 +127,7 @@ alias g='git'
 alias gg='git grep'
 alias gd='git diff --relative'
 alias gst='git status'
-alias cm='git switch master'
+alias cm='git switch main'
 function current_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(git rev-parse --short HEAD 2> /dev/null) || return
