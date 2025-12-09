@@ -1,33 +1,35 @@
 {
-    "description": "New Rule (change left_shift+caps_lock to page_down, right_shift+caps_lock to left_command+mission_control)",
+    "description": "Right Command + Esc to Cycle Windows (Next/Prev)",
     "manipulators": [
         {
+            "description": "Shift + Right Command + Esc to Previous Window",
             "from": {
-                "key_code": "caps_lock",
+                "key_code": "escape",
                 "modifiers": {
-                    "mandatory": ["left_shift"],
-                    "optional": ["any"]
+                    "mandatory": ["right_command", "shift"],
+                    "optional": ["caps_lock"]
                 }
             },
             "to": [
                 {
-                    "key_code": "page_down",
-                    "modifiers": []
+                    "key_code": "grave_accent_and_tilde",
+                    "modifiers": ["left_command", "shift"]
                 }
             ],
             "type": "basic"
         },
         {
+            "description": "Right Command + Esc to Next Window",
             "from": {
-                "key_code": "caps_lock",
+                "key_code": "escape",
                 "modifiers": {
-                    "mandatory": ["right_shift"],
-                    "optional": ["any"]
+                    "mandatory": ["right_command"],
+                    "optional": ["caps_lock"]
                 }
             },
             "to": [
                 {
-                    "apple_vendor_keyboard_key_code": "mission_control",
+                    "key_code": "grave_accent_and_tilde",
                     "modifiers": ["left_command"]
                 }
             ],
