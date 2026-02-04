@@ -1,7 +1,7 @@
 [user]
   name = Yoshihide Taniguchi (ravelll)
   email = ravelll.taniguchi@gmail.com
-	signingkey = 023D7D20EE2AC493ACF14DAFBADF7752FDA95FD1
+	signingkey = 5D69F0DCE6A838B28748D705D930BBA303BF93A3
 [color]
   ui = true
   diff = auto
