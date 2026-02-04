@@ -1,6 +1,7 @@
 [user]
   name = Yoshihide Taniguchi (ravelll)
   email = ravelll.taniguchi@gmail.com
+	signingkey = 023D7D20EE2AC493ACF14DAFBADF7752FDA95FD1
 [color]
   ui = true
   diff = auto
@@ -79,3 +80,7 @@
 	required = true
 [include]
   path = ~/.local.gitconfig
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
