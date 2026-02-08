@@ -17,3 +17,5 @@ evans
 .solargraph.yml
 .eslintcache
 .vscode
+node_modules
+dist

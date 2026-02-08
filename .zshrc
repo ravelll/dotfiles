@@ -136,10 +136,11 @@ function current_branch() {
 alias ggpu='git pull origin $(current_branch) --ff-only'
 alias ggpush='git push origin $(current_branch)'
 
+export GPG_TTY=$(tty)
 function preset_git_sign_passphrase () {
   gpg-connect-agent /bye &> /dev/null
   eval $(op signin)
-  env GPG_PASSPHRASE="op://Personal/GPG passphrase/password" op run --no-masking -- printenv GPG_PASSPHRASE | /opt/homebrew/opt/gnupg/libexec/gpg-preset-passphrase --preset 5D69F0DCE6A838B28748D705D930BBA303BF93A3
+  env GPG_PASSPHRASE=$OP_GPG_PASSPHRASE op run --no-masking -- printenv GPG_PASSPHRASE | /opt/homebrew/opt/gnupg/libexec/gpg-preset-passphrase --preset $GPG_KEY_ID
 }
 
 ## ssh

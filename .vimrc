@@ -252,6 +252,9 @@ inoremap <silent><nowait><expr> <C-K> coc#float#has_scroll() ? "\<C-R>=coc#float
 vnoremap <silent><nowait><expr> <C-J> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-F>"
 vnoremap <silent><nowait><expr> <C-K> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-B>"
 
+"@coc-css (for SCSS)
+autocmd FileType scss setl iskeyword+=@-@
+
 "@autofmt
 set formatexpr=autofmt#japanese#formatexpr()
 let autofmt_allow_over_tw=1

@@ -1,0 +1,2 @@
+export OP_GPG_PASSPHRASE="op://Your/GPG Passphrase Item/password"
+export GPG_KEY_ID="your-gpg-key-id-here"
