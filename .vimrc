@@ -173,6 +173,7 @@ call dein#add('Konfekt/FastFold')
 call dein#add('osyo-manga/vim-over')
 "### git
 call dein#add('tpope/vim-fugitive')
+call dein#add('airblade/vim-gitgutter')
 "## search and open
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('mattn/ctrlp-matchfuzzy')
@@ -365,6 +366,10 @@ nnoremap <Leader>b <Plug>(openbrowser-open)
 "@open-browser-github.vim
 nnoremap <Leader>o :OpenGithubFile<CR>
 vnoremap <Leader>o :OpenGithubFile<CR>
+
+"@vim-gitgutter
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_highlight_lines = 1
 
 "@vim-ctrlp-tjump
 let g:ctrlp_tjump_only_silent = 1

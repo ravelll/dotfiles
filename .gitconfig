@@ -40,6 +40,8 @@
   shl = stash list
   shp = stash pop
   shd = stash drop
+  wa = worktree add
+  wr = worktree remove
   latestmerge = log -1 --merges --pretty=format:%H
   tmpignore = update-index --assume-unchanged
   tmpignores = !git ls-files -v | grep -E '^h' | cut -d' ' -f2
