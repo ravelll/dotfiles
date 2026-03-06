@@ -1,10 +1,11 @@
 function peco_select_git_worktree() {
   local repo_root
-  local common_git_dir
-  common_git_dir=$(git rev-parse --git-common-dir 2>/dev/null)
-  if [ -n "$common_git_dir" ]; then
-    common_git_dir=$(cd "$common_git_dir" 2>/dev/null && pwd -P)
-    repo_root=$(cd "$common_git_dir/.." 2>/dev/null && pwd -P)
+  local git_dir
+  git_dir=$(git rev-parse --path-format=absolute --git-dir 2>/dev/null)
+  if [[ "$git_dir" == */.git/worktrees/* ]]; then
+    repo_root="${git_dir%%/.git/worktrees/*}"
+  elif [[ "$git_dir" == */.git ]]; then
+    repo_root="${git_dir%/.git}"
   fi
 
   if [ -z "$repo_root" ]; then
