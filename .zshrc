@@ -196,6 +196,7 @@ if [ -f ~/.zsh/peco.zsh ]; then
   bindkey '^jd' peco_insert_history
   bindkey '^R'  peco_select_history
   bindkey '^js' peco_select_ghq
+  bindkey '^jw' peco_select_git_worktree
 fi
 
 ## docker
