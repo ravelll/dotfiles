@@ -27,6 +27,12 @@ else
   compinit -C
 fi
 
+## zsh-autosuggestions
+if [ -f $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
+
 zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' group-name ''

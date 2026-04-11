@@ -19,3 +19,4 @@ evans
 .vscode
 node_modules
 dist
+.vim/.netrwhist
