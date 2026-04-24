@@ -20,3 +20,4 @@ evans
 node_modules
 dist
 .vim/.netrwhist
+/b_*/
