@@ -1,0 +1,8 @@
+[tools]
+ruby = "latest"
+python = "latest"
+node = "latest"
+
+[settings.ruby]
+compile = false
+

@@ -8,7 +8,7 @@ brew_update () {
 
 main () {
   brew_update
-  anyenv update
+  mise upgrade
 }
 
 main

@@ -104,9 +104,9 @@ fi
 #
 # programming language environment
 #
-# anyenv
-if [ -z $TMUX ]; then
-  eval "$(anyenv init -)"
+# mise
+if command -v mise > /dev/null; then
+  eval "$(mise activate zsh)"
 fi
 
 ## go
