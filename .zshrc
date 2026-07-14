@@ -1,21 +1,21 @@
 #
 # PATH
 #
-if [ -z $TMUX ]; then
-  # Comment out the same lines with below in /etc/zprofile,
-  # when you use this .zshrc on the new machine.
-  if [ -x /usr/libexec/path_helper ]; then
-    eval `/usr/libexec/path_helper -s`
-  fi
-
-  export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin/:/opt/X11/bin:$HOME/bin:$HOME/dev/bin:$HOME/.cargo/bin:$HOME/.cargo/env:$PATH"
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-export HOMEBREW_PREFIX="/opt/homebrew"
-export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
-export HOMEBREW_REPOSITORY="/opt/homebrew"
-export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:"
-export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
+typeset -U path PATH
+path=(
+  /opt/homebrew/bin
+  /opt/homebrew/sbin
+  "$HOME/.local/bin"
+  "$HOME/bin"
+  "$HOME/dev/bin"
+  "$HOME/.cargo/bin"
+  /opt/X11/bin
+  $path
+)
 
 ## completion
 fpath=($HOMEBREW_PREFIX/share/zsh/functions $HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
@@ -166,8 +166,8 @@ alias rp='rg --hidden'
 ## z
 [ -f $HOMEBREW_PREFIX/etc/profile.d/z.sh ] && . $HOMEBREW_PREFIX/etc/profile.d/z.sh
 
-## tmux
-alias t='tmux -2 -u -l'
+## herdr
+alias h='herdr'
 
 ## GHQ
 export GHQ_ROOT="$HOME/dev/src"
