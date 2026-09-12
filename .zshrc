@@ -65,6 +65,8 @@ setopt inc_append_history
 setopt share_history
 
 if [ -f $HOMEBREW_PREFIX/opt/spaceship/spaceship.zsh ]; then
+  # Render synchronously to avoid zpty errors when no pseudo terminal is available
+  SPACESHIP_PROMPT_ASYNC=false
   source $HOMEBREW_PREFIX/opt/spaceship/spaceship.zsh
   SPACESHIP_TIME_COLOR=101
   SPACESHIP_TIME_SHOW=true
