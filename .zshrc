@@ -65,14 +65,31 @@ setopt inc_append_history
 setopt share_history
 
 if [ -f $HOMEBREW_PREFIX/opt/spaceship/spaceship.zsh ]; then
-  # Render synchronously to avoid zpty errors when no pseudo terminal is available
-  SPACESHIP_PROMPT_ASYNC=false
-  source $HOMEBREW_PREFIX/opt/spaceship/spaceship.zsh
+  # Silence zsh-async's zpty check at load time when no pseudo terminal is available
+  source $HOMEBREW_PREFIX/opt/spaceship/spaceship.zsh 2>/dev/null
   SPACESHIP_TIME_COLOR=101
   SPACESHIP_TIME_SHOW=true
   SPACESHIP_DIR_TRUNC_REPO=false
   SPACESHIP_GIT_BRANCH_COLOR=77
   SPACESHIP_GIT_STATUS_COLOR=122
+
+  # When the async worker cannot get a pseudo terminal, render that prompt
+  # synchronously without zpty errors, and retry async on the next prompt
+  if (( $+functions[spaceship::worker::init] )); then
+    typeset -gi _SPACESHIP_ASYNC_FALLBACK=0
+    functions[_spaceship_worker_init_orig]=$functions[spaceship::worker::init]
+    spaceship::worker::init() {
+      if (( _SPACESHIP_ASYNC_FALLBACK )); then
+        SPACESHIP_PROMPT_ASYNC=true
+        _SPACESHIP_ASYNC_FALLBACK=0
+      fi
+      _spaceship_worker_init_orig "$@" 2>/dev/null
+      if spaceship::is_prompt_async && ! zpty -t spaceship &>/dev/null; then
+        SPACESHIP_PROMPT_ASYNC=false
+        _SPACESHIP_ASYNC_FALLBACK=1
+      fi
+    }
+  fi
 else
   ### prompt format
   autoload -Uz vcs_info
