@@ -115,11 +115,6 @@ setopt correct
 setopt list_packed
 setopt no_global_rcs
 
-# Load local environment
-if [ -f ~/.localenv ]; then
-  source ~/.localenv
-fi
-
 #
 # programming language environment
 #
@@ -243,3 +238,8 @@ alias -g P='| peco'
 alias notify='terminal-notifier -title "" -subtitle "" -message ""'
 alias pe="pet exec"
 alias pr="hub browse -- pull/$(git symbolic-ref --short HEAD)"
+
+# Load local environment
+if [ -f ~/.localenv ]; then
+  source ~/.localenv
+fi
