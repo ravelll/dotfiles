@@ -2,6 +2,7 @@
 ruby = "latest"
 python = "latest"
 node = "latest"
+terraform = "latest"
 
 [settings.ruby]
 compile = false
