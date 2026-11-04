@@ -21,3 +21,7 @@ node_modules
 dist
 .vim/.netrwhist
 /b_*/
+
+CLAUDE.local.md
+**/.claude/.cc-writes/
+**/.claude/settings.local.json
