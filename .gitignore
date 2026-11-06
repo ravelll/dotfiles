@@ -25,3 +25,6 @@ dist
 CLAUDE.local.md
 **/.claude/.cc-writes/
 **/.claude/settings.local.json
+
+_config/herdr/*
+!_config/herdr/config.toml
